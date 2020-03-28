@@ -158,6 +158,14 @@
 				<key>Enabled</key>
 				<true/>
 			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>SSDT-FixShutdown-USB.aml</string>
+				<key>Path</key>
+				<string>SSDT-FixShutdown-USB.aml</string>
+				<key>Enabled</key>
+				<true/>
+			</dict>
 		</array>
 		<key>Block</key>
 		<array>
@@ -1168,7 +1176,7 @@
 		<key>Debug</key>
 		<dict>
 			<key>DisableWatchDog</key>
-			<true/>
+			<false/>
 			<key>DisplayDelay</key>
 			<integer>0</integer>
 			<key>DisplayLevel</key>
@@ -1198,7 +1206,7 @@
 			<key>AllowNvramReset</key>
 			<true/>
 			<key>AllowSetDefault</key>
-			<false/>
+			<true/>
 			<key>AuthRestart</key>
 			<false/>
 			<key>ExposeSensitiveData</key>
@@ -1298,9 +1306,9 @@
 			<key>7C436110-AB2A-4BBB-A880-FE41995C9F82</key>
 			<dict>
 				<key>boot-args</key>
-				<string>debug=0x100 keepsyms=1 darkwake=0 alcid=28</string>
+				<string>-v debug=0x100 keepsyms=1 darkwake=0 alcid=28</string>
 				<key>csr-active-config</key>
-				<data>5wMAAA==</data>
+				<data>AAAAAA==</data>
 				<key>nvda_drv</key>
 				<data>AA==</data>
 				<key>prev-lang:kbd</key>
