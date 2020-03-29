@@ -1,4 +1,4 @@
-# Guide for installing BCM94360CS2
+# Guide to install BCM94360CS2
 
 I choose this WLAN card because it's a genuine Macbook Air card and it works plug-and-play
 

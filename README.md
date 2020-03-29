@@ -60,12 +60,14 @@ sudo diskutil mount /dev/diskNsN
 ```
 Install [RDM Utility](https://github.com/usr-sse2/RDM/releases) 
 for 2560x1440 screens I suggest using 1440x810 resolution
-to make that simply select edit and use the setting below
+to make that simply select 'edit' and use settings as shown below
 ```
 <img src="/images/HiDPI.png" height="300" >
 
 - Monitor temperatures and power consumption with [HWMonitor](https://github.com/kzlekk/HWSensors/releases)
-> I know it's old and no longer supported, but it gets the job done and i really like the design
+```
+I know it's old and no longer supported, but it gets the job done and i really like the simple look
+```
 
 ## Bios settings
 
@@ -84,39 +86,69 @@ to make that simply select edit and use the setting below
 ## What's working
 
 >[Boot time from OC Picker to Desktop is 26s](https://www.youtube.com/watch?v=SnuQjuIrfc0)
+
 - CPU Power Management
+
 `<1W on IDLE`
+
 - All USB ports
+
 `custom USBPorts kext is used, make a new one if using dock`
+
 - Internal camera
+
 - Sleep / Wake / Shutdown / Reboot
+
 `custom USBPorts.kext required`
+
 - Ethernet
+
 - **[Wifi, Bluetooth, Airdrop, Handoff, Continuity, Sidecar](/BCM94360CS2_WLAN_card.md)**
+
 `A guide is provided`
+
 - iMessage, FaceTime, App Store, iTunes Store 
+
 `[Generate your on SMBIOS](https://github.com/corpnewt/GenSMBIOS) and add it to PlatformInfo`
+
 - Audio in/out
+
 `audio trough dock should work too thanks to AppleALC tluck's layout 28`
+
 - Battery **(very stable and precise capacity tracking)**
+
 `Thanks to EchoEsprit work for T450s`
+
 - Keyboard
+
 `audio and brighness hotkeys`
+
 - Trackpad, Trackpoint and physical buttons
+
 `two fingers swipe and tree fingers gestures`
+
 - miniDP and HDMI
+
 `video signal trough dock should work too thank to links added in DevicesProperty`
+
 - Internal camera
+
 `works without additional files`
+
 - SIP and FileVault 2 can be enabled
+
 `Are disabled in config.plist`
 
 ## What's not working
 
 > If you have any questions or suggestions feel free to contact me
+
 - SD Card Reader
+
 `I will try to make it works sometime in the future`
+
 - Fingerprint Reader
+
 `Don't think it will ever be working on macOS`
 
 ## Update tracker
@@ -134,7 +166,6 @@ IntelMausi: 1.0.2
 ## If you found my work useful please consider a PayPal donation
 
 <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Y5BE5HYACDERG&source=url" target="_blank"><img src="/images/buymeacoffee.png" alt="Buy Me A Coffee" width="300" ></a>
-
 
 ## Thanks to
 
