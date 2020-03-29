@@ -5,10 +5,13 @@ I choose this WLAN card because it's a genuine Macbook Air card and it works plu
 A list of others compatibles cards can be found [here](https://khronokernel-7.gitbook.io/wireless-buyers-guide/)
 
 ## Parts needed
+
 - BCM94360CS2 ($10 used)
-![00](/images/00.jpg)
+<img src="/images/00.jpg" height="200">
+
 - BCM94360CS2 (M.2) to NGFF adapter ($5 new)
-![01](/images/01.jpg)
+<img src="/images/01.jpg" height="200">
+
 - Phillips screwdriver 
 
 ## Installation
