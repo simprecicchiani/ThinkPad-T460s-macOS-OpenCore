@@ -10,6 +10,8 @@
 - To install macOS I suggest to follow [this guide](https://khronokernel.github.io/Opencore-Vanilla-Desktop-Guide/)
 - Lots of SSDT patches can be found [here](https://translate.google.it/translate?sl=zh-CN&tl=en&u=https%3A%2F%2Fgithub.com%2Fdaliansky%2FOC-little)
 
+### [Why OpenCore](https://khronokernel.github.io/Opencore-Vanilla-Desktop-Guide/#advantages-of-opencore)
+
 ### My Hardware
 - Model: Thinkpad T460s (20F9003AUS)
 - Processor: Intel Core i7-6600U (2C, 2.6 / 3.4GHz, 4MB)vPro
@@ -27,8 +29,6 @@
 - Keyboard: Backlit
 - Fingerprint Reader: Yes
 - Battery: 3-cell (23Wh) + 3-cell (26Wh)
-
-## [Why OpenCore](https://khronokernel.github.io/Opencore-Vanilla-Desktop-Guide/#advantages-of-opencore)
 
 ## USB ports map
 To fix sleep issue I had to built a custom USBPorts.kext wich maps all available ports on the T460s except SD card reader and dock links. In case you need them you would: 
@@ -88,68 +88,54 @@ I know it's old and no longer supported, but it gets the job done and i really l
 >[Boot time from OC Picker to Desktop is 26s](https://www.youtube.com/watch?v=SnuQjuIrfc0)
 
 - CPU Power Management
-
-`<1W on IDLE`
+    - `<1W on IDLE`
 
 - All USB ports
-
-`custom USBPorts kext is used, make a new one if using dock`
+    - `custom USBPorts kext is used, make a new one if using dock`
 
 - Internal camera
 
 - Sleep / Wake / Shutdown / Reboot
-
-`custom USBPorts.kext required`
+    - `custom USBPorts.kext required`
 
 - Ethernet
 
 - **[Wifi, Bluetooth, Airdrop, Handoff, Continuity, Sidecar](/BCM94360CS2_WLAN_card.md)**
-
-`A guide is provided`
+    - `A guide is provided`
 
 - iMessage, FaceTime, App Store, iTunes Store 
-
-`[Generate your on SMBIOS](https://github.com/corpnewt/GenSMBIOS) and add it to PlatformInfo`
+    - `[Generate your on SMBIOS](https://github.com/corpnewt/GenSMBIOS) and add it to PlatformInfo`
 
 - Audio in/out
-
-`audio trough dock should work too thanks to AppleALC tluck's layout 28`
+    - `audio trough dock should work too thanks to AppleALC tluck's layout 28`
 
 - Battery **(very stable and precise capacity tracking)**
-
-`Thanks to EchoEsprit work for T450s`
+    - `Thanks to EchoEsprit work for T450s`
 
 - Keyboard
-
-`audio and brighness hotkeys`
+    - `volume and brighness hotkeys`
 
 - Trackpad, Trackpoint and physical buttons
-
-`two fingers swipe and tree fingers gestures`
+    - `two fingers swipe and tree fingers gestures`
 
 - miniDP and HDMI
-
-`video signal trough dock should work too thank to links added in DevicesProperty`
+    - `video signal trough dock should work too thank to links added in DevicesProperty`
 
 - Internal camera
-
-`works without additional files`
+    - `works without additional files`
 
 - SIP and FileVault 2 can be enabled
-
-`Are disabled in config.plist`
+    - `Are disabled in config.plist`
 
 ## What's not working
 
 > If you have any questions or suggestions feel free to contact me
 
 - SD Card Reader
-
-`I will try to make it works sometime in the future`
+    - `I will try to make it works sometime in the future`
 
 - Fingerprint Reader
-
-`Don't think it will ever be working on macOS`
+    - `Don't think it will ever be working on macOS`
 
 ## Update tracker
 
