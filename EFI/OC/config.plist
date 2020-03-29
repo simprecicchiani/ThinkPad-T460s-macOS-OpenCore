@@ -8,7 +8,7 @@
 		<array>
 			<dict>
 				<key>Comment</key>
-				<string>SSDT-ALS0.aml</string>
+				<string>Fake Ambient Light Sensor</string>
 				<key>Path</key>
 				<string>SSDT-ALS0.aml</string>
 				<key>Enabled</key>
@@ -16,31 +16,31 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>SSDT-BKeyQ14Q15-TP-LPC.aml</string>
+				<string>Brightness Keys</string>
 				<key>Path</key>
-				<string>SSDT-BKeyQ14Q15-TP-LPC.aml</string>
+				<string>SSDT-BKeyQ14Q15.aml</string>
 				<key>Enabled</key>
 				<true/>
 			</dict>
 			<dict>
 				<key>Comment</key>
+				<string>Add DMAC</string>
+				<key>Path</key>
 				<string>SSDT-DMAC.aml</string>
-				<key>Path</key>
-				<string>SSDT-DMAC.aml</string>
 				<key>Enabled</key>
 				<true/>
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>SSDT-EXT3-LedReset-TP.aml</string>
+				<string>Fix Lid Led After Wake</string>
 				<key>Path</key>
-				<string>SSDT-EXT3-LedReset-TP.aml</string>
+				<string>SSDT-EXT3-LedReset.aml</string>
 				<key>Enabled</key>
 				<true/>
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>SSDT-EXT4-WakeScreen.aml</string>
+				<string>Fix Automatic Wake With Lid </string>
 				<key>Path</key>
 				<string>SSDT-EXT4-WakeScreen.aml</string>
 				<key>Enabled</key>
@@ -64,23 +64,23 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>SSDT-HPET_RTC_TIMR-fix.aml</string>
+				<string>Fix IRQs</string>
 				<key>Path</key>
-				<string>SSDT-HPET_RTC_TIMR-fix.aml</string>
+				<string>SSDT-HPET_RTC_TIMR.aml</string>
 				<key>Enabled</key>
 				<true/>
 			</dict>
 			<dict>
 				<key>Comment</key>
+				<string>Fix IRQs #2</string>
+				<key>Path</key>
 				<string>SSDT-IPIC.aml</string>
-				<key>Path</key>
-				<string>SSDT-IPIC.aml</string>
 				<key>Enabled</key>
 				<true/>
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>SSDT-MCHC.aml</string>
+				<string>Add MCHC</string>
 				<key>Path</key>
 				<string>SSDT-MCHC.aml</string>
 				<key>Enabled</key>
@@ -88,31 +88,31 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>SSDT-PLUG-_PR.CPU0.aml</string>
+				<string>CPU Plug</string>
 				<key>Path</key>
-				<string>SSDT-PLUG-_PR.CPU0.aml</string>
+				<string>SSDT-PLUG.aml</string>
 				<key>Enabled</key>
 				<true/>
 			</dict>
 			<dict>
 				<key>Comment</key>
+				<string>Add PMCR</string>
+				<key>Path</key>
 				<string>SSDT-PMCR.aml</string>
-				<key>Path</key>
-				<string>SSDT-PMCR.aml</string>
 				<key>Enabled</key>
 				<true/>
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>SSDT-PNLF-SKL_KBL.aml</string>
+				<string>Fix Brightness</string>
 				<key>Path</key>
-				<string>SSDT-PNLF-SKL_KBL.aml</string>
+				<string>SSDT-PNLF.aml</string>
 				<key>Enabled</key>
 				<true/>
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>SSDT-PTSWAK.aml</string>
+				<string>Fix Sleep/Wake</string>
 				<key>Path</key>
 				<string>SSDT-PTSWAK.aml</string>
 				<key>Enabled</key>
@@ -120,7 +120,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>SSDT-PWRB.aml</string>
+				<string>Add PWRB</string>
 				<key>Path</key>
 				<string>SSDT-PWRB.aml</string>
 				<key>Enabled</key>
@@ -128,7 +128,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>SSDT-SMBU.aml</string>
+				<string>Fix SMBU</string>
 				<key>Path</key>
 				<string>SSDT-SMBU.aml</string>
 				<key>Enabled</key>
@@ -136,23 +136,23 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>SSDT-Thinkpad_Clickpad.aml</string>
+				<string>PS2 Devices Map</string>
 				<key>Path</key>
-				<string>SSDT-Thinkpad_Clickpad.aml</string>
+				<string>SSDT-PS2K.aml</string>
 				<key>Enabled</key>
 				<true/>
 			</dict>
 			<dict>
 				<key>Comment</key>
+				<string>Add USB Map</string>
+				<key>Path</key>
 				<string>SSDT-UIAC.aml</string>
-				<key>Path</key>
-				<string>SSDT-UIAC.aml</string>
 				<key>Enabled</key>
 				<true/>
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>SSDT-USBX.aml</string>
+				<string>Add USB Map #2</string>
 				<key>Path</key>
 				<string>SSDT-USBX.aml</string>
 				<key>Enabled</key>
@@ -160,11 +160,11 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>SSDT-FixShutdown-USB.aml</string>
+				<string>FixShutdown</string>
 				<key>Path</key>
-				<string>SSDT-FixShutdown-USB.aml</string>
+				<string>SSDT-FixShutdown.aml</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 			</dict>
 		</array>
 		<key>Block</key>
@@ -821,6 +821,10 @@
 			<dict>
 				<key>AAPL,ig-platform-id</key>
 				<data>AAAWGQ==</data>
+				<key>device-id</key>
+				<data>FhkAAA==</data>
+				<key>enable-hdmi20</key>
+				<data>AQAAAA==</data>
 				<key>framebuffer-fbmem</key>
 				<data>AACQAA==</data>
 				<key>framebuffer-patch-enable</key>
@@ -1069,23 +1073,7 @@
 			</dict>
 			<dict>
 				<key>BundlePath</key>
-				<string>USBInjectAll.kext</string>
-				<key>Comment</key>
-				<string></string>
-				<key>Enabled</key>
-				<true/>
-				<key>ExecutablePath</key>
-				<string>Contents/MacOS/USBInjectAll</string>
-				<key>MaxKernel</key>
-				<string></string>
-				<key>MinKernel</key>
-				<string></string>
-				<key>PlistPath</key>
-				<string>Contents/Info.plist</string>
-			</dict>
-			<dict>
-				<key>BundlePath</key>
-				<string>XHCI-unsupported.kext</string>
+				<string>USBPorts.kext</string>
 				<key>Comment</key>
 				<string></string>
 				<key>Enabled</key>
@@ -1167,7 +1155,7 @@
 			<key>PollAppleHotKeys</key>
 			<false/>
 			<key>ShowPicker</key>
-			<true/>
+			<false/>
 			<key>TakeoffDelay</key>
 			<integer>0</integer>
 			<key>Timeout</key>
@@ -1220,76 +1208,6 @@
 		</dict>
 		<key>Tools</key>
 		<array>
-			<dict>
-				<key>Comment</key>
-				<string>BootKicker.efi</string>
-				<key>Name</key>
-				<string>BootKicker.efi</string>
-				<key>Enabled</key>
-				<true/>
-				<key>Arguments</key>
-				<string></string>
-				<key>Path</key>
-				<string>BootKicker.efi</string>
-				<key>Auxiliary</key>
-				<false/>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>CleanNvram.efi</string>
-				<key>Name</key>
-				<string>CleanNvram.efi</string>
-				<key>Enabled</key>
-				<true/>
-				<key>Arguments</key>
-				<string></string>
-				<key>Path</key>
-				<string>CleanNvram.efi</string>
-				<key>Auxiliary</key>
-				<false/>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>GopStop.efi</string>
-				<key>Name</key>
-				<string>GopStop.efi</string>
-				<key>Enabled</key>
-				<true/>
-				<key>Arguments</key>
-				<string></string>
-				<key>Path</key>
-				<string>GopStop.efi</string>
-				<key>Auxiliary</key>
-				<false/>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>HdaCodecDump.efi</string>
-				<key>Name</key>
-				<string>HdaCodecDump.efi</string>
-				<key>Enabled</key>
-				<true/>
-				<key>Arguments</key>
-				<string></string>
-				<key>Path</key>
-				<string>HdaCodecDump.efi</string>
-				<key>Auxiliary</key>
-				<false/>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>VerifyMsrE2.efi</string>
-				<key>Name</key>
-				<string>VerifyMsrE2.efi</string>
-				<key>Enabled</key>
-				<true/>
-				<key>Arguments</key>
-				<string></string>
-				<key>Path</key>
-				<string>VerifyMsrE2.efi</string>
-				<key>Auxiliary</key>
-				<false/>
-			</dict>
 		</array>
 	</dict>
 	<key>NVRAM</key>
@@ -1306,9 +1224,9 @@
 			<key>7C436110-AB2A-4BBB-A880-FE41995C9F82</key>
 			<dict>
 				<key>boot-args</key>
-				<string>-v debug=0x100 keepsyms=1 darkwake=0 alcid=28</string>
+				<string>-v debug=0x100 keepsyms=1 darkwake=1 alcid=28</string>
 				<key>csr-active-config</key>
-				<data>AAAAAA==</data>
+				<data>5wMAAA==</data>
 				<key>nvda_drv</key>
 				<data>AA==</data>
 				<key>prev-lang:kbd</key>
@@ -1400,7 +1318,7 @@
 		<array>
 			<string>ApfsDriverLoader.efi</string>
 			<string>FwRuntimeServices.efi</string>
-			<string>VBoxHfs.efi</string>
+			<string>HfsPlus.efi</string>
 		</array>
 		<key>Audio</key>
 		<dict>

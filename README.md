@@ -66,16 +66,16 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/xzhih/one-key-hidpi/mast
 ## What works
 
 >Boot time from OC Picker to Desktop is 20s
-- Sleep / Wake
+- Sleep / Wake (too early to say 100% perfect)
 - Wifi and Bluetooth
 - **Handoff, Continuity, AirDrop, Sidecar ([wireless](https://www.youtube.com/watch?v=D5yButavaWY))**
 - iMessage, FaceTime, App Store, iTunes Store **(Add PlatformInfo)**
 - Ethernet
 - Onboard audio
-- All USB 3.0 ports
+- All USB 3.0 ports (custom USBPorts kext is used, you would make a new one if using the dock)
 - Battery **(very stable and precise capacity tracking)**
 - Trackpad, Trackpoint, gestures and finally **physical buttons**
-- miniDP and HDMI
+- miniDP and HDMI (video signal trough dock should work too)
 - SIP and FileVault 2 can be enabled (thanks to OpenCore)
 
 ## What doesn't work
@@ -94,7 +94,6 @@ VirtualSMC: 1.1.1
 WhateverGreen: 1.3.8
 AppleALC: 1.4.8
 VoodooPS2Controller: 2.1.3
-USBInjectAll: 0.7.1
 IntelMausi: 1.0.2
 ```
 ## If you found my work useful please consider a PayPal donation
