@@ -14,7 +14,7 @@ My Thinkpad T460s (20F9003AUS) specs
 - Multi-touch: None
 - Storage: 256GB SSD M.2 Opal2
 - Optical: None
-- WLAN + Bluetooth: ~~Intel 8260 ac, 2x2 + BT4.1~~ **replaced by BCM94360CS2 with NGFF adapter**
+- WLAN + Bluetooth: ~~Intel 8260 ac, 2x2 + BT4.1~~ **replaced with [BCM94360CS2](/BCM94360CS2_WLAN_card.md)**
 - WWAN: WWAN Upgradable (Legacy_Sierra_QMI.kext needed, not tested but should work)
 - Smart Card Reader: None
 - Camera: 720p
@@ -67,14 +67,13 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/xzhih/one-key-hidpi/mast
 
 >Boot time from OC Picker to Desktop is 20s
 - Sleep / Wake (too early to say 100% perfect)
-- Wifi and Bluetooth
-- **Handoff, Continuity, AirDrop, Sidecar ([wireless](https://www.youtube.com/watch?v=D5yButavaWY))**
+- **[Wifi and Bluetooth, Airdrop, Handoff, Continuity, Sidecar](/BCM94360CS2_WLAN_card.md)**
 - iMessage, FaceTime, App Store, iTunes Store **(Add PlatformInfo)**
 - Ethernet
-- Onboard audio
+- Onboard audio (audio trough dock should work too)
 - All USB 3.0 ports (custom USBPorts kext is used, you would make a new one if using the dock)
 - Battery **(very stable and precise capacity tracking)**
-- Trackpad, Trackpoint, gestures and finally **physical buttons**
+- Trackpad, Trackpoint, gestures and physical buttons
 - miniDP and HDMI (video signal trough dock should work too)
 - SIP and FileVault 2 can be enabled (thanks to OpenCore)
 
