@@ -15,6 +15,7 @@ A list of others compatibles cards can be found [here](https://khronokernel-7.gi
 - Phillips screwdriver 
 
 ## Installation
+
 0. Open BIOS Setup and turn off internal batteries
 `Config -> Power -> Disable Built-in Battery` **Enter**
 
@@ -27,7 +28,7 @@ A list of others compatibles cards can be found [here](https://khronokernel-7.gi
 3. Remove the original WLAN card
 <img src="/images/3.jpeg" height="300">
 
-4. Cut the adapter's corner shown (optional to save 1mm in height)
+4. (optional) Cut adapter corner and widen screw hole as shown to save 1mm in height
 <img src="/images/4.jpeg" height="300">
 
 5. Insert the adapter on the board
@@ -43,11 +44,11 @@ A list of others compatibles cards can be found [here](https://khronokernel-7.gi
 
 ## The bottom line
 ### That's a small issue for a laptop,
-> Due to adapter height, the back plate will have a small bump, resulting in a (very) small gap on the side
+> Due to adapter height, back plate will have a small bump, resulting in a (very) small gap on the right bottom side
 <img src="/images/9.jpeg" height="300">
 
 ### One giant leap for your life
-All of the following will work with **no extra kexts**
+All the followings will work with **no extra kexts**
 - Wifi 802.11ac 
 - Bluetooth 4.0
 - Handoff
