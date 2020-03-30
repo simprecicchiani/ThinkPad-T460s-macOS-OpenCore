@@ -51,11 +51,7 @@ defaults write com.apple.dock autohide-delay -float 0
 defaults write com.apple.dock autohide-time-modifier -float 0.5
 killall Dock
 ```
-- Mount EFI
-```
-sudo diskutil list
-sudo diskutil mount /dev/diskNsN
-```
+
 - Enable HiDPI
 ```
 Install [RDM Utility](https://github.com/usr-sse2/RDM/releases) 
@@ -63,6 +59,8 @@ for 2560x1440 screens I suggest using 1440x810 resolution
 to make that simply select 'edit' and use settings as shown below
 ```
 <img src="/images/HiDPI.png" height="300" >
+
+- [Use PrtSc key as Screenshot shortcut](/PrtSc_key_map_to_F13.md)
 
 - Monitor temperatures and power consumption with [HWMonitor](https://github.com/kzlekk/HWSensors/releases)
 ```
