@@ -40,8 +40,11 @@
 ### What if I don't have this exact model?
 
 This EFI will probably work on any T460s regardless of CPU model / RAM amount / Display resolution / Storage drive (SATA or NVMe).
+- Use [EFI](/EFI) if you have exact same spec (T460s i7, no dock)
 
 If you happen to have a similiar Thinkpad with Skylake 6th gen Intel processor (like X260, T460, T460p, T560, E560), there is a good chance that this EFI will work on it **with some precaution**:
+
+- Use [**EFI (first boot)**](/EFI (first boot))
 
 1. double check your DSDT naming (like EC, LPC, KBD, etc.) with provided SSDT naming
 
