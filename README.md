@@ -40,7 +40,7 @@
 ### What if I don't have this exact model?
 
 This EFI will probably work on any T460s regardless of CPU model / RAM amount / Display resolution / Storage drive (SATA or NVMe).
-- Use [EFI](/EFI) if you have exact same spec (T460s i7, no dock)
+- Use [EFI](/EFI) if you have a T460s
 
 If you happen to have a similiar Thinkpad with Skylake 6th gen Intel processor (like X260, T460, T460p, T560, E560), there is a good chance that this EFI will work on it **with some precaution**:
 
@@ -58,18 +58,18 @@ If you happen to have a similiar Thinkpad with Skylake 6th gen Intel processor (
 ### USB ports map
 
 To fix sleep issue I had to built a custom USBPorts.kext, SSDT-UIAC and SSDT-USBX wich maps all available ports on the T460s *except SD card reader and dock links*.
-If you need a different map, generate it with [Hackintool](https://github.com/headkaze/Hackintool):
+If you need a different map, e.g. to use Thinkpad dock, generate it with [Hackintool](https://github.com/headkaze/Hackintool):
 
 ```
-use USBInjectAll.kext instead of provided USBPorts.kext (reflect this change in config.plist)
-remove SSDT-UIAC and SSDT-USBX
-generate those files according to your specific needs with Hackintool
-place your files in OC/Kexts and OC/ACPI (reflect this changes in config.plist)
+use EFI (first boot) wich contains USBInjectAll.kext 
+generate a custom USB map according to your specific needs with Hackintool
+place your USBPort.kext in OC/Kexts and SSDT-UIAC & SSDT_USBX in OC/ACPI (reflect these changes in config.plist)
+finally remove USBInjectAll.kext (reflect this change in config.plist)
 ```
 
 ### CPU Power Management
 
-I added two kexts to customize CPU profile:
+I added two kexts to customize i7-6600u CPU profile:
 
 ```
 CPUFriend.kext
@@ -83,27 +83,27 @@ Low Frequency Mode (LFM) = 800MHz (TDP-down frequency for i7-6600u)
 Energy Performance Preference (EPP) = 80 (Balance power)
 ```
 
-If you have a different CPU model, please, **remove these kexts**, power management is natevely supported by OpenCore. 
-In case you want to create your own profile, follow the guide provided for [CPUFriend](https://github.com/acidanthera/CPUFriend)
+If you have a different CPU model, please, **remove these kexts**, power management is natevely supported by OpenCore anyway. 
+In the case in which you want to create your own profile, follow the guide provided for [CPUFriend](https://github.com/acidanthera/CPUFriend).
 
 ### Optional
 
 #### [Generate your own SMBIOS](https://github.com/corpnewt/GenSMBIOS)
 ```
 run the script with MacbookPro13,1
-add results to PlatformInfo -> Generic -> MLB, SystemSerialNumber and SystemUUID
+add results to PlatformInfo > Generic > MLB, SystemSerialNumber and SystemUUID
 ```
 
 #### Enable HiDPI with [RDM Utility](https://github.com/usr-sse2/RDM/releases)
 ```
-Install RDM Utility
+install RDM Utility
+open it, click on "resolution", then "edit"
 for 2560x1440 screens I suggest using 1440x810 resolution
-to make that simply select 'edit' and use settings as shown below
+to accomplish that, use the settings below
 ```
 <img src="/images/HiDPI.png" height="300" >
 
-#### [Use PrtSc key as Screenshot shortcut](/PrtSc_key_map_to_F13.md)
-
+#### [Use PrtSc key as Screenshot shortcut](/PrtSc_key_map_to_F13.md) 
 ```
 PrtSc is already mapped to F13 in SSDT-PS2K
 ```
