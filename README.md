@@ -14,11 +14,12 @@
 
 - Useful tools by [Corpnewt](https://github.com/corpnewt)
 
-- The guys from [Acidanthera](https://github.com/acidanthera) how make this possible
+- The guys from [Acidanthera](https://github.com/acidanthera) that make this possible
 
 ### [Why OpenCore](https://khronokernel.github.io/Opencore-Vanilla-Desktop-Guide/#advantages-of-opencore)
 
 ### My Hardware
+
 - Model: Thinkpad T460s (20F9003AUS)
 - Processor: Intel Core i7-6600U (2C, 2.6 / 3.4GHz, 4MB)vPro
 - Graphics: Integrated Intel HD Graphics 520
@@ -42,11 +43,11 @@ This EFI will probably work on any T460s regardless of CPU model / RAM amount / 
 
 If you happen to have a similiar Thinkpad with Skylake 6th gen Intel processor (like X260, T460, T460p, T560, E560), there is a good chance that this EFI will work on it **with some precaution**:
 
-- double check your DSDT naming (like EC, LPC, KBD, etc.) with provided SSDT naming
+1. double check your DSDT naming (like EC, LPC, KBD, etc.) with provided SSDT naming
 
-- change iGPU inside cofing,plist according to your model
+2. change iGPU inside cofing,plist according to your model
 
-- follow USB ports map and CPU Power Management below
+3. follow USB ports map and CPU Power Management below
 
 
 ## Recomended changes
@@ -71,7 +72,8 @@ I added two kexts to customize CPU profile:
 CPUFriend.kext
 CPUFriendDataProvider.kext
 ```
-[CPUFriendFriend](https://github.com/corpnewt/CPUFriendFriend) was used to set:
+
+[CPUFriendFriend](https://github.com/corpnewt/CPUFriendFriend) was used to set:  
 
 ```
 Low Frequency Mode (LFM) = 800MHz (TDP-down frequency for i7-6600u)
@@ -83,13 +85,13 @@ In case you want to create your own profile, follow the guide provided for [CPUF
 
 ### Optional
 
-- [Generate your own SMBIOS](https://github.com/corpnewt/GenSMBIOS)
+#### [Generate your own SMBIOS](https://github.com/corpnewt/GenSMBIOS)
 ```
 run the script with MacbookPro13,1
 add results to PlatformInfo -> Generic -> MLB, SystemSerialNumber and SystemUUID
 ```
 
-- Enable HiDPI with [RDM Utility](https://github.com/usr-sse2/RDM/releases)
+#### Enable HiDPI with [RDM Utility](https://github.com/usr-sse2/RDM/releases)
 ```
 Install RDM Utility
 for 2560x1440 screens I suggest using 1440x810 resolution
@@ -97,18 +99,23 @@ to make that simply select 'edit' and use settings as shown below
 ```
 <img src="/images/HiDPI.png" height="300" >
 
-- [Use PrtSc key as Screenshot shortcut](/PrtSc_key_map_to_F13.md)
+#### [Use PrtSc key as Screenshot shortcut](/PrtSc_key_map_to_F13.md)
 
 ```
 PrtSc is already mapped to F13 in SSDT-PS2K
 ```
+#### Disable Wake on WiFi 
+It cause transfer rate to be reduced after sleep, to fix that:  
+```
+SystemPreferences > Energy Saver > Power Adapter > Wake for Wi-fi network access > **Disabled**
+```
 
-- Monitor temperatures and power consumption with [HWMonitor](https://github.com/kzlekk/HWSensors/releases)
+#### Monitor temperatures and power consumption with [HWMonitor](https://github.com/kzlekk/HWSensors/releases)
 ```
 I know it's old and no longer supported, but it gets the job done and i really like the simple look
 ```
 
-- Make dock animation faster and without delay
+#### Make dock animation faster and without delay
 ```
 defaults write com.apple.dock autohide-delay -float 0
 defaults write com.apple.dock autohide-time-modifier -float 0.5
@@ -133,58 +140,41 @@ killall Dock
 
 >[Boot time from OC Picker to Desktop is 26s](https://www.youtube.com/watch?v=SnuQjuIrfc0)
 
-- CPU Power Management
-    - `<1W on IDLE`
+- [x] CPU Power Management `<1W on IDLE`
 
-- All USB ports
-    - `custom USBPorts kext is used, make a new one if using dock`
+- [x] All USB ports `custom USBPorts kext is used, make a new one if using dock`
 
-- Internal camera
+- [x] Internal camera
 
-- Sleep / Wake / Shutdown / Reboot
-    - `custom USBPorts.kext required`
+- [x] Sleep / Wake / Shutdown / Reboot `custom USBPorts.kext required`
 
-- Ethernet
+- [x] Ethernet
 
-- **[Wifi, Bluetooth, Airdrop, Handoff, Continuity, Sidecar wireless](/BCM94360CS2_WLAN_card.md)**
-    - `A guide is provided`
+- [x] **[Wifi, Bluetooth, Airdrop, Handoff, Continuity, Sidecar wireless](/BCM94360CS2_WLAN_card.md)**
 
-- iMessage, FaceTime, App Store, iTunes Store 
-    - `Generate your on SMBIOS`
+- [x] iMessage, FaceTime, App Store, iTunes Store `Generate your own SMBIOS`
 
-- Audio in/out
-    - `audio trough dock should work too thanks to AppleALC tluck's layout 28`
+- [x] Audio in/out `audio trough dock should work too thanks to AppleALC tluck's layout 28`
 
-- Battery **(very stable and precise capacity tracking)**
-    - `Thanks to EchoEsprit work for T450s`
+- [x] Battery **(very stable and precise capacity tracking)** `Thanks to EchoEsprit work for T450s`
 
-- Keyboard
-    - `volume and brighness hotkeys`
+- [x] Keyboard `volume and brighness hotkeys`
 
-- Trackpad, Trackpoint and physical buttons
-    - `two fingers swipe and tree fingers gestures`
+- [x] Trackpad, Trackpoint and physical buttons `two fingers swipe and tree fingers gestures`
 
-- miniDP and HDMI
-    - `video signal trough dock should work too thank to links added in DevicesProperty`
+- [x] miniDP and HDMI `video signal trough dock should work too thank to links added in DevicesProperty`
 
-- Internal camera
-    - `works without additional files`
+- [x] Internal camera `works without additional files`
 
-- SIP and FileVault 2 can be enabled
-    - `Are disabled in config.plist`
+- [x] SIP and FileVault 2 can be enabled `disabled by default in config.plist`
 
 ## What's not working
 
 > If you have any questions or suggestions feel free to contact me
 
-- SD Card Reader
-    - `I will try to make it works sometime in the future`
+- [ ] SD Card Reader `I will try to make it works sometime in the future`
 
-- Fingerprint Reader
-    - `Don't think it will ever be working on macOS`
-
-- Wake on WiFi cause the transfer rate to be reduced after sleep
-    - to fix that `SystemPreferences > Energy Saver > Power Adapter > Wake for Wi-fi network access`  **Disabled**
+- [ ] Fingerprint Reader `Don't think it will ever be working on macOS`
 
 ## Update tracker
 
