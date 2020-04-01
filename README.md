@@ -44,7 +44,7 @@ This EFI will probably work on any T460s regardless of CPU model / RAM amount / 
 
 If you happen to have a similiar Thinkpad with 6th gen Skylake Intel processor (like X260, T460, T460p, T560, E560), there is a good chance that this EFI will work on it **with some precaution**:
 
-- Use [**EFI_first_boot**](/EFI_first_boot))
+- Use [**EFI_first_boot**](/EFI_first_boot)
 
 1. double check your DSDT naming (like EC, LPC, KBD, etc.) with provided SSDT naming
 
