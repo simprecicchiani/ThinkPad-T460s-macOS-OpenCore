@@ -44,7 +44,7 @@ This EFI will probably work on any T460s regardless of CPU model / RAM amount / 
 
 If you happen to have a similiar Thinkpad with 6th gen Skylake Intel processor (like X260, T460, T460p, T560, E560), there is a good chance that this EFI will work on it **with some precaution**:
 
-- Use [**EFI (first boot)**](/EFI (first boot))
+- Use [**EFI_first_boot**](/EFI_first_boot))
 
 1. double check your DSDT naming (like EC, LPC, KBD, etc.) with provided SSDT naming
 
@@ -85,7 +85,7 @@ Low Frequency Mode (LFM) = 800MHz (TDP-down frequency for i7-6600u)
 Energy Performance Preference (EPP) = 80 (Balance power)
 ```
 
-If you have a different CPU model, please, **~~remove these kexts~~ replace SSDT-CPU with plain [SSDT-PLUG](/EFI (first boot)/OC/ACPI/SSDT-PLUG.aml)**, power management is natevely supported by OpenCore anyway.
+If you have a different CPU model, please, **~~remove these kexts~~ replace SSDT-CPU with plain [SSDT-PLUG](/EFI_first_boot/OC/ACPI/SSDT-PLUG.aml)**, power management is natevely supported by OpenCore anyway.
 
 In the case in which you want to create your own profile, follow the guide provided for [CPUFriend](https://github.com/acidanthera/CPUFriend).
 
