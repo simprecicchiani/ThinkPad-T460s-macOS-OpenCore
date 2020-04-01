@@ -1198,7 +1198,7 @@
 			<key>Vault</key>
 			<string>Optional</string>
 			<key>ScanPolicy</key>
-			<integer>10559235</integer>
+			<integer>0</integer>
 		</dict>
 		<key>Tools</key>
 		<array>
