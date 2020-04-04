@@ -6,7 +6,7 @@
 
 ## Introduction
 
-### General knowledge
+### General knowledge & credits
 
 - To install macOS follow [this guide](https://khronokernel.github.io/Opencore-Vanilla-Desktop-Guide/) by [Mykola Grymalyuk](https://github.com/khronokernel)
 
