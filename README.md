@@ -48,7 +48,7 @@ If you happen to have a similiar Thinkpad with 6th gen Skylake Intel processor (
 
 1. double check your DSDT naming (like EC, LPC, KBD, etc.) with provided SSDT naming
 
-2. change iGPU inside cofing,plist according to your model
+2. change iGPU inside cofing.plist according to your model
 
 3. follow USB ports map and CPU Power Management below
 
@@ -61,9 +61,9 @@ To fix sleep issue I had to built a custom USBPorts.kext, SSDT-UIAC and SSDT-USB
 If you need a different map, e.g. to use Thinkpad dock, generate it with [Hackintool](https://github.com/headkaze/Hackintool):
 
 ```
-use EFI (first boot) wich contains USBInjectAll.kext 
-generate a custom USB map according to your specific needs with Hackintool
-place your USBPort.kext in OC/Kexts and SSDT-UIAC & SSDT_USBX in OC/ACPI (reflect these changes in config.plist)
+use EFI (first boot) wich contains USBInjectAll.kext
+generate custom USB map according to your specific needs with Hackintool
+place USBPort.kext in OC/Kexts and SSDT-UIAC & SSDT_USBX in OC/ACPI (reflect these changes in config.plist)
 finally remove USBInjectAll.kext (reflect this change in config.plist)
 ```
 
@@ -106,21 +106,23 @@ to accomplish that, use the settings below
 <img src="/images/HiDPI.png" height="300" >
 
 #### [Use PrtSc key as Screenshot shortcut](/PrtSc_key_map_to_F13.md) 
+
+PrtSc is already mapped to F13 by SSDT-PS2K
 ```
-PrtSc is already mapped to F13 in SSDT-PS2K
+set the shortcut under SystemPreferences > Keyboard > Shortcuts > Screenshots
 ```
-#### Disable Wake on WiFi 
-It cause transfer rate to be reduced after sleep, to fix that:  
+#### Disable Wake on Wi-Fi 
+Wi-Fi transfer rate happen to be reduced after wake from sleep. To fix that, set: 
 ```
-SystemPreferences > Energy Saver > Power Adapter > Wake for Wi-fi network access > **Disabled**
+SystemPreferences > Energy Saver > Power Adapter > Wake for Wi-Fi network access > Disable
 ```
 
-#### Monitor temperatures and power consumption with [HWMonitor](https://github.com/kzlekk/HWSensors/releases)
-```
-I know it's old and no longer supported, but it gets the job done and i really like the simple look
-```
+#### Monitor temperatures and power consumption with [HWMonitor](https://github.com/kzlekk/HWSensors/releases) 
+
+This app is relatively old and no longer supported, but it gets the job done and i really like the simple look
 
 #### Make dock animation faster and without delay
+Run these lines in terminal:
 ```
 defaults write com.apple.dock autohide-delay -float 0
 defaults write com.apple.dock autohide-time-modifier -float 0.5
