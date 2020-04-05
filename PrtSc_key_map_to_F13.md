@@ -1,14 +1,14 @@
 # Guide to map PrtSc key to F13
 
-Simple way to get the PrtSc key useful 
+Simple way to make PrtSc key useful 
 
 ## Map into SSDT-PS2K
 
-Already included into my EFI
+Already done into my EFI
 
 <img src="/images/Screenshot 2020-03-30 at 15.32.36.png" height="300">
 
-## Set Screenshot shortcut in macOS
+## Set Screenshots shortcuts in macOS
 
 Default is ⇧⌘5, change it to F13 by simply pressing PrtSc on your keyboard
 
