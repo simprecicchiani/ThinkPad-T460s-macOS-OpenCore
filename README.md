@@ -89,7 +89,7 @@ If you have a different CPU model, please, **remove CPUFriend.kexts and replace 
 
 That's how power consumption looks like on my machine at idle state:
 
-<img src="/images/Schermata 2020-03-31 alle 21.45.56.png" height="300" >
+<img src="/images/PowerConsumption.png" height="300" >
 
 ### Optional
 

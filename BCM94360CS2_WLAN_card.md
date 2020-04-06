@@ -7,10 +7,10 @@ A list of others compatibles cards can be found [here](https://khronokernel-7.gi
 ## Parts needed
 
 - BCM94360CS2 ($10 used)
-<img src="/images/00.jpg" height="300">
+<img src="/images/part01.jpg" height="300">
 
 - BCM94360CS2 (M.2) to NGFF adapter ($5 new)
-<img src="/images/01.jpg" height="300">
+<img src="/images/part02.jpg" height="300">
 
 - Phillips screwdriver 
 
@@ -20,32 +20,32 @@ A list of others compatibles cards can be found [here](https://khronokernel-7.gi
 `Config -> Power -> Disable Built-in Battery` **Enter**
 
 1. Open the back plate
-<img src="/images/1.jpeg" height="300">
+<img src="/images/Installation01.jpeg" height="300">
 
 2. Disconnect antennas cables
-<img src="/images/2.jpeg" height="300">
+<img src="/images/Installation02.jpeg" height="300">
 
 3. Remove the original WLAN card
-<img src="/images/3.jpeg" height="300">
+<img src="/images/Installation03.jpeg" height="300">
 
 4. (optional) Cut adapter corner and widen screw hole as shown to save 1mm in height
-<img src="/images/4.jpeg" height="300">
+<img src="/images/Installation04.jpeg" height="300">
 
 5. Insert the adapter on the board
-<img src="/images/5.jpeg" height="300">
+<img src="/images/Installation05.jpeg" height="300">
 
 6. Install BCM94360CS2
-<img src="/images/6.jpeg" height="300">
+<img src="/images/Installation06.jpeg" height="300">
 
 7. Connect antennas cables (as shown)
-<img src="/images/7.jpeg" height="300">
+<img src="/images/Installation07.jpeg" height="300">
 
 8. Close the back plate and enjoy your wireless life
 
 ## The bottom line
 ### That's a small issue for a laptop,
 > Due to adapter height, back plate will have a small bump, resulting in a (very) small gap on the right bottom side
-<img src="/images/9.jpeg" height="300">
+<img src="/images/Result01.jpeg" height="300">
 
 ### One giant leap for your life
 All the followings will work with **no extra kexts**
