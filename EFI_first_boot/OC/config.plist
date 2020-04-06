@@ -64,22 +64,6 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Fix IRQs</string>
-				<key>Path</key>
-				<string>SSDT-HPET_RTC_TIMR.aml</string>
-				<key>Enabled</key>
-				<true/>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Fix IRQs #2</string>
-				<key>Path</key>
-				<string>SSDT-IPIC.aml</string>
-				<key>Enabled</key>
-				<true/>
-			</dict>
-			<dict>
-				<key>Comment</key>
 				<string>Add MCHC</string>
 				<key>Path</key>
 				<string>SSDT-MCHC.aml</string>
@@ -88,7 +72,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>CPU Plug</string>
+				<string>CPU Plugin</string>
 				<key>Path</key>
 				<string>SSDT-PLUG.aml</string>
 				<key>Enabled</key>
@@ -139,6 +123,22 @@
 				<string>PS2 Devices Map</string>
 				<key>Path</key>
 				<string>SSDT-PS2K.aml</string>
+				<key>Enabled</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Fix IRQs</string>
+				<key>Path</key>
+				<string>SSDT-HPET_RTC_TIMR.aml</string>
+				<key>Enabled</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Fix IRQs #2</string>
+				<key>Path</key>
+				<string>SSDT-IPIC.aml</string>
 				<key>Enabled</key>
 				<true/>
 			</dict>
@@ -640,32 +640,6 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>_Q15 to XQ15</string>
-				<key>Count</key>
-				<integer>0</integer>
-				<key>Enabled</key>
-				<true/>
-				<key>Find</key>
-				<data>X1ExNQ==</data>
-				<key>Limit</key>
-				<integer>0</integer>
-				<key>Mask</key>
-				<data></data>
-				<key>OemTableId</key>
-				<data></data>
-				<key>Replace</key>
-				<data>WFExNQ==</data>
-				<key>ReplaceMask</key>
-				<data></data>
-				<key>Skip</key>
-				<integer>0</integer>
-				<key>TableLength</key>
-				<integer>0</integer>
-				<key>TableSignature</key>
-				<data></data>
-			</dict>
-			<dict>
-				<key>Comment</key>
 				<string>HPET WNTF to XXXX</string>
 				<key>Count</key>
 				<integer>1</integer>
@@ -715,6 +689,32 @@
 				<integer>0</integer>
 				<key>TableSignature</key>
 				<data>AAAAAA==</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>_Q15 to XQ15</string>
+				<key>Count</key>
+				<integer>0</integer>
+				<key>Enabled</key>
+				<true/>
+				<key>Find</key>
+				<data>X1ExNQ==</data>
+				<key>Limit</key>
+				<integer>0</integer>
+				<key>Mask</key>
+				<data></data>
+				<key>OemTableId</key>
+				<data></data>
+				<key>Replace</key>
+				<data>WFExNQ==</data>
+				<key>ReplaceMask</key>
+				<data></data>
+				<key>Skip</key>
+				<integer>0</integer>
+				<key>TableLength</key>
+				<integer>0</integer>
+				<key>TableSignature</key>
+				<data></data>
 			</dict>
 		</array>
 		<key>Quirks</key>
@@ -770,7 +770,7 @@
 			<true/>
 			<key>ForceExitBootServices</key>
 			<false/>
-			<key>ProtectCsmRegion</key>
+			<key>ProtectMemoryRegions</key>
 			<false/>
 			<key>ProtectSecureBoot</key>
 			<false/>
@@ -778,11 +778,13 @@
 			<false/>
 			<key>ProvideCustomSlide</key>
 			<true/>
+			<key>RebuildAppleMemoryMap</key>
+			<false/>
 			<key>SetupVirtualMap</key>
 			<true/>
-			<key>ShrinkMemoryMap</key>
-			<false/>
 			<key>SignalAppleOS</key>
+			<false/>
+			<key>SyncRuntimePermissions</key>
 			<false/>
 		</dict>
 	</dict>
@@ -950,6 +952,22 @@
 				<string></string>
 				<key>PlistPath</key>
 				<string>Contents/Info.plist</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string></string>
+				<key>MaxKernel</key>
+				<string></string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+				<key>Enabled</key>
+				<true/>
+				<key>MinKernel</key>
+				<string></string>
+				<key>ExecutablePath</key>
+				<string>Contents/MacOS/CPUFriend</string>
+				<key>BundlePath</key>
+				<string>CPUFriend.kext</string>
 			</dict>
 			<dict>
 				<key>BundlePath</key>
@@ -1122,7 +1140,7 @@
 			<key>ThirdPartyDrives</key>
 			<true/>
 			<key>XhciPortLimit</key>
-			<false/>
+			<true/>
 		</dict>
 	</dict>
 	<key>Misc</key>
@@ -1134,16 +1152,18 @@
 		<dict>
 			<key>HibernateMode</key>
 			<string>None</string>
-			<key>PickerMode</key>
-			<string>Builtin</string>
 			<key>HideAuxiliary</key>
 			<false/>
 			<key>HideSelf</key>
 			<true/>
+			<key>ConsoleAttributes</key>
+			<integer>0</integer>
 			<key>PickerAttributes</key>
 			<integer>0</integer>
 			<key>PickerAudioAssist</key>
 			<false/>
+			<key>PickerMode</key>
+			<string>Builtin</string>
 			<key>PollAppleHotKeys</key>
 			<false/>
 			<key>ShowPicker</key>
@@ -1218,9 +1238,9 @@
 			<key>7C436110-AB2A-4BBB-A880-FE41995C9F82</key>
 			<dict>
 				<key>boot-args</key>
-				<string>-v debug=0x100 keepsyms=1 darkwake=1 alcid=28</string>
+				<string>-v keepsyms=1 alcid=28</string>
 				<key>csr-active-config</key>
-				<data>5wMAAA==</data>
+				<data>AAAAAA==</data>
 				<key>prev-lang:kbd</key>
 				<string>en-US:0</string>
 				<key>SystemAudioVolume</key>

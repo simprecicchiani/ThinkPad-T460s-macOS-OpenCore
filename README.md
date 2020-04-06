@@ -40,17 +40,20 @@
 ### What if I don't have this exact model?
 
 This EFI will probably work on any T460s regardless of CPU model / RAM amount / Display resolution / Storage drive (SATA or NVMe).
+
 - Use [EFI](/EFI) if you have a T460s
 
 If you happen to have a similiar Thinkpad with 6th gen Skylake Intel processor (like X260, T460, T460p, T560, E560), there is a good chance that this EFI will work on it **with some precaution**:
 
 - Use [**EFI_first_boot**](/EFI_first_boot)
 
-1. double check your DSDT naming (like EC, LPC, KBD, etc.) with provided SSDT naming
+1. double check your DSDT naming (like EC, LPC, KBD, etc.) with provided SSDTs naming
 
-2. change iGPU inside cofing.plist according to your model
+2. change iGPU inside cofing.plist according to your model (default is HD520)
 
 3. follow USB ports map and CPU Power Management below
+
+Thanks to nijhawank from InsanelyMac that [switched from Clover to OpenCore on his T460](https://www.insanelymac.com/forum/topic/315451-guide-lenovo-t460t470-macos-with-clover/?do=findComment&comment=2715459) using [EFI_first_boot](/EFI_first_boot)!
 
 
 ## Recomended changes
@@ -80,9 +83,9 @@ Low Frequency Mode (LFM) = 800MHz (TDP-down frequency for i7-6600u)
 Energy Performance Preference (EPP) = 80 (Balance power)
 ```
 The resulting plist was then selected to generate `SSDT-DATA.dsl` with ResourceConverter.sh inside CPUFriend. 
-Data were then combined inside `SSDT-PLUG`, which was then renamed [SSDT-CPU](/EFI/OC/ACPI/SSDT-CPU.aml).
+Data were then combined inside `SSDT-PLUG`, which was then renamed [SSDT-XCPM](/EFI/OC/ACPI/SSDT-XCPM.aml).
 
-If you have a different CPU model, please, **remove CPUFriend.kexts and replace SSDT-CPU with plain [SSDT-PLUG](/EFI_first_boot/OC/ACPI/SSDT-PLUG.aml)**, power management is natevely supported by OpenCore anyway. In the case in which you want to create your own profile, follow the guide provided.
+If you have a different CPU model, please, **remove CPUFriend.kexts and replace SSDT-XCPM with plain [SSDT-PLUG](/EFI_first_boot/OC/ACPI/SSDT-PLUG.aml)**, power management is natevely supported by OpenCore anyway. In the case in which you want to create your own profile, follow the guide provided.
 
 That's how power consumption looks like on my machine at idle state:
 
@@ -190,10 +193,11 @@ killall Dock
 | **MacOS** | 10.15.4 |
 | **OpenCore** | 0.5.7 |
 | **Lilu** | 1.4.3 |
-| **VirtualSMC** | 1.1.1 |
+| **VirtualSMC** | 1.1.2 |
 | **WhateverGreen** | 1.3.8 |
 | **AppleALC** | 1.4.8 |
 | **VoodooPS2Controller** | 2.1.3 |
+| **VoodooInput** | 1.0.4 |
 | **IntelMausi** | 1.0.2 |
 
 
