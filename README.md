@@ -1,8 +1,8 @@
 # Thinkpad T460s macOS Catalina (OpenCore bootloader)
 
-> First ever OpenCore build for T460s, everything but SD card reader and Fingerprint scanner works 
+> First ever OpenCore build for T460s
 
-<img src="/images/T460s.png" alt="Thinkpad T460s" height="500">
+<img src="/Images/T460s.png" alt="Thinkpad T460s" height="500">
 
 ## Introduction
 
@@ -10,9 +10,9 @@
 
 - To install macOS follow [this guide](https://khronokernel.github.io/Opencore-Vanilla-Desktop-Guide/) by [Mykola Grymalyuk](https://github.com/khronokernel)
 
-- Lots of SSDT patches and how they work can be found [here](https://translate.google.it/translate?sl=zh-CN&tl=en&u=https%3A%2F%2Fgithub.com%2Fdaliansky%2FOC-little)
+- Lots of SSDT patches from [OC-little](https://translate.google.it/translate?sl=zh-CN&tl=en&u=https%3A%2F%2Fgithub.com%2Fdaliansky%2FOC-little)
 
-- Useful tools by [Corpnewt](https://github.com/corpnewt)
+- Useful tools by [CorpNewt](https://github.com/corpnewt)
 
 - The guys from [Acidanthera](https://github.com/acidanthera) that make this possible
 
@@ -29,7 +29,7 @@
 - Multi-touch: None
 - Storage: 256GB SSD M.2 Opal2
 - Optical: None
-- WLAN + Bluetooth: ~~Intel 8260 ac, 2x2 + BT4.1~~ **replaced with [BCM94360CS2](/BCM94360CS2_WLAN_card.md)**
+- WLAN + Bluetooth: ~~Intel 8260 ac, 2x2 + BT4.1~~ **replaced with [BCM94360CS2](/Guides/BCM94360CS2_WLAN_card.md)**
 - WWAN: WWAN Upgradable (Legacy_Sierra_QMI.kext needed, not tested but should work)
 - Smart Card Reader: None
 - Camera: 720p
@@ -39,13 +39,15 @@
 
 ### What if I don't have this exact model?
 
-This EFI will probably work on any T460s regardless of CPU model / RAM amount / Display resolution / Storage drive (SATA or NVMe).
+This EFI will probably work on any T460s regardless of CPU model* / RAM amount / Display resolution / Storage drive (SATA or NVMe).
 
-- Use [EFI](/EFI) if you have a T460s
+- Use [EFI](/EFI) if you have a T460s 
+
+*(i5 model follow CPU Power Management guide)
 
 If you happen to have a similiar Thinkpad with 6th gen Skylake Intel processor (like X260, T460, T460p, T560, E560), there is a good chance that this EFI will work on it **with some precaution**:
 
-- Use [**EFI_first_boot**](/EFI_first_boot)
+- Use [**EFIFirstBoot**](/EFIFirstBoot)
 
 1. double check your DSDT naming (like EC, LPC, KBD, etc.) with provided SSDTs naming
 
@@ -53,20 +55,20 @@ If you happen to have a similiar Thinkpad with 6th gen Skylake Intel processor (
 
 3. follow USB ports map and CPU Power Management below
 
-Thanks to nijhawank from InsanelyMac that [switched from Clover to OpenCore on his T460](https://www.insanelymac.com/forum/topic/315451-guide-lenovo-t460t470-macos-with-clover/?do=findComment&comment=2715459) using [EFI_first_boot](/EFI_first_boot)!
+Thanks to nijhawank from InsanelyMac that [switched from Clover to OpenCore on his T460](https://www.insanelymac.com/forum/topic/315451-guide-lenovo-t460t470-macos-with-clover/?do=findComment&comment=2715459) using [EFIFirstBoot](/EFIFirstBoot)!
 
 
 ## Recomended changes
 
 ### USB ports map
 
-To fix sleep issue I had to built a custom USBPorts.kext, SSDT-UIAC and SSDT-USBX wich maps all available ports on the T460s *except SD card reader and dock links*.
-If you need a different map, e.g. to use Thinkpad dock, generate it with [Hackintool](https://github.com/headkaze/Hackintool):
+USBPorts.kext is used to map T460s ports and prevent it from shutdown issues. SSDT-UIAC & SSDT-USBX can be used as well. These files are configured to map all T460s ports *except SD card reader and dock links*.
+If you need a different configuration, e.g. to use Thinkpad dock, easily generate it with [Hackintool](https://github.com/headkaze/Hackintool):
 
 ```
 use EFI (first boot) wich contains USBInjectAll.kext
 generate custom USB map according to your specific needs with Hackintool
-place USBPort.kext in OC/Kexts and SSDT-UIAC & SSDT_USBX in OC/ACPI (reflect these changes in config.plist)
+place USBPort.kext in OC/Kexts or SSDT-UIAC & SSDT_USBX in OC/ACPI (reflect these changes in config.plist)
 finally remove USBInjectAll.kext (reflect this change in config.plist)
 ```
 
@@ -85,11 +87,11 @@ Energy Performance Preference (EPP) = 80 (Balance power)
 The resulting plist was then selected to generate `SSDT-DATA.dsl` with ResourceConverter.sh inside CPUFriend. 
 Data were then combined inside `SSDT-PLUG`, which was then renamed [SSDT-XCPM](/EFI/OC/ACPI/SSDT-XCPM.aml).
 
-If you have a different CPU model, please, **remove CPUFriend.kexts and replace SSDT-XCPM with plain [SSDT-PLUG](/EFI_first_boot/OC/ACPI/SSDT-PLUG.aml)**, power management is natevely supported by OpenCore anyway. In the case in which you want to create your own profile, follow the guide provided.
+If you have a different CPU model, please, **remove CPUFriend.kexts and replace SSDT-XCPM with plain [SSDT-PLUG](/EFIFirstBoot/OC/ACPI/SSDT-PLUG.aml)**, power management is natevely supported by OpenCore anyway. In the case in which you want to create your own profile, follow the guide provided.
 
 That's how power consumption looks like on my machine at idle state:
 
-<img src="/images/PowerConsumption.png" height="300" >
+<img src="/Images/PowerConsumption.png" height="300" >
 
 ### Optional
 
@@ -106,9 +108,9 @@ open it, click on "resolution", then "edit"
 for 2560x1440 screens I suggest using 1440x810 resolution
 to accomplish that, use the settings below
 ```
-<img src="/images/HiDPI.png" height="300" >
+<img src="/Images/HiDPI.png" height="300" >
 
-#### [Use PrtSc key as Screenshot shortcut](/PrtSc_key_map_to_F13.md) 
+#### [Use PrtSc key as Screenshot shortcut](/Guides/PrtSc_key_map_to_F13.md) 
 
 PrtSc is already mapped to F13 by SSDT-PS2K
 ```
@@ -160,7 +162,7 @@ killall Dock
 
 - [x] Ethernet
 
-- [x] **[Wifi, Bluetooth, Airdrop, Handoff, Continuity, Sidecar wireless](/BCM94360CS2_WLAN_card.md)**
+- [x] **[Wifi, Bluetooth, Airdrop, Handoff, Continuity, Sidecar wireless](/Guides/BCM94360CS2_WLAN_card.md)**
 
 - [x] iMessage, FaceTime, App Store, iTunes Store `Generate your own SMBIOS`
 
@@ -171,8 +173,6 @@ killall Dock
 - [x] Keyboard `volume and brighness hotkeys`
 
 - [x] Trackpad, Trackpoint and physical buttons `two fingers swipe and tree fingers gestures`
-
-- [x] miniDP and HDMI `video signal trough dock should work too thank to links added in DevicesProperty`
 
 - [x] Internal camera `works without additional files`
 
@@ -186,24 +186,26 @@ killall Dock
 
 - [ ] Fingerprint Reader `Don't think it will ever be working on macOS`
 
+- [ ] miniDP `not tested` and HDMI `builtin display goes black when connected, no audio`
+
 ## Update tracker
 
 | Item | Version |
 | :--- | :--- |
-| **MacOS** | 10.15.4 |
-| **OpenCore** | 0.5.7 |
-| **Lilu** | 1.4.3 |
-| **VirtualSMC** | 1.1.2 |
-| **WhateverGreen** | 1.3.8 |
-| **AppleALC** | 1.4.8 |
-| **VoodooPS2Controller** | 2.1.3 |
-| **VoodooInput** | 1.0.4 |
-| **IntelMausi** | 1.0.2 |
+| MacOS | 10.15.4 |
+| OpenCore | 0.5.7 |
+| Lilu | 1.4.3 |
+| VirtualSMC | 1.1.2 |
+| WhateverGreen | 1.3.8 |
+| AppleALC | 1.4.8 |
+| VoodooPS2Controller | 2.1.3 |
+| VoodooInput | 1.0.4 |
+| IntelMausi | 1.0.2 |
 
 
 ## If you found my work useful please consider a PayPal donation
 
-<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Y5BE5HYACDERG&source=url" target="_blank"><img src="/images/buymeacoffee.png" alt="Buy Me A Coffee" width="300" ></a>
+<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Y5BE5HYACDERG&source=url" target="_blank"><img src="/Images/buymeacoffee.png" alt="Buy Me A Coffee" width="300" ></a>
 
 ## Thanks to
 
