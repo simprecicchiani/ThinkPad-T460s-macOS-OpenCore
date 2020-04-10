@@ -43,7 +43,7 @@ This EFI will probably work on any T460s regardless of CPU model* / RAM amount /
 
 - Use [EFI](/EFI) if you have a T460s 
 
-*(i5 model follow CPU Power Management guide)
+*(i5 model follows CPU Power Management guide)
 
 If you happen to have a similiar Thinkpad with 6th gen Skylake Intel processor (like X260, T460, T460p, T560, E560), there is a good chance that this EFI will work on it **with some precaution**:
 
@@ -178,7 +178,9 @@ killall Dock
 
 - [x] SIP and FileVault 2 can be enabled `disabled by default in config.plist`
 
-## What's not working
+- [x] miniDP `not already tested` and HDMI `with digital audio passthrough`
+
+## What's not working ⚠️
 
 > If you have any questions or suggestions feel free to contact me
 
@@ -186,12 +188,10 @@ killall Dock
 
 - [ ] Fingerprint Reader `Don't think it will ever be working on macOS`
 
-- [ ] miniDP `not tested` and HDMI `builtin display goes black when connected, no audio`
-
 ## Update tracker
 
 | Item | Version |
-| :--- | :--- |
+| :--- | ---: |
 | MacOS | 10.15.4 |
 | OpenCore | 0.5.7 |
 | Lilu | 1.4.3 |
@@ -202,6 +202,7 @@ killall Dock
 | VoodooInput | 1.0.4 |
 | IntelMausi | 1.0.2 |
 
+`safe to install macOS Catalina‌ 10.15.4 supplemental update`
 
 ## If you found my work useful please consider a PayPal donation
 
