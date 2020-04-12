@@ -8,7 +8,7 @@
 
 ### General knowledge & credits
 
-- To install macOS follow [this guide](https://khronokernel.github.io/Opencore-Vanilla-Desktop-Guide/) by [Mykola Grymalyuk](https://github.com/khronokernel)
+- To install macOS follow the guides provided by [Dortania](https://dortania.ml/getting-started/)
 
 - Lots of SSDT patches from [OC-little](https://translate.google.it/translate?sl=zh-CN&tl=en&u=https%3A%2F%2Fgithub.com%2Fdaliansky%2FOC-little)
 
@@ -16,7 +16,7 @@
 
 - The guys from [Acidanthera](https://github.com/acidanthera) that make this possible
 
-### [Why OpenCore](https://khronokernel.github.io/Opencore-Vanilla-Desktop-Guide/#advantages-of-opencore)
+### [Why OpenCore](https://desktop.dortania.ml/#advantages-of-opencore)
 
 ### My Hardware
 
@@ -47,7 +47,7 @@ This EFI will probably work on any T460s regardless of CPU model* / RAM amount /
 
 If you happen to have a similiar Thinkpad with 6th gen Skylake Intel processor (like X260, T460, T460p, T560, E560), there is a good chance that this EFI will work on it **with some precaution**:
 
-- Use [**EFIFirstBoot**](/EFIFirstBoot)
+- Use [**EFI056FirstBoot**](/EFI056FirstBoot)
 
 1. double check your DSDT naming (like EC, LPC, KBD, etc.) with provided SSDTs naming
 
@@ -55,7 +55,7 @@ If you happen to have a similiar Thinkpad with 6th gen Skylake Intel processor (
 
 3. follow USB ports map and CPU Power Management below
 
-Thanks to nijhawank from InsanelyMac that [switched from Clover to OpenCore on his T460](https://www.insanelymac.com/forum/topic/315451-guide-lenovo-t460t470-macos-with-clover/?do=findComment&comment=2715459) using [EFIFirstBoot](/EFIFirstBoot)!
+Thanks to nijhawank from InsanelyMac that [switched from Clover to OpenCore on his T460](https://www.insanelymac.com/forum/topic/315451-guide-lenovo-t460t470-macos-with-clover/?do=findComment&comment=2715459) using [EFI056FirstBoot](/EFI056FirstBoot)!
 
 
 ## Recomended changes
@@ -87,7 +87,7 @@ Energy Performance Preference (EPP) = 80 (Balance power)
 The resulting plist was then selected to generate `SSDT-DATA.dsl` with ResourceConverter.sh inside CPUFriend. 
 Data were then combined inside `SSDT-PLUG`, which was then renamed [SSDT-XCPM](/EFI/OC/ACPI/SSDT-XCPM.aml).
 
-If you have a different CPU model, please, **remove CPUFriend.kexts and replace SSDT-XCPM with plain [SSDT-PLUG](/EFIFirstBoot/OC/ACPI/SSDT-PLUG.aml)**, power management is natevely supported by OpenCore anyway. In the case in which you want to create your own profile, follow the guide provided.
+If you have a different CPU model, please, **remove CPUFriend.kexts and replace SSDT-XCPM with plain [SSDT-PLUG](/EFI056FirstBoot/OC/ACPI/SSDT-PLUG.aml)**, power management is natevely supported by OpenCore anyway. In the case in which you want to create your own profile, follow the guide provided.
 
 That's how power consumption looks like on my machine at idle state:
 
