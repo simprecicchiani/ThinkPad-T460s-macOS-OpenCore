@@ -8,7 +8,7 @@
 
 ### General knowledge & credits
 
-- To install macOS follow the guides provided by [Dortania](https://dortania.ml/getting-started/)
+- To install macOS follow the guides provided by [Dortania](https://dortania.github.io)
 
 - Lots of SSDT patches from [OC-little](https://translate.google.it/translate?sl=zh-CN&tl=en&u=https%3A%2F%2Fgithub.com%2Fdaliansky%2FOC-little)
 
@@ -41,7 +41,7 @@
 
 This EFI will probably work on any T460s regardless of CPU model* / RAM amount / Display resolution / Storage drive (SATA or NVMe).
 
-- Use [EFI](/EFI) if you have a T460s 
+- Use [EFI](/EFI) if you have a T460s
 
 *(i5 model follows CPU Power Management guide)
 
@@ -84,7 +84,7 @@ On my machine [CPUFriendFriend](https://github.com/corpnewt/CPUFriendFriend) was
 Low Frequency Mode (LFM) = 800MHz (TDP-down frequency for i7-6600u)
 Energy Performance Preference (EPP) = 80 (Balance power)
 ```
-The resulting plist was then selected to generate `SSDT-DATA.dsl` with ResourceConverter.sh inside CPUFriend. 
+The resulting plist was then selected to generate `SSDT-DATA.dsl` with ResourceConverter.sh inside CPUFriend.
 Data were then combined inside `SSDT-PLUG`, which was then renamed [SSDT-XCPM](/EFI/OC/ACPI/SSDT-XCPM.aml).
 
 If you have a different CPU model, please, **remove CPUFriend.kexts and replace SSDT-XCPM with plain [SSDT-PLUG](/EFI056FirstBoot/OC/ACPI/SSDT-PLUG.aml)**, power management is natevely supported by OpenCore anyway. In the case in which you want to create your own profile, follow the guide provided.
@@ -110,19 +110,19 @@ to accomplish that, use the settings below
 ```
 <img src="/Images/HiDPI.png" height="300" >
 
-#### [Use PrtSc key as Screenshot shortcut](/Guides/PrtSc_key_map_to_F13.md) 
+#### [Use PrtSc key as Screenshot shortcut](/Guides/PrtSc_key_map_to_F13.md)
 
 PrtSc is already mapped to F13 by SSDT-PS2K
 ```
 set the shortcut under SystemPreferences > Keyboard > Shortcuts > Screenshots
 ```
-#### Disable Wake on Wi-Fi 
-Wi-Fi transfer rate happen to be reduced after wake from sleep. To fix that, set: 
+#### Disable Wake on Wi-Fi
+Wi-Fi transfer rate happen to be reduced after wake from sleep. To fix that, set:
 ```
 SystemPreferences > Energy Saver > Power Adapter > Wake for Wi-Fi network access > Disable
 ```
 
-#### Monitor temperatures and power consumption with [HWMonitor](https://github.com/kzlekk/HWSensors/releases) 
+#### Monitor temperatures and power consumption with [HWMonitor](https://github.com/kzlekk/HWSensors/releases)
 
 This app is relatively old and no longer supported, but it gets the job done and i really like the simple look
 
