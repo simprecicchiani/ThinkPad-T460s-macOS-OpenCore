@@ -44,6 +44,7 @@
 This EFI will suit any T460s regardless of [CPU model][1] / RAM amount / Display resolution / Storage drive (SATA or [NVMe][2]).
 
 [1]: i5 model follows CPU Power Management guide
+
 [2]: Some NVMe drives may not work *ootb* with MacOS, do your own researches
 
 - [**EFI057Install**](/EFI057Install) is what you want to use for install MacOS
