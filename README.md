@@ -30,7 +30,7 @@ Sound Card: Realtek ALC293
 Multi-touch: None
 Storage: 256GB SSD M.2 Opal2
 Optical: None
-WLAN + Bluetooth: ~~Intel 8260 ac, 2x2 + BT4.1~~ **replaced with [BCM94360CS2](/Guides/BCM94360CS2_WLAN_card.md)**
+WLAN + Bluetooth: BCM94360CS2
 WWAN: WWAN Upgradable (Legacy_Sierra_QMI.kext needed, not tested but should work)
 Smart Card Reader: None
 Camera: 720p
@@ -41,17 +41,17 @@ Battery: 3-cell (23Wh) + 3-cell (26Wh)
 
 ### What if I don't have this exact model?
 
--  [EFI](/EFI) contains my current setup w/o SMBIOS
 
 This EFI will suit any T460s regardless of CPU model / RAM amount / Display resolution / Storage drive (SATA or NVMe).
 
 > i5 model follows CPU Power Management guide  
 > Some NVMe drives may not work OOTB with MacOS, do your own researches
 
+-  [EFI](/EFI) contains my current setup w/o SMBIOS
 
 - [**EFI057Install**](/EFI057Install) is what you want to use to install MacOS
 
-If you happen to have a similiar Thinkpad with 6th gen Skylake Intel processor (like X260, T460, T460p, T560, E560), there is a good chance that `EFI057Install` will work on it **with some precaution**:
+If you happen to have a similar Thinkpad with 6th gen Skylake Intel processor (like X260, T460, T460p, T560, E560), there is a good chance that `EFI057Install` will work on it **with some precaution**:
 
 1. double check your DSDT naming (like EC, LPC, KBD, etc.) with provided SSDTs naming
 
