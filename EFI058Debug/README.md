@@ -1,13 +1,17 @@
 # OpenCore 0.5.8
 
+Features:
+
+- EFI for testing new releases
+
+- OC Debug version
+
 - OpenCanopy GUI
 
-- Debug version
+- USBInjectAll + Port limit patch
 
-- No CPU Power Management
+- Clean SMBIOS, type `MacBookPro13,1`
 
-- No USB Map
-
-- No SMBIOS
+- No custom CPU Power Management
 
 - Tools included

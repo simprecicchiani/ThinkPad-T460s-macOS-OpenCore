@@ -39,15 +39,16 @@
 
 ### What if I don't have this exact model?
 
-This EFI will probably work on any T460s regardless of CPU model* / RAM amount / Display resolution / Storage drive (SATA or NVMe).
+-  [EFI](/EFI) contains my current setup w/o SMBIOS
 
-- Use [EFI](/EFI) if you have a T460s
+This EFI will suit any T460s regardless of [CPU model][1] / RAM amount / Display resolution / Storage drive (SATA or [NVMe][2]).
 
-*(i5 model follows CPU Power Management guide)
+[1]: i5 model follows CPU Power Management guide
+[2]: Some NVMe drives may not work *ootb* with MacOS, do your own researches
 
-If you happen to have a similiar Thinkpad with 6th gen Skylake Intel processor (like X260, T460, T460p, T560, E560), there is a good chance that this EFI will work on it **with some precaution**:
+- [**EFI057Install**](/EFI057Install) is what you want to use for install MacOS
 
-- Use [**EFI056FirstBoot**](/EFI056FirstBoot)
+If you happen to have a similiar Thinkpad with 6th gen Skylake Intel processor (like X260, T460, T460p, T560, E560), there is a good chance that `EFI057Install` will work on it **with some precaution**:
 
 1. double check your DSDT naming (like EC, LPC, KBD, etc.) with provided SSDTs naming
 
@@ -55,14 +56,14 @@ If you happen to have a similiar Thinkpad with 6th gen Skylake Intel processor (
 
 3. follow USB ports map and CPU Power Management below
 
-Thanks to nijhawank from InsanelyMac that [switched from Clover to OpenCore on his T460](https://www.insanelymac.com/forum/topic/315451-guide-lenovo-t460t470-macos-with-clover/?do=findComment&comment=2715459) using [EFI056FirstBoot](/EFI056FirstBoot)!
+Thanks to nijhawank from InsanelyMac that [switched from Clover to OpenCore on his T460](https://www.insanelymac.com/forum/topic/315451-guide-lenovo-t460t470-macos-with-clover/?do=findComment&comment=2715459) using [EFI057Install](/EFI057Install)!
 
 
 ## Recomended changes
 
 ### USB ports map
 
-USBPorts.kext is used to map T460s ports and prevent it from shutdown issues. SSDT-UIAC & SSDT-USBX can be used as well. These files are configured to map all T460s ports *except SD card reader and dock links*.
+USBPorts.kext is used to map T460s ports and prevent it from shutdown issues. Alternatively, SSDT-UIAC & SSDT-USBX can be used as well. These files are configured to map all T460s ports *except TP dock links*.
 If you need a different configuration, e.g. to use Thinkpad dock, easily generate it with [Hackintool](https://github.com/headkaze/Hackintool):
 
 ```
@@ -74,20 +75,20 @@ finally remove USBInjectAll.kext (reflect this change in config.plist)
 
 ### CPU Power Management
 
-This can be achieved by using [CPUFriend](https://github.com/acidanthera/CPUFriend) with data provided, in my case, by [CPUFriendFriend](https://github.com/corpnewt/CPUFriendFriend)
+This can be achieved by using [CPUFriend](https://github.com/acidanthera/CPUFriend) with data provided by [CPUFriendFriend](https://github.com/corpnewt/CPUFriendFriend)
 
 The former allows to generate either `CPUFriendDataProvider.kext` or `SSDT-DATA.dsl`. Use only one of them to achieve custom power management.
 
 On my machine [CPUFriendFriend](https://github.com/corpnewt/CPUFriendFriend) was used to set:  
 
 ```
-Low Frequency Mode (LFM) = 800MHz (TDP-down frequency for i7-6600u)
-Energy Performance Preference (EPP) = 80 (Balance power)
+Low Frequency Mode (LFM) = 800MHz #(TDP-down frequency for i7-6600u)
+Energy Performance Preference (EPP) = 80 #(Balance power)
 ```
 The resulting plist was then selected to generate `SSDT-DATA.dsl` with ResourceConverter.sh inside CPUFriend.
 Data were then combined inside `SSDT-PLUG`, which was then renamed [SSDT-XCPM](/EFI/OC/ACPI/SSDT-XCPM.aml).
 
-If you have a different CPU model, please, **remove CPUFriend.kexts and replace SSDT-XCPM with plain [SSDT-PLUG](/EFI056FirstBoot/OC/ACPI/SSDT-PLUG.aml)**, power management is natevely supported by OpenCore anyway. In the case in which you want to create your own profile, follow the guide provided.
+If you have a different CPU model, please, **remove CPUFriend.kext and replace SSDT-XCPM with plain [SSDT-PLUG](/EFI057Install/OC/ACPI/SSDT-PLUG.aml)**, power management is natively supported by OpenCore anyway. In the case in which you want to create your own profile, follow the above.
 
 That's how power consumption looks like on my machine at idle state:
 
@@ -184,7 +185,7 @@ killall Dock
 
 > If you have any questions or suggestions feel free to contact me
 
-- [ ] SD Card Reader `I will try to make it works sometime in the future`
+- [ ] SD Card Reader `Sinetek-rtsx.kext cause system panic`
 
 - [ ] Fingerprint Reader `Don't think it will ever be working on macOS`
 
