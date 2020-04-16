@@ -20,34 +20,36 @@
 
 ### My Hardware
 
-- Model: Thinkpad T460s (20F9003AUS)
-- Processor: Intel Core i7-6600U (2C, 2.6 / 3.4GHz, 4MB)vPro
-- Graphics: Integrated Intel HD Graphics 520
-- Memory: 4GB Soldered + 4GB DIMM
-- Display: 14" WQHD (2560x1440) IPS
-- Sound Card: Realtek ALC293
-- Multi-touch: None
-- Storage: 256GB SSD M.2 Opal2
-- Optical: None
-- WLAN + Bluetooth: ~~Intel 8260 ac, 2x2 + BT4.1~~ **replaced with [BCM94360CS2](/Guides/BCM94360CS2_WLAN_card.md)**
-- WWAN: WWAN Upgradable (Legacy_Sierra_QMI.kext needed, not tested but should work)
-- Smart Card Reader: None
-- Camera: 720p
-- Keyboard: Backlit
-- Fingerprint Reader: Yes
-- Battery: 3-cell (23Wh) + 3-cell (26Wh)
+```
+Model: Thinkpad T460s (20F9003AUS)
+Processor: Intel Core i7-6600U (2C, 2.6 / 3.4GHz, 4MB)vPro
+Graphics: Integrated Intel HD Graphics 520
+Memory: 4GB Soldered + 4GB DIMM
+Display: 14" WQHD (2560x1440) IPS
+Sound Card: Realtek ALC293
+Multi-touch: None
+Storage: 256GB SSD M.2 Opal2
+Optical: None
+WLAN + Bluetooth: ~~Intel 8260 ac, 2x2 + BT4.1~~ **replaced with [BCM94360CS2](/Guides/BCM94360CS2_WLAN_card.md)**
+WWAN: WWAN Upgradable (Legacy_Sierra_QMI.kext needed, not tested but should work)
+Smart Card Reader: None
+Camera: 720p
+Keyboard: Backlit
+Fingerprint Reader: Yes
+Battery: 3-cell (23Wh) + 3-cell (26Wh)
+```
 
 ### What if I don't have this exact model?
 
 -  [EFI](/EFI) contains my current setup w/o SMBIOS
 
-This EFI will suit any T460s regardless of [CPU model][1] / RAM amount / Display resolution / Storage drive (SATA or [NVMe][2]).
+This EFI will suit any T460s regardless of CPU model / RAM amount / Display resolution / Storage drive (SATA or NVMe).
 
-[1]: i5 model follows CPU Power Management guide
+> i5 model follows CPU Power Management guide  
+> Some NVMe drives may not work OOTB with MacOS, do your own researches
 
-[2]: Some NVMe drives may not work *ootb* with MacOS, do your own researches
 
-- [**EFI057Install**](/EFI057Install) is what you want to use for install MacOS
+- [**EFI057Install**](/EFI057Install) is what you want to use to install MacOS
 
 If you happen to have a similiar Thinkpad with 6th gen Skylake Intel processor (like X260, T460, T460p, T560, E560), there is a good chance that `EFI057Install` will work on it **with some precaution**:
 
@@ -57,7 +59,7 @@ If you happen to have a similiar Thinkpad with 6th gen Skylake Intel processor (
 
 3. follow USB ports map and CPU Power Management below
 
-Thanks to nijhawank from InsanelyMac that [switched from Clover to OpenCore on his T460](https://www.insanelymac.com/forum/topic/315451-guide-lenovo-t460t470-macos-with-clover/?do=findComment&comment=2715459) using [EFI057Install](/EFI057Install)!
+Thanks to @nijhawank from InsanelyMac that [switched from Clover to OpenCore on his T460](https://www.insanelymac.com/forum/topic/315451-guide-lenovo-t460t470-macos-with-clover/?do=findComment&comment=2715459) using [EFI057Install](/EFI057Install)!
 
 
 ## Recomended changes
@@ -68,7 +70,7 @@ USBPorts.kext is used to map T460s ports and prevent it from shutdown issues. Al
 If you need a different configuration, e.g. to use Thinkpad dock, easily generate it with [Hackintool](https://github.com/headkaze/Hackintool):
 
 ```
-use EFI (first boot) wich contains USBInjectAll.kext
+use EFI (first boot) which contains USBInjectAll.kext
 generate custom USB map according to your specific needs with Hackintool
 place USBPort.kext in OC/Kexts or SSDT-UIAC & SSDT_USBX in OC/ACPI (reflect these changes in config.plist)
 finally remove USBInjectAll.kext (reflect this change in config.plist)
@@ -86,7 +88,7 @@ On my machine [CPUFriendFriend](https://github.com/corpnewt/CPUFriendFriend) was
 Low Frequency Mode (LFM) = 800MHz #(TDP-down frequency for i7-6600u)
 Energy Performance Preference (EPP) = 80 #(Balance power)
 ```
-The resulting plist was then selected to generate `SSDT-DATA.dsl` with ResourceConverter.sh inside CPUFriend.
+The resulting .plist file was then selected to generate `SSDT-DATA.dsl` with ResourceConverter.sh inside CPUFriend.
 Data were then combined inside `SSDT-PLUG`, which was then renamed [SSDT-XCPM](/EFI/OC/ACPI/SSDT-XCPM.aml).
 
 If you have a different CPU model, please, **remove CPUFriend.kext and replace SSDT-XCPM with plain [SSDT-PLUG](/EFI057Install/OC/ACPI/SSDT-PLUG.aml)**, power management is natively supported by OpenCore anyway. In the case in which you want to create your own profile, follow the above.
@@ -114,7 +116,7 @@ to accomplish that, use the settings below
 
 #### [Use PrtSc key as Screenshot shortcut](/Guides/PrtSc_key_map_to_F13.md)
 
-PrtSc is already mapped to F13 by SSDT-PS2K
+PrtSc key is already mapped to F13 by SSDT-PS2K
 ```
 set the shortcut under SystemPreferences > Keyboard > Shortcuts > Screenshots
 ```
@@ -138,14 +140,14 @@ killall Dock
 
 ## Bios settings
 
-- `Security -> Security Chip` **Disabled**
-- `Memory Protection -> Execution Prevention` **Enabled**
-- `Virtualization -> Intel Virtualization Technology` **Enabled**
-- `Virtualization -> Intel VT-d Feature` **Disabled**
-- `Anti-Theft -> Current Setting` **Disabled**
-- `Anti-Theft -> Computrace -> Current Setting` **Disabled**
-- `Secure Boot -> Secure Boot` **Disabled**
-- `Intel SGX -> Intel SGX Control` **Disabled**
+- `Security` > `Security Chip` **Disabled**
+- `Memory Protection` > `Execution Prevention` **Enabled**
+- `Virtualization` > `Intel Virtualization Technology` **Enabled**
+- `Virtualization` > `Intel VT-d Feature` **Disabled**
+- `Anti-Theft` > `Current Setting` **Disabled**
+- `Anti-Theft` > `Computrace` > `Current Setting` **Disabled**
+- `Secure Boot` > `Secure Boot` **Disabled**
+- `Intel SGX` > `Intel SGX Control` **Disabled**
 - `Device Guard` **Disabled**
 - `UEFI/Legacy Boot` **UEFI Only**
 - `CSM Support` **No**
@@ -154,13 +156,13 @@ killall Dock
 
 >[Boot time from OC Picker to Desktop is 26s](https://www.youtube.com/watch?v=SnuQjuIrfc0)
 
-- [x] CPU Power Management `<1W on IDLE`
+- [x] CPU Power Management `~1W on IDLE`
 
 - [x] All USB ports `custom USBPorts kext is used, make a new one if using dock`
 
 - [x] Internal camera
 
-- [x] Sleep / Wake / Shutdown / Reboot `custom USBPorts.kext required`
+- [x] Sleep / Wake / Shutdown / Reboot `custom USBPorts.kext or SSDT-EXT1 required`
 
 - [x] Ethernet
 
@@ -172,13 +174,13 @@ killall Dock
 
 - [x] Battery **(very stable and precise capacity tracking)** `Thanks to EchoEsprit work for T450s`
 
-- [x] Keyboard `volume and brighness hotkeys`
+- [x] Keyboard `volume and brightness hotkeys`
 
 - [x] Trackpad, Trackpoint and physical buttons `two fingers swipe and tree fingers gestures`
 
 - [x] Internal camera `works without additional files`
 
-- [x] SIP and FileVault 2 can be enabled `disabled by default in config.plist`
+- [x] SIP and FileVault 2 can be enabled
 
 - [x] miniDP `not already tested` and HDMI `with digital audio passthrough`
 
@@ -188,7 +190,7 @@ killall Dock
 
 - [ ] SD Card Reader `Sinetek-rtsx.kext cause system panic`
 
-- [ ] Fingerprint Reader `Don't think it will ever be working on macOS`
+- [ ] Fingerprint Reader
 
 ## Update tracker
 
