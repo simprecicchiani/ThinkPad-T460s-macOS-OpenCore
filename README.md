@@ -39,7 +39,7 @@ Fingerprint Reader: Yes
 Battery: 3-cell (23Wh) + 3-cell (26Wh)
 ```
 
-### What if I don't have this exact model?
+## What if I don't have this exact model?
 
 
 This EFI will suit any T460s regardless of CPU model[^1] / RAM amount / Display resolution / Storage drive (SATA or NVMe[^2]).
