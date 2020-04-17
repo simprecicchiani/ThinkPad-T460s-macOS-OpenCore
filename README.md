@@ -42,10 +42,11 @@ Battery: 3-cell (23Wh) + 3-cell (26Wh)
 ### What if I don't have this exact model?
 
 
-This EFI will suit any T460s regardless of CPU model / RAM amount / Display resolution / Storage drive (SATA or NVMe).
+This EFI will suit any T460s regardless of CPU model[^1] / RAM amount / Display resolution / Storage drive (SATA or NVMe[^2]).
 
-> i5 model follows CPU Power Management guide  
-> Some NVMe drives may not work OOTB with MacOS, do your own researches
+[^1]: i5 model follows CPU Power Management guide  
+
+[^2]: Some NVMe drives may not work OOTB with MacOS, do your own researches
 
 -  [EFI](/EFI) contains my current setup w/o SMBIOS
 
@@ -128,7 +129,7 @@ SystemPreferences > Energy Saver > Power Adapter > Wake for Wi-Fi network access
 
 #### Monitor temperatures and power consumption with [HWMonitor](https://github.com/kzlekk/HWSensors/releases)
 
-This app is relatively old and no longer supported, but it gets the job done and i really like the simple look
+This app is relatively old and no longer supported, but it gets the job done and I really like the simple look
 
 #### Make dock animation faster and without delay
 Run these lines in terminal:
