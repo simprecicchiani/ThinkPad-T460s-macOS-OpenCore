@@ -16,7 +16,7 @@
 
 - The guys from [Acidanthera](https://github.com/acidanthera) that make this possible
 
-### [Why OpenCore](https://desktop.dortania.ml/#advantages-of-opencore)
+### [Why OpenCore](https://dortania.github.io/OpenCore-Desktop-Guide/#advantages-of-opencore)
 
 ### My Hardware
 
