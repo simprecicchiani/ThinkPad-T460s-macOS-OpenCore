@@ -185,29 +185,33 @@ killall Dock
 
 - [x] miniDP `not already tested` and HDMI `with digital audio passthrough`
 
+- [x] SD Card Reader `slow r/w speed but works`
+
+
 ## What's not working ⚠️
-
-> If you have any questions or suggestions feel free to contact me
-
-- [ ] SD Card Reader `Sinetek-rtsx.kext cause system panic`
 
 - [ ] Fingerprint Reader
 
+- [ ] Video output not so stable
+
 ## Update tracker
+
+- [x] safe to install macOS Catalina‌ 10.15.4 supplemental update
+
 
 | Item | Version |
 | :--- | ---: |
 | MacOS | 10.15.4 |
-| OpenCore | 0.5.7 |
-| Lilu | 1.4.3 |
-| VirtualSMC | 1.1.2 |
-| WhateverGreen | 1.3.8 |
-| AppleALC | 1.4.8 |
-| VoodooPS2Controller | 2.1.3 |
-| VoodooInput | 1.0.4 |
+| OpenCore | 0.5.8 |
+| Lilu | 1.4.4 |
+| VirtualSMC | 1.1.3 |
+| WhateverGreen | 1.3.9 |
+| AppleALC | 1.4.9 |
+| VoodooPS2Controller | 2.1.4 |
+| VoodooInput | 1.0.5 |
 | IntelMausi | 1.0.2 |
+| Sinetek-rtsx.kext | 2.2 |
 
-`safe to install macOS Catalina‌ 10.15.4 supplemental update`
 
 ## If you found my work useful please consider a PayPal donation
 
