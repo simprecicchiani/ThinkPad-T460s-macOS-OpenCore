@@ -155,7 +155,7 @@ killall Dock
 
 ## What's working
 
->[Boot time from OC Picker to Desktop is 26s](https://www.youtube.com/watch?v=SnuQjuIrfc0)
+>[Boot time from OC Picker to Desktop was 26s](https://www.youtube.com/watch?v=SnuQjuIrfc0), now it's 18s
 
 - [x] CPU Power Management `~1W on IDLE`
 
