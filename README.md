@@ -8,36 +8,36 @@
 
 ### General knowledge & credits
 
+* [Why OpenCore](https://dortania.github.io/OpenCore-Desktop-Guide/#advantages-of-opencore)
+
 - To install macOS follow the guides provided by [Dortania](https://dortania.github.io)
 
 - Lots of SSDT patches from [OC-little](https://translate.google.it/translate?sl=zh-CN&tl=en&u=https%3A%2F%2Fgithub.com%2Fdaliansky%2FOC-little)
 
 - Useful tools by [CorpNewt](https://github.com/corpnewt)
 
-- The guys from [Acidanthera](https://github.com/acidanthera) that make this possible
+- [Acidanthera](https://github.com/acidanthera) that make this possible
 
-### [Why OpenCore](https://dortania.github.io/OpenCore-Desktop-Guide/#advantages-of-opencore)
 
 ### My Hardware
 
-```
-Model: Thinkpad T460s (20F9003AUS)
-Processor: Intel Core i7-6600U (2C, 2.6 / 3.4GHz, 4MB)vPro
-Graphics: Integrated Intel HD Graphics 520
-Memory: 4GB Soldered + 4GB DIMM
-Display: 14" WQHD (2560x1440) IPS
-Sound Card: Realtek ALC293
-Multi-touch: None
-Storage: 256GB SSD M.2 Opal2
-Optical: None
-WLAN + Bluetooth: BCM94360CS2
-WWAN: WWAN Upgradable (Legacy_Sierra_QMI.kext needed, not tested but should work)
-Smart Card Reader: None
-Camera: 720p
-Keyboard: Backlit
-Fingerprint Reader: Yes
-Battery: 3-cell (23Wh) + 3-cell (26Wh)
-```
+* Model: Thinkpad T460s (20F9003AUS)
+* Processor: Intel Core i7-6600U (2C, 2.6 / 3.4GHz, 4MB)vPro
+* Graphics: Integrated Intel HD Graphics 520
+* Memory: 4GB Soldered + 4GB DIMM
+* Display: 14" WQHD (2560x1440) IPS
+* Sound Card: Realtek ALC293
+* Multi-touch: None
+* Storage: 256GB SSD M.2 Opal2
+* Optical: None
+* WLAN + Bluetooth: BCM94360CS2
+* WWAN: WWAN Upgradable (Legacy_Sierra_QMI.kext needed, not tested but should work)
+* Smart Card Reader: None
+* Camera: 720p
+* Keyboard: Backlit
+* Fingerprint Reader: Yes
+* Battery: 3-cell (23Wh) + 3-cell (26Wh)
+
 
 ## What if I don't have this exact model?
 
@@ -63,7 +63,7 @@ If you happen to have a similar Thinkpad with 6th gen Skylake Intel processor (l
 Thanks to @nijhawank from InsanelyMac that [switched from Clover to OpenCore on his T460](https://www.insanelymac.com/forum/topic/315451-guide-lenovo-t460t470-macos-with-clover/?do=findComment&comment=2715459) using [EFI057Install](/EFI057Install)!
 
 
-## Recomended changes
+## Recommended changes
 
 ### USB ports map
 
@@ -78,27 +78,25 @@ finally remove USBInjectAll.kext (reflect this change in config.plist)
 ```
 
 ### CPU Power Management
+If you happen to have a different CPU model **remove CPUFriend.kext and replace SSDT-CPUD with plain [SSDT-PLUG](/EFI057Install/OC/ACPI/SSDT-PLUG.aml)**, power management is natively supported by OpenCore. If you want to take a step forward and create a custom profile, follow the steps below:
 
-This can be achieved by using [CPUFriend](https://github.com/acidanthera/CPUFriend) with data provided by [CPUFriendFriend](https://github.com/corpnewt/CPUFriendFriend)
-
-The former allows to generate either `CPUFriendDataProvider.kext` or `SSDT-DATA.dsl`. Use only one of them to achieve custom power management.
-
-On my machine [CPUFriendFriend](https://github.com/corpnewt/CPUFriendFriend) was used to set:  
+* Use [CPUFriendFriend](https://github.com/corpnewt/CPUFriendFriend) to generate  a `.plist` file with PM data; (settings for i7-6600u):
 
 ```
 Low Frequency Mode (LFM) = 800MHz #(TDP-down frequency for i7-6600u)
 Energy Performance Preference (EPP) = 80 #(Balance power)
 ```
-The resulting .plist file was then selected to generate `SSDT-DATA.dsl` with ResourceConverter.sh inside CPUFriend.
-Data were then combined inside `SSDT-PLUG`, which was then renamed [SSDT-XCPM](/EFI/OC/ACPI/SSDT-XCPM.aml).
+* via `ResourceConverter.sh` inside [CPUFriend](https://github.com/acidanthera/CPUFriend), select the `.plist` to generate either `CPUFriendDataProvider.kext` or `SSDT-DATA.dsl`;
 
-If you have a different CPU model, please, **remove CPUFriend.kext and replace SSDT-XCPM with plain [SSDT-PLUG](/EFI057Install/OC/ACPI/SSDT-PLUG.aml)**, power management is natively supported by OpenCore anyway. In the case in which you want to create your own profile, follow the above.
+* Load `CPUFriend.kext` and `CPUFriendDataProvider.kext` inside `EFI/OC/config.plist` or
+
+* Alternatively combine `SSDT-DATA.dsl` data with `SSDT-PLUG` (renamed in [SSDT-CPUD](/EFI/OC/ACPI/SSDT-CPUD.aml)) and load it with `CPUFriend.kext` inside `EFI/OC/config.plist`.
 
 That's how power consumption looks like on my machine at idle state:
 
 <img src="/Images/PowerConsumption.png" height="300" >
 
-### Optional
+### True Macbook experience
 
 #### [Generate your own SMBIOS](https://github.com/corpnewt/GenSMBIOS)
 ```
@@ -115,47 +113,50 @@ to accomplish that, use the settings below
 ```
 <img src="/Images/HiDPI.png" height="300" >
 
-#### [Use PrtSc key as Screenshot shortcut](/Guides/PrtSc_key_map_to_F13.md)
+### Other tweaks 
 
-PrtSc key is already mapped to F13 by SSDT-PS2K
+#### [Use PrtSc key as Screenshot shortcut](/Guides/PrtSc_to_F13.md)
+
 ```
 set the shortcut under SystemPreferences > Keyboard > Shortcuts > Screenshots
 ```
 #### Disable Wake on Wi-Fi
 Wi-Fi transfer rate happen to be reduced after wake from sleep. To fix that, set:
+
 ```
 SystemPreferences > Energy Saver > Power Adapter > Wake for Wi-Fi network access > Disable
 ```
 
 #### Monitor temperatures and power consumption with [HWMonitor](https://github.com/kzlekk/HWSensors/releases)
 
-This app is relatively old and no longer supported, but it gets the job done and I really like the simple look
+This app is relatively old and no longer supported, but it gets the job done and has a nice simple look.
 
 #### Make dock animation faster and without delay
 Run these lines in terminal:
-```
+
+```bash
 defaults write com.apple.dock autohide-delay -float 0
 defaults write com.apple.dock autohide-time-modifier -float 0.5
 killall Dock
 ```
 
 ## Bios settings
-
-- `Security` > `Security Chip` **Disabled**
-- `Memory Protection` > `Execution Prevention` **Enabled**
-- `Virtualization` > `Intel Virtualization Technology` **Enabled**
-- `Virtualization` > `Intel VT-d Feature` **Disabled**
-- `Anti-Theft` > `Current Setting` **Disabled**
-- `Anti-Theft` > `Computrace` > `Current Setting` **Disabled**
-- `Secure Boot` > `Secure Boot` **Disabled**
-- `Intel SGX` > `Intel SGX Control` **Disabled**
-- `Device Guard` **Disabled**
-- `UEFI/Legacy Boot` **UEFI Only**
-- `CSM Support` **No**
+* `Config` > `USB` > `UEFI BIOS Support` > **Enable**
+* `Config` > `Power` > `Intel SpeedStep Technology` > **Enable**
+* `Config` > `Power` > `CPU Power Management` > **Enable**
+* `Config` > `CPU` > `Hyper-Threading Technology` > **Enable**
+* `Security` > `Security Chip` > **Disable**
+* `Security` > `Virtualization` > `Intel Virtualization Technology` > **Enable**
+* `Security` > `Virtualization` > `Intel VT-d Feature` > **Enable**
+* `Security` > `Secure Boot` > **Disable**
+* `Security` > `Intel SGX` > **Disable**
+* `Startup` > `UEFI/Legacy Boot` > **UEFI Only**
+* `Startup` > `CSM Support` > **No**
+* `Startup` > `Boot Mode` > **Quick**
 
 ## What's working
 
->[Boot time from OC Picker to Desktop was 26s](https://www.youtube.com/watch?v=SnuQjuIrfc0), now it's 18s
+>[Startup time from OC Picker to Desktop was 26s](https://www.youtube.com/watch?v=SnuQjuIrfc0), now it's 18s
 
 - [x] CPU Power Management `~1W on IDLE`
 
@@ -219,4 +220,4 @@ killall Dock
 
 ## Thanks to
 
-All the hackintosh community, especially you guys on GitHub.
+All the hackintosh community, especially the guys on GitHub.

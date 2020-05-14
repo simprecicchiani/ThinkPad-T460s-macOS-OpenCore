@@ -2,7 +2,7 @@
 
 Simple way to make PrtSc key useful 
 
-## Map into SSDT-PS2K
+## Map into SSDT-KBRD
 
 Already done into EFI
 
