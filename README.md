@@ -96,7 +96,7 @@ That's how power consumption looks like on my machine at idle state:
 
 <img src="/Images/PowerConsumption.png" height="300" >
 
-### True Macbook experience
+### True Macbook experience 
 
 #### [Generate your own SMBIOS](https://github.com/corpnewt/GenSMBIOS)
 ```
@@ -141,50 +141,56 @@ killall Dock
 ```
 
 ## Bios settings
+
 * `Config` > `USB` > `UEFI BIOS Support` > **Enable**
 * `Config` > `Power` > `Intel SpeedStep Technology` > **Enable**
 * `Config` > `Power` > `CPU Power Management` > **Enable**
 * `Config` > `CPU` > `Hyper-Threading Technology` > **Enable**
 * `Security` > `Security Chip` > **Disable**
+* `Security` > `Memory Protection`>`Execution Prevention`>**Enable**
 * `Security` > `Virtualization` > `Intel Virtualization Technology` > **Enable**
 * `Security` > `Virtualization` > `Intel VT-d Feature` > **Enable**
+* `Security` > `Anti-Theft` > `Computrace` > `Current Setting` > **Disable**
 * `Security` > `Secure Boot` > **Disable**
 * `Security` > `Intel SGX` > **Disable**
+* `Security` > `Device Guard` > **Disable**
 * `Startup` > `UEFI/Legacy Boot` > **UEFI Only**
 * `Startup` > `CSM Support` > **No**
 * `Startup` > `Boot Mode` > **Quick**
 
-## What's working
+## What's working ✔️
 
 >[Startup time from OC Picker to Desktop was 26s](https://www.youtube.com/watch?v=SnuQjuIrfc0), now it's 18s
 
 - [x] CPU Power Management `~1W on IDLE`
 
-- [x] All USB ports `custom USBPorts kext is used, make a new one if using dock`
+- [x] Intel HD 520 Graphics `incuding graphics acceleration`
 
-- [x] Internal camera
+- [x] All USB ports `with custom kext or SSDT`
 
-- [x] Sleep / Wake / Shutdown / Reboot `custom USBPorts.kext or SSDT-EXT1 required`
+- [x] Internal camera `working fine on FaceTime, Skype, Webex and others`
 
-- [x] Ethernet
+- [x] Sleep / Wake / Shutdown / Reboot `with lid sernsor`
+
+- [x] Intel Gigabit Ethernet
 
 - [x] **[Wifi, Bluetooth, Airdrop, Handoff, Continuity, Sidecar wireless](/Guides/BCM94360CS2_WLAN_card.md)**
 
 - [x] iMessage, FaceTime, App Store, iTunes Store `Generate your own SMBIOS`
 
-- [x] Audio in/out `audio trough dock should work too thanks to AppleALC tluck's layout 28`
+- [x] DRM support `iTunes Movies, Apple TV+, Amazon Prime, Netflix and others`
 
-- [x] Battery **(very stable and precise capacity tracking)** `Thanks to EchoEsprit work for T450s`
+- [x] Speakers and headphones jack `fairly good volume`
 
-- [x] Keyboard `volume and brightness hotkeys`
+- [x] Batteries `very stable and precise capacity tracking`
 
-- [x] Trackpad, Trackpoint and physical buttons `two fingers swipe and tree fingers gestures`
+- [x] Keyboard map and hotkeys with [ThinkpadAssistant](https://github.com/MSzturc/ThinkpadAssistant) `thanks to @MSzturc`
 
-- [x] Internal camera `works without additional files`
+- [x] Trackpad, Trackpoint and physical buttons `two fingers swipe and three fingers gestures`
 
 - [x] SIP and FileVault 2 can be enabled
 
-- [x] miniDP `not already tested` and HDMI `with digital audio passthrough`
+- [x] miniDP and HDMI `with digital audio passthrough`
 
 - [x] SD Card Reader `slow r/w speed but works`
 
@@ -195,7 +201,7 @@ killall Dock
 
 - [ ] Video output not so stable
 
-## Update tracker
+## Update tracker 🔄
 
 - [x] safe to install macOS Catalina‌ 10.15.4 supplemental update
 
