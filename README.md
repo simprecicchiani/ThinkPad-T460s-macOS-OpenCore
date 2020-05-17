@@ -27,12 +27,8 @@
 * Memory: 4GB Soldered + 4GB DIMM
 * Display: 14" WQHD (2560x1440) IPS
 * Sound Card: Realtek ALC293
-* Multi-touch: None
 * Storage: 256GB SSD M.2 Opal2
-* Optical: None
 * WLAN + Bluetooth: BCM94360CS2
-* WWAN: WWAN Upgradable (Legacy_Sierra_QMI.kext needed, not tested but should work)
-* Smart Card Reader: None
 * Camera: 720p
 * Keyboard: Backlit
 * Fingerprint Reader: Yes
@@ -200,6 +196,8 @@ killall Dock
 - [ ] Fingerprint Reader
 
 - [ ] Video output not so stable
+
+- [ ] WWAN `Legacy_Sierra_QMI.kext needed, not tested but should work`
 
 ## Update tracker 🔄
 
