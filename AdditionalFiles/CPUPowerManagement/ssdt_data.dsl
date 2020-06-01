@@ -17,7 +17,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "freqdata", 0x00000001)
 								})
 						}
 
-						Return (Package ()
+						Return (Package (0x04)
 						{
 								//
 								// Inject plugin-type = 0x01 to load X86*.kext

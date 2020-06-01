@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ACPI</key>
+	<dict>
+		<key>DSDT</key>
+		<dict>
+			<key>Patches</key>
+			<array>
+				<dict>
+					<key>Comment</key>
+					<string>HPET _CRS to XCRS Rename</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					X0NSUwiK
+					</data>
+					<key>Replace</key>
+					<data>
+					WENSUwiK
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>TIMR IRQ 0 Patch</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					IgEAeQA=
+					</data>
+					<key>Replace</key>
+					<data>
+					IgAAeQA=
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>RTC IRQ 8 Patch</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					IgABeQA=
+					</data>
+					<key>Replace</key>
+					<data>
+					IgAAeQA=
+					</data>
+				</dict>
+			</array>
+		</dict>
+		<key>SortedOrder</key>
+		<array>
+			<string>SSDT-HPET.aml</string>
+		</array>
+	</dict>
+</dict>
+</plist>

@@ -10,13 +10,15 @@
 
 * [Why OpenCore](https://dortania.github.io/OpenCore-Desktop-Guide/#advantages-of-opencore)
 
-- To install macOS follow the guides provided by [Dortania](https://dortania.github.io)
+* To install macOS follow the guides provided by [Dortania](https://dortania.github.io)
 
-- Lots of SSDT patches from [OC-little](https://translate.google.it/translate?sl=zh-CN&tl=en&u=https%3A%2F%2Fgithub.com%2Fdaliansky%2FOC-little)
+* Lots of SSDT patches from [OC-little](https://translate.google.it/translate?sl=zh-CN&tl=en&u=https%3A%2F%2Fgithub.com%2Fdaliansky%2FOC-little)
 
-- Useful tools by [CorpNewt](https://github.com/corpnewt)
+* Useful tools by [CorpNewt](https://github.com/corpnewt)
 
-- [Acidanthera](https://github.com/acidanthera) that make this possible
+* [Acidanthera](https://github.com/acidanthera) that make this possible
+
+* @MSzturc for keyboard map and [ThinkpadAssistant](https://github.com/MSzturc/ThinkpadAssistant)
 
 
 ### My Hardware
@@ -40,45 +42,30 @@
 
 This EFI will suit any T460s regardless of CPU model[^1] / RAM amount / Display resolution / Storage drive (SATA or NVMe[^2]).
 
-[^1]: i5 model follows CPU Power Management guide  
+[^1]: non-i7 models follow [CPU Power Management](#cpu-power-management) guide  
 
-[^2]: Some NVMe drives may not work OOTB with MacOS, do your own researches
-
--  [EFI](/EFI) contains my current setup w/o SMBIOS
-
-- [**EFI057Install**](/EFI057Install) is what you want to use to install MacOS
-
-If you happen to have a similar Thinkpad with 6th gen Skylake Intel processor (like X260, T460, T460p, T560, E560), there is a good chance that `EFI057Install` will work on it **with some precaution**:
-
-1. double check your DSDT naming (like EC, LPC, KBD, etc.) with provided SSDTs naming
-
-2. change iGPU inside cofing.plist according to your model (default is HD520)
-
-3. follow USB ports map and CPU Power Management below
-
-Thanks to @nijhawank from InsanelyMac that [switched from Clover to OpenCore on his T460](https://www.insanelymac.com/forum/topic/315451-guide-lenovo-t460t470-macos-with-clover/?do=findComment&comment=2715459) using [EFI057Install](/EFI057Install)!
-
+[^2]: Some NVMe drives may not work OOTB with MacOS, [NVMeFix](https://github.com/acidanthera/NVMeFix) could resolve some issues.
 
 ## Recommended changes
 
 ### USB ports map
 
-USBPorts.kext is used to map T460s ports and prevent it from shutdown issues. Alternatively, SSDT-UIAC & SSDT-USBX can be used as well. These files are configured to map all T460s ports *except TP dock links*.
-If you need a different configuration, e.g. to use Thinkpad dock, easily generate it with [Hackintool](https://github.com/headkaze/Hackintool):
+Needed to make TP dock ports working since I don't have one and my config doesn't include them.
 
-```
-use EFI (first boot) which contains USBInjectAll.kext
-generate custom USB map according to your specific needs with Hackintool
-place USBPort.kext in OC/Kexts or SSDT-UIAC & SSDT_USBX in OC/ACPI (reflect these changes in config.plist)
-finally remove USBInjectAll.kext (reflect this change in config.plist)
-```
+Use one of the following methods:
+
+* [USBMap from CorpNewt](https://github.com/corpnewt?tab=repositories)
+
+* [USBPorts from Hackintool](https://github.com/headkaze/Hackintool)
+
+* [Native USB fix without injector kext](https://www.olarila.com/topic/6878-guide-native-usb-fix-for-notebooks-no-injectorkext-required/?tab=comments#comment-88412)
 
 ### CPU Power Management
 If you happen to have a different CPU model **remove CPUFriend.kext and replace SSDT-CPUD with plain [SSDT-PLUG](/EFI057Install/OC/ACPI/SSDT-PLUG.aml)**, power management is natively supported by OpenCore. If you want to take a step forward and create a custom profile, follow the steps below:
 
 * Use [CPUFriendFriend](https://github.com/corpnewt/CPUFriendFriend) to generate  a `.plist` file with PM data; (settings for i7-6600u):
 
-```
+```sh
 Low Frequency Mode (LFM) = 800MHz #(TDP-down frequency for i7-6600u)
 Energy Performance Preference (EPP) = 80 #(Balance power)
 ```
@@ -95,13 +82,13 @@ That's how power consumption looks like on my machine at idle state:
 ### True Macbook experience 
 
 #### [Generate your own SMBIOS](https://github.com/corpnewt/GenSMBIOS)
-```
+```sh
 run the script with MacbookPro13,1
 add results to PlatformInfo > Generic > MLB, SystemSerialNumber and SystemUUID
 ```
 
 #### Enable HiDPI with [RDM Utility](https://github.com/usr-sse2/RDM/releases)
-```
+```sh
 install RDM Utility
 open it, click on "resolution", then "edit"
 for 2560x1440 screens I suggest using 1440x810 resolution
@@ -109,18 +96,22 @@ to accomplish that, use the settings below
 ```
 <img src="/Images/HiDPI.png" height="300" >
 
-### Other tweaks 
+### Other tweaks
+
+#### Install [ThinkpadAssistant](https://github.com/MSzturc/ThinkpadAssistant)
+
+Every hotkey will work on macOS with a beautiful, apple like control hud.
+
+```sh
+include SSDT-KBRD and relatives names patches in config.plist
+install ThinkpadAssistant app under /Apllication/
+check launch on login
+```
 
 #### [Use PrtSc key as Screenshot shortcut](/Guides/PrtSc_to_F13.md)
 
-```
-set the shortcut under SystemPreferences > Keyboard > Shortcuts > Screenshots
-```
-#### Disable Wake on Wi-Fi
-Wi-Fi transfer rate happen to be reduced after wake from sleep. To fix that, set:
-
-```
-SystemPreferences > Energy Saver > Power Adapter > Wake for Wi-Fi network access > Disable
+```sh
+set F13 shortcut under SystemPreferences > Keyboard > Shortcuts > Screenshots
 ```
 
 #### Monitor temperatures and power consumption with [HWMonitor](https://github.com/kzlekk/HWSensors/releases)
@@ -130,7 +121,7 @@ This app is relatively old and no longer supported, but it gets the job done and
 #### Make dock animation faster and without delay
 Run these lines in terminal:
 
-```bash
+```sh
 defaults write com.apple.dock autohide-delay -float 0
 defaults write com.apple.dock autohide-time-modifier -float 0.5
 killall Dock
@@ -201,13 +192,13 @@ killall Dock
 
 ## Update tracker 🔄
 
-- [x] safe to install macOS Catalina‌ 10.15.4 supplemental update
+- [x] safe to install macOS Catalina‌ 10.15.5
 
 
 | Item | Version |
 | :--- | ---: |
-| MacOS | 10.15.4 |
-| OpenCore | 0.5.8 |
+| MacOS | 10.15.5 |
+| OpenCore | 0.5.9 |
 | Lilu | 1.4.4 |
 | VirtualSMC | 1.1.3 |
 | WhateverGreen | 1.3.9 |
@@ -224,4 +215,4 @@ killall Dock
 
 ## Thanks to
 
-All the hackintosh community, especially the guys on GitHub.
+The hackintosh community from GitHub, [InsanelyMac](https://www.insanelymac.com/forum/) and [r/hackintosh](https://www.reddit.com/r/hackintosh/).
