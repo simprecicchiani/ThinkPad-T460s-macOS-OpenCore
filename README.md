@@ -199,13 +199,13 @@ killall Dock
 | :--- | ---: |
 | MacOS | 10.15.5 |
 | OpenCore | 0.5.9 |
-| Lilu | 1.4.4 |
-| VirtualSMC | 1.1.3 |
-| WhateverGreen | 1.3.9 |
-| AppleALC | 1.4.9 |
+| Lilu | 1.4.5 |
+| VirtualSMC | 1.1.4 |
+| WhateverGreen | 1.4.0 |
+| AppleALC | 1.5.0 |
 | VoodooPS2Controller | 2.1.4 |
 | VoodooInput | 1.0.5 |
-| IntelMausi | 1.0.2 |
+| IntelMausi | 1.0.3 |
 | Sinetek-rtsx.kext | 2.2 |
 
 
