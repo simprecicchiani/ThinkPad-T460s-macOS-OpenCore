@@ -1,6 +1,10 @@
 # Thinkpad T460s macOS Catalina (OpenCore bootloader)
 
-> First ever OpenCore build for T460s
+> First OpenCore build for T460s ever
+
+### [How to create a bootable USB flash drive](https://youtu.be/FiYQTZ4lPwk)
+
+### [How to Install macOS](https://youtu.be/9p9ulCX6iyI)
 
 <img src="/Images/T460s.png" alt="Thinkpad T460s" height="500">
 
