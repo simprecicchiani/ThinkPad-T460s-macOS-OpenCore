@@ -6,6 +6,8 @@
 
 ### [How to Install macOS](https://youtu.be/9p9ulCX6iyI)
 
+### [How to Upgrade to macOS Big Sur](/Guides/Big_Sur_Install.md)
+
 <img src="/Images/T460s.png" alt="Thinkpad T460s" height="500">
 
 ## Introduction
@@ -44,11 +46,16 @@
 ## What if I don't have this exact model?
 
 
-This EFI will suit any T460s regardless of CPU model[^1] / RAM amount / Display resolution / Storage drive (SATA or NVMe[^2]).
+This EFI will suit any T460s regardless of CPU model[^1] / RAM amount / Display resolution[^2] / Storage drive (SATA or NVMe[^3]).
 
 [^1]: non-i7 models follow [CPU Power Management](#cpu-power-management) guide  
 
-[^2]: Some NVMe drives may not work OOTB with MacOS, [NVMeFix](https://github.com/acidanthera/NVMeFix) could resolve some issues.
+[^2]: 1080p display models should change UIScale to 1 for better resolution while booting
+```sh
+NVRAM -> Add -> 7C436110-AB2A-4BBB-A880-FE41995C9F82 -> UIScale = 1
+```
+
+[^3]: Some NVMe drives may not work OOTB with MacOS, [NVMeFix](https://github.com/acidanthera/NVMeFix) could resolve some issues.
 
 ## Recommended changes
 
