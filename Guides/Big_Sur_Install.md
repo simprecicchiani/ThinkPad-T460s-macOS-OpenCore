@@ -1,5 +1,7 @@
 # Upgrade to macOS Big Sur
 
+
+
 ## Requirements
 For the installation you'll need a few things:  
 * At least 12GB USB drive
@@ -32,9 +34,11 @@ Open Disk Utility and format your USB Drive as the following:
 * Scheme: GUID Partition Map  
 <img src="../Images/Big_Sur_Installation_6.png" alt="Big Sur Installation 6" height="400">  
 Once it finished formatting, open terminal and type in:  
+
 ```sh
 sudo /Applications/Install\ macOS\ Big\ Sur\ Beta.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume
 ```
+
 This will take around 20 minutes, so sit down and relax...
 
 ### Replace your EFI folder with the new one
