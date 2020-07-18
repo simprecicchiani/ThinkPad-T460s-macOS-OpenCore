@@ -197,11 +197,11 @@ killall Dock
 
 - [ ] Video output not so stable
 
-- [ ] WWAN `Legacy_Sierra_QMI.kext needed, not tested but it may works`
+- [ ] Safari DRM
+
+- [ ] WWAN `not tested`
 
 ## Update tracker 🔄
-
-- [x] safe to install macOS Catalina‌ 10.15.6
 
 
 | Item | Version |
