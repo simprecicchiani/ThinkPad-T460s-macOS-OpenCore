@@ -8,7 +8,7 @@ For the installation you'll need a few things:
 
 ## Download the installer
 1. Download the [gibMacOs](https://github.com/corpnewt/gibMacOS) tool and open `gibMacOS.command`:  
-![](/Images/BigSurInstallation1.png)  
+![](/Images/BigSurInstallation1.png)
 
 2. Hit `M` to change Max macOS and then enter `10.16` to change the catalog to the one containing the Big Sur Installer.  
 ![](/Images/BigSurInstallation2.png)
@@ -17,7 +17,7 @@ For the installation you'll need a few things:
 ![](/Images/BigSurInstallation3.png)
 
 4. Select the number which says Big Sur and hit enter to download it.  
-![](/Images/BigSurInstallation4.png) Sur Installation 4" height="400">  
+![](/Images/BigSurInstallation4.png)
 
 5. After it finished downloading open the `InstallAssistant.pkg` file that was downloaded. It's located in `gibMacOS/macOS Downloads/developer/XXX-XXXXX - Install macOS Beta` folder. This package wil create the `Install macOS Big Sur Beta.app` in `/Applications` folder.  
 
@@ -31,6 +31,7 @@ Open Disk Utility and format your USB Drive as the following:
 * Format: macOS Journaled
 * Scheme: GUID Partition Map  
 ![](/Images/BigSurInstallation6.png)
+
 Once it finished formatting, open terminal and type in:  
 
 ```sh
