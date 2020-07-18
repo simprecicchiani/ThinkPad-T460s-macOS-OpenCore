@@ -1,12 +1,8 @@
-# Thinkpad T460s macOS Catalina (OpenCore bootloader)
+# Thinkpad T460s running macOS (OpenCore bootloader)
 
 > First OpenCore build for T460s ever
 
-### [How to create a bootable USB flash drive](https://youtu.be/FiYQTZ4lPwk)
-
-### [How to Install macOS](https://youtu.be/9p9ulCX6iyI)
-
-### [How to Upgrade to macOS Big Sur](/Guides/Big_Sur_Install.md)
+### [How to Upgrade to macOS Big Sur](/Guides/Install-Big-Sur.md)
 
 ![Thinkpad T460s](/Images/T460s.png)
 
@@ -20,11 +16,11 @@
 
 * Lots of SSDT patches from [OC-little](https://translate.google.it/translate?sl=zh-CN&tl=en&u=https%3A%2F%2Fgithub.com%2Fdaliansky%2FOC-little)
 
-* Useful tools by [CorpNewt](https://github.com/corpnewt)
+* Useful tools by [@CorpNewt](https://github.com/corpnewt)
 
 * [Acidanthera](https://github.com/acidanthera) that make this possible
 
-* @MSzturc for keyboard map and [ThinkpadAssistant](https://github.com/MSzturc/ThinkpadAssistant)
+* [@MSzturc](https://github.com/MSzturc) for keyboard map and [ThinkpadAssistant](https://github.com/MSzturc/ThinkpadAssistant)
 
 
 ### My Hardware
@@ -48,11 +44,11 @@
 
 This EFI will suit any T460s regardless of CPU model[^1] / RAM amount / Display resolution[^2] / Storage drive (SATA or NVMe[^3]).
 
-[^1]: non-i7 models follow [CPU Power Management](#cpu-power-management) guide  
+[^1]: custom [CPU Power Management](#cpu-power-management) guide
 
-[^2]: 1080p display models should change UIScale to 1 for better resolution while booting
+[^2]: 1440p display models should change UIScale to 2 for better resolution while booting
 ```sh
-NVRAM -> Add -> 7C436110-AB2A-4BBB-A880-FE41995C9F82 -> UIScale = 1
+NVRAM -> Add -> 7C436110-AB2A-4BBB-A880-FE41995C9F82 -> UIScale = 2
 ```
 
 [^3]: Some NVMe drives may not work OOTB with MacOS, [NVMeFix](https://github.com/acidanthera/NVMeFix) could resolve some issues.
@@ -63,7 +59,7 @@ NVRAM -> Add -> 7C436110-AB2A-4BBB-A880-FE41995C9F82 -> UIScale = 1
 
 Needed to make TP dock ports working since I don't have one and my config doesn't include them.
 
-Use one of the following methods:
+Use one of the following methods if needed:
 
 * [USBMap from CorpNewt](https://github.com/corpnewt?tab=repositories)
 
@@ -72,7 +68,8 @@ Use one of the following methods:
 * [Native USB fix without injector kext](https://www.olarila.com/topic/6878-guide-native-usb-fix-for-notebooks-no-injectorkext-required/?tab=comments#comment-88412)
 
 ### CPU Power Management
-If you happen to have a different CPU model **remove CPUFriend.kext and replace SSDT-CPUD with plain [SSDT-PLUG](/EFI057Install/OC/ACPI/SSDT-PLUG.aml)**, power management is natively supported by OpenCore. If you want to take a step forward and create a custom profile, follow the steps below:
+
+If you want to take a step forward and create a custom CPU power profile, follow the steps below:
 
 * Use [CPUFriendFriend](https://github.com/corpnewt/CPUFriendFriend) to generate  a `.plist` file with PM data; (settings for i7-6600u):
 
@@ -84,7 +81,7 @@ Energy Performance Preference (EPP) = 80 #(Balance power)
 
 * Load `CPUFriend.kext` and `CPUFriendDataProvider.kext` inside `EFI/OC/config.plist` or
 
-* Alternatively combine `SSDT-DATA.dsl` data with `SSDT-PLUG` (renamed in [SSDT-CPUD](/EFI/OC/ACPI/SSDT-CPUD.aml)) and load it with `CPUFriend.kext` inside `EFI/OC/config.plist`.
+* Alternatively combine `SSDT-DATA.dsl` data with `SSDT-PLUG` and load it with `CPUFriend.kext` inside `EFI/OC/config.plist`.
 
 That's how power consumption looks like on my machine at idle state:
 
@@ -114,16 +111,17 @@ to accomplish that, use the settings below
 Every hotkey will work on macOS with a beautiful, apple like control hud.
 
 ```sh
-include SSDT-KBRD and relatives names patches in config.plist
+include SSDT-KBRD and relative patches in config.plist
 install ThinkpadAssistant app under /Apllication/
 check launch on login
 ```
 
-#### [Use PrtSc key as Screenshot shortcut](/Guides/PrtSc_to_F13.md)
+#### Use PrtSc key as Screenshot shortcut
 
 ```sh
 set F13 shortcut under SystemPreferences > Keyboard > Shortcuts > Screenshots
 ```
+![](/Images/Shortcut.png)
 
 #### Monitor temperatures and power consumption with [HWMonitor](https://github.com/kzlekk/HWSensors/releases)
 
@@ -203,12 +201,12 @@ killall Dock
 
 ## Update tracker 🔄
 
-- [x] safe to install macOS Catalina‌ 10.15.5
+- [x] safe to install macOS Catalina‌ 10.15.6
 
 
 | Item | Version |
 | :--- | ---: |
-| MacOS | 10.15.5 |
+| MacOS | 10.15.6 |
 | OpenCore | 0.5.9 |
 | Lilu | 1.4.5 |
 | VirtualSMC | 1.1.4 |
