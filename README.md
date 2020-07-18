@@ -6,7 +6,7 @@
 
 ### [How to Install macOS](https://youtu.be/9p9ulCX6iyI)
 
-<img src="/Images/T460s.png" alt="Thinkpad T460s" height="500">
+![Thinkpad T460s](/Images/T460s.png)
 
 ## Introduction
 
@@ -81,7 +81,7 @@ Energy Performance Preference (EPP) = 80 #(Balance power)
 
 That's how power consumption looks like on my machine at idle state:
 
-<img src="/Images/PowerConsumption.png" height="300" >
+![](/Images/PowerConsumption.png)
 
 ### True Macbook experience 
 
@@ -98,7 +98,7 @@ open it, click on "resolution", then "edit"
 for 2560x1440 screens I suggest using 1440x810 resolution
 to accomplish that, use the settings below
 ```
-<img src="/Images/HiDPI.png" height="300" >
+![](/Images/HiDPI.png)
 
 ### Other tweaks
 
@@ -192,7 +192,7 @@ killall Dock
 
 - [ ] Video output not so stable
 
-- [ ] WWAN `Legacy_Sierra_QMI.kext needed, not tested but should work`
+- [ ] WWAN `Legacy_Sierra_QMI.kext needed, not tested but it may works`
 
 ## Update tracker 🔄
 
