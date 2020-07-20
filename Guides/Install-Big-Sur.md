@@ -55,6 +55,8 @@ From now on this will be the same process as it was before. The installation wil
 ## What is Different from Catalina
 Almost everything is the same in case of functionality. In the first hour of usint the new OS I experienced a little thermal throttling, but after a while it just dissapeared, and now everything works as on Older Versions.  
 
+Because of SMCBatteryManager is not compactible with Big Sur yet, it has been replaced with [RehabMan's ACPIBatteryManager](https://github.com/RehabMan/OS-X-ACPI-Battery-Driver) on kernel version 20.0.0.
+
 ### What is updated in the new EFI 🔁
 | Item | Version |
 | :--- | ---: |
