@@ -22,7 +22,7 @@ For the installation you'll need a few things:
 5. After it finished downloading open the `InstallAssistant.pkg` file that was downloaded. It's located in `gibMacOS/macOS Downloads/developer/XXX-XXXXX - Install macOS Beta` folder. This package wil create the `Install macOS Big Sur Beta.app` in `/Applications` folder.  
 
 
-Once it's done you should fint your installer located in the `/Applications` folder:  
+Once it's done you should find your installer located in the `/Applications` folder:  
 ![](/Images/BigSurInstallation5.png)
 
 ## Create the installation media
@@ -38,7 +38,7 @@ Once it finished formatting, open terminal and type in:
 sudo /Applications/Install\ macOS\ Big\ Sur\ Beta.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume
 ```
 
-This will take around 20 minutes, so sit down and relax...
+This will take around 20 minutes, so sit back and relax...
 
 ### Replace your EFI folder with the new one
 For the last step before booting, you should replace your EFI folder with the [new Big Sur compatible](/macOS-11.0-Big-Sur/EFI) one.
@@ -53,7 +53,9 @@ From now on this will be the same process as it was before. The installation wil
 **If the installation stuck at Forcing CS_RUNTIME for entitlement DON'T RESTART YOUR COMPUTER it's totally normal!**
 
 ## What is Different from Catalina
-Almost everything is the same in case of functionality. In the first hour of usint the new OS I experienced a little thermal throttling, but after a while it just dissapeared, and now everything works as on Older Versions.  
+Almost everything is the same in case of functionality. In the first hour of using the new OS I experienced a little thermal throttling, but after a while it just dissapeared, and now everything works as on Older Versions.  
+
+Because of SMCBatteryManager is not compactible with Big Sur yet, it has been replaced with [RehabMan's ACPIBatteryManager](https://github.com/RehabMan/OS-X-ACPI-Battery-Driver) on kernel version 20.0.0.
 
 ### What is updated in the new EFI 🔁
 | Item | Version |
@@ -70,4 +72,4 @@ Almost everything is the same in case of functionality. In the first hour of usi
 | Sinetek-rtsx.kext | 2.2 |
 
 ## Credits
-OpenCore Dortania [Big Sur Guide](https://dortania.github.io/OpenCore-Desktop-Guide/extras/big-sur/)
+OpenCore Dortania [Big Sur Guide](https://dortania.github.io/OpenCore-Install-Guide/extras/big-sur/)

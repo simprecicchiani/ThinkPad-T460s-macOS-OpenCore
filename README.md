@@ -10,7 +10,7 @@
 
 ### General knowledge & credits
 
-* [Why OpenCore](https://dortania.github.io/OpenCore-Desktop-Guide/#advantages-of-opencore)
+* [Why OpenCore](https://dortania.github.io/OpenCore-Install-Guide/why-oc.html)
 
 * To install macOS follow the guides provided by [Dortania](https://dortania.github.io)
 
@@ -135,6 +135,18 @@ defaults write com.apple.dock autohide-delay -float 0
 defaults write com.apple.dock autohide-time-modifier -float 0.5
 killall Dock
 ```
+
+### Mac-like Bootloader GUI and Boot Chime
+
+For Mac-like Bootloader GUI and Boot Chime follow the appropriate [Dortania Guide](https://dortania.github.io/OpenCore-Post-Install/cosmetic/gui.html#setting-up-opencore-s-gui). It would be unnecessary to rewrite the whole thing here.
+
+Information for Boot Chime setup:  
+`AudioDevice : PciRoot(0x0)/Pci(0x1f,0x3)`  
+`AudioOut : 0 //Speakers`  
+`AudioOut : 1 //Headphone Jack`  
+
+![](/Images/Mac-like_Bootloader_GUI.png)
+
 
 ## Bios settings
 
