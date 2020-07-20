@@ -10,7 +10,7 @@
 
 ### General knowledge & credits
 
-* [Why OpenCore](https://dortania.github.io/OpenCore-Desktop-Guide/#advantages-of-opencore)
+* [Why OpenCore](https://dortania.github.io/OpenCore-Install-Guide/why-oc.html)
 
 * To install macOS follow the guides provided by [Dortania](https://dortania.github.io)
 

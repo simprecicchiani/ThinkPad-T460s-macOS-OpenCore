@@ -70,4 +70,4 @@ Almost everything is the same in case of functionality. In the first hour of usi
 | Sinetek-rtsx.kext | 2.2 |
 
 ## Credits
-OpenCore Dortania [Big Sur Guide](https://dortania.github.io/OpenCore-Desktop-Guide/extras/big-sur/)
+OpenCore Dortania [Big Sur Guide](https://dortania.github.io/OpenCore-Install-Guide/extras/big-sur/)
