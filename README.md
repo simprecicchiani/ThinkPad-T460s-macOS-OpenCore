@@ -12,13 +12,13 @@
 
 * [Why OpenCore](https://dortania.github.io/OpenCore-Install-Guide/why-oc.html)
 
-* To install macOS follow the guides provided by [Dortania](https://dortania.github.io)
+* [Dortania's guide to install macOS](https://dortania.github.io/OpenCore-Install-Guide/)
 
-* Lots of SSDT patches from [OC-little](https://translate.google.it/translate?sl=zh-CN&tl=en&u=https%3A%2F%2Fgithub.com%2Fdaliansky%2FOC-little)
+* [SSDT patches from OC-little](https://translate.google.it/translate?sl=zh-CN&tl=en&u=https%3A%2F%2Fgithub.com%2Fdaliansky%2FOC-little)
 
 * Useful tools by [@CorpNewt](https://github.com/corpnewt)
 
-* [Acidanthera](https://github.com/acidanthera) that make this possible
+* [Acidanthera's OpenCore and kexts development](https://github.com/acidanthera)
 
 * [@MSzturc](https://github.com/MSzturc) for keyboard map and [ThinkpadAssistant](https://github.com/MSzturc/ThinkpadAssistant)
 
@@ -28,7 +28,7 @@
 * Model: Thinkpad T460s (20F9003AUS)
 * Processor: Intel Core i7-6600U (2C, 2.6 / 3.4GHz, 4MB)vPro
 * Graphics: Integrated Intel HD Graphics 520
-* Memory: 4GB Soldered + 4GB DIMM
+* Memory: 4GB Soldered + 4GB DIMM 2133 MHz DDR4
 * Display: 14" WQHD (2560x1440) IPS
 * Sound Card: Realtek ALC293
 * Storage: 256GB SSD M.2 Opal2
@@ -42,16 +42,16 @@
 ## What if I don't have this exact model?
 
 
-This EFI will suit any T460s regardless of CPU model[^1] / RAM amount / Display resolution[^2] / Storage drive (SATA or NVMe[^3]).
+This EFI will suit any T460s regardless of CPU model<sup>[1](#CPU)</sup> / RAM amount / Display resolution<sup>[2](#Res)</sup> / Storage drive (SATA or NVMe<sup>[1](#NVMe)</sup>).
 
-[^1]: custom [CPU Power Management](#cpu-power-management) guide
+<a name="CPU">1</a>: custom [CPU Power Management](#cpu-power-management) guide
 
-[^2]: 1440p display models should change UIScale to 2 for better resolution while booting
+<a name="Res">2</a>: 1440p display models should change UIScale to 2 for better resolution while booting
 ```sh
 NVRAM -> Add -> 7C436110-AB2A-4BBB-A880-FE41995C9F82 -> UIScale = 2
 ```
 
-[^3]: Some NVMe drives may not work OOTB with MacOS, [NVMeFix](https://github.com/acidanthera/NVMeFix) could resolve some issues.
+<a name="NVMe">3</a>: Some NVMe drives may not work OOTB with MacOS, [NVMeFix](https://github.com/acidanthera/NVMeFix) could resolve some issues.
 
 ## Recommended changes
 
@@ -194,7 +194,7 @@ Information for Boot Chime setup:
 
 - [x] Keyboard map and hotkeys with [ThinkpadAssistant](https://github.com/MSzturc/ThinkpadAssistant) `thanks to @MSzturc`
 
-- [x] Trackpad, Trackpoint and physical buttons `two fingers swipe and three fingers gestures`
+- [x] Trackpad, Trackpoint and physical buttons `with all macOS gestures working thnks to VoodooRMI`
 
 - [x] SIP and FileVault 2 can be enabled
 
@@ -215,20 +215,25 @@ Information for Boot Chime setup:
 
 ## Update tracker 🔄
 
+| Item | [Stable](/macOS-10.15.6-Catalina/EFI) | [Development](/macOS-10.15.6-Catalina/EFI-060-VoodooRMI) | [Beta](/macOS-11.0-Big-Sur/EFI) |
+| :--- | ---: | ---: | ---: |
+| MacOS | 10.15.6 | 10.15.6 | 11.0 |
+| OpenCore | 0.5.9 | 0.6.0 | 0.6.0 |
+| Lilu | 1.4.5 | 1.4.6 | 1.4.6 |
+| VirtualSMC | 1.1.4 | 1.1.5 | 1.1.5 |
+| WhateverGreen | 1.4.0 | 1.4.1 | 1.4.1 |
+| AppleALC | 1.5.0 | 1.5.1 | 1.5.1 |
+| VoodooPS2Controller | 2.1.4 | 2.1.6 | 2.1.4 |
+| VoodooRMI | none | 1.0.1 | none |
+| VoodooSMBus | none | 2.2 | none |
+| IntelMausi | 1.0.3 | 1.0.3 | 1.0.3 |
+| Sinetek-rtsx | 2.2 | 2.3 | 2.2 |
+| HibernationFixup | 1.3.3 | 1.3.4 |1.3.3 |
+| CPUFriend | 1.2.2 | 1.2.3 | 1.2.2 |
 
-| Item | Version |
-| :--- | ---: |
-| MacOS | 10.15.6 |
-| OpenCore | 0.5.9 |
-| Lilu | 1.4.5 |
-| VirtualSMC | 1.1.4 |
-| WhateverGreen | 1.4.0 |
-| AppleALC | 1.5.0 |
-| VoodooPS2Controller | 2.1.4 |
-| VoodooInput | 1.0.5 |
-| IntelMausi | 1.0.3 |
-| Sinetek-rtsx.kext | 2.2 |
+*New, fully working, trackpad gestures!*
 
+![](VoodooRMI-T460s-trackpad-gestures.gif)
 
 ## If you found my work useful please consider a PayPal donation
 

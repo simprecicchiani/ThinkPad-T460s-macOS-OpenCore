@@ -57,19 +57,5 @@ Almost everything is the same in case of functionality. In the first hour of usi
 
 Because of SMCBatteryManager is not compactible with Big Sur yet, it has been replaced with [RehabMan's ACPIBatteryManager](https://github.com/RehabMan/OS-X-ACPI-Battery-Driver) on kernel version 20.0.0.
 
-### What is updated in the new EFI 🔁
-| Item | Version |
-| :--- | ---: |
-| MacOS compatibility | 10.15.5 -> 11.0 |
-| OpenCore | 0.5.9 -> 6.0 beta |
-| Lilu | 1.4.5  -> 1.4.6 beta|
-| VirtualSMC | 1.1.4  -> 1.1.5 beta|
-| WhateverGreen | 1.4.0  -> 1.4.1 beta|
-| AppleALC | 1.5.0 |
-| VoodooPS2Controller | 2.1.4 |
-| VoodooInput | 1.0.5 |
-| IntelMausi | 1.0.3 |
-| Sinetek-rtsx.kext | 2.2 |
-
 ## Credits
 OpenCore Dortania [Big Sur Guide](https://dortania.github.io/OpenCore-Install-Guide/extras/big-sur/)
