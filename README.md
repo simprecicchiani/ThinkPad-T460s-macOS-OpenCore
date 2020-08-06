@@ -233,7 +233,7 @@ Information for Boot Chime setup:
 
 *New, fully working, trackpad gestures!*
 
-![](VoodooRMI-T460s-trackpad-gestures.gif)
+![t460s macOS trackpad gestures](/Images/VoodooRMI-T460s-trackpad-gestures.gif)
 
 ## If you found my work useful please consider a PayPal donation
 
