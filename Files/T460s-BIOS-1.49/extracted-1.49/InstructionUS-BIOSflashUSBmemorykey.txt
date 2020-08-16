@@ -1,0 +1,33 @@
+HOW TO CREATE A BOOTABLE BIOS FLASH USB MEMORY KEY
+
+1. Attach a USB memory key to your Windows system, then format the USB memory key.
+   Note: A medium formatted with NTFS or exFAT is not supported by this Flash Update process.
+         Use FAT32 or FAT16 as a file system of the medium.
+2. Open command prompt with administrator right, then move to a directory of this
+   package.
+3. Run mkusbkey.bat in the directory with following command format, then finish 
+   creating BIOS flash USB memory key.
+
+        Syntax : mkusbkey.bat [Drive]
+
+        [Drive]
+                D:,E:,F:... : Drive letter assigned to the USB memory key
+
+  Example : mkusbkey D:
+
+--------------------------------------------------------------------------------
+HOW TO UPDATE BIOS AND EC FIRMWARE BY BIOS FLASH USB MEMORY KEY
+
+1. Make sure that a system main battery is fully charged and AC power is
+   attached. On tablet system, attach an external keyborad.
+2. BIOS Setup item Startup->UEFI/Legacy Boot needs to be "Both" or 
+   "UEFI Only"
+3. Attach a BIOS flash USB memory key to the target system.
+4. Power on the target system, then press F12 key to show Boot Menu.
+5. Select USB HDD in the Boot Menu, then press Enter to make the target system
+   boot from the USB memory key.
+6. BIOS/EC firmware update process will start. Please proceed according to the 
+   display on the screen. System will reboot several times and actual firmware 
+   update process will occur during these system reboot events.
+   Do not power off the target system during these system reboot events to 
+   complete firmware update process until operating system boots up. 

@@ -53,13 +53,15 @@ NVRAM -> Add -> 7C436110-AB2A-4BBB-A880-FE41995C9F82 -> UIScale = 2
 
 <a name="NVMe">3</a>: Some NVMe drives may not work OOTB with MacOS, [NVMeFix](https://github.com/acidanthera/NVMeFix) could resolve some issues.
 
-## Recommended changes
+## Post-installation optional changes
+
+### [Unlock CFG Lock](/Users/simoneprecicchiani/GitHub/Thinkpad-T460s-macOS-OpenCore/Guides/Unlock-CFG.md)
 
 ### USB ports map
 
-Needed to make TP dock ports working since I don't have one and my config doesn't include them.
+Needed to make TP dock ports working since I don't have one and my EFI doesn't include them.
 
-Use one of the following methods if needed:
+Use one of the following methods
 
 * [USBMap from CorpNewt](https://github.com/corpnewt?tab=repositories)
 
@@ -136,7 +138,7 @@ defaults write com.apple.dock autohide-time-modifier -float 0.5
 killall Dock
 ```
 
-### Mac-like Bootloader GUI and Boot Chime
+#### Mac-like Bootloader GUI and Boot Chime
 
 For Mac-like Bootloader GUI and Boot Chime follow the appropriate [Dortania Guide](https://dortania.github.io/OpenCore-Post-Install/cosmetic/gui.html#setting-up-opencore-s-gui). It would be unnecessary to rewrite the whole thing here.
 

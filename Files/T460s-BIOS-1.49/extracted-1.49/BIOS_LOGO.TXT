@@ -1,0 +1,35 @@
+ **********************************************************************
+ *                                                                    *
+ *  NOTES ON CUSTOM START UP IMAGE                                    *
+ *  ------------------------------                                    *
+ *                                                                    *
+ *  THIS VERSION OF THE FLASH UPDATE PROGRAM GIVES THE OPTION OF      *
+ *  REPLACING (OR ELIMINATING) THE DEFAULT "LENOVO" IMAGE THAT IS     *
+ *  DISPLAYED DURING SYSTEM START UP.                                 *
+ *                                                                    *
+ *  GUIDELINES FOR CUSTOM START UP IMAGE:                             *
+ *                                                                    *
+ *  1. IMAGE FILE SIZE ARE LIMITED TO 60KB.                           *
+ *  2. VALID FORMATS FOR THE IMAGE ARE AS FOLLOWS:                    *
+ *        BITMAP (.BMP) FILE FORMAT                                   *
+ *        JPEG (.JPG) FILE FORMAT                                     *
+ *        GIF (.GIF) FILE FORMAT                                      *
+ *  3. IMAGE WIDTH AND HEIGHT SHOULD BE LESS OR EQUAL TO 40% OF       *
+ *     THE BUILT-IN LCD PANEL RESOLUTION.                             *
+ *     (EX. IF LCD PANEL RESOLUTION IS 1920 X 1080, IMAGE WIDTH AND   *
+ *          HEIGHT SHOULD BE 768 X 432 OR LESS)                       *
+ *                                                                    *
+ *  STEPS TO ENABLE CUSTOM START UP IMAGE:                            *
+ *                                                                    *
+ *  1. PREPARE YOUR IMAGE AND COPY IT TO THE SAME PLACE WHERE         *
+ *     WINUPTP.EXE EXISTS.                                            *
+ *  2. RENAME THE IMAGE AS FOLLOWS.                                   *
+ *         BITMAP FILE --> LOGO.BMP                                   *
+ *         JPEG FILE --> LOGO.JPG                                     *
+ *         GIF FILE --> LOGO.GIF                                      *
+ *  3. RUN WINUPTP.EXE AND FOLLOW INSTRUCTIONS.                       *
+ *                                                                    *
+ *  AFTER YOU UPDATE THE BIOS ON YOUR SYSTEM, YOUR LOGO WILL          *
+ *  APPEAR ON THE STARTUP SCREEN.                                     *
+ *                                                                    *
+ **********************************************************************

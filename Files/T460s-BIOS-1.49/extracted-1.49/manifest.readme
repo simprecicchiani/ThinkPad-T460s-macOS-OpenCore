@@ -1,0 +1,27 @@
+Today's customers demand proof that the products they 
+purchase and use are authentic, and have not been altered 
+during the shipping process.
+
+To meet this need, Lenovo has developed a process to allow  
+a user to verify that the BIOS image included in this update
+has not been altered since it was created.  
+
+Authentication of the BIOS image is accomplished by separating 
+the BIOS image into its various parts, creating a hash of these 
+individual parts, and then storing the resulting hash in a file.   
+The resulting file, often called a "manifest", can be used in 
+conjunction with a Lenovo developed tool to prove the image is 
+unaltered.  This tool is named the Lenovo BIOS Validation Tool (LBVT).
+
+
+This BIOS update package includes a manifest (in an xml format) 
+that can be used with LBVT to authenticate the BIOS image.   
+
+The tool and instructions for using it can be found on the ThinkPad 
+support site, or by contacting Lenovo by email at the following
+address:
+
+   lbvt@lenovo.com
+
+
+
