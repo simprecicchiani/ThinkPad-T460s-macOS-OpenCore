@@ -6,7 +6,6 @@
 
 - [Introduction](#introduction)
 	- [General knowledge & credits](#general-knowledge--credits)
-	- [My Hardware](#my-hardware)
 	- [Hardware compatibility](#hardware-compatibility)
 	- [How to install macOS](https://dortania.github.io/OpenCore-Install-Guide/installation/installation-process.html)
 	- [How to upgrade to macOS 11.0 Big Sur](/Guides/Install-Big-Sur.md)
@@ -47,8 +46,9 @@
 
 * [@MSzturc](https://github.com/MSzturc) for keyboard map and [ThinkpadAssistant](https://github.com/MSzturc/ThinkpadAssistant)
 
+### Hardware compatibility
 
-### My Hardware
+#### My Hardware
 
 ```
 Model: Thinkpad T460s (20F9003AUS)  
@@ -64,8 +64,6 @@ Keyboard: Backlit
 Fingerprint Reader: Yes  
 Battery: 3-cell (23Wh) + 3-cell (26Wh)  
 ```
-
-### Hardware compatibility
 
 This EFI will suit any T460s regardless of CPU model<sup>[1](#CPU)</sup> / RAM amount / Display resolution<sup>[2](#Res)</sup> / Storage drive (SATA or NVMe<sup>[3](#NVMe)</sup>).
 
