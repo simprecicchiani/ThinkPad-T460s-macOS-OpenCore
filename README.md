@@ -5,7 +5,7 @@
 ![Thinkpad T460s](/Images/T460s.png)
 
 - [Introduction](#introduction)
-	- [General knowledge and credits](#general-knowledge-and-credits)
+	- [General knowledge & credits](#general-knowledge--credits)
 	- [My Hardware](#my-hardware)
 	- [Hardware compatibility](#hardware-compatibility)
 	- [How to install macOS](https://dortania.github.io/OpenCore-Install-Guide/installation/installation-process.html)
@@ -25,15 +25,15 @@
 		- [Mac Bootloader GUI and Boot Chime](#mac-bootloader-gui-and-boot-chime)
 - [Bios settings](#bios-settings)
 - [Configuration status](#configuration-status)
-	- [What's working ✔️](#whats-working-✔️)
-	- [What's not working ⚠️](#whats-not-working-⚠️)
-	- [Update tracker 🔄](#update-tracker-🔄)
+	- [What's working ✔️](#whats-working-)
+	- [What's not working ⚠️](#whats-not-working-)
+	- [Update tracker 🔄](#update-tracker-)
 - [Thanks to](#thanks-to)
 
 
 ## Introduction
 
-### General knowledge and credits
+### General knowledge & credits
 
 * [Why OpenCore](https://dortania.github.io/OpenCore-Install-Guide/why-oc.html)
 
@@ -223,7 +223,7 @@ Information for Boot Chime setup:
 
 - [x] Keyboard map and hotkeys with [ThinkpadAssistant](https://github.com/MSzturc/ThinkpadAssistant) `thanks to @MSzturc`
 
-- [x] Trackpad, Trackpoint and physical buttons `with all macOS gestures working thnks to VoodooRMI`
+- [x] [Trackpad, Trackpoint and physical buttons](/Images/VoodooRMI-T460s-trackpad-gestures.gif) `with all macOS gestures working thanks to VoodooRMI`
 
 - [x] SIP and FileVault 2 can be enabled
 
@@ -258,8 +258,6 @@ Information for Boot Chime setup:
 | [Sinetek-rtsx](https://github.com/cholonam/Sinetek-rtsx/releases) | 2.2 | 2.3 | 2.2 |
 | [HibernationFixup](https://github.com/acidanthera/HibernationFixup/releases) | 1.3.3 | 1.3.4 |1.3.3 |
 | [CPUFriend](https://github.com/acidanthera/CPUFriend/releases) | 1.2.2 | 1.2.3 | 1.2.2 |
-
-[**New, fully working, trackpad gestures!**](/Images/VoodooRMI-T460s-trackpad-gestures.gif)
 
 ## Thanks to
 
