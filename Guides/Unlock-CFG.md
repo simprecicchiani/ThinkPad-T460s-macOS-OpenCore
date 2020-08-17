@@ -12,7 +12,7 @@ Go into your BIOS and check your running version. If you need to update it go to
 [Skip this step, I already did this]
 Go to [T460s Support Page](https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/thinkpad-t-series-laptops/thinkpad-t460s/downloads/driver-list/component?name=BIOS%2FUEFI) and grab the 1.49 version (22/06/2020).
 
-### 2. extract the BIOS
+### 2. Extract the BIOS
 
 [Skip this step, I already did this]
 [This guide](https://forums.lenovo.com/t5/Gaming-Laptops/GUIDE-How-to-extract-BIOS-from-Lenovo-BIOS-Update-Package-such-as-ATCN37WW-exe/m-p/5008973) shows how to do it on Windows with `innoextract`.
