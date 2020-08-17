@@ -44,22 +44,22 @@ The version I tested and worked properly [here](/Files/T460s-BIOS-1.49/tools/RU-
 ### 6. Change CFG Lock value to 0
 
 - Make sure `Secure Boot` is disabled in your BIOS and boot to the USB drive. You'll be greeted with a screen like this. Just press **Enter**.
-![](/Images/Ru.efi1.bmp)
+![](/Images/RUefi1.bmp)
 
 - Now, we'll go to a screen to edit UEFI variables. Press **Alt** + **=**. You should get a screen like this.
-![](/Images/Ru.efi2.bmp)
+![](/Images/RUefi2.bmp)
 
 - Now, search the list till you find `CPUSetup`. Press **Enter**.
-![](/Images/Ru.efi3.bmp)
+![](/Images/RUefi3.bmp)
 
 - If everything's right, you should get a screen that looks like this.
-![](/Images/Ru.efi4.bmp)
+![](/Images/RUefi4.bmp)
 
 - Now we'll need the CFG Lock offset value, for BIOS ver 1.49 is *0x3A*. Finding that value is easy: `0030` is for the **3**, and `0A` is for the **A**. In the upper left corner you should be able to comfirm it's the right value: it's displayed as `003A`.
-![](/Images/Ru.efi5.bmp)
+![](/Images/RUefi5.bmp)
 
 - The value set is `01`. Setting that to `00` will disable CFG Lock. So press **Enter**, and just type **0** (numlock might be enabled, be aware of that). If everything goes right, that value should be highlighted now. Press again Enter to finish the editing.
-![](/Images/Ru.efi6.bmp)
+![](/Images/RUefi6.bmp)
 
 - Press **Ctrl** + **W** to save. Press **Alt** + **Q** to quit and turn the computer off. If it display an error message it's all right: it did that to me and it worked anyway.
 

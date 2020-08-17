@@ -2,17 +2,42 @@
 
 > First OpenCore build for T460s ever
 
-### [How to Upgrade to macOS Big Sur](/Guides/Install-Big-Sur.md)
-
 ![Thinkpad T460s](/Images/T460s.png)
+
+- [Introduction](#introduction)
+	- [General knowledge and credits](#general-knowledge-and-credits)
+	- [My Hardware](#my-hardware)
+	- [Hardware compatibility](#hardware-compatibility)
+	- [How to install macOS](https://dortania.github.io/OpenCore-Install-Guide/installation/installation-process.html)
+	- [How to upgrade to macOS 11.0 Big Sur](/Guides/Install-Big-Sur.md)
+- [Post-installation optional changes](#post-installation-optional-changes)
+	- [Unlock CFG Lock](/Users/simoneprecicchiani/GitHub/Thinkpad-T460s-macOS-OpenCore/Guides/Unlock-CFG.md)
+	- [USB ports map](#usb-ports-map)
+	- [CPU Power Management](#cpu-power-management)
+	- [True MacBook experience ](#true-macbook-experience-)
+		- [Generate your own SMBIOS](#generate-your-own-smbios)
+		- [Enable HiDPI with RDM Utility](#enable-hidpi-with-rdm-utility)
+	- [Other tweaks](#other-tweaks)
+		- [Install ThinkpadAssistant](#install-thinkpadassistant)
+		- [Use PrtSc key as Screenshot shortcut](#use-prtsc-key-as-screenshot-shortcut)
+		- [Monitor temperatures and power consumption with HWMonitor](#monitor-temperatures-and-power-consumption-with-hwmonitor)
+		- [Make dock animation faster and without delay](#make-dock-animation-faster-and-without-delay)
+		- [Mac Bootloader GUI and Boot Chime](#mac-bootloader-gui-and-boot-chime)
+- [Bios settings](#bios-settings)
+- [Configuration status](#configuration-status)
+	- [What's working ✔️](#whats-working-✔️)
+	- [What's not working ⚠️](#whats-not-working-⚠️)
+	- [Update tracker 🔄](#update-tracker-🔄)
+- [Thanks to](#thanks-to)
+
 
 ## Introduction
 
-### General knowledge & credits
+### General knowledge and credits
 
 * [Why OpenCore](https://dortania.github.io/OpenCore-Install-Guide/why-oc.html)
 
-* [Dortania's guide to install macOS](https://dortania.github.io/OpenCore-Install-Guide/)
+* [Dortania's guide](https://dortania.github.io/OpenCore-Install-Guide/)
 
 * [SSDT patches from OC-little](https://translate.google.it/translate?sl=zh-CN&tl=en&u=https%3A%2F%2Fgithub.com%2Fdaliansky%2FOC-little)
 
@@ -25,22 +50,22 @@
 
 ### My Hardware
 
-* Model: Thinkpad T460s (20F9003AUS)
-* Processor: Intel Core i7-6600U (2C, 2.6 / 3.4GHz, 4MB)vPro
-* Graphics: Integrated Intel HD Graphics 520
-* Memory: 4GB Soldered + 4GB DIMM 2133 MHz DDR4
-* Display: 14" WQHD (2560x1440) IPS
-* Sound Card: Realtek ALC293
-* Storage: 256GB SSD M.2 Opal2
-* WLAN + Bluetooth: BCM94360CS2
-* Camera: 720p
-* Keyboard: Backlit
-* Fingerprint Reader: Yes
-* Battery: 3-cell (23Wh) + 3-cell (26Wh)
+```
+Model: Thinkpad T460s (20F9003AUS)  
+Processor: Intel Core i7-6600U (2C, 2.6 / 3.4GHz, 4MB)vPro  
+Graphics: Integrated Intel HD Graphics 520  
+Memory: 4GB Soldered + 4GB DIMM 2133 MHz DDR4  
+Display: 14" WQHD (2560x1440) IPS  
+Sound Card: Realtek ALC293  
+Storage: 256GB SSD M.2 Opal2  
+WLAN + Bluetooth: BCM94360CS2  
+Camera: 720p  
+Keyboard: Backlit  
+Fingerprint Reader: Yes  
+Battery: 3-cell (23Wh) + 3-cell (26Wh)  
+```
 
-
-## What if I don't have this exact model?
-
+### Hardware compatibility
 
 This EFI will suit any T460s regardless of CPU model<sup>[1](#CPU)</sup> / RAM amount / Display resolution<sup>[2](#Res)</sup> / Storage drive (SATA or NVMe<sup>[3](#NVMe)</sup>).
 
@@ -57,11 +82,11 @@ NVRAM -> Add -> 7C436110-AB2A-4BBB-A880-FE41995C9F82 -> UIScale = 2
 
 ### [Unlock CFG Lock](/Users/simoneprecicchiani/GitHub/Thinkpad-T460s-macOS-OpenCore/Guides/Unlock-CFG.md)
 
+CFG-Lock is a setting in your BIOS that allows for a specific register (in this case the MSR 0xE2) to be written to. By default, most motherboards lock this variable with many even hiding the option outright in the GUI. And why we care about it is that macOS actually wants to write to this variable, and not just one part of macOS. Instead both the Kernel(XNU) and AppleIntelPowerManagement want this register.
+
 ### USB ports map
 
-Needed to make TP dock ports working since I don't have one and my EFI doesn't include them.
-
-Use one of the following methods
+Needed to make TP dock ports working since I don't have one and my EFI doesn't include them. Use one of the following methods:
 
 * [USBMap from CorpNewt](https://github.com/corpnewt?tab=repositories)
 
@@ -89,7 +114,7 @@ That's how power consumption looks like on my machine at idle state:
 
 ![](/Images/PowerConsumption.png)
 
-### True Macbook experience 
+### True MacBook experience 
 
 #### [Generate your own SMBIOS](https://github.com/corpnewt/GenSMBIOS)
 ```sh
@@ -138,16 +163,16 @@ defaults write com.apple.dock autohide-time-modifier -float 0.5
 killall Dock
 ```
 
-#### Mac-like Bootloader GUI and Boot Chime
+#### Mac Bootloader GUI and Boot Chime
 
-For Mac-like Bootloader GUI and Boot Chime follow the appropriate [Dortania Guide](https://dortania.github.io/OpenCore-Post-Install/cosmetic/gui.html#setting-up-opencore-s-gui). It would be unnecessary to rewrite the whole thing here.
+Follow the appropriate [Dortania Guide](https://dortania.github.io/OpenCore-Post-Install/cosmetic/gui.html#setting-up-opencore-s-gui).
 
 Information for Boot Chime setup:  
 `AudioDevice : PciRoot(0x0)/Pci(0x1f,0x3)`  
 `AudioOut : 0 //Speakers`  
 `AudioOut : 1 //Headphone Jack`  
 
-![](/Images/Mac-like_Bootloader_GUI.png)
+![](/Images/MacBootloaderGUI.png)
 
 
 ## Bios settings
@@ -168,7 +193,9 @@ Information for Boot Chime setup:
 * `Startup` > `CSM Support` > **No**
 * `Startup` > `Boot Mode` > **Quick**
 
-## What's working ✔️
+## Configuration status
+
+### What's working ✔️
 
 >[Startup time from OC Picker to Desktop was 26s](https://www.youtube.com/watch?v=SnuQjuIrfc0), now it's 18s
 
@@ -205,7 +232,7 @@ Information for Boot Chime setup:
 - [x] SD Card Reader `slow r/w speed but works`
 
 
-## What's not working ⚠️
+### What's not working ⚠️
 
 - [ ] Fingerprint Reader
 
@@ -215,7 +242,7 @@ Information for Boot Chime setup:
 
 - [ ] WWAN `not tested`
 
-## Update tracker 🔄
+### Update tracker 🔄
 
 | Version | [Stable](/macOS-10.15.6-Catalina/EFI) | [Development](/macOS-10.15.6-Catalina/EFI-060-VoodooRMI) | [Beta](/macOS-11.0-Big-Sur/EFI) |
 | :--- | ---: | ---: | ---: |
@@ -232,14 +259,13 @@ Information for Boot Chime setup:
 | [HibernationFixup](https://github.com/acidanthera/HibernationFixup/releases) | 1.3.3 | 1.3.4 |1.3.3 |
 | [CPUFriend](https://github.com/acidanthera/CPUFriend/releases) | 1.2.2 | 1.2.3 | 1.2.2 |
 
-*New, fully working, trackpad gestures!*
-
-![t460s macOS trackpad gestures](/Images/VoodooRMI-T460s-trackpad-gestures.gif)
-
-## If you found my work useful please consider a PayPal donation
-
-<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Y5BE5HYACDERG&source=url" target="_blank"><img src="/Images/buymeacoffee.png" alt="Buy Me A Coffee" width="300" ></a>
+[**New, fully working, trackpad gestures!**](/Images/VoodooRMI-T460s-trackpad-gestures.gif)
 
 ## Thanks to
 
 The hackintosh community from GitHub, [InsanelyMac](https://www.insanelymac.com/forum/) and [r/hackintosh](https://www.reddit.com/r/hackintosh/).
+
+**If you found my work useful please consider a PayPal donation**
+
+<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Y5BE5HYACDERG&source=url" target="_blank"><img src="/Images/buymeacoffee.png" alt="Buy Me A Coffee" width="300" ></a>
+
