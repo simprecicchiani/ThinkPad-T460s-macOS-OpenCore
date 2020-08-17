@@ -191,8 +191,6 @@ Information for Boot Chime setup:
 
 ### What's working ✔️
 
->[Startup time from OC Picker to Desktop was 26s](https://www.youtube.com/watch?v=SnuQjuIrfc0), now it's 18s
-
 - [x] CPU Power Management `~1W on IDLE`
 
 - [x] Intel HD 520 Graphics `incuding graphics acceleration`
@@ -205,7 +203,7 @@ Information for Boot Chime setup:
 
 - [x] Intel Gigabit Ethernet
 
-- [x] **[Wifi, Bluetooth, Airdrop, Handoff, Continuity, Sidecar wireless](/Guides/BCM94360CS2_WLAN_card.md)**
+- [x] [Wifi, Bluetooth, Airdrop, Handoff, Continuity, Sidecar wireless](/Guides/Replace-WLAN.md)
 
 - [x] iMessage, FaceTime, App Store, iTunes Store `Generate your own SMBIOS`
 
