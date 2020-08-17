@@ -14,7 +14,7 @@
 	- [Unlock CFG Lock](/Users/simoneprecicchiani/GitHub/Thinkpad-T460s-macOS-OpenCore/Guides/Unlock-CFG.md)
 	- [USB ports map](#usb-ports-map)
 	- [CPU Power Management](#cpu-power-management)
-	- [True MacBook experience ](#true-macbook-experience-)
+	- [True MacBook experience ](#true-macbook-experience-)
 		- [Generate your own SMBIOS](#generate-your-own-smbios)
 		- [Enable HiDPI with RDM Utility](#enable-hidpi-with-rdm-utility)
 	- [Other tweaks](#other-tweaks)
