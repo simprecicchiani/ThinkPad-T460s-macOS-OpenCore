@@ -22,7 +22,7 @@
 		- [Monitor temperatures and power consumption with HWMonitor](#monitor-temperatures-and-power-consumption-with-hwmonitor)
 		- [Make dock animation faster and without delay](#make-dock-animation-faster-and-without-delay)
 		- [Mac Bootloader GUI and Boot Chime](#mac-bootloader-gui-and-boot-chime)
-- [Bios settings](#bios-settings)
+- [BIOS settings](#bios-settings)
 - [Configuration status](#configuration-status)
 	- [What's working ✔️](#whats-working-%EF%B8%8F)
 	- [What's not working ⚠️](#whats-not-working-%EF%B8%8F)
@@ -169,7 +169,7 @@ Information for Boot Chime setup:
 ![](/Images/MacBootloaderGUI.png)
 
 
-## Bios settings
+## BIOS settings
 
 * `Config` > `USB` > `UEFI BIOS Support` > **Enable**
 * `Config` > `Power` > `Intel SpeedStep Technology` > **Enable**
