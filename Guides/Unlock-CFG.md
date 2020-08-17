@@ -1,5 +1,7 @@
 # How to unlock Thinkpad T460s CFG Lock
 
+CFG-Lock is a setting in your BIOS that allows for a specific register (in this case the MSR 0xE2) to be written to. By default, most motherboards lock this variable with many even hiding the option outright in the GUI. And why we care about it is that macOS actually wants to write to this variable, and not just one part of macOS. Instead both the Kernel(XNU) and AppleIntelPowerManagement want this register.
+
 Although the T460s has locked CFG setting and `modGrubShell.efi` method doesn't works, [this method](https://www.reddit.com/r/hackintosh/comments/hz2rtm/cfg_lockunlocking_alternative_method/) appears to work.
 
 **WARNING: This entire process is tested on BIOS ver 1.49 only**

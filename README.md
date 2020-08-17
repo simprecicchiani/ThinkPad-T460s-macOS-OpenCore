@@ -25,8 +25,8 @@
 		- [Mac Bootloader GUI and Boot Chime](#mac-bootloader-gui-and-boot-chime)
 - [Bios settings](#bios-settings)
 - [Configuration status](#configuration-status)
-	- [What's working ✔️](#whats-working-)
-	- [What's not working ⚠️](#whats-not-working-)
+	- [What's working ✔️](#whats-working-%EF%B8%8F)
+	- [What's not working ⚠️](#whats-not-working-%EF%B8%8F)
 	- [Update tracker 🔄](#update-tracker-)
 - [Thanks to](#thanks-to)
 
@@ -79,10 +79,6 @@ NVRAM -> Add -> 7C436110-AB2A-4BBB-A880-FE41995C9F82 -> UIScale = 2
 <a name="NVMe">3</a>: Some NVMe drives may not work OOTB with MacOS, [NVMeFix](https://github.com/acidanthera/NVMeFix) could resolve some issues.
 
 ## Post-installation optional changes
-
-### [Unlock CFG Lock](/Users/simoneprecicchiani/GitHub/Thinkpad-T460s-macOS-OpenCore/Guides/Unlock-CFG.md)
-
-CFG-Lock is a setting in your BIOS that allows for a specific register (in this case the MSR 0xE2) to be written to. By default, most motherboards lock this variable with many even hiding the option outright in the GUI. And why we care about it is that macOS actually wants to write to this variable, and not just one part of macOS. Instead both the Kernel(XNU) and AppleIntelPowerManagement want this register.
 
 ### USB ports map
 
