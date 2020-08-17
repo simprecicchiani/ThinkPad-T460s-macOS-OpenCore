@@ -1,0 +1,1 @@
+# WARNING: This is configuration is in Beta and I'm not maintaining it until official BigSur release
