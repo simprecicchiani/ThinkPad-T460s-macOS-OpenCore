@@ -1,4 +1,4 @@
-# Thinkpad T460s running macOS (OpenCore bootloader)
+# ThinkPad T460s running macOS (OpenCore bootloader)
 
 <img align="right" src="https://imgur.com/sI2Uzel.jpg" alt="T460s macOS" width="300">
 
