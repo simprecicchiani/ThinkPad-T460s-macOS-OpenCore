@@ -328,20 +328,20 @@ Information for Boot Chime setup:
 <details>  
 <summary><strong>Update tracker 🔄</strong></summary>
 
-| Version | [Stable](/macOS-10.15.6-Catalina/EFI) | [Beta](/macOS-11.0-Big-Sur/EFI) |
-| :--- | ---: | ---: | ---: |
-| [MacOS](https://www.apple.com/macos/) | 10.15.6 | 11.0 |
-| [OpenCore](https://github.com/acidanthera/OpenCorePkg/releases) | 0.6.0 | 0.6.0 |
-| [Lilu](https://github.com/acidanthera/Lilu/releases) | 1.4.6 | 1.4.6 |
-| [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases) | 1.1.5 | 1.1.5 |
-| [WhateverGreen](https://github.com/acidanthera/WhateverGreen/releases) | 1.4.1 | 1.4.1 |
-| [AppleALC](https://github.com/acidanthera/AppleALC/releases) | 1.5.1 | 1.5.1 |
-| [VoodooPS2Controller](https://github.com/acidanthera/VoodooPS2/releases) | 2.1.6 | 2.1.4 |
-| [VoodooRMI](https://github.com/VoodooSMBus/VoodooRMI/releases) | 1.0.1 | none |
-| [IntelMausi](https://github.com/acidanthera/IntelMausi/releases) | 1.0.3 | 1.0.3 |
-| [Sinetek-rtsx](https://github.com/cholonam/Sinetek-rtsx/releases) | 2.3 | 2.2 |
-| [HibernationFixup](https://github.com/acidanthera/HibernationFixup/releases) | 1.3.4 |1.3.3 |
-| [CPUFriend](https://github.com/acidanthera/CPUFriend/releases) | 1.2.3 | 1.2.2 |
+| Version                                                                      | [Stable](/macOS-10.15.6-Catalina/EFI) | [Beta](/macOS-11.0-Big-Sur/EFI) |
+|:-----------------------------------------------------------------------------|--------------------------------------:|--------------------------------:|
+| [MacOS](https://www.apple.com/macos/)                                        | 10.15.6                               | 11.0                            |
+| [OpenCore](https://github.com/acidanthera/OpenCorePkg/releases)              | 0.6.0                                 | 0.6.0                           |
+| [Lilu](https://github.com/acidanthera/Lilu/releases)                         | 1.4.6                                 | 1.4.6                           |
+| [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases)             | 1.1.5                                 | 1.1.5                           |
+| [WhateverGreen](https://github.com/acidanthera/WhateverGreen/releases)       | 1.4.1                                 | 1.4.1                           |
+| [AppleALC](https://github.com/acidanthera/AppleALC/releases)                 | 1.5.1                                 | 1.5.1                           |
+| [VoodooPS2Controller](https://github.com/acidanthera/VoodooPS2/releases)     | 2.1.6                                 | 2.1.4                           |
+| [VoodooRMI](https://github.com/VoodooSMBus/VoodooRMI/releases)               | 1.0.1                                 | none                            |
+| [IntelMausi](https://github.com/acidanthera/IntelMausi/releases)             | 1.0.3                                 | 1.0.3                           |
+| [Sinetek-rtsx](https://github.com/cholonam/Sinetek-rtsx/releases)            | 2.3                                   | 2.2                             |
+| [HibernationFixup](https://github.com/acidanthera/HibernationFixup/releases) | 1.3.4                                 | 1.3.3                           |
+| [CPUFriend](https://github.com/acidanthera/CPUFriend/releases)               | 1.2.3                                 | 1.2.2                           |
 
 </details>
 
