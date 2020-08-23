@@ -40,14 +40,6 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>CPU frequency data injection</string>
-				<key>Path</key>
-				<string>SSDT-CPUD.aml</string>
-				<key>Enabled</key>
-				<false/>
-			</dict>
-			<dict>
-				<key>Comment</key>
 				<string>Virtual devices for macOS</string>
 				<key>Path</key>
 				<string>SSDT-VDEV.aml</string>
@@ -1376,22 +1368,6 @@
 				<string></string>
 				<key>PlistPath</key>
 				<string>Contents/Info.plist</string>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>CPU frequency data injector</string>
-				<key>MaxKernel</key>
-				<string></string>
-				<key>PlistPath</key>
-				<string>Contents/Info.plist</string>
-				<key>Enabled</key>
-				<false/>
-				<key>MinKernel</key>
-				<string></string>
-				<key>ExecutablePath</key>
-				<string>Contents/MacOS/CPUFriend</string>
-				<key>BundlePath</key>
-				<string>CPUFriend.kext</string>
 			</dict>
 			<dict>
 				<key>Comment</key>

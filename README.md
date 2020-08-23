@@ -24,7 +24,7 @@ Lastly, if you found my work useful please consider a PayPal donation, it would 
 
 - [Why OpenCore](https://dortania.github.io/OpenCore-Install-Guide/why-oc.html)
 
-- [Dortania's guide](https://dortania.github.io/OpenCore-Install-Guide/)
+- [Dortania's website](https://dortania.github.io)
 
 - [SSDT patches from OC-little](https://translate.google.it/translate?sl=zh-CN&tl=en&u=https%3A%2F%2Fgithub.com%2Fdaliansky%2FOC-little)
 
@@ -124,11 +124,9 @@ This EFI will suit any T460s regardless of CPU model<sup>[1](#CPU)</sup> / RAM a
 <details>  
 <summary><strong>USB ports mapping</strong></summary>
 
-Needed to make TP dock ports working since I don't have one and my EFI doesn't include them. Use one of the following methods:
+For ThinkPad's dock only, use one of the following methods:
 
-- [USBMap from CorpNewt](https://github.com/corpnewt?tab=repositories)
-
-- [USBPorts from Hackintool](https://github.com/headkaze/Hackintool)
+- [USBMap by CorpNewt](https://github.com/corpnewt?tab=repositories)
 
 - [Native USB fix without injector kext](https://www.olarila.com/topic/6878-guide-native-usb-fix-for-notebooks-no-injectorkext-required/?tab=comments#comment-88412)
 
@@ -137,21 +135,54 @@ Needed to make TP dock ports working since I don't have one and my EFI doesn't i
 <details>  
 <summary><strong>Custom CPU Power Management</strong></summary>
 
-If you want to take a step forward and create a custom CPU power profile, follow the steps below:
+If you want to take a step forward and create a custom CPU power profile, follow these steps:
 
-- Use [CPUFriendFriend](https://github.com/corpnewt/CPUFriendFriend) to generate  a `.plist` file with PM data; (settings for i7-6600u):
+- Run the following command in Terminal:
 
+```bash
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/stevezhengshiqi/one-key-cpufriend/master/one-key-cpufriend.sh)"
 ```
-$ Low Frequency Mode (LFM) = 800MHz #(TDP-down frequency for i7-6600u)
-$ Energy Performance Preference (EPP) = 80 #(Balance power)
+
+- Copy `CPUFriend.kext` and `CPUFriendDataProvider.kext` from desktop to `/OC/Kexts/`.
+
+- Open `/OC/config.plist` and add the following code:
+
+```xml
+<dict>
+    <key>BundlePath</key>
+    <string>CPUFriend.kext</string>
+    <key>Comment</key>
+    <string>Power management data injector</string>
+    <key>Enabled</key>
+    <true/>
+    <key>ExecutablePath</key>
+    <string>Contents/MacOS/CPUFriend</string>
+    <key>MaxKernel</key>
+    <string></string>
+    <key>MinKernel</key>
+    <string></string>
+    <key>PlistPath</key>
+    <string>Contents/Info.plist</string>
+</dict>
+<dict>
+    <key>BundlePath</key>
+    <string>CPUFriendDataProvider.kext</string>
+    <key>Comment</key>
+    <string>Power management data</string>
+    <key>Enabled</key>
+    <true/>
+    <key>ExecutablePath</key>
+    <string></string>
+    <key>MaxKernel</key>
+    <string></string>
+    <key>MinKernel</key>
+    <string></string>
+    <key>PlistPath</key>
+    <string>Contents/Info.plist</string>
+</dict>
 ```
-- via `ResourceConverter.sh` inside [CPUFriend](https://github.com/acidanthera/CPUFriend), select the `.plist` to generate either `CPUFriendDataProvider.kext` or `SSDT-DATA.dsl`;
 
-- Load `CPUFriend.kext` and `CPUFriendDataProvider.kext` inside `EFI/OC/config.plist` or
-
-- Alternatively combine `SSDT-DATA.dsl` data with `SSDT-PLUG` and load it with `CPUFriend.kext` inside `EFI/OC/config.plist`.
-
-That's how power consumption looks like on my machine idle state:
+That's how power consumption looks like when my machine stands idle:
 
 ![](/Images/PowerConsumption.png)
 
@@ -160,11 +191,19 @@ That's how power consumption looks like on my machine idle state:
 <details>  
 <summary><strong>Enable Apple Services</strong></summary>
 
-- Download [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS)
+- Do the following one line at a time in Terminal:
 
-- Run the script with `MacbookPro13,1`
+```bash
+$ git clone https://github.com/corpnewt/GenSMBIOS
+$ cd GenSMBIOS
+$ chmod +x GenSMBIOS.command
+```
 
-- Add results to `PlatformInfo > Generic > MLB, SystemSerialNumber and SystemUUID`
+- Run with either `./GenSMBIOS.command` or by double-clicking *GenSMBIOS.command*
+
+- Type `MacbookPro13,1 10`
+
+- Add the last results to `PlatformInfo > Generic > MLB, SystemSerialNumber and SystemUUID`
 
 </details>
 
@@ -173,17 +212,11 @@ That's how power consumption looks like on my machine idle state:
 
 - Disable SIP (just for this process, you can enable it once finished)
 
-- Download and install [RDM Utility](https://github.com/usr-sse2/RDM/releases)
+- Run this script in Terminal
 
-- Launch the app, click on "resolution", then "edit"
-
-- Type 2880x1620, check HiDPI (will look like 1440x810)
-
-- Reboot the system
-
-- Re-launch RDM, click on "resolution", select 1444x810⚡️
-
-![](/Images/HiDPI.png)
+```bash
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/xzhih/one-key-hidpi/master/hidpi.sh)"
+```
 
 </details>
 
@@ -192,15 +225,15 @@ That's how power consumption looks like on my machine idle state:
 <details>  
 <summary><strong>Fully functioning multimedia Fn keys</strong></summary>
 
-- Install [ThinkpadAssistant](https://github.com/MSzturc/ThinkpadAssistant)
-- Check launch on login
+- Download and install [ThinkpadAssistant](https://github.com/MSzturc/ThinkpadAssistant/releases)
+- Open the app and check `launch on login` option
 
 </details>
 
 <details>  
 <summary><strong>Use PrtSc key as Screenshot shortcut</strong></summary>
 
-- PrtSc is mapped to F13, just go under SystemPreferences > Keyboard > Shortcuts > Screenshots and record the shortcut
+- PrtSc is mapped to F13, just go under `SystemPreferences > Keyboard > Shortcuts > Screenshots` and record the shortcut
 
 ![](/Images/Shortcut.png)
 
@@ -210,16 +243,16 @@ That's how power consumption looks like on my machine idle state:
 <summary><strong>Monitor temperatures and power consumption</strong></summary>
 
 - Download and install [HWMonitor](https://github.com/kzlekk/HWSensors/releases)
-- Check launch on login
+- Open the app and check `launch on login` option
 
 </details> 
 
 <details>  
-<summary><strong>Make dock animation faster and without delay</strong></summary>
+<summary><strong>Faster macOS dock animation</strong></summary>
 
 - Run these lines in terminal:
 
-```
+```bash
 $ defaults write com.apple.dock autohide-delay -float 0
 $ defaults write com.apple.dock autohide-time-modifier -float 0.5
 $ killall Dock
