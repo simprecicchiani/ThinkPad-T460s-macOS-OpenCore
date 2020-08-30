@@ -93,21 +93,23 @@ Thanks to [@duszmox](https://github.com/duszmox) for his [guide](/Guides/Install
 <details>  
 <summary><strong>BIOS Settings</strong></summary>
 
-- `Config` > `USB` > `UEFI BIOS Support` > **Enable**
-- `Config` > `Power` > `Intel SpeedStep Technology` > **Enable**
-- `Config` > `Power` > `CPU Power Management` > **Enable**
-- `Config` > `CPU` > `Hyper-Threading Technology` > **Enable**
-- `Security` > `Security Chip` > **Disable**
-- `Security` > `Memory Protection`>`Execution Prevention`>**Enable**
-- `Security` > `Virtualization` > `Intel Virtualization Technology` > **Enable**
-- `Security` > `Virtualization` > `Intel VT-d Feature` > **Enable**
-- `Security` > `Anti-Theft` > `Computrace` > `Current Setting` > **Disable**
-- `Security` > `Secure Boot` > **Disable**
-- `Security` > `Intel SGX` > **Disable**
-- `Security` > `Device Guard` > **Disable**
-- `Startup` > `UEFI/Legacy Boot` > **UEFI Only**
-- `Startup` > `CSM Support` > **No**
-- `Startup` > `Boot Mode` > **Quick**
+| Menu     	| sub-menu          	| sub-menu                        	| setting   	|
+|----------	|-------------------	|---------------------------------	|-----------	|
+| Config   	| USB               	| UEFI BIOS Support               	| Enable    	|
+|          	| Power             	| Intel SpeedStep Technology      	| Enable    	|
+|          	|                   	| CPU Power Management            	| Enable    	|
+|          	| CPU               	| Hyper-Threading Technology      	| Enable    	|
+| Security 	| Security Chip     	|                                 	| Disable   	|
+|          	| Memory Protection 	| Execution Prevention            	| Enable    	|
+|          	| Virtualization    	| Intel Virtualization Technology 	| Enable    	|
+|          	|                   	| Intel VT-d Feature              	| Enable    	|
+|          	| Anti-Theft        	| Computrace                      	| Disable   	|
+|          	| Secure Boot       	|                                 	| Disable   	|
+|          	| Intel SGX         	|                                 	| Disable   	|
+|          	| Device Guard      	|                                 	| Disable   	|
+| Startup  	| UEFI/Legacy Boot  	|                                 	| UEFI Only 	|
+|          	| CSM Support       	|                                 	| No        	|
+|          	| Boot Mode         	|                                 	| Quick     	|
 
 </details>
 
@@ -134,11 +136,10 @@ If you want to take a step forward and create a custom CPU power profile, follow
    bash -c "$(curl -fsSL https://raw.githubusercontent.com/stevezhengshiqi/one-key-cpufriend/master/one-key-cpufriend.sh)"
    ```
 1. Copy `CPUFriend.kext` and `CPUFriendDataProvider.kext` from desktop to `/OC/Kexts/`
-   This can be done by running the following command in Terminal
    ```bash
    cp ~/Desktop/{CPUFriend,CPUFriendDataProvider}.kext /OC/Kexts/
    ```
-1. Open the file `/OC/config.plist` and add the following code:
+1. Add `CPUFriend.kext` and `CPUFriendDataProvider.kext` entries in `config.plist` under `Kernel -> Add`
    ```xml
    <dict>
        <key>BundlePath</key>
