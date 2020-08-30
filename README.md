@@ -66,7 +66,8 @@ It would mean a lot to me.
 <details>  
 <summary><strong>Hardware compatibility</strong></summary>
 
-This EFI will suit any T460s regardless of CPU model<sup>[1](#CPU)</sup>, amount of RAM, display resolution<sup>[2](#Res)</sup>, and internal storage<sup>[3](#NVMe)</sup>.  
+This EFI will suit any T460s regardless of CPU model<sup>[1](#CPU)</sup>, amount of RAM, display resolution<sup>[2](#Res)</sup>, and internal storage<sup>[3](#NVMe)</sup>.
+
 <a name="CPU">1</a>: Optional custom CPU Power Management guide  
 <a name="Res">2</a>: 1440p display models should change `NVRAM -> Add -> 7C436110-AB2A-4BBB-A880-FE41995C9F82 -> UIScale`:`2` to get proper scaling while booting  
 <a name="NVMe">3</a>: Some NVMe drives may not work OOTB with MacOS, [NVMeFix](https://github.com/acidanthera/NVMeFix) could resolve some issues
@@ -289,6 +290,7 @@ This my machine's power consumption when idling:
 ## Status
 <details>  
 <summary><strong>What's working ✅</strong></summary>
+
 - [x] CPU Power Management `~1W on IDLE`
 
 - [x] Intel HD 520 Graphics `incuding graphics acceleration`
