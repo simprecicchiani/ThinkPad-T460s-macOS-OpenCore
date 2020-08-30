@@ -9,11 +9,13 @@
 [![LICENSE](https://img.shields.io/badge/license-MIT-purple)](/LICENSE)
 
 **DISCLAIMER:**
-Read the entire README before you start. I am not responsible for any damages you may cause.
+Read the entire README before you start.
+I am not responsible for any damages you may cause.
 
-Should you find an error, or improve anything, be it in the config itself or in the my documentation, please consider opening an issue or a pull request to contribute.
+Should you find an error or improve anything — whether in the config or in the documentation — please consider opening an issue or pull request.
 
-Lastly, if you found my work useful please consider a PayPal donation, it would mean a lot to me.
+If you find my work useful, please consider donating via PayPal.
+It would mean a lot to me.
 
 [![donate](https://img.shields.io/badge/-buy%20me%20a%20coffee-orange)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Y5BE5HYACDERG&source=url)
 
@@ -71,7 +73,11 @@ Lastly, if you found my work useful please consider a PayPal donation, it would 
 <details>  
 <summary><strong>Hardware compatibility</strong></summary>
 
-This EFI will suit any T460s regardless of CPU model<sup>[1](#CPU)</sup> / RAM amount / Display resolution<sup>[2](#Res)</sup> / Storage drive (SATA or NVMe<sup>[3](#NVMe)</sup>).
+This EFI will suit any T460s regardless of
+- CPU model<sup>[1](#CPU)</sup>,
+- amount of RAM,
+- display resolution<sup>[2](#Res)</sup>, and
+- internal storage<sup>[3](#NVMe)</sup>.
 
 <a name="CPU">1</a>: Optional custom CPU Power Management guide
 
@@ -137,52 +143,53 @@ For ThinkPad's dock only, use one of the following methods:
 
 If you want to take a step forward and create a custom CPU power profile, follow these steps:
 
-- Run the following command in Terminal:
+1. Launch Terminal.app.
+1. Copy the following command, paste it into the Terminal window, then press the ENTER key in the same Terminal window.
+   ```bash
+   bash -c "$(curl -fsSL https://raw.githubusercontent.com/stevezhengshiqi/one-key-cpufriend/master/one-key-cpufriend.sh)"
+   ```
+1. Copy `CPUFriend.kext` and `CPUFriendDataProvider.kext` from desktop to `/OC/Kexts/`.
+   This can be done by running the following command in Terminal.
+   ```bash
+   cp ~/Desktop/{CPUFriend,CPUFriendDataProvider}.kext /OC/Kexts/
+   ```
+1. Open the file `/OC/config.plist` and add the following code:
+   ```xml
+   <dict>
+       <key>BundlePath</key>
+       <string>CPUFriend.kext</string>
+       <key>Comment</key>
+       <string>Power management data injector</string>
+       <key>Enabled</key>
+       <true/>
+       <key>ExecutablePath</key>
+       <string>Contents/MacOS/CPUFriend</string>
+       <key>MaxKernel</key>
+       <string></string>
+       <key>MinKernel</key>
+       <string></string>
+       <key>PlistPath</key>
+       <string>Contents/Info.plist</string>
+   </dict>
+   <dict>
+       <key>BundlePath</key>
+       <string>CPUFriendDataProvider.kext</string>
+       <key>Comment</key>
+       <string>Power management data</string>
+       <key>Enabled</key>
+       <true/>
+       <key>ExecutablePath</key>
+       <string></string>
+       <key>MaxKernel</key>
+       <string></string>
+       <key>MinKernel</key>
+       <string></string>
+       <key>PlistPath</key>
+       <string>Contents/Info.plist</string>
+   </dict>
+   ```
 
-```bash
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/stevezhengshiqi/one-key-cpufriend/master/one-key-cpufriend.sh)"
-```
-
-- Copy `CPUFriend.kext` and `CPUFriendDataProvider.kext` from desktop to `/OC/Kexts/`.
-
-- Open `/OC/config.plist` and add the following code:
-
-```xml
-<dict>
-    <key>BundlePath</key>
-    <string>CPUFriend.kext</string>
-    <key>Comment</key>
-    <string>Power management data injector</string>
-    <key>Enabled</key>
-    <true/>
-    <key>ExecutablePath</key>
-    <string>Contents/MacOS/CPUFriend</string>
-    <key>MaxKernel</key>
-    <string></string>
-    <key>MinKernel</key>
-    <string></string>
-    <key>PlistPath</key>
-    <string>Contents/Info.plist</string>
-</dict>
-<dict>
-    <key>BundlePath</key>
-    <string>CPUFriendDataProvider.kext</string>
-    <key>Comment</key>
-    <string>Power management data</string>
-    <key>Enabled</key>
-    <true/>
-    <key>ExecutablePath</key>
-    <string></string>
-    <key>MaxKernel</key>
-    <string></string>
-    <key>MinKernel</key>
-    <string></string>
-    <key>PlistPath</key>
-    <string>Contents/Info.plist</string>
-</dict>
-```
-
-That's how power consumption looks like when my machine stands idle:
+This my machine's power consumption when idling:
 
 ![](/Images/PowerConsumption.png)
 
@@ -191,33 +198,30 @@ That's how power consumption looks like when my machine stands idle:
 <details>  
 <summary><strong>Enable Apple Services</strong></summary>
 
-- Do the following one line at a time in Terminal:
-
-```bash
-$ git clone https://github.com/corpnewt/GenSMBIOS
-$ cd GenSMBIOS
-$ chmod +x GenSMBIOS.command
-```
-
-- Run with either `./GenSMBIOS.command` or by double-clicking *GenSMBIOS.command*
-
-- Type `MacbookPro13,1 10`
-
-- Add the last results to `PlatformInfo > Generic > MLB, SystemSerialNumber and SystemUUID`
-
+1. Launch Terminal.app.
+1. Copy the following script, paste it into the Terminal window, then press ENTER.
+   ```bash
+   git clone https://github.com/corpnewt/GenSMBIOS && cd GenSMBIOS && ./GenSMBIOS.command 
+   ```
+1. Copy the following identifier, paste it into the same Terminal window, then press ENTER.
+   ```bash
+   MacbookPro13,1 10
+   ```
+1. Copy the output from the Terminal window.
+1. Paste the copied text into `PlatformInfo > Generic > MLB, SystemSerialNumber and SystemUUID`.
 </details>
 
 <details>  
 <summary><strong>Enable HiDPI</strong></summary>
 
-- Disable SIP (just for this process, you can enable it once finished)
-
-- Run this script in Terminal
-
-```bash
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/xzhih/one-key-hidpi/master/hidpi.sh)"
-```
-
+1. Disable SIP.
+1. Launch Terminal.app.
+1. Copy the following script, paste it into the Terminal window, then press ENTER in the Terminal window.
+   ```bash
+   bash -c "$(curl -fsSL https://raw.githubusercontent.com/xzhih/one-key-hidpi/master/hidpi.sh)"
+   ```
+1. Close the Terminal window.
+1. Enable SIP (if desired).
 </details>
 
 ## Other tweaks
@@ -225,8 +229,9 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/xzhih/one-key-hidpi/mast
 <details>  
 <summary><strong>Fully functioning multimedia Fn keys</strong></summary>
 
-- Download and install [ThinkpadAssistant](https://github.com/MSzturc/ThinkpadAssistant/releases)
-- Open the app and check `launch on login` option
+1. Download and install [ThinkpadAssistant](https://github.com/MSzturc/ThinkpadAssistant/releases).
+1. Open the app.
+1. Check the `launch on login` option.
 
 </details>
 
@@ -250,13 +255,11 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/xzhih/one-key-hidpi/mast
 <details>  
 <summary><strong>Faster macOS dock animation</strong></summary>
 
-- Run these lines in terminal:
-
-```bash
-$ defaults write com.apple.dock autohide-delay -float 0
-$ defaults write com.apple.dock autohide-time-modifier -float 0.5
-$ killall Dock
-```
+1. Launch Terminal.app.
+1. Copy and paste each of the following lines into the Terminal window, pressing the ENTER key in the Terminal window after pasting each line.
+   1. `defaults write com.apple.dock autohide-delay -float 0`
+   1. `defaults write com.apple.dock autohide-time-modifier -float 0.5`
+   1. `killall Dock`
 </details>
 
 <details>  
@@ -355,4 +358,6 @@ New README for improved readability
 
 ## Thanks to
 
-The hackintosh community from GitHub, [InsanelyMac](https://www.insanelymac.com/forum/) and [r/hackintosh](https://www.reddit.com/r/hackintosh/).
+- The hackintosh community on GitHub,
+- [InsanelyMac](https://www.insanelymac.com/forum/), and
+- [r/hackintosh](https://www.reddit.com/r/hackintosh/).
