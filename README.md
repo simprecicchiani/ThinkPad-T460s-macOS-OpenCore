@@ -9,11 +9,11 @@
 [![LICENSE](https://img.shields.io/badge/license-MIT-purple)](/LICENSE)
 
 **DISCLAIMER:**
-Read the entire README before you start. I am not responsible for any damages you may cause.
-
-Should you find an error, or improve anything, be it in the config itself or in the my documentation, please consider opening an issue or a pull request to contribute.
-
-Lastly, if you found my work useful please consider a PayPal donation, it would mean a lot to me.
+Read the entire README before you start.
+I am not responsible for any damages you may cause.  
+Should you find an error or improve anything — whether in the config or in the documentation — please consider opening an issue or pull request.  
+If you find my work useful, please consider donating via PayPal.
+It would mean a lot to me.
 
 [![donate](https://img.shields.io/badge/-buy%20me%20a%20coffee-orange)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Y5BE5HYACDERG&source=url)
 
@@ -22,16 +22,11 @@ Lastly, if you found my work useful please consider a PayPal donation, it would 
 <details>  
 <summary><strong>General knowledge & credits</strong></summary>
 
-- [Why OpenCore](https://dortania.github.io/OpenCore-Install-Guide/why-oc.html)
-
-- [Dortania's website](https://dortania.github.io)
-
-- [SSDT patches from OC-little](https://translate.google.it/translate?sl=zh-CN&tl=en&u=https%3A%2F%2Fgithub.com%2Fdaliansky%2FOC-little)
-
-- Useful tools by [@CorpNewt](https://github.com/corpnewt)
-
-- [Acidanthera's OpenCore and kexts development](https://github.com/acidanthera)
-
+- [Why OpenCore](https://dortania.github.io/OpenCore-Install-Guide/why-oc.html)  
+- [Dortania's website](https://dortania.github.io)  
+- [SSDT patches from OC-little](https://translate.google.it/translate?sl=zh-CN&tl=en&u=https%3A%2F%2Fgithub.com%2Fdaliansky%2FOC-little)  
+- Useful tools by [@CorpNewt](https://github.com/corpnewt)  
+- [Acidanthera's OpenCore and kexts development](https://github.com/acidanthera)  
 - [@MSzturc](https://github.com/MSzturc) keyboard map and [ThinkpadAssistant](https://github.com/MSzturc/ThinkpadAssistant)
 
 </details>
@@ -71,13 +66,10 @@ Lastly, if you found my work useful please consider a PayPal donation, it would 
 <details>  
 <summary><strong>Hardware compatibility</strong></summary>
 
-This EFI will suit any T460s regardless of CPU model<sup>[1](#CPU)</sup> / RAM amount / Display resolution<sup>[2](#Res)</sup> / Storage drive (SATA or NVMe<sup>[3](#NVMe)</sup>).
-
-<a name="CPU">1</a>: Optional custom CPU Power Management guide
-
-<a name="Res">2</a>: 1440p display models should change `NVRAM -> Add -> 7C436110-AB2A-4BBB-A880-FE41995C9F82 -> UIScale = 2` to get proper scaling while booting
-
-<a name="NVMe">3</a>: Some NVMe drives may not work OOTB with MacOS, [NVMeFix](https://github.com/acidanthera/NVMeFix) could resolve some issues.
+This EFI will suit any T460s regardless of CPU model<sup>[1](#CPU)</sup>, amount of RAM, display resolution<sup>[2](#Res)</sup>, and internal storage<sup>[3](#NVMe)</sup>.  
+<a name="CPU">1</a>: Optional custom CPU Power Management guide  
+<a name="Res">2</a>: 1440p display models should change `NVRAM -> Add -> 7C436110-AB2A-4BBB-A880-FE41995C9F82 -> UIScale`:`2` to get proper scaling while booting  
+<a name="NVMe">3</a>: Some NVMe drives may not work OOTB with MacOS, [NVMeFix](https://github.com/acidanthera/NVMeFix) could resolve some issues
 
 </details>
 
@@ -85,16 +77,15 @@ This EFI will suit any T460s regardless of CPU model<sup>[1](#CPU)</sup> / RAM a
 <details>  
 <summary><strong>How to install macOS</strong></summary>
 
-- Download [EFI folder](/macOS-10.15.6-Catalina/EFI/)
-- Follow [Dortania's guide](https://dortania.github.io/OpenCore-Install-Guide/installation/installation-process.html)
+Carefully read [Dortania's guide](https://dortania.github.io/OpenCore-Install-Guide/installation/installation-process.html) and come back here to get the [EFI folder](/macOS-10.15.6-Catalina/EFI/).
 
 </details>
 
 <details>  
 <summary><strong>How to upgrade to macOS 11.0 Big Sur</strong></summary>
 
-- Download [EFI folder](/macOS-11.0-Big-Sur/EFI/)
-- Follow [duszmox's guide](/Guides/Install-Big-Sur.md)
+**WARNING**: This is configuration is in *beta*. I'm not maintaining it until official BigSur release.  
+Thanks to [@duszmox](https://github.com/duszmox) for his [guide](/Guides/Install-Big-Sur.md) and [EFI folder](/macOS-11.0-Big-Sur/EFI/).
 
 </details>
 
@@ -127,7 +118,6 @@ This EFI will suit any T460s regardless of CPU model<sup>[1](#CPU)</sup> / RAM a
 For ThinkPad's dock only, use one of the following methods:
 
 - [USBMap by CorpNewt](https://github.com/corpnewt?tab=repositories)
-
 - [Native USB fix without injector kext](https://www.olarila.com/topic/6878-guide-native-usb-fix-for-notebooks-no-injectorkext-required/?tab=comments#comment-88412)
 
 </details>
@@ -137,52 +127,53 @@ For ThinkPad's dock only, use one of the following methods:
 
 If you want to take a step forward and create a custom CPU power profile, follow these steps:
 
-- Run the following command in Terminal:
+1. Launch Terminal.app
+1. Copy the following command, paste it into the Terminal window, then press the ENTER key in the same Terminal window
+   ```bash
+   bash -c "$(curl -fsSL https://raw.githubusercontent.com/stevezhengshiqi/one-key-cpufriend/master/one-key-cpufriend.sh)"
+   ```
+1. Copy `CPUFriend.kext` and `CPUFriendDataProvider.kext` from desktop to `/OC/Kexts/`
+   This can be done by running the following command in Terminal
+   ```bash
+   cp ~/Desktop/{CPUFriend,CPUFriendDataProvider}.kext /OC/Kexts/
+   ```
+1. Open the file `/OC/config.plist` and add the following code:
+   ```xml
+   <dict>
+       <key>BundlePath</key>
+       <string>CPUFriend.kext</string>
+       <key>Comment</key>
+       <string>Power management data injector</string>
+       <key>Enabled</key>
+       <true/>
+       <key>ExecutablePath</key>
+       <string>Contents/MacOS/CPUFriend</string>
+       <key>MaxKernel</key>
+       <string></string>
+       <key>MinKernel</key>
+       <string></string>
+       <key>PlistPath</key>
+       <string>Contents/Info.plist</string>
+   </dict>
+   <dict>
+       <key>BundlePath</key>
+       <string>CPUFriendDataProvider.kext</string>
+       <key>Comment</key>
+       <string>Power management data</string>
+       <key>Enabled</key>
+       <true/>
+       <key>ExecutablePath</key>
+       <string></string>
+       <key>MaxKernel</key>
+       <string></string>
+       <key>MinKernel</key>
+       <string></string>
+       <key>PlistPath</key>
+       <string>Contents/Info.plist</string>
+   </dict>
+   ```
 
-```bash
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/stevezhengshiqi/one-key-cpufriend/master/one-key-cpufriend.sh)"
-```
-
-- Copy `CPUFriend.kext` and `CPUFriendDataProvider.kext` from desktop to `/OC/Kexts/`.
-
-- Open `/OC/config.plist` and add the following code:
-
-```xml
-<dict>
-    <key>BundlePath</key>
-    <string>CPUFriend.kext</string>
-    <key>Comment</key>
-    <string>Power management data injector</string>
-    <key>Enabled</key>
-    <true/>
-    <key>ExecutablePath</key>
-    <string>Contents/MacOS/CPUFriend</string>
-    <key>MaxKernel</key>
-    <string></string>
-    <key>MinKernel</key>
-    <string></string>
-    <key>PlistPath</key>
-    <string>Contents/Info.plist</string>
-</dict>
-<dict>
-    <key>BundlePath</key>
-    <string>CPUFriendDataProvider.kext</string>
-    <key>Comment</key>
-    <string>Power management data</string>
-    <key>Enabled</key>
-    <true/>
-    <key>ExecutablePath</key>
-    <string></string>
-    <key>MaxKernel</key>
-    <string></string>
-    <key>MinKernel</key>
-    <string></string>
-    <key>PlistPath</key>
-    <string>Contents/Info.plist</string>
-</dict>
-```
-
-That's how power consumption looks like when my machine stands idle:
+This my machine's power consumption when idling:
 
 ![](/Images/PowerConsumption.png)
 
@@ -191,33 +182,29 @@ That's how power consumption looks like when my machine stands idle:
 <details>  
 <summary><strong>Enable Apple Services</strong></summary>
 
-- Do the following one line at a time in Terminal:
-
-```bash
-$ git clone https://github.com/corpnewt/GenSMBIOS
-$ cd GenSMBIOS
-$ chmod +x GenSMBIOS.command
-```
-
-- Run with either `./GenSMBIOS.command` or by double-clicking *GenSMBIOS.command*
-
-- Type `MacbookPro13,1 10`
-
-- Add the last results to `PlatformInfo > Generic > MLB, SystemSerialNumber and SystemUUID`
+1. Launch Terminal.app
+1. Copy the following script, paste it into the Terminal window, then press ENTER
+   ```bash
+   git clone https://github.com/corpnewt/GenSMBIOS && cd GenSMBIOS && ./GenSMBIOS.command 
+   ```
+1. Type `2`, then press ENTER
+1. Drag your `config.plist` inside the Terminal window
+1. Type `3`, then press ENTER
+1. Type `MacbookPro13,1`, then press ENTER
 
 </details>
 
 <details>  
 <summary><strong>Enable HiDPI</strong></summary>
 
-- Disable SIP (just for this process, you can enable it once finished)
-
-- Run this script in Terminal
-
-```bash
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/xzhih/one-key-hidpi/master/hidpi.sh)"
-```
-
+1. [Disable SIP](https://dortania.github.io/OpenCore-Install-Guide/troubleshooting/troubleshooting.html#disabling-sip)
+1. Launch Terminal.app
+1. Copy the following script, paste it into the Terminal window, then press ENTER in the Terminal window
+   ```bash
+   bash -c "$(curl -fsSL https://raw.githubusercontent.com/xzhih/one-key-hidpi/master/hidpi.sh)"
+   ```
+1. Follow the script instructions, then reboot
+1. Enable SIP (if desired)
 </details>
 
 ## Other tweaks
@@ -225,15 +212,18 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/xzhih/one-key-hidpi/mast
 <details>  
 <summary><strong>Fully functioning multimedia Fn keys</strong></summary>
 
-- Download and install [ThinkpadAssistant](https://github.com/MSzturc/ThinkpadAssistant/releases)
-- Open the app and check `launch on login` option
+1. Download and install [ThinkpadAssistant](https://github.com/MSzturc/ThinkpadAssistant/releases)
+1. Open the app
+1. Check the `launch on login` option
 
 </details>
 
 <details>  
 <summary><strong>Use PrtSc key as Screenshot shortcut</strong></summary>
 
-- PrtSc is mapped to F13, just go under `SystemPreferences > Keyboard > Shortcuts > Screenshots` and record the shortcut
+1. Go under `SystemPreferences > Keyboard > Shortcuts > Screenshots` 
+1. Click on `Screenshot and recording options` key map
+1. Press `PrtSc` on your keyboard (it should came out as `F13`)
 
 ![](/Images/Shortcut.png)
 
@@ -242,32 +232,55 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/xzhih/one-key-hidpi/mast
 <details>  
 <summary><strong>Monitor temperatures and power consumption</strong></summary>
 
-- Download and install [HWMonitor](https://github.com/kzlekk/HWSensors/releases)
-- Open the app and check `launch on login` option
+1. Download and install [HWMonitor](https://github.com/kzlekk/HWSensors/releases)
+1. Open the app
+1. Check the `launch on login` option
 
 </details> 
 
 <details>  
 <summary><strong>Faster macOS dock animation</strong></summary>
 
-- Run these lines in terminal:
-
-```bash
-$ defaults write com.apple.dock autohide-delay -float 0
-$ defaults write com.apple.dock autohide-time-modifier -float 0.5
-$ killall Dock
-```
+1. Launch Terminal.app
+1. Copy and paste each of the following lines into the Terminal window, pressing the ENTER key in the Terminal window after pasting each line
+   ```bash
+   defaults write com.apple.dock autohide-delay -float 0
+   defaults write com.apple.dock autohide-time-modifier -float 0.5
+   killall Dock
+   ```
 </details>
 
 <details>  
 <summary><strong>Mac Bootloader GUI and Boot Chime</strong></summary>
 
-- Follow the appropriate [Guide](https://dortania.github.io/OpenCore-Post-Install/cosmetic/gui.html#setting-up-opencore-s-gui).
+**Setting up OpenCore's GUI**
 
-Information for Boot Chime setup:  
-`AudioDevice : PciRoot(0x0)/Pci(0x1f,0x3)`  
-`AudioOut : 0 //Speakers`  
-`AudioOut : 1 //Headphone Jack`  
+1. Download [Binary Resources](https://github.com/acidanthera/OcBinaryData) and [OpenCanopy.efi](https://github.com/acidanthera/OpenCorePkg/releases)
+1. Copy the [Resources folder](https://github.com/acidanthera/OcBinaryData) to `EFI/OC`
+1. Add OpenCanopy.efi to `EFI/OC/Drivers`
+1. Make these changes inside `config.plist`:
+   `Misc -> Boot -> PickerMode`: `External`
+   `Misc -> Boot -> PickerAttributes`:`1`
+   `UEFI -> Drivers` and add `OpenCanopy.efi`
+
+**Setting up Boot-chime with AudioDxe**
+
+1. Download [AudioDxe](https://github.com/acidanthera/OpenCorePkg/releases)
+1. Copy AudioDxe.efi to `EFI/OC/Drivers`
+1. Make these changes inside `config.plist`:
+   `UEFI -> Drivers` and add `AudioDxe.efi`
+   `NVRAM -> Add -> 7C436110-AB2A-4BBB-A880-FE41995C9F82 -> SystemAudioVolume`:`0x46` (Data)
+   `UEFI -> Audio -> AudioSupport`:`True` 
+   `UEFI -> Audio -> AudioDevice`:`PciRoot(0x0)/Pci(0x1f,0x3)`
+   `UEFI -> Audio -> AudioOut`:`0` (for Speakers or `1` for Headphone Jack)
+   `UEFI -> Audio -> MinimumVolume`:`50`
+   `UEFI -> Audio -> PlayChime`:`True`
+   `UEFI -> Audio -> VolumeAmplifier`:`143`
+
+**Additional settings for visually impaired**
+
+   `Misc -> Boot -> PickerAudioAssist`:`True` to enable picker audio
+   `UEFI -> ProtocolOverrides -> AppleAudio`:`True` to enable FileVault voice over
 
 ![](/Images/MacBootloaderGUI.png)
 
@@ -353,4 +366,6 @@ New README for improved readability
 
 ## Thanks to
 
-The hackintosh community from GitHub, [InsanelyMac](https://www.insanelymac.com/forum/) and [r/hackintosh](https://www.reddit.com/r/hackintosh/).
+The hackintosh community on GitHub,
+[InsanelyMac](https://www.insanelymac.com/forum/), and
+[r/hackintosh](https://www.reddit.com/r/hackintosh/).
