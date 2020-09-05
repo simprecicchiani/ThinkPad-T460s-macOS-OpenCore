@@ -2,9 +2,9 @@
 
 <img align="right" src="https://imgur.com/sI2Uzel.jpg" alt="T460s macOS" width="300">
 
-[![macOS](https://img.shields.io/badge/macOS-Catalina_10.15.6-blue.svg)](https://support.apple.com/en-us/HT210642)
+[![macOS](https://img.shields.io/badge/macOS-Catalina%20%26%20Big%20Sur-blue)](https://developer.apple.com/documentation/macos-release-notes)
 [![OpenCore](https://img.shields.io/badge/OpenCore-0.6.0-green)](https://github.com/acidanthera/OpenCorePkg)
-[![MODEL](https://img.shields.io/badge/Model-20F9003AUS-lightgrey)](https://psref.lenovo.com/Product/ThinkPad_T460s)
+[![Model](https://img.shields.io/badge/Model-20F9003AUS-lightgrey)](https://psref.lenovo.com/Product/ThinkPad_T460s)
 [![BIOS](https://img.shields.io/badge/BIOS-1.49-lightgrey)](https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/thinkpad-t-series-laptops/thinkpad-t460s/downloads/driver-list/component?name=BIOS%2FUEFI)
 [![LICENSE](https://img.shields.io/badge/license-MIT-purple)](/LICENSE)
 
@@ -79,14 +79,6 @@ This EFI will suit any T460s regardless of CPU model<sup>[1](#CPU)</sup>, amount
 <summary><strong>How to install macOS</strong></summary>
 
 Carefully read [Dortania's guide](https://dortania.github.io/OpenCore-Install-Guide/installation/installation-process.html) and come back here to get the [EFI folder](/EFI/).
-
-</details>
-
-<details>  
-<summary><strong>How to upgrade to macOS 11.0 Big Sur</strong></summary>
-
-**WARNING**: This is configuration is in *beta*. I'm not maintaining it until official BigSur release.  
-Thanks to [@duszmox](https://github.com/duszmox) for his [guide](/Guides/Install-Big-Sur.md)
 
 </details>
 
@@ -342,9 +334,9 @@ This my machine's power consumption when idling:
 <details>  
 <summary><strong>Update tracker 🔄</strong></summary>
 
-| Version                                                                      | [Stable](/EFI) | 
-|:-----------------------------------------------------------------------------|--------------------------------------:|--------------------------------:|
-| [MacOS](https://www.apple.com/macos/)                                        | 10.15.6 / 11.0                               |
+| Version                                                                      | [Stable](/EFI)                        | 
+|:-----------------------------------------------------------------------------|--------------------------------------:|
+| [MacOS](https://www.apple.com/macos/)                                        | 10.15.6 / 11.0                        |
 | [OpenCore](https://github.com/acidanthera/OpenCorePkg/releases)              | 0.6.0                                 | 
 | [Lilu](https://github.com/acidanthera/Lilu/releases)                         | 1.4.6                                 | 
 | [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases)             | 1.1.5                                 | 
