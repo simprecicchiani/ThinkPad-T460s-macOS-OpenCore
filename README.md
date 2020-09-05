@@ -193,7 +193,7 @@ This my machine's power consumption when idling:
 
 1. [Disable SIP](https://dortania.github.io/OpenCore-Install-Guide/troubleshooting/troubleshooting.html#disabling-sip)
 1. Launch Terminal.app
-1. Copy the following script, paste it into the Terminal window, then press ENTER in the Terminal window
+1. Copy the following script, paste it into the Terminal window, then press ENTER
    ```bash
    bash -c "$(curl -fsSL https://raw.githubusercontent.com/xzhih/one-key-hidpi/master/hidpi.sh)"
    ```
@@ -204,7 +204,7 @@ This my machine's power consumption when idling:
 ## Other tweaks
 
 <details>  
-<summary><strong>Fully functioning multimedia Fn keys</strong></summary>
+<summary><strong>Enable multimedia keys</strong></summary>
 
 1. Download and install [ThinkpadAssistant](https://github.com/MSzturc/ThinkpadAssistant/releases)
 1. Open the app
@@ -224,6 +224,26 @@ This my machine's power consumption when idling:
 </details>
 
 <details>  
+<summary><strong>Use calibrated display profile</strong></summary>
+
+1. Launch Terminal.app
+1. Copy the following script, paste it into the Terminal window, then press ENTER
+    - for 1440p displays
+        ```bash
+        cd ~/Library/ColorSync/Profiles; wget https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore/blob/master/Files/DisplayProfiles/T460s_WQHD_VVX14T058J02.icm
+        ```
+   - for 1080p displays
+        ```bash
+        cd ~/Library/ColorSync/Profiles; wget https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore/blob/master/Files/DisplayProfiles/T460s_FHD_N140HCE_EAA.icm
+        ```
+1. Go under `SystemPreferences > Displays > Colour`
+1. Select the calibrated profile
+
+![](/Images/DisplayProfile.png)
+
+</details>
+
+<details>  
 <summary><strong>Monitor temperatures and power consumption</strong></summary>
 
 1. Download and install [HWMonitor](https://github.com/kzlekk/HWSensors/releases)
@@ -236,11 +256,9 @@ This my machine's power consumption when idling:
 <summary><strong>Faster macOS dock animation</strong></summary>
 
 1. Launch Terminal.app
-1. Copy and paste each of the following lines into the Terminal window, pressing the ENTER key in the Terminal window after pasting each line
+1. Copy the following script, paste it into the Terminal window, then press ENTER
    ```bash
-   defaults write com.apple.dock autohide-delay -float 0
-   defaults write com.apple.dock autohide-time-modifier -float 0.5
-   killall Dock
+   defaults write com.apple.dock autohide-delay -float 0; defaults write com.apple.dock autohide-time-modifier -float 0.5; killall Dock
    ```
 </details>
 
