@@ -4,7 +4,7 @@
 For the installation you'll need a few things:  
 * At least 12GB USB drive
 * A Mac, a Hackintosh, or a VM running macOS to create the installation media
-* The Big Sur EFI folder from the repository
+
 
 ## Download the installer
 1. Download the [gibMacOs](https://github.com/corpnewt/gibMacOS) tool and open `gibMacOS.command`:  
@@ -40,22 +40,27 @@ sudo /Applications/Install\ macOS\ Big\ Sur\ Beta.app/Contents/Resources/createi
 
 This will take around 20 minutes, so sit back and relax...
 
-### Replace your EFI folder with the new one
-For the last step before booting, you should replace your EFI folder with the [new Big Sur compatible](/macOS-11.0-Big-Sur/EFI) one.
-* Mount your EFI partition
-* Create a Backup of your old EFI folder
-* Delete the old EFI folder on the partition, paste the `Big-Sur-EFI` folder and rename it to `EFI`
-* *You can edit the config.plist and fill out the SMBios section, and also feel free to use the CPUfriend kext and any other extra kexts or ACPI's that you had in your old EFI folder*  
+### Check if you have the latest OC version and the latest kexts installed
+For the last step before booting, you should check if your OC configuration is up to date.
+You have to have ateast these versions: 
+| Name                                                                      | Version|
+|:-----------------------------------------------------------------------------|--------------------------------------:|--------------------------------:|
+| [OpenCore](https://github.com/acidanthera/OpenCorePkg/releases)              | 0.6.0                                 | 0.6.0                           |
+| [Lilu](https://github.com/acidanthera/Lilu/releases)                         | 1.4.6                                 | 1.4.6                           |
+| [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases)             | 1.1.5                                 | 1.1.5                           |
+| [WhateverGreen](https://github.com/acidanthera/WhateverGreen/releases)       | 1.4.1                                 | 1.4.1                           |  
+If you don't have one of these you have to update it. You can download the latest kexts from the EFI folder on the repository. After you downloaded them, you just have to replace them in EFI/OC/Kexts. Updating OpenCore is a bit harder but if you follow [this guide](https://dortania.github.io/OpenCore-Post-Install/universal/update.html) you can do it in 5-10 minutes.
 
+
+
+### Booting
 And now, after you done with everything, restart the computer and boot from `Install macOS Beta (external)`  
 From now on this will be the same process as it was before. The installation will take around an hour.
 
 **If the installation stuck at Forcing CS_RUNTIME for entitlement DON'T RESTART YOUR COMPUTER it's totally normal!**
 
-## What is Different from Catalina
-Almost everything is the same in case of functionality. In the first hour of using the new OS I experienced a little thermal throttling, but after a while it just dissapeared, and now everything works as on Older Versions.  
-
-Because of SMCBatteryManager is not compactible with Big Sur yet, it has been replaced with [RehabMan's ACPIBatteryManager](https://github.com/RehabMan/OS-X-ACPI-Battery-Driver) on kernel version 20.0.0.
+### Post-Install
+Because Big Sur is still in beta the thermals aren't the best without CPU friend. So if you want a cooler and quiter experience you should use CPU-Friend. You can find the tutorial for it in the [Readme.md file](../README.MD).
 
 ## Credits
 OpenCore Dortania [Big Sur Guide](https://dortania.github.io/OpenCore-Install-Guide/extras/big-sur/)
