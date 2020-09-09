@@ -105,6 +105,14 @@ Carefully read [Dortania's guide](https://dortania.github.io/OpenCore-Install-Gu
 
 </details>
 
+<details>  
+<summary><strong>How to upgrade to macOS 11.0 Big Sur</strong></summary>
+
+**WARNING**: Big Sur is in beta. While compatible, the configuration will not be adressed to it until public release.  
+Thanks to [@duszmox](https://github.com/duszmox) for his [guide](/Guides/Install-Big-Sur.md)
+
+</details>
+
 ## Post-install
 
 <details>  
@@ -123,10 +131,11 @@ For ThinkPad's dock only, use one of the following methods:
 If you want to take a step forward and create a custom CPU power profile, follow these steps:
 
 1. Launch Terminal.app
-1. Copy the following command, paste it into the Terminal window, then press the ENTER key in the same Terminal window
+1. Copy the following script, paste it into the Terminal window, then press ENTER  
    ```bash
    bash -c "$(curl -fsSL https://raw.githubusercontent.com/stevezhengshiqi/one-key-cpufriend/master/one-key-cpufriend.sh)"
    ```
+1. When asked, select preferred values (I use `08` for TDP Down and `80` for Balanced Performance)
 1. Copy `CPUFriend.kext` and `CPUFriendDataProvider.kext` from desktop to `/OC/Kexts/`
    ```bash
    cp ~/Desktop/{CPUFriend,CPUFriendDataProvider}.kext /OC/Kexts/
@@ -298,6 +307,17 @@ This my machine's power consumption when idling:
 
 </details>
 
+<details>  
+<summary><strong>BIOS Mod</strong></summary>
+
+I know it can be scary at first. But with the right amount of carefulness anyone could do it.
+
+Is it worth the effort and risk? I don't think so. I enjoyed it? 100%
+
+[Guide in progress](/Guides/Bios-Mod.md)
+
+</details>
+
 ## Status
 <details>  
 <summary><strong>What's working ✅</strong></summary>
@@ -352,25 +372,29 @@ This my machine's power consumption when idling:
 <details>  
 <summary><strong>Update tracker 🔄</strong></summary>
 
-| Version                                                                      | [Stable](/EFI)                        | 
-|:-----------------------------------------------------------------------------|--------------------------------------:|
-| [MacOS](https://www.apple.com/macos/)                                        | 10.15.6 / 11.0                        |
-| [OpenCore](https://github.com/acidanthera/OpenCorePkg/releases)              | 0.6.0                                 | 
-| [Lilu](https://github.com/acidanthera/Lilu/releases)                         | 1.4.6                                 | 
-| [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases)             | 1.1.5                                 | 
-| [WhateverGreen](https://github.com/acidanthera/WhateverGreen/releases)       | 1.4.1                                 | 
-| [AppleALC](https://github.com/acidanthera/AppleALC/releases)                 | 1.5.1                                 | 
-| [VoodooPS2Controller](https://github.com/acidanthera/VoodooPS2/releases)     | 2.1.6                                 |
-| [VoodooRMI](https://github.com/VoodooSMBus/VoodooRMI/releases)               | 1.0.1                                 |
-| [IntelMausi](https://github.com/acidanthera/IntelMausi/releases)             | 1.0.3                                 | 
-| [Sinetek-rtsx](https://github.com/cholonam/Sinetek-rtsx/releases)            | 2.3                                   | 
-| [HibernationFixup](https://github.com/acidanthera/HibernationFixup/releases) | 1.3.4                                 | 
-| [CPUFriend](https://github.com/acidanthera/CPUFriend/releases)               | 1.2.3                                 | 
+| Version                                                                      | [Stable](/EFI) | 
+|:-----------------------------------------------------------------------------|---------------:|
+| [MacOS](https://www.apple.com/macos/)                                        | 10.15.6 / 11.0 |
+| [OpenCore](https://github.com/acidanthera/OpenCorePkg/releases)              | 0.6.1          | 
+| [Lilu](https://github.com/acidanthera/Lilu/releases)                         | 1.4.7          | 
+| [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases)             | 1.1.6          | 
+| [WhateverGreen](https://github.com/acidanthera/WhateverGreen/releases)       | 1.4.2          | 
+| [AppleALC](https://github.com/acidanthera/AppleALC/releases)                 | 1.5.2          | 
+| [VoodooPS2Controller](https://github.com/acidanthera/VoodooPS2/releases)     | 2.1.6          |
+| [VoodooRMI](https://github.com/VoodooSMBus/VoodooRMI/releases)               | 1.0.1          |
+| [IntelMausi](https://github.com/acidanthera/IntelMausi/releases)             | 1.0.3          |
+| [Sinetek-rtsx](https://github.com/cholonam/Sinetek-rtsx/releases)            | 2.2            |
+| [HibernationFixup](https://github.com/acidanthera/HibernationFixup/releases) | 1.3.5          |
 
 </details>
 
 <details>  
 <summary><strong>Changelog</strong></summary>
+
+- 20200909:  
+Bootloader and kexts updated to [September releases](https://dortania.github.io/hackintosh/updates/2020/09/07/acidanthera-september.html).  
+Now using Boostrap.efi for [multiboot](https://dortania.github.io/OpenCore-Post-Install/multiboot/bootstrap.html).  
+[Apple Secure Boot](https://dortania.github.io/OpenCore-Post-Install/universal/security/applesecureboot.html) is now enabled.  
 
 - 20200822:  
 New README for improved readability

@@ -49,7 +49,7 @@
 				<key>DisableWhileTypingTimeout</key>
 				<integer>100</integer>
 				<key>ForceTouchEmulation</key>
-				<false/>
+				<true/>
 				<key>ForceTouchMinPressure</key>
 				<integer>90</integer>
 				<key>MinYDiffThumbDetection</key>
@@ -59,9 +59,9 @@
 				<key>TrackstickMultiplier</key>
 				<integer>20</integer>
 				<key>TrackstickScrollMultiplierX</key>
-				<integer>5</integer>
+				<integer>20</integer>
 				<key>TrackstickScrollMultiplierY</key>
-				<integer>5</integer>
+				<integer>20</integer>
 			</dict>
 			<key>IOClass</key>
 			<string>RMIBus</string>

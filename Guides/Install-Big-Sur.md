@@ -42,13 +42,13 @@ This will take around 20 minutes, so sit back and relax...
 
 ### Check if you have the latest OC version and the latest kexts installed
 For the last step before booting, you should check if your OC configuration is up to date.
-You have to have ateast these versions: 
-| Name                                                                      | Version|
-|:-----------------------------------------------------------------------------|--------------------------------------:|--------------------------------:|
-| [OpenCore](https://github.com/acidanthera/OpenCorePkg/releases)              | 0.6.0                                 | 0.6.0                           |
-| [Lilu](https://github.com/acidanthera/Lilu/releases)                         | 1.4.6                                 | 1.4.6                           |
-| [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases)             | 1.1.5                                 | 1.1.5                           |
-| [WhateverGreen](https://github.com/acidanthera/WhateverGreen/releases)       | 1.4.1                                 | 1.4.1                           |  
+You have to have ateast these versions:  
+| Name                                                                   | Version |
+|:-----------------------------------------------------------------------|--------:|
+| [OpenCore](https://github.com/acidanthera/OpenCorePkg/releases)        | 0.6.0   |
+| [Lilu](https://github.com/acidanthera/Lilu/releases)                   | 1.4.6   |
+| [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases)       | 1.1.5   |
+| [WhateverGreen](https://github.com/acidanthera/WhateverGreen/releases) | 1.4.1   |   
 If you don't have one of these you have to update it. You can download the latest kexts from the EFI folder on the repository. After you downloaded them, you just have to replace them in EFI/OC/Kexts. Updating OpenCore is a bit harder but if you follow [this guide](https://dortania.github.io/OpenCore-Post-Install/universal/update.html) you can do it in 5-10 minutes.
 
 
