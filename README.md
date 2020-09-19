@@ -35,42 +35,30 @@ It would mean a lot to me.
 <details>  
 <summary><strong>My Hardware</strong></summary>
 
-| Product            | ThinkPad T460s                                                                                            |
+| Model              | Thinkpad T460s 20F9003AUS                                                                                 |
 |:-------------------|:----------------------------------------------------------------------------------------------------------|
-| Model              | 20F9003AUS                                                                                                |
-| Region             | US                                                                                                        |
-| Machine Type       | 20F9                                                                                                      |
-| Processor          | Core i7-6600U (2C, 2.6 / 3.4GHz, 4MB)                                                                     |
-| vPro               | Intel vPro Technology                                                                                     |
+| Processor          | Core i7-6600U (2C, 2.6 / 3.4GHz, 4MB) vPro                                                                |
 | Graphics           | Integrated Intel HD Graphics 520                                                                          |
 | Memory             | 4GB Soldered + 4GB DIMM 2133MHz DDR4, dual-channel                                                        |
-| Display            | 14" WQHD (2560x1440) IPS                                                                                  |
-| Multi-touch        | None                                                                                                      |
+| Display            | 14" WQHD (2560x1440) IPS, non-touch                                                                       |
 | Storage            | SanDisk SD8TN8U256G1001 256GB SSD M.2 Opal2                                                               |
-| Optical            | None                                                                                                      |
 | Ethernet           | Intel Ethernet Connection I219-LM (Jacksonville)                                                          |
 | WLAN + Bluetooth   | 11ac+BT, [Broadcom BCM94360CS2](/Guides/Replace-WLAN.md), 2x2 card                                        |
-| WWAN               | WWAN Upgradable                                                                                           |
-| SIM Card           | None                                                                                                      |
-| Smart Card Reader  | None                                                                                                      |
-| Dock               | None                                                                                                      |
 | Camera             | HD720p resolution, low light sensitive, fixed focus                                                       |
 | Audio support      | HD Audio, Realtek ALC3245 codec, stereo speakers 1Wx2, dual array microphone, combo audio/microphone jack |
 | Keyboard           | 6-row, spill-resistant, multimedia Fn keys, LED backlight                                                 |
-| Fingerprint Reader | Fingerprint Reader                                                                                        |
 | Battery            | Front Li-Polymer 3-cell (23Wh) and rear Li-Ion 3-cell (26Wh), both Integrated                             |
-| Power Adapter      | 45W                                                                                                       |
 
 </details>
 
 <details>  
 <summary><strong>Hardware compatibility</strong></summary>
 
-This EFI will suit any T460s regardless of CPU model<sup>[1](#CPU)</sup>, amount of RAM, display resolution<sup>[2](#Res)</sup>, and internal storage<sup>[3](#NVMe)</sup>.
+This EFI will suit any T460s regardless of CPU model<sup>[1](#CPU)</sup>, amount of RAM, display resolution<sup>[2](#Res)</sup> and internal storage<sup>[3](#NVMe)</sup>.
 
 <a name="CPU">1</a>: Optional custom CPU Power Management guide  
 <a name="Res">2</a>: 1440p display models should change `NVRAM -> Add -> 7C436110-AB2A-4BBB-A880-FE41995C9F82 -> UIScale`:`2` to get proper scaling while booting  
-<a name="NVMe">3</a>: Some NVMe drives may not work OOTB with MacOS, [NVMeFix](https://github.com/acidanthera/NVMeFix) could resolve some issues
+<a name="NVMe">3</a>: Enable [NVMeFix](https://github.com/acidanthera/NVMeFix) for NVMe drives
 
 </details>
 
@@ -108,79 +96,12 @@ Carefully read [Dortania's guide](https://dortania.github.io/OpenCore-Install-Gu
 <details>  
 <summary><strong>How to upgrade to macOS 11.0 Big Sur</strong></summary>
 
-**WARNING**: Big Sur is in beta. While compatible, the configuration will not be adressed to it until public release.  
+**WARNING**: Big Sur is in beta. While potentially compatible, the configuration is not developed for it.  
 Thanks to [@duszmox](https://github.com/duszmox) for his [guide](/Guides/Install-Big-Sur.md)
 
 </details>
 
 ## Post-install
-
-<details>  
-<summary><strong>USB ports mapping</strong></summary>
-
-For ThinkPad's dock only, use one of the following methods:
-
-- [USBMap by CorpNewt](https://github.com/corpnewt?tab=repositories)
-- [Native USB fix without injector kext](https://www.olarila.com/topic/6878-guide-native-usb-fix-for-notebooks-no-injectorkext-required/?tab=comments#comment-88412)
-
-</details>
-
-<details>  
-<summary><strong>Custom CPU Power Management</strong></summary>
-
-If you want to take a step forward and create a custom CPU power profile, follow these steps:
-
-1. Launch Terminal.app
-1. Copy the following script, paste it into the Terminal window, then press ENTER  
-   ```bash
-   bash -c "$(curl -fsSL https://raw.githubusercontent.com/stevezhengshiqi/one-key-cpufriend/master/one-key-cpufriend.sh)"
-   ```
-1. When asked, select preferred values (I use `08` for TDP Down and `80` for Balanced Performance)
-1. Copy `CPUFriend.kext` and `CPUFriendDataProvider.kext` from desktop to `/OC/Kexts/`
-   ```bash
-   cp ~/Desktop/{CPUFriend,CPUFriendDataProvider}.kext /OC/Kexts/
-   ```
-1. Add `CPUFriend.kext` and `CPUFriendDataProvider.kext` entries in `config.plist` under `Kernel -> Add`
-   ```xml
-   <dict>
-       <key>BundlePath</key>
-       <string>CPUFriend.kext</string>
-       <key>Comment</key>
-       <string>Power management data injector</string>
-       <key>Enabled</key>
-       <true/>
-       <key>ExecutablePath</key>
-       <string>Contents/MacOS/CPUFriend</string>
-       <key>MaxKernel</key>
-       <string></string>
-       <key>MinKernel</key>
-       <string></string>
-       <key>PlistPath</key>
-       <string>Contents/Info.plist</string>
-   </dict>
-   <dict>
-       <key>BundlePath</key>
-       <string>CPUFriendDataProvider.kext</string>
-       <key>Comment</key>
-       <string>Power management data</string>
-       <key>Enabled</key>
-       <true/>
-       <key>ExecutablePath</key>
-       <string></string>
-       <key>MaxKernel</key>
-       <string></string>
-       <key>MinKernel</key>
-       <string></string>
-       <key>PlistPath</key>
-       <string>Contents/Info.plist</string>
-   </dict>
-   ```
-
-This my machine's power consumption when idling:
-
-![](/Images/PowerConsumption.png)
-
-</details>
 
 <details>  
 <summary><strong>Enable Apple Services</strong></summary>
@@ -198,6 +119,41 @@ This my machine's power consumption when idling:
 </details>
 
 <details>  
+<summary><strong>USB ports mapping (optional)</strong></summary>
+
+For ThinkPad's dock only, use one of the following methods:
+
+- [USBMap by CorpNewt](https://github.com/corpnewt?tab=repositories)
+- [Native USB fix without injector kext](https://www.olarila.com/topic/6878-guide-native-usb-fix-for-notebooks-no-injectorkext-required/?tab=comments#comment-88412)
+
+</details>
+
+<details>  
+<summary><strong>Custom CPU Power Management (optional)</strong></summary>
+
+If you want to take a step forward and create a custom CPU power profile, follow these steps:
+
+1. Launch Terminal.app
+1. Copy the following script, paste it into the Terminal window, then press ENTER  
+   ```bash
+   git clone https://github.com/fewtarius/CPUFriendFriend; cd CPUFriendFriend; chmod +x ./CPUFriendFriend.command; ./CPUFriendFriend.command
+   ```
+1. When asked, select preferred values
+1. Copy `ssdt-data.aml` from the pop-up window into `/EFI/OC/ACPI/` folder
+1. Open `config.plist` 
+1. Go under `ACPI -> Add` and change `SSDT-PLUG.aml` with `ssdt-data.aml`
+1. Go under `Kernel -> Add` and set `CPUFriend.kext` to `Enabled: True`
+
+
+This my machine's power consumption when idling:
+
+![](/Images/PowerConsumption.png)
+
+</details>
+
+## Other tweaks
+
+<details>  
 <summary><strong>Enable HiDPI</strong></summary>
 
 1. [Disable SIP](https://dortania.github.io/OpenCore-Install-Guide/troubleshooting/troubleshooting.html#disabling-sip)
@@ -209,8 +165,6 @@ This my machine's power consumption when idling:
 1. Follow the script instructions, then reboot
 1. Enable SIP (if desired)
 </details>
-
-## Other tweaks
 
 <details>  
 <summary><strong>Enable multimedia keys</strong></summary>
@@ -234,6 +188,7 @@ This my machine's power consumption when idling:
 
 <details>  
 <summary><strong>Use calibrated display profile</strong></summary>
+These are straight from Notebookcheck. Not all panel are the same so final result may vary.
 
 1. Launch Terminal.app
 1. Copy the following script, paste it into the Terminal window, then press ENTER
@@ -263,6 +218,7 @@ This my machine's power consumption when idling:
 
 <details>  
 <summary><strong>Faster macOS dock animation</strong></summary>
+This enables auto-hide and speeds up the animation
 
 1. Launch Terminal.app
 1. Copy the following script, paste it into the Terminal window, then press ENTER
@@ -273,6 +229,7 @@ This my machine's power consumption when idling:
 
 <details>  
 <summary><strong>Mac Bootloader GUI and Boot Chime</strong></summary>
+Built-in from September 19th, 2020
 
 **Setting up OpenCore's GUI**
 
@@ -309,11 +266,8 @@ This my machine's power consumption when idling:
 
 <details>  
 <summary><strong>BIOS Mod</strong></summary>
-
-I know it can be scary at first. But with the right amount of carefulness anyone could do it.
-
-Is it worth the effort and risk? I don't think so. I enjoyed it? 100%
-
+I know it can be scary at first. But with the right amount of carefulness anyone could do it.  
+Is it worth the effort and risk? I don't think so. I enjoyed it? 100%.  
 [Guide in progress](/Guides/Bios-Mod.md)
 
 </details>
@@ -321,37 +275,21 @@ Is it worth the effort and risk? I don't think so. I enjoyed it? 100%
 ## Status
 <details>  
 <summary><strong>What's working ✅</strong></summary>
-
 - [x] CPU Power Management `~1W on IDLE`
-
 - [x] Intel HD 520 Graphics `incuding graphics acceleration`
-
 - [x] All USB ports `with custom kext or SSDT`
-
 - [x] Internal camera `working fine on FaceTime, Skype, Webex and others`
-
 - [x] Sleep / Wake / Shutdown / Reboot `with lid sernsor`
-
 - [x] Intel Gigabit Ethernet
-
 - [x] [Wifi, Bluetooth, Airdrop, Handoff, Continuity, Sidecar wireless](/Guides/Replace-WLAN.md)
-
 - [x] iMessage, FaceTime, App Store, iTunes Store `Generate your own SMBIOS`
-
 - [x] DRM support `iTunes Movies, Apple TV+, Amazon Prime, Netflix and others`
-
 - [x] Speakers and headphones jack `fairly good volume`
-
 - [x] Batteries `very stable and precise capacity tracking`
-
 - [x] Keyboard map and hotkeys with [ThinkpadAssistant](https://github.com/MSzturc/ThinkpadAssistant) `thanks to @MSzturc`
-
 - [x] [Trackpad, Trackpoint and physical buttons](/Images/VoodooRMI-T460s-trackpad-gestures.gif) `with all macOS gestures working thanks to VoodooRMI`
-
 - [x] SIP and FileVault 2 can be enabled
-
 - [x] miniDP and HDMI `with digital audio passthrough`
-
 - [x] SD Card Reader `slow r/w speed but works`
 
 </details>
@@ -359,45 +297,53 @@ Is it worth the effort and risk? I don't think so. I enjoyed it? 100%
 <details>  
 <summary><strong>What's not working ⚠️</strong></summary>
 
-- [ ] Fingerprint Reader
-
-- [ ] Video output not so stable
-
+- [ ] Internal monitor turns black when external is connected
 - [ ] Safari DRM
-
-- [ ] WWAN `not tested`
+- [ ] WWAN 
+- [ ] Fingerprint Reader
 
 </details>
 
 <details>  
 <summary><strong>Update tracker 🔄</strong></summary>
 
-| Version                                                                      | [Stable](/EFI) | 
-|:-----------------------------------------------------------------------------|---------------:|
-| [MacOS](https://www.apple.com/macos/)                                        | 10.15.6 / 11.0 |
-| [OpenCore](https://github.com/acidanthera/OpenCorePkg/releases)              | 0.6.1          | 
-| [Lilu](https://github.com/acidanthera/Lilu/releases)                         | 1.4.7          | 
-| [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases)             | 1.1.6          | 
-| [WhateverGreen](https://github.com/acidanthera/WhateverGreen/releases)       | 1.4.2          | 
-| [AppleALC](https://github.com/acidanthera/AppleALC/releases)                 | 1.5.2          | 
-| [VoodooPS2Controller](https://github.com/acidanthera/VoodooPS2/releases)     | 2.1.6          |
-| [VoodooRMI](https://github.com/VoodooSMBus/VoodooRMI/releases)               | 1.0.1          |
-| [IntelMausi](https://github.com/acidanthera/IntelMausi/releases)             | 1.0.3          |
-| [Sinetek-rtsx](https://github.com/cholonam/Sinetek-rtsx/releases)            | 2.2            |
-| [HibernationFixup](https://github.com/acidanthera/HibernationFixup/releases) | 1.3.5          |
+| Version                                                                                        | [Stable](/EFI) | 
+|:-----------------------------------------------------------------------------------------------|---------------:|
+| [MacOS](https://www.apple.com/macos/)                                                          | 10.15.6 / 11.0 |
+| [OpenCore](https://github.com/acidanthera/OpenCorePkg/releases)                                | 0.6.1          | 
+| [Lilu](https://github.com/acidanthera/Lilu/releases)                                           | 1.4.7          | 
+| [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases)                               | 1.1.6          | 
+| [WhateverGreen](https://github.com/acidanthera/WhateverGreen/releases)                         | 1.4.2          | 
+| [AppleALC](https://github.com/acidanthera/AppleALC/releases)                                   | 1.5.2          | 
+| [VoodooPS2Controller](https://github.com/acidanthera/VoodooPS2/releases)                       | 2.1.6          |
+| [VoodooRMI](https://github.com/VoodooSMBus/VoodooRMI/releases)                                 | 1.0.1          |
+| [IntelMausi](https://github.com/acidanthera/IntelMausi/releases)                               | 1.0.3          |
+| [HibernationFixup](https://github.com/acidanthera/HibernationFixup/releases)                   | 1.3.5          |
+| [CPUFriend](https://github.com/acidanthera/CPUFriend/releases)                                 | 1.2.1          |
+| [NVMeFix](https://github.com/acidanthera/NVMeFix/releases)                                     | 1.0.3          |
+| [AirportItlwm](https://github.com/OpenIntelWireless/itlwm/releases)                            | 1.0            |
+| [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/releases) | 1.1.2          |
+| [Sinetek-rtsx](https://github.com/cholonam/Sinetek-rtsx/releases)                              | 2.2            |
+
 
 </details>
 
 <details>  
 <summary><strong>Changelog</strong></summary>
 
+- 20200919:  
+[NVMeFix](https://github.com/acidanthera/NVMeFix) and [CPUFriend](https://github.com/acidanthera/CPUFriend) now available in config.plist. Disabled by default;  
+[AirportItlwm](https://github.com/OpenIntelWireless/itlwm) available as well, not tested tho. Disabled by default;  
+[OpenCore GUI](https://github.com/acidanthera/OcBinaryData) built-in and enabled by default (guide not necessary anymore).  
+
 - 20200909:  
-Bootloader and kexts updated to [September releases](https://dortania.github.io/hackintosh/updates/2020/09/07/acidanthera-september.html).  
-Now using Boostrap.efi for [multiboot](https://dortania.github.io/OpenCore-Post-Install/multiboot/bootstrap.html).  
-[Apple Secure Boot](https://dortania.github.io/OpenCore-Post-Install/universal/security/applesecureboot.html) is now enabled.  
+Bootloader and kexts updated to [September releases](https://dortania.github.io/hackintosh/updates/2020/09/07/acidanthera-september.html);  
+Now using Boostrap.efi for [multiboot](https://dortania.github.io/OpenCore-Post-Install/multiboot/bootstrap.html);  
+[Apple Secure Boot](https://dortania.github.io/OpenCore-Post-Install/universal/security/applesecureboot.html) is now enabled;  
+Sinetek-rtsx downgraded to 2.2.  
 
 - 20200822:  
-New README for improved readability
+New README for improved readability.  
 
 </details>
 
