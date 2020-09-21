@@ -20,14 +20,13 @@ It would mean a lot to me.
 ## Introduction
 
 <details>  
-<summary><strong>General knowledge & credits</strong></summary>
-
+<summary><strong>Getting started</strong></summary>  
+**Meet the bootloader**  
 - [Why OpenCore](https://dortania.github.io/OpenCore-Install-Guide/why-oc.html)  
-- [Dortania's website](https://dortania.github.io)  
-- [SSDT patches from OC-little](https://translate.google.it/translate?sl=zh-CN&tl=en&u=https%3A%2F%2Fgithub.com%2Fdaliansky%2FOC-little)  
-- Useful tools by [@CorpNewt](https://github.com/corpnewt)  
-- [Acidanthera's OpenCore and kexts development](https://github.com/acidanthera)  
-- [@MSzturc](https://github.com/MSzturc) keyboard map and [ThinkpadAssistant](https://github.com/MSzturc/ThinkpadAssistant)
+- Dortania's [website](https://dortania.github.io)  
+**Recommended tools**  
+- Plist editor [ProperTree](https://github.com/corpnewt/ProperTree)  
+- Handy-dandy ESP partition mounting script [MountEFI](https://github.com/corpnewt/MountEFI)  
 
 </details>
 
@@ -66,7 +65,7 @@ This EFI will suit any T460s regardless of CPU model<sup>[1](#CPU)</sup>, amount
 <details>  
 <summary><strong>How to install macOS</strong></summary>
 
-Carefully read [Dortania's guide](https://dortania.github.io/OpenCore-Install-Guide/installation/installation-process.html) and come back here to get the [EFI folder](/EFI/).
+Read the [installation guide](https://dortania.github.io/OpenCore-Install-Guide/installation/installation-process.html) and come back here to get the [EFI folder](/EFI/).
 
 </details>
 
@@ -119,19 +118,33 @@ Thanks to [@duszmox](https://github.com/duszmox) for his [guide](/Guides/Install
 </details>
 
 <details>  
-<summary><strong>USB ports mapping (optional)</strong></summary>
+<summary><strong>Enable Intel WLAN (optional)</strong></summary>
 
-For ThinkPad's dock only, use one of the following methods:
+Enables macOS native Wi-Fi and Bluetooth functionality with Intel WLAN card
 
-- [USBMap by CorpNewt](https://github.com/corpnewt?tab=repositories)
-- [Native USB fix without injector kext](https://www.olarila.com/topic/6878-guide-native-usb-fix-for-notebooks-no-injectorkext-required/?tab=comments#comment-88412)
+1. Open `Config.plist` with any editor
+1. Go under `Kernel -> Add`
+1. Find and Enable `AirportItlwm.kext`, `IntelBluetoothFirmware.kext` and `IntelBluetoothInjector.kext`
+1. Save and reboot the system
+
+![](/Images/enable-intel-wlan.jpg)
+
+</details>
+
+<details>  
+<summary><strong>Fix NVMe power management (optional)</strong></summary>
+
+1. Open `Config.plist` with any editor
+1. Go under `Kernel -> Add`
+1. Find and Enable `NVMeFix.kext`
+1. Save and reboot the system
+
+![](/Images/enable-nvme-fix.jpg)
 
 </details>
 
 <details>  
 <summary><strong>Custom CPU Power Management (optional)</strong></summary>
-
-If you want to take a step forward and create a custom CPU power profile, follow these steps:
 
 1. Launch Terminal.app
 1. Copy the following script, paste it into the Terminal window, then press ENTER  
@@ -139,15 +152,26 @@ If you want to take a step forward and create a custom CPU power profile, follow
    git clone https://github.com/fewtarius/CPUFriendFriend; cd CPUFriendFriend; chmod +x ./CPUFriendFriend.command; ./CPUFriendFriend.command
    ```
 1. When asked, select preferred values
-1. Copy `ssdt-data.aml` from the pop-up window into `/EFI/OC/ACPI/` folder
-1. Open `config.plist` 
+1. From the pop-up window, copy `ssdt-data.aml` into `/EFI/OC/ACPI/` folder
+1. Open `Config.plist` with any editor 
 1. Go under `ACPI -> Add` and change `SSDT-PLUG.aml` with `ssdt-data.aml`
 1. Go under `Kernel -> Add` and set `CPUFriend.kext` to `Enabled: True`
 
+![](/Images/add-frequency-ssdt.jpg) ![](/Images/enable-cpu-friend.jpg)
 
 This my machine's power consumption when idling:
 
 ![](/Images/PowerConsumption.png)
+
+</details>
+
+<details>  
+<summary><strong>USB ports mapping (optional)</strong></summary>
+
+For ThinkPad's dock only, use one of following methods:
+
+- [USBMap by CorpNewt](https://github.com/corpnewt?tab=repositories)
+- [Native USB fix without injector kext](https://www.olarila.com/topic/6878-guide-native-usb-fix-for-notebooks-no-injectorkext-required/?tab=comments#comment-88412)
 
 </details>
 
@@ -168,6 +192,8 @@ This my machine's power consumption when idling:
 
 <details>  
 <summary><strong>Enable multimedia keys</strong></summary>
+
+Thanks to [@MSzturc](https://github.com/MSzturc) for providing the keyboard map and ThinkpadAssistant app
 
 1. Download and install [ThinkpadAssistant](https://github.com/MSzturc/ThinkpadAssistant/releases)
 1. Open the app
@@ -330,6 +356,9 @@ Is it worth the effort and risk? I don't think so. I enjoyed it? 100%.
 
 <details>  
 <summary><strong>Changelog</strong></summary>
+
+- 20200921
+Provided some guides and illustrations for recently added drivers
 
 - 20200919:  
 [NVMeFix](https://github.com/acidanthera/NVMeFix) and [CPUFriend](https://github.com/acidanthera/CPUFriend) now available in config.plist. Disabled by default;  
