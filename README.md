@@ -20,13 +20,15 @@ It would mean a lot to me.
 ## Introduction
 
 <details>  
-<summary><strong>Getting started</strong></summary>  
-**Meet the bootloader**  
-- [Why OpenCore](https://dortania.github.io/OpenCore-Install-Guide/why-oc.html)  
-- Dortania's [website](https://dortania.github.io)  
-**Recommended tools**  
-- Plist editor [ProperTree](https://github.com/corpnewt/ProperTree)  
-- Handy-dandy ESP partition mounting script [MountEFI](https://github.com/corpnewt/MountEFI)  
+<summary><strong>Getting started</strong></summary>
+
+**Meet the bootloader**
+- [Why OpenCore](https://dortania.github.io/OpenCore-Install-Guide/why-oc.html)
+- Dortania's [website](https://dortania.github.io)
+
+**Recommended tools**
+- Plist editor [ProperTree](https://github.com/corpnewt/ProperTree)
+- Handy-dandy ESP partition mounting script [MountEFI](https://github.com/corpnewt/MountEFI)
 
 </details>
 
