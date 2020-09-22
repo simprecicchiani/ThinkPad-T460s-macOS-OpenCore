@@ -303,6 +303,7 @@ Is it worth the effort and risk? I don't think so. I enjoyed it? 100%.
 ## Status
 <details>  
 <summary><strong>What's working ✅</strong></summary>
+ 
 - [x] CPU Power Management `~1W on IDLE`
 - [x] Intel HD 520 Graphics `incuding graphics acceleration`
 - [x] All USB ports `with custom kext or SSDT`
