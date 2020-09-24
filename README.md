@@ -20,13 +20,15 @@ It would mean a lot to me.
 ## Introduction
 
 <details>  
-<summary><strong>Getting started</strong></summary>  
-**Meet the bootloader**  
-- [Why OpenCore](https://dortania.github.io/OpenCore-Install-Guide/why-oc.html)  
-- Dortania's [website](https://dortania.github.io)  
-**Recommended tools**  
-- Plist editor [ProperTree](https://github.com/corpnewt/ProperTree)  
-- Handy-dandy ESP partition mounting script [MountEFI](https://github.com/corpnewt/MountEFI)  
+<summary><strong>Getting started</strong></summary>
+
+**Meet the bootloader**
+- [Why OpenCore](https://dortania.github.io/OpenCore-Install-Guide/why-oc.html)
+- Dortania's [website](https://dortania.github.io)
+
+**Recommended tools**
+- Plist editor [ProperTree](https://github.com/corpnewt/ProperTree)
+- Handy-dandy ESP partition mounting script [MountEFI](https://github.com/corpnewt/MountEFI)
 
 </details>
 
@@ -301,6 +303,7 @@ Is it worth the effort and risk? I don't think so. I enjoyed it? 100%.
 ## Status
 <details>  
 <summary><strong>What's working ✅</strong></summary>
+ 
 - [x] CPU Power Management `~1W on IDLE`
 - [x] Intel HD 520 Graphics `incuding graphics acceleration`
 - [x] All USB ports `with custom kext or SSDT`
