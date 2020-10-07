@@ -3,7 +3,7 @@
 <img align="right" src="https://imgur.com/sI2Uzel.jpg" alt="T460s macOS" width="300">
 
 [![macOS](https://img.shields.io/badge/macOS-Catalina%20%26%20Big%20Sur-blue)](https://developer.apple.com/documentation/macos-release-notes)
-[![OpenCore](https://img.shields.io/badge/OpenCore-0.6.0-green)](https://github.com/acidanthera/OpenCorePkg)
+[![OpenCore](https://img.shields.io/badge/OpenCore-0.6.2-green)](https://github.com/acidanthera/OpenCorePkg)
 [![Model](https://img.shields.io/badge/Model-20F9003AUS-lightgrey)](https://psref.lenovo.com/Product/ThinkPad_T460s)
 [![BIOS](https://img.shields.io/badge/BIOS-1.49-lightgrey)](https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/thinkpad-t-series-laptops/thinkpad-t460s/downloads/driver-list/component?name=BIOS%2FUEFI)
 [![LICENSE](https://img.shields.io/badge/license-MIT-purple)](/LICENSE)
@@ -338,18 +338,18 @@ Is it worth the effort and risk? I don't think so. I enjoyed it? 100%.
 
 | Version                                                                                        | [Stable](/EFI) | 
 |:-----------------------------------------------------------------------------------------------|---------------:|
-| [MacOS](https://www.apple.com/macos/)                                                          | 10.15.6 / 11.0 |
-| [OpenCore](https://github.com/acidanthera/OpenCorePkg/releases)                                | 0.6.1          | 
-| [Lilu](https://github.com/acidanthera/Lilu/releases)                                           | 1.4.7          | 
-| [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases)                               | 1.1.6          | 
-| [WhateverGreen](https://github.com/acidanthera/WhateverGreen/releases)                         | 1.4.2          | 
-| [AppleALC](https://github.com/acidanthera/AppleALC/releases)                                   | 1.5.2          | 
-| [VoodooPS2Controller](https://github.com/acidanthera/VoodooPS2/releases)                       | 2.1.6          |
-| [VoodooRMI](https://github.com/VoodooSMBus/VoodooRMI/releases)                                 | 1.0.1          |
-| [IntelMausi](https://github.com/acidanthera/IntelMausi/releases)                               | 1.0.3          |
-| [HibernationFixup](https://github.com/acidanthera/HibernationFixup/releases)                   | 1.3.5          |
-| [CPUFriend](https://github.com/acidanthera/CPUFriend/releases)                                 | 1.2.1          |
-| [NVMeFix](https://github.com/acidanthera/NVMeFix/releases)                                     | 1.0.3          |
+| [MacOS](https://www.apple.com/macos/)                                                          | 10.15.7 / 11.0 |
+| [OpenCore](https://github.com/acidanthera/OpenCorePkg/releases)                                | 0.6.2          | 
+| [Lilu](https://github.com/acidanthera/Lilu/releases)                                           | 1.4.8          | 
+| [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases)                               | 1.1.7          | 
+| [WhateverGreen](https://github.com/acidanthera/WhateverGreen/releases)                         | 1.4.3          | 
+| [AppleALC](https://github.com/acidanthera/AppleALC/releases)                                   | 1.5.3          | 
+| [VoodooPS2Controller](https://github.com/acidanthera/VoodooPS2/releases)                       | 2.1.7          |
+| [VoodooRMI](https://github.com/VoodooSMBus/VoodooRMI/releases)                                 | 1.2            |
+| [IntelMausi](https://github.com/acidanthera/IntelMausi/releases)                               | 1.0.4          |
+| [HibernationFixup](https://github.com/acidanthera/HibernationFixup/releases)                   | 1.3.6          |
+| [CPUFriend](https://github.com/acidanthera/CPUFriend/releases)                                 | 1.2.2          |
+| [NVMeFix](https://github.com/acidanthera/NVMeFix/releases)                                     | 1.0.4          |
 | [AirportItlwm](https://github.com/OpenIntelWireless/itlwm/releases)                            | 1.0            |
 | [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/releases) | 1.1.2          |
 | [Sinetek-rtsx](https://github.com/cholonam/Sinetek-rtsx/releases)                              | 2.2            |
@@ -360,16 +360,21 @@ Is it worth the effort and risk? I don't think so. I enjoyed it? 100%.
 <details>  
 <summary><strong>Changelog</strong></summary>
 
-- 20200921
-Provided some guides and illustrations for recently added drivers
+- 20201007:  
+MacOS 10.15.7 support tested;  
+Bootloader and kexts updated to [October 2020 release](https://dortania.github.io/hackintosh/updates/2020/10/05/acidanthera-october.html).  
+
+
+- 20200921:  
+Provided some guides and illustrations for recently added drivers.  
 
 - 20200919:  
 [NVMeFix](https://github.com/acidanthera/NVMeFix) and [CPUFriend](https://github.com/acidanthera/CPUFriend) now available in config.plist. Disabled by default;  
-[AirportItlwm](https://github.com/OpenIntelWireless/itlwm) available as well, not tested tho. Disabled by default;  
-[OpenCore GUI](https://github.com/acidanthera/OcBinaryData) built-in and enabled by default (guide not necessary anymore).  
+[AirportItlwm](https://github.com/OpenIntelWireless/itlwm) available as well. Disabled by default;  
+[OpenCore GUI](https://github.com/acidanthera/OcBinaryData) built-in and enabled by default.  
 
 - 20200909:  
-Bootloader and kexts updated to [September releases](https://dortania.github.io/hackintosh/updates/2020/09/07/acidanthera-september.html);  
+Bootloader and kexts updated to [September 2020 release](https://dortania.github.io/hackintosh/updates/2020/09/07/acidanthera-september.html);  
 Now using Boostrap.efi for [multiboot](https://dortania.github.io/OpenCore-Post-Install/multiboot/bootstrap.html);  
 [Apple Secure Boot](https://dortania.github.io/OpenCore-Post-Install/universal/security/applesecureboot.html) is now enabled;  
 Sinetek-rtsx downgraded to 2.2.  
