@@ -21,6 +21,7 @@ It would mean a lot to me.
 
 <details>  
 <summary><strong>Getting started</strong></summary>
+</br>
 
 **Meet the bootloader**
 - [Why OpenCore](https://dortania.github.io/OpenCore-Install-Guide/why-oc.html)
@@ -35,6 +36,7 @@ It would mean a lot to me.
 
 <details>  
 <summary><strong>My Hardware</strong></summary>
+</br>
 
 | Model              | Thinkpad T460s 20F9003AUS                                                                                 |
 |:-------------------|:----------------------------------------------------------------------------------------------------------|
@@ -54,6 +56,7 @@ It would mean a lot to me.
 
 <details>  
 <summary><strong>Hardware compatibility</strong></summary>
+</br>
 
 This EFI will suit any T460s regardless of CPU model<sup>[1](#CPU)</sup>, amount of RAM, display resolution<sup>[2](#Res)</sup> and internal storage<sup>[3](#NVMe)</sup>.
 
@@ -63,9 +66,31 @@ This EFI will suit any T460s regardless of CPU model<sup>[1](#CPU)</sup>, amount
 
 </details>
 
+<details>  
+<summary><strong>How this repo is updated</strong></summary>
+</br>
+
+After many hours of testing back in April and May 2020, I now consider this configuration stable.  
+This is the process I go through each time OpenCore gets an update (usually every first monday of the month):
+
+1. Read release article on Dortania's website
+1. Download all updated resources
+1. Read new Documentation if relevant changes took place
+1. Get a fresh Sample.plist to avoid missing new stuff
+1. Copy and Paste SSDT, Patches and Kexts
+1. Set T460s' config options
+1. Booloader test on USB stick
+1. Clean my SMBIOS and upload on GitHub
+1. Add changelog and update status in README
+
+Basically I do the boring part so one can easily download the EFI folder and play with it in minutes.
+
+</details>
+
 ## Installation
 <details>  
 <summary><strong>How to install macOS</strong></summary>
+</br>
 
 Read the [installation guide](https://dortania.github.io/OpenCore-Install-Guide/installation/installation-process.html) and come back here to get the [EFI folder](/EFI/).
 
@@ -73,6 +98,7 @@ Read the [installation guide](https://dortania.github.io/OpenCore-Install-Guide/
 
 <details>  
 <summary><strong>BIOS Settings</strong></summary>
+</br>
 
 | Menu     	| sub-menu          	| sub-menu                        	| setting   	|
 |----------	|-------------------	|---------------------------------	|-----------	|
@@ -95,7 +121,22 @@ Read the [installation guide](https://dortania.github.io/OpenCore-Install-Guide/
 </details>
 
 <details>  
+<summary><strong>How to update the bootloader</strong></summary>
+</br>
+
+1. Download the repo and grab the EFI folder.
+1. Copy and Paste your PlatfromInfo.
+1. Enable optional kexts if needed (NVMEFix, AirportItlwm, etc.)
+1. Test the new bootloader with an USB stick
+1. Customize boot preferences (skip picker, disable verbose, etc.)
+1. Mount your ESP partition
+1. Backup your old EFI folder and replace it with the new one
+
+</details>
+
+<details>  
 <summary><strong>How to upgrade to macOS 11.0 Big Sur</strong></summary>
+</br>
 
 **WARNING**: Big Sur is in beta. While potentially compatible, the configuration is not developed for it.  
 Thanks to [@duszmox](https://github.com/duszmox) for his [guide](/Guides/Install-Big-Sur.md)
@@ -106,6 +147,7 @@ Thanks to [@duszmox](https://github.com/duszmox) for his [guide](/Guides/Install
 
 <details>  
 <summary><strong>Enable Apple Services</strong></summary>
+</br>
 
 1. Launch Terminal.app
 1. Copy the following script, paste it into the Terminal window, then press ENTER
@@ -121,32 +163,33 @@ Thanks to [@duszmox](https://github.com/duszmox) for his [guide](/Guides/Install
 
 <details>  
 <summary><strong>Enable Intel WLAN (optional)</strong></summary>
-
-Enables macOS native Wi-Fi and Bluetooth functionality with Intel WLAN card
+<img align="right" src="/Images/enable-intel-wlan.jpg" alt="T460s macOS" height="150">
+</br>
 
 1. Open `Config.plist` with any editor
 1. Go under `Kernel -> Add`
 1. Find and Enable `AirportItlwm.kext`, `IntelBluetoothFirmware.kext` and `IntelBluetoothInjector.kext`
 1. Save and reboot the system
 
-![](/Images/enable-intel-wlan.jpg)
-
 </details>
 
 <details>  
 <summary><strong>Fix NVMe power management (optional)</strong></summary>
+<img align="right" src="/Images/enable-nvme-fix.jpg" alt="T460s macOS" height="150">
+</br>
 
 1. Open `Config.plist` with any editor
 1. Go under `Kernel -> Add`
 1. Find and Enable `NVMeFix.kext`
 1. Save and reboot the system
 
-![](/Images/enable-nvme-fix.jpg)
-
 </details>
 
 <details>  
 <summary><strong>Custom CPU Power Management (optional)</strong></summary>
+<img align="right" src="/Images/add-frequency-ssdt.jpg" alt="T460s macOS" height="150">  
+<img align="right" src="/Images/enable-cpu-friend.jpg" alt="T460s macOS" height="150">
+</br>
 
 1. Launch Terminal.app
 1. Copy the following script, paste it into the Terminal window, then press ENTER  
@@ -159,16 +202,15 @@ Enables macOS native Wi-Fi and Bluetooth functionality with Intel WLAN card
 1. Go under `ACPI -> Add` and change `SSDT-PLUG.aml` with `ssdt-data.aml`
 1. Go under `Kernel -> Add` and set `CPUFriend.kext` to `Enabled: True`
 
-![](/Images/add-frequency-ssdt.jpg) ![](/Images/enable-cpu-friend.jpg)
-
 This my machine's power consumption when idling:
 
-![](/Images/PowerConsumption.png)
+<img src="/Images/PowerConsumption.png" alt="T460s macOS" width="300">
 
 </details>
 
 <details>  
 <summary><strong>USB ports mapping (optional)</strong></summary>
+</br>
 
 For ThinkPad's dock only, use one of following methods:
 
@@ -181,6 +223,7 @@ For ThinkPad's dock only, use one of following methods:
 
 <details>  
 <summary><strong>Enable HiDPI</strong></summary>
+</br>
 
 1. [Disable SIP](https://dortania.github.io/OpenCore-Install-Guide/troubleshooting/troubleshooting.html#disabling-sip)
 1. Launch Terminal.app
@@ -194,6 +237,7 @@ For ThinkPad's dock only, use one of following methods:
 
 <details>  
 <summary><strong>Enable multimedia keys</strong></summary>
+</br>
 
 Thanks to [@MSzturc](https://github.com/MSzturc) for providing the keyboard map and ThinkpadAssistant app
 
@@ -205,18 +249,22 @@ Thanks to [@MSzturc](https://github.com/MSzturc) for providing the keyboard map 
 
 <details>  
 <summary><strong>Use PrtSc key as Screenshot shortcut</strong></summary>
+<img align="right" src="/Images/Shortcut.png" alt="T460s macOS" height="150">
+</br>
 
-1. Go under `SystemPreferences > Keyboard > Shortcuts > Screenshots` 
+1. Open SystemPreferences.app
+1. Go under ` Keyboard > Shortcuts > Screenshots` 
 1. Click on `Screenshot and recording options` key map
 1. Press `PrtSc` on your keyboard (it should came out as `F13`)
-
-![](/Images/Shortcut.png)
 
 </details>
 
 <details>  
 <summary><strong>Use calibrated display profile</strong></summary>
-These are straight from Notebookcheck. Not all panel are the same so final result may vary.
+<img align="right" src="/Images/DisplayProfile.png" alt="T460s macOS" height="150">
+</br>
+
+These profiles are from NotebookCheck. Not all panel are the same so final result may vary.
 
 1. Launch Terminal.app
 1. Copy the following script, paste it into the Terminal window, then press ENTER
@@ -231,12 +279,11 @@ These are straight from Notebookcheck. Not all panel are the same so final resul
 1. Go under `SystemPreferences > Displays > Colour`
 1. Select the calibrated profile
 
-![](/Images/DisplayProfile.png)
-
 </details>
 
 <details>  
 <summary><strong>Monitor temperatures and power consumption</strong></summary>
+</br>
 
 1. Download and install [HWMonitor](https://github.com/kzlekk/HWSensors/releases)
 1. Open the app
@@ -246,6 +293,8 @@ These are straight from Notebookcheck. Not all panel are the same so final resul
 
 <details>  
 <summary><strong>Faster macOS dock animation</strong></summary>
+</br>
+
 This enables auto-hide and speeds up the animation
 
 1. Launch Terminal.app
@@ -257,7 +306,9 @@ This enables auto-hide and speeds up the animation
 
 <details>  
 <summary><strong>Mac Bootloader GUI and Boot Chime</strong></summary>
-Built-in from September 19th, 2020
+</br>
+
+Already built-in from 20200919
 
 **Setting up OpenCore's GUI**
 
@@ -288,12 +339,14 @@ Built-in from September 19th, 2020
    `Misc -> Boot -> PickerAudioAssist`:`True` to enable picker audio
    `UEFI -> ProtocolOverrides -> AppleAudio`:`True` to enable FileVault voice over
 
-![](/Images/MacBootloaderGUI.png)
+<img src="/Images/MacBootloaderGUI.png" alt="T460s macOS">
 
 </details>
 
 <details>  
 <summary><strong>BIOS Mod</strong></summary>
+</br>
+
 I know it can be scary at first. But with the right amount of carefulness anyone could do it.  
 Is it worth the effort and risk? I don't think so. I enjoyed it? 100%.  
 [Guide in progress](/Guides/Bios-Mod.md)
@@ -303,6 +356,7 @@ Is it worth the effort and risk? I don't think so. I enjoyed it? 100%.
 ## Status
 <details>  
 <summary><strong>What's working ✅</strong></summary>
+</br>
  
 - [x] CPU Power Management `~1W on IDLE`
 - [x] Intel HD 520 Graphics `incuding graphics acceleration`
@@ -325,6 +379,7 @@ Is it worth the effort and risk? I don't think so. I enjoyed it? 100%.
 
 <details>  
 <summary><strong>What's not working ⚠️</strong></summary>
+</br>
 
 - [ ] Internal monitor turns black when external is connected
 - [ ] Safari DRM
@@ -335,6 +390,7 @@ Is it worth the effort and risk? I don't think so. I enjoyed it? 100%.
 
 <details>  
 <summary><strong>Update tracker 🔄</strong></summary>
+</br>
 
 | Version                                                                                        | [Stable](/EFI) | 
 |:-----------------------------------------------------------------------------------------------|---------------:|
@@ -362,8 +418,8 @@ Is it worth the effort and risk? I don't think so. I enjoyed it? 100%.
 
 - 20201007:  
 MacOS 10.15.7 support tested;  
-Bootloader and kexts updated to [October 2020 release](https://dortania.github.io/hackintosh/updates/2020/10/05/acidanthera-october.html).  
-
+Bootloader and kexts updated to [October 2020 release](https://dortania.github.io/hackintosh/updates/2020/10/05/acidanthera-october.html);  
+New "How this repo is updated" and "How to update the bootloader" sections in README.  
 
 - 20200921:  
 Provided some guides and illustrations for recently added drivers.  
