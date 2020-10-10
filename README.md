@@ -23,16 +23,17 @@ It would mean a lot to me.
 <summary><strong>Getting started</strong></summary>
 </br>
 
-**Meet the bootloader**
+**Meet the bootloader:**
+
 - [Why OpenCore](https://dortania.github.io/OpenCore-Install-Guide/why-oc.html)
 - Dortania's [website](https://dortania.github.io)
 
-**Recommended tools**
+**Recommended tools:**
+
 - Plist editor [ProperTree](https://github.com/corpnewt/ProperTree)
 - Handy-dandy ESP partition mounting script [MountEFI](https://github.com/corpnewt/MountEFI)
 
 </details>
-
 
 <details>  
 <summary><strong>My Hardware</strong></summary>
@@ -60,9 +61,9 @@ It would mean a lot to me.
 
 This EFI will suit any T460s regardless of CPU model<sup>[1](#CPU)</sup>, amount of RAM, display resolution<sup>[2](#Res)</sup> and internal storage<sup>[3](#NVMe)</sup>.
 
-<a name="CPU">1</a>: Optional custom CPU Power Management guide  
-<a name="Res">2</a>: 1440p display models should change `NVRAM -> Add -> 7C436110-AB2A-4BBB-A880-FE41995C9F82 -> UIScale`:`2` to get proper scaling while booting  
-<a name="NVMe">3</a>: Enable [NVMeFix](https://github.com/acidanthera/NVMeFix) for NVMe drives
+<a name="CPU">1</a>. Optional custom CPU Power Management guide  
+<a name="Res">2</a>. 1440p display models should change `NVRAM -> Add -> 7C436110-AB2A-4BBB-A880-FE41995C9F82 -> UIScale`:`2` to get proper scaling while booting  
+<a name="NVMe">3</a>. Enable [NVMeFix](https://github.com/acidanthera/NVMeFix) for NVMe drives
 
 </details>
 
@@ -92,7 +93,7 @@ Basically I do the boring part so one can easily download the EFI folder and pla
 <summary><strong>How to install macOS</strong></summary>
 </br>
 
-Read the [installation guide](https://dortania.github.io/OpenCore-Install-Guide/installation/installation-process.html) and come back here to get the [EFI folder](/EFI/).
+Read the [installation guide](https://dortania.github.io/OpenCore-Install-Guide/installation/installation-process.html) and come back here to get the [latest EFI folder](https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore/releases).
 
 </details>
 
@@ -100,23 +101,23 @@ Read the [installation guide](https://dortania.github.io/OpenCore-Install-Guide/
 <summary><strong>BIOS Settings</strong></summary>
 </br>
 
-| Menu     	| sub-menu          	| sub-menu                        	| setting   	|
-|----------	|-------------------	|---------------------------------	|-----------	|
-| Config   	| USB               	| UEFI BIOS Support               	| Enable    	|
-|          	| Power             	| Intel SpeedStep Technology      	| Enable    	|
-|          	|                   	| CPU Power Management            	| Enable    	|
-|          	| CPU               	| Hyper-Threading Technology      	| Enable    	|
-| Security 	| Security Chip     	|                                 	| Disable   	|
-|          	| Memory Protection 	| Execution Prevention            	| Enable    	|
-|          	| Virtualization    	| Intel Virtualization Technology 	| Enable    	|
-|          	|                   	| Intel VT-d Feature              	| Enable    	|
-|          	| Anti-Theft        	| Computrace                      	| Disable   	|
-|          	| Secure Boot       	|                                 	| Disable   	|
-|          	| Intel SGX         	|                                 	| Disable   	|
-|          	| Device Guard      	|                                 	| Disable   	|
-| Startup  	| UEFI/Legacy Boot  	|                                 	| UEFI Only 	|
-|          	| CSM Support       	|                                 	| No        	|
-|          	| Boot Mode         	|                                 	| Quick     	|
+| Menu     |                   |                                 | Setting     |
+|----------|-------------------|---------------------------------|-------------|
+| Config   | USB               | UEFI BIOS Support               | `Enable `   |
+|          | Power             | Intel SpeedStep Technology      | `Enable `   |
+|          |                   | CPU Power Management            | `Enable `   |
+|          | CPU               | Hyper-Threading Technology      | `Enable `   |
+| Security | Security Chip     |                                 | `Disable `  |
+|          | Memory Protection | Execution Prevention            | `Enable `   |
+|          | Virtualization    | Intel Virtualization Technology | `Enable `   |
+|          |                   | Intel VT-d Feature              | `Enable `   |
+|          | Anti-Theft        | Computrace                      | `Disable `  |
+|          | Secure Boot       |                                 | `Disable `  |
+|          | Intel SGX         |                                 | `Disable `  |
+|          | Device Guard      |                                 | `Disable `  |
+| Startup  | UEFI/Legacy Boot  |                                 | `UEFI Only` |
+|          | CSM Support       |                                 | `No`        |
+|          | Boot Mode         |                                 | `Quick`     |
 
 </details>
 
@@ -305,41 +306,19 @@ This enables auto-hide and speeds up the animation
 </details>
 
 <details>  
-<summary><strong>Mac Bootloader GUI and Boot Chime</strong></summary>
+<summary><strong>Speed-up boot process</strong></summary>
 </br>
 
-Already built-in from 20200919
+Once you get everything up and running it's possible to disable some options inside `config.plist` to get a faster and cleaner boot.
 
-**Setting up OpenCore's GUI**
-
-1. Download [Binary Resources](https://github.com/acidanthera/OcBinaryData) and [OpenCanopy.efi](https://github.com/acidanthera/OpenCorePkg/releases)
-1. Copy the [Resources folder](https://github.com/acidanthera/OcBinaryData) to `EFI/OC`
-1. Add OpenCanopy.efi to `EFI/OC/Drivers`
-1. Make these changes inside `config.plist`:
-   `Misc -> Boot -> PickerMode`: `External`
-   `Misc -> Boot -> PickerAttributes`:`1`
-   `UEFI -> Drivers` and add `OpenCanopy.efi`
-
-**Setting up Boot-chime with AudioDxe**
-
-1. Download [AudioDxe](https://github.com/acidanthera/OpenCorePkg/releases)
-1. Copy AudioDxe.efi to `EFI/OC/Drivers`
-1. Make these changes inside `config.plist`:
-   `UEFI -> Drivers` and add `AudioDxe.efi`
-   `NVRAM -> Add -> 7C436110-AB2A-4BBB-A880-FE41995C9F82 -> SystemAudioVolume`:`0x46` (Data)
-   `UEFI -> Audio -> AudioSupport`:`True` 
-   `UEFI -> Audio -> AudioDevice`:`PciRoot(0x0)/Pci(0x1f,0x3)`
-   `UEFI -> Audio -> AudioOut`:`0` (for Speakers or `1` for Headphone Jack)
-   `UEFI -> Audio -> MinimumVolume`:`50`
-   `UEFI -> Audio -> PlayChime`:`True`
-   `UEFI -> Audio -> VolumeAmplifier`:`143`
-
-**Additional settings for visually impaired**
-
-   `Misc -> Boot -> PickerAudioAssist`:`True` to enable picker audio
-   `UEFI -> ProtocolOverrides -> AppleAudio`:`True` to enable FileVault voice over
-
-<img src="/Images/MacBootloaderGUI.png" alt="T460s macOS">
+| Menu  |       |                                      | Setting     |
+|-------|-------|--------------------------------------|-------------|
+| Misc  | Boot  | ShowPicker                           | `False`     |
+|       | Debug | AppleDebug                           | `False`     |
+|       |       | ApplePanic                           | `False`     |
+|       |       | DisableWatchDog                      | `False`     |
+|       |       | Target                               | `0`         |
+| NVRAM | Add   | 7C436110-AB2A-4BBB-A880-FE41995C9F82 | Delete `-v` |
 
 </details>
 
@@ -383,7 +362,7 @@ Is it worth the effort and risk? I don't think so. I enjoyed it? 100%.
 
 - [ ] Internal monitor turns black when external is connected
 - [ ] Safari DRM
-- [ ] WWAN 
+- [ ] WWAN (needs to be implemented)
 - [ ] Fingerprint Reader
 
 </details>
@@ -410,34 +389,21 @@ Is it worth the effort and risk? I don't think so. I enjoyed it? 100%.
 | [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/releases) | 1.1.2          |
 | [Sinetek-rtsx](https://github.com/cholonam/Sinetek-rtsx/releases)                              | 2.2            |
 
-
 </details>
 
 <details>  
-<summary><strong>Changelog</strong></summary>
+<summary><strong>Benchmarks ⏱</strong></summary>
+</br>
 
-- 20201007:  
-MacOS 10.15.7 support tested;  
-Bootloader and kexts updated to [October 2020 release](https://dortania.github.io/hackintosh/updates/2020/10/05/acidanthera-october.html);  
-New "How this repo is updated" and "How to update the bootloader" sections in README.  
+| CPU            | Single-Core | Multi-Core |
+|:---------------|------------:|-----------:|
+| Cinebench r20  | 348         | 842        |
+| Geekbench 5    | 809         | 1862       |
+| **GPU**        | **OpenCL**  | **Metal**  |
+| Geekbench 5    | 4417        | 4179       |
+| BruceX Test 5K |             | 104''      |
 
-- 20200921:  
-Provided some guides and illustrations for recently added drivers.  
-
-- 20200919:  
-[NVMeFix](https://github.com/acidanthera/NVMeFix) and [CPUFriend](https://github.com/acidanthera/CPUFriend) now available in config.plist. Disabled by default;  
-[AirportItlwm](https://github.com/OpenIntelWireless/itlwm) available as well. Disabled by default;  
-[OpenCore GUI](https://github.com/acidanthera/OcBinaryData) built-in and enabled by default.  
-
-- 20200909:  
-Bootloader and kexts updated to [September 2020 release](https://dortania.github.io/hackintosh/updates/2020/09/07/acidanthera-september.html);  
-Now using Boostrap.efi for [multiboot](https://dortania.github.io/OpenCore-Post-Install/multiboot/bootstrap.html);  
-[Apple Secure Boot](https://dortania.github.io/OpenCore-Post-Install/universal/security/applesecureboot.html) is now enabled;  
-Sinetek-rtsx downgraded to 2.2.  
-
-- 20200822:  
-New README for improved readability.  
-
+<small>macOS 10.15.7, EFI release 0.6.2</small>
 </details>
 
 ## Thanks to
