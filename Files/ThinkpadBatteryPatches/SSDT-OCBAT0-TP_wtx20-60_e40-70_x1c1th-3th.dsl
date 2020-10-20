@@ -1,12 +1,12 @@
 // battery 
 DefinitionBlock ("", "SSDT", 2, "OCLT", "BAT0", 0)
 {
-    External(_SB.PCI0.LPC_.EC, DeviceObj)
-    External(_SB.PCI0.LPC_.EC.BATM, MutexObj)
-    External(_SB.PCI0.LPC_.EC.HIID, FieldUnitObj)
+    External(_SB.PCI0.LPC.EC, DeviceObj)
+    External(_SB.PCI0.LPC.EC.BATM, MutexObj)
+    External(_SB.PCI0.LPC.EC.HIID, FieldUnitObj)
     //
-    External(_SB.PCI0.LPC_.EC.XBIF, MethodObj)
-    External(_SB.PCI0.LPC_.EC.XBST, MethodObj)
+    External(_SB.PCI0.LPC.EC.XBIF, MethodObj)
+    External(_SB.PCI0.LPC.EC.XBST, MethodObj)
     
     Method (B1B2, 2, NotSerialized)
     {
@@ -23,7 +23,7 @@ DefinitionBlock ("", "SSDT", 2, "OCLT", "BAT0", 0)
         Or (Arg0, ShiftLeft (Local0, 0x08), Local0)
         Return (Local0)
     }
-    Scope(\_SB.PCI0.LPC_.EC)
+    Scope(\_SB.PCI0.LPC.EC)
     {    
         Method (RE1B, 1, NotSerialized)
         {
@@ -169,7 +169,7 @@ DefinitionBlock ("", "SSDT", 2, "OCLT", "BAT0", 0)
             }
             Else
             {
-                Return (\_SB.PCI0.LPC_.EC.XBIF(Arg0, Arg1, Arg2))
+                Return (\_SB.PCI0.LPC.EC.XBIF(Arg0, Arg1, Arg2))
             }
         }
         
@@ -252,7 +252,7 @@ DefinitionBlock ("", "SSDT", 2, "OCLT", "BAT0", 0)
             }
             Else
             {
-                Return (\_SB.PCI0.LPC_.EC.XBST(Arg0, Arg1, Arg2, Arg3))
+                Return (\_SB.PCI0.LPC.EC.XBST(Arg0, Arg1, Arg2, Arg3))
             }
         }
     }
