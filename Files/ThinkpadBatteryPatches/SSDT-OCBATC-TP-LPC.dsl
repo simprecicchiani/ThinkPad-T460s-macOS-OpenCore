@@ -1,9 +1,9 @@
-// ThinkPad-LPC_
+// ThinkPad-LPC
 DefinitionBlock ("", "SSDT", 2, "OCLT", "BATC", 0)
 {
-    External(\_SB.PCI0.LPC_.EC, DeviceObj)
+    External(\_SB.PCI0.LPC.EC, DeviceObj)
     
-    Scope(\_SB.PCI0.LPC_.EC)
+    Scope(\_SB.PCI0.LPC.EC)
     {
         External(BAT0._HID, IntObj)
         External(BAT0._STA, MethodObj)

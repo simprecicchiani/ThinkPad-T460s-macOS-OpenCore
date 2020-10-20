@@ -93,13 +93,10 @@ Basically I do the boring part so one can easily download the EFI folder and pla
 <summary><strong>How to install macOS</strong></summary>
 </br>
 
-Read the [installation guide](https://dortania.github.io/OpenCore-Install-Guide/installation/installation-process.html) and come back here to get the [latest EFI folder](https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore/releases).
-
-</details>
-
-<details>  
-<summary><strong>BIOS Settings</strong></summary>
-</br>
+1. [Create an installation media](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/#making-the-installer)
+1. Download the [latest EFI folder](https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore/releases) and copy it into the ESP partiton
+1. Change your BIOS settings according to the table below
+1. Boot from the USB installer and [start the installation process](https://dortania.github.io/OpenCore-Install-Guide/installation/installation-process.html#booting-the-opencore-usb)
 
 | Menu     |                   |                                 | Setting     |
 |----------|-------------------|---------------------------------|-------------|
@@ -125,8 +122,8 @@ Read the [installation guide](https://dortania.github.io/OpenCore-Install-Guide/
 <summary><strong>How to update the bootloader</strong></summary>
 </br>
 
-1. Download the repo and grab the EFI folder.
-1. Copy and Paste your PlatfromInfo.
+1. Download the [latest release](https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore/releases)
+1. Copy and Paste your `PlatfromInfo`
 1. Enable optional kexts if needed (NVMEFix, AirportItlwm, etc.)
 1. Test the new bootloader with an USB stick
 1. Customize boot preferences (skip picker, disable verbose, etc.)
@@ -140,7 +137,8 @@ Read the [installation guide](https://dortania.github.io/OpenCore-Install-Guide/
 </br>
 
 **WARNING**: Big Sur is in beta. While potentially compatible, the configuration is not developed for it.  
-Thanks to [@duszmox](https://github.com/duszmox) for his [guide](/Guides/Install-Big-Sur.md)
+
+Inside `config.plist` set `SecureBootModel=Disabled` as of #35 .
 
 </details>
 
@@ -150,15 +148,14 @@ Thanks to [@duszmox](https://github.com/duszmox) for his [guide](/Guides/Install
 <summary><strong>Enable Apple Services</strong></summary>
 </br>
 
-1. Launch Terminal.app
-1. Copy the following script, paste it into the Terminal window, then press ENTER
+1. Run the following script in Terminal
    ```bash
    git clone https://github.com/corpnewt/GenSMBIOS && cd GenSMBIOS && ./GenSMBIOS.command 
    ```
-1. Type `2`, then press ENTER
-1. Drag your `config.plist` inside the Terminal window
 1. Type `3`, then press ENTER
-1. Type `MacbookPro13,1`, then press ENTER
+1. Type `MacbookPro13,1 5`, then press ENTER
+1. Open `Config.plist` with any editor, navigate to `PlatformInfo > Generic`
+1. From the previous script, add the last results to `MLB, SystemSerialNumber and SystemUUID`
 
 </details>
 
