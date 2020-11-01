@@ -195,9 +195,9 @@ Inside `config.plist` set `SecureBootModel=Disabled` as of #35 .
    git clone https://github.com/fewtarius/CPUFriendFriend; cd CPUFriendFriend; chmod +x ./CPUFriendFriend.command; ./CPUFriendFriend.command
    ```
 1. When asked, select preferred values
-1. From the pop-up window, copy `ssdt-data.aml` into `/EFI/OC/ACPI/` folder
+1. From the pop-up window, copy `ssdt_data.aml` into `/EFI/OC/ACPI/` folder
 1. Open `Config.plist` with any editor 
-1. Go under `ACPI -> Add` and change `SSDT-PLUG.aml` with `ssdt-data.aml`
+1. Go under `ACPI -> Add` and change `SSDT-PLUG.aml` with `ssdt_data.aml`
 1. Go under `Kernel -> Add` and set `CPUFriend.kext` to `Enabled: True`
 
 This my machine's power consumption when idling:
