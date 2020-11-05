@@ -407,6 +407,8 @@ Thanks to [@MSzturc](https://github.com/MSzturc) for providing the keyboard map 
 <summary><strong>Use PrtSc key as Screenshot shortcut</strong></summary>
 </br>
 
+Super useful shortcut that I wish I had it on my previous MBP. Default is ⇧⌘5.
+
 1. Open SystemPreferences.app
 1. Go under ` Keyboard > Shortcuts > Screenshots` 
 1. Click on `Screenshot and recording options` key map
@@ -420,7 +422,7 @@ Thanks to [@MSzturc](https://github.com/MSzturc) for providing the keyboard map 
 <summary><strong>Use calibrated display profile</strong></summary>
 </br>
 
-These profiles are from NotebookCheck. Not all panel are the same so final result may vary.
+NotebookCheck's calibrated profiles. Not all panel are the same, final result may vary.
 
 1. Run the following script in Terminal  
     - for 1440p displays
@@ -431,8 +433,8 @@ These profiles are from NotebookCheck. Not all panel are the same so final resul
         ```bash
         cd ~/Library/ColorSync/Profiles; wget https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore/blob/master/Files/DisplayProfiles/T460s_FHD_N140HCE_EAA.icm
         ```
-1. Go under `SystemPreferences > Displays > Colour`
-1. Select the calibrated profile
+2. Go under `SystemPreferences > Displays > Colour`
+3. Select the calibrated profile
 
 <img src="/Images/DisplayProfile.png" alt="Lenovo Thinkpad T460s macOS Hackintosh OpenCore" height="300">
 
