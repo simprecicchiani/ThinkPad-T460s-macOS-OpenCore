@@ -138,7 +138,7 @@ Basically I do the boring part so one can easily download the EFI folder and pla
 
 **WARNING**: Big Sur is in beta. While potentially compatible, the configuration is not developed for it.  
 
-Inside `config.plist` set `SecureBootModel=Disabled` as of #35 .
+Inside `/EFI/OC/Config.plist` set `SecureBootModel=Disabled` as of #35 .
 
 </details>
 
@@ -154,55 +154,213 @@ Inside `config.plist` set `SecureBootModel=Disabled` as of #35 .
    ```
 1. Type `3`, then press ENTER
 1. Type `MacbookPro13,1 5`, then press ENTER
-1. Open `Config.plist` with any editor, navigate to `PlatformInfo > Generic`
+1. Open `/EFI/OC/Config.plist` with any editor and navigate to `PlatformInfo > Generic`
 1. From the previous script, add the last results to `MLB, SystemSerialNumber and SystemUUID`
+```diff
+<key>PlatformInfo</key>
+<dict>
+   <key>Generic</key>
+   <array>
+      </dict>
+         <key>AdviseWindows</key>
+         <false/>
+         <key>SystemMemoryStatus</key>
+         <string>Auto</string>
+         <key>MLB</key>
++        <string>M0000000000000001</string>
+         <key>ProcessorType</key>
+         <integer>0</integer>
+         <key>ROM</key>
+         <data>ESIzRFVm</data>
+         <key>SpoofVendor</key>
+         <true/>
+         <key>SystemProductName</key>
+         <string>MacBookPro13,1</string>
+         <key>SystemSerialNumber</key>
++        <string>W00000000001</string>
+         <key>SystemUUID</key>
++        <string>00000000-0000-0000-0000-000000000000</string>
+      </dict>
+   </array>
+</dict>
+```
 
 </details>
 
 <details>  
 <summary><strong>Enable Intel WLAN (optional)</strong></summary>
-<img align="right" src="/Images/enable-intel-wlan.jpg" alt="T460s macOS" height="150">
 </br>
 
-1. Open `Config.plist` with any editor
-1. Go under `Kernel -> Add`
-1. Find and Enable `AirportItlwm.kext`, `IntelBluetoothFirmware.kext` and `IntelBluetoothInjector.kext`
+1. Open `/EFI/OC/Config.plist` with any editor 
+2. Go under `Kernel -> Add` and enable `AirportItlwm.kext`, `IntelBluetoothFirmware.kext` and `IntelBluetoothInjector.kext`
+```diff
+<key>Kernel</key>
+<dict>
+   <key>Add</key>
+   <array>
+      </dict>
+         <key>Arch</key>
+         <string>x86_64</string>
+         <key>BundlePath</key>
+         <string>AirportItlwm.kext</string>
+         <key>Comment</key>
+         <string>Intel WiFi driver</string>
+         <key>Enabled</key>
+-        <false/>
++        <true/>
+         <key>ExecutablePath</key>
+         <string>Contents/MacOS/AirportItlwm</string>
+         <key>MaxKernel</key>
+         <string></string>
+         <key>MinKernel</key>
+         <string></string>
+         <key>PlistPath</key>
+         <string>Contents/Info.plist</string>
+      </dict>
+      </dict>
+         <key>Arch</key>
+         <string>x86_64</string>
+         <key>BundlePath</key>
+         <string>IntelBluetoothFirmware.kext</string>
+         <key>Comment</key>
+         <string>Intel Bluetooth driver</string>
+         <key>Enabled</key>
+-        <false/>
++        <true/>
+         <key>ExecutablePath</key>
+         <string>Contents/MacOS/IntelBluetoothFirmware</string>
+         <key>MaxKernel</key>
+         <string></string>
+         <key>MinKernel</key>
+         <string></string>
+         <key>PlistPath</key>
+         <string>Contents/Info.plist</string>
+      </dict>
+      </dict>
+         <key>Arch</key>
+         <string>x86_64</string>
+         <key>BundlePath</key>
+         <string>IntelBluetoothInjector.kext</string>
+         <key>Comment</key>
+         <string>Intel Bluetooth driver companion</string>
+         <key>Enabled</key>
+-        <false/>
++        <true/>
+         <key>ExecutablePath</key>
+         <string></string>
+         <key>MaxKernel</key>
+         <string></string>
+         <key>MinKernel</key>
+         <string></string>
+         <key>PlistPath</key>
+         <string>Contents/Info.plist</string>
+      </dict>
+   </array>
+</dict>
+```
 1. Save and reboot the system
 
 </details>
 
 <details>  
 <summary><strong>Fix NVMe power management (optional)</strong></summary>
-<img align="right" src="/Images/enable-nvme-fix.jpg" alt="T460s macOS" height="150">
 </br>
 
-1. Open `Config.plist` with any editor
-1. Go under `Kernel -> Add`
-1. Find and Enable `NVMeFix.kext`
-1. Save and reboot the system
+1. Open `/EFI/OC/Config.plist` with any editor 
+2. Go under `Kernel -> Add` and enable `NVMeFix.kext`
+```diff
+<key>Kernel</key>
+<dict>
+   <key>Add</key>
+   <array>
+      </dict>
+         <key>Arch</key>
+         <string>x86_64</string>
+         <key>BundlePath</key>
+         <string>NVMeFix.kext</string>
+         <key>Comment</key>
+         <string>NVMe power management</string>
+         <key>Enabled</key>
+-        <false/>
++        <true/>
+         <key>ExecutablePath</key>
+         <string>Contents/MacOS/NVMeFix</string>
+         <key>MaxKernel</key>
+         <string></string>
+         <key>MinKernel</key>
+         <string></string>
+         <key>PlistPath</key>
+         <string>Contents/Info.plist</string>
+      </dict>
+   </array>
+</dict>
+```
+3. Save and reboot the system
 
 </details>
 
 <details>  
 <summary><strong>Custom CPU Power Management (optional)</strong></summary>
-<img align="right" src="/Images/add-frequency-ssdt.jpg" alt="T460s macOS" height="150">  
-<img align="right" src="/Images/enable-cpu-friend.jpg" alt="T460s macOS" height="150">
 </br>
 
-1. Launch Terminal.app
-1. Copy the following script, paste it into the Terminal window, then press ENTER  
-   ```bash
-   git clone https://github.com/fewtarius/CPUFriendFriend; cd CPUFriendFriend; chmod +x ./CPUFriendFriend.command; ./CPUFriendFriend.command
-   ```
-1. When asked, select preferred values
-1. From the pop-up window, copy `ssdt_data.aml` into `/EFI/OC/ACPI/` folder
-1. Open `Config.plist` with any editor 
-1. Go under `ACPI -> Add` and change `SSDT-PLUG.aml` with `ssdt_data.aml`
-1. Go under `Kernel -> Add` and set `CPUFriend.kext` to `Enabled: True`
+1. Run the following script in Terminal  
+```bash
+git clone https://github.com/fewtarius/CPUFriendFriend; cd CPUFriendFriend; chmod +x ./CPUFriendFriend.command; ./CPUFriendFriend.command
+```
+2. When asked, select preferred values
+3. From the pop-up window, copy `ssdt_data.aml` into `/EFI/OC/ACPI/` folder
+4. Open `/EFI/OC/Config.plist` with any editor 
+5. Go under `ACPI -> Add` and replace `SSDT-PLUG.aml` with `ssdt_data.aml`
+```diff
+<key>ACPI</key>
+<dict>
+   <key>Add</key>
+   <array>
+      <dict>
+         <key>Comment</key>
+         <string>X86 Injector</string>
+         <key>Enabled</key>
+         <true/>
+         <key>Path</key>
+-        <string>SSDT-PLUG.aml</string>
++        <string>ssdt_data.aml</string>
+      </dict>
+   </array>
+</dict>
+```
+6. Go under `Kernel -> Add` and enable `CPUFriend.kext`
+```diff
+<key>Kernel</key>
+<dict>
+   <key>Add</key>
+   <array>
+      </dict>
+         <key>Arch</key>
+         <string>x86_64</string>
+         <key>BundlePath</key>
+         <string>CPUFriend.kext</string>
+         <key>Comment</key>
+         <string>Frequency data injector</string>
+         <key>Enabled</key>
+-        <false/>
++        <true/>
+         <key>ExecutablePath</key>
+         <string>Contents/MacOS/CPUFriend</string>
+         <key>MaxKernel</key>
+         <string></string>
+         <key>MinKernel</key>
+         <string></string>
+         <key>PlistPath</key>
+         <string>Contents/Info.plist</string>
+      </dict>
+   </array>
+</dict>
+```
+7. Save and reboot the system
 
 This my machine's power consumption when idling:
 
-<img src="/Images/PowerConsumption.png" alt="T460s macOS" width="300">
+<img src="/Images/PowerConsumption.png" alt="T460s macOS" height ="300">
 
 </details>
 
@@ -224,8 +382,7 @@ For ThinkPad's dock only, use one of following methods:
 </br>
 
 1. [Disable SIP](https://dortania.github.io/OpenCore-Install-Guide/troubleshooting/troubleshooting.html#disabling-sip)
-1. Launch Terminal.app
-1. Copy the following script, paste it into the Terminal window, then press ENTER
+1. Run the following script in Terminal  
    ```bash
    bash -c "$(curl -fsSL https://raw.githubusercontent.com/xzhih/one-key-hidpi/master/hidpi.sh)"
    ```
@@ -247,7 +404,6 @@ Thanks to [@MSzturc](https://github.com/MSzturc) for providing the keyboard map 
 
 <details>  
 <summary><strong>Use PrtSc key as Screenshot shortcut</strong></summary>
-<img align="right" src="/Images/Shortcut.png" alt="T460s macOS" height="150">
 </br>
 
 1. Open SystemPreferences.app
@@ -255,17 +411,17 @@ Thanks to [@MSzturc](https://github.com/MSzturc) for providing the keyboard map 
 1. Click on `Screenshot and recording options` key map
 1. Press `PrtSc` on your keyboard (it should came out as `F13`)
 
+<img src="/Images/Shortcut.png" alt="T460s macOS" height="300">
+
 </details>
 
 <details>  
 <summary><strong>Use calibrated display profile</strong></summary>
-<img align="right" src="/Images/DisplayProfile.png" alt="T460s macOS" height="150">
 </br>
 
 These profiles are from NotebookCheck. Not all panel are the same so final result may vary.
 
-1. Launch Terminal.app
-1. Copy the following script, paste it into the Terminal window, then press ENTER
+1. Run the following script in Terminal  
     - for 1440p displays
         ```bash
         cd ~/Library/ColorSync/Profiles; wget https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore/blob/master/Files/DisplayProfiles/T460s_WQHD_VVX14T058J02.icm
@@ -276,6 +432,8 @@ These profiles are from NotebookCheck. Not all panel are the same so final resul
         ```
 1. Go under `SystemPreferences > Displays > Colour`
 1. Select the calibrated profile
+
+<img src="/Images/DisplayProfile.png" alt="T460s macOS" height="300">
 
 </details>
 
@@ -295,8 +453,7 @@ These profiles are from NotebookCheck. Not all panel are the same so final resul
 
 This enables auto-hide and speeds up the animation
 
-1. Launch Terminal.app
-1. Copy the following script, paste it into the Terminal window, then press ENTER
+1. Run the following script in Terminal  
    ```bash
    defaults write com.apple.dock autohide-delay -float 0; defaults write com.apple.dock autohide-time-modifier -float 0.5; killall Dock
    ```
@@ -369,21 +526,23 @@ Is it worth the effort and risk? I don't think so. I enjoyed it? 100%.
 </br>
 
 | Version                                                                                        | [Stable](/EFI) | 
-|:-----------------------------------------------------------------------------------------------|---------------:|
+|:-----------------------------------------------------------------------------------------------|:---------------|
 | [MacOS](https://www.apple.com/macos/)                                                          | 10.15.7 / 11.0 |
-| [OpenCore](https://github.com/acidanthera/OpenCorePkg/releases)                                | 0.6.2          | 
-| [Lilu](https://github.com/acidanthera/Lilu/releases)                                           | 1.4.8          | 
-| [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases)                               | 1.1.7          | 
-| [WhateverGreen](https://github.com/acidanthera/WhateverGreen/releases)                         | 1.4.3          | 
-| [AppleALC](https://github.com/acidanthera/AppleALC/releases)                                   | 1.5.3          | 
-| [VoodooPS2Controller](https://github.com/acidanthera/VoodooPS2/releases)                       | 2.1.7          |
+| [OpenCore](https://github.com/acidanthera/OpenCorePkg/releases)                                | 0.6.3          | 
+| [Lilu](https://github.com/acidanthera/Lilu/releases)                                           | 1.4.9          | 
+| [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases)                               | 1.1.8          | 
+| [WhateverGreen](https://github.com/acidanthera/WhateverGreen/releases)                         | 1.4.4          | 
+| [AppleALC](https://github.com/acidanthera/AppleALC/releases)                                   | 1.5.4          | 
+| [VoodooPS2Controller](https://github.com/acidanthera/VoodooPS2/releases)                       | 2.1.8          |
 | [VoodooRMI](https://github.com/VoodooSMBus/VoodooRMI/releases)                                 | 1.2            |
 | [IntelMausi](https://github.com/acidanthera/IntelMausi/releases)                               | 1.0.4          |
-| [HibernationFixup](https://github.com/acidanthera/HibernationFixup/releases)                   | 1.3.6          |
+| [HibernationFixup](https://github.com/acidanthera/HibernationFixup/releases)                   | 1.3.7          |
 | [CPUFriend](https://github.com/acidanthera/CPUFriend/releases)                                 | 1.2.2          |
 | [NVMeFix](https://github.com/acidanthera/NVMeFix/releases)                                     | 1.0.4          |
+| [RTCMemoryFixup](https://github.com/acidanthera/RTCMemoryFixup/releases)                       | 1.0.7          |
 | [AirportItlwm](https://github.com/OpenIntelWireless/itlwm/releases)                            | 1.0            |
 | [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/releases) | 1.1.2          |
+| [AppleBacklightSmoother](https://github.com/hieplpvip/AppleBacklightSmoother/releases)         | 1.0.2          |
 | [Sinetek-rtsx](https://github.com/cholonam/Sinetek-rtsx/releases)                              | 2.2            |
 
 </details>

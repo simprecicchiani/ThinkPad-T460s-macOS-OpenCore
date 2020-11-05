@@ -1,5 +1,60 @@
 OpenCore Changelog
 ==================
+#### v0.6.3
+- Added support for xml comments in plist files
+- Updated underlying EDK II package to edk2-stable202008
+- Provide fallbacks for NULL memory SMBIOS strings
+- Fixed `BOOTx64.efi` and `BOOTIA32.efi` convention
+- Fixed SMBIOS handling with multiple memory arrays
+- Fixed memory array handle assignment on empty slots
+- Fixed CPUID patching on certain versions of macOS 10.4.10 and 10.4.11
+- Fixed incorrect core/thread counts on Pentium M processors
+- Added `SSDT-UNC.dsl` ACPI sample to resolve X99 issues, thx @RemB
+- Updated builtin firmware versions for SMBIOS and the rest
+- Increased slide allocation reserve to 200 MB for Big Sur beta 10
+- Fixed assert when trying to enable direct renderer on blit-only GOP
+- Added support for custom memory properties
+- Fixed intermittent 32-bit prelinking failures caused by improper Mach-O expansion
+- Fixed failures in cacheless injection dependency resolution
+- Fixed detection issues with older Atom CPUs
+- Fixed `ScanPolicy` NVMe handling on MacPro5,1
+- Fixed I/O issues on platforms incapable of reading over 1MB at once
+- Fixed plist-only kext injection in Big Sur
+- Add `ForceResolution` option for enabling non-default resolutions
+- Fixed Ps2MouseDxe not properly loading under OpenDuetPkg
+- Added workaround for read-only errors on some X299 boards
+- Added support for `x86legacy` Secure Boot model
+- Added missing Secure Boot NVRAM variables required by 11.0
+- Added setting of `system-id` NVRAM variable
+- Added `ForceSecureBootScheme` quirk for virtual machines
+- Fixed kernel and ACPI patches failing to replace last bytes of memory
+
+#### v0.6.2
+- Updated builtin firmware versions for SMBIOS and the rest
+- Added `ProcessorType` option to `Generic` allowing custom CPU names
+- Fixed `UnblockFsConnect` option not working with APFS JumpStart
+- Added IA32 binary variant to the release bundles
+- Fixed improper handling of cacheless kexts without an Info.plist
+- Fixed improper calculation of kext startup address for blocking
+- Added mkext 32-bit kext injection (10.4-10.6)
+- Added cacheless 32-bit kext injection (10.4-10.7)
+- Added 32-bit kernel/kext patching/blocking support
+- Fixed issues loading 10.7 EfiBoot
+- Added `Type` to `ReservedMemory` to fulfil hibernation hack needs
+- Added workaround to displaying `Preboot` instead of `Macintosh HD`
+- Added prelinkedkernel 32-bit kext injection (10.6-10.7)
+- Added `SystemMemoryStatus` to override memory replacement on some models
+- Added older Pentium CPU recognition in SMBIOS
+- Added `ExtendBTFeatureFlags` to properly set `FeatureFlags` for Bluetooth (which substitutes BT4LEContinuityFixup)
+- Added `MinKernel`/`MaxKernel` to CPUID emulation and `DummyPowerManagement`
+- Fixed `-legacy` not being added in `KernelArch` `Auto` mode
+- Fixed `i386-user32` not forcing `i386` on macOS 10.7 on X64 firmware
+- Fixed `i386-user32` being incorrectly enabled in macOS 10.4, 10.5, and 10.7
+- Disabled prelinked boot for macOS 10.4 and 10.5 in `KernelCache` `Auto` mode
+- Fixed `macserial` compatibility with iMac20,x serials and other models from 2020
+- Added `LegacyCommpage` quirk to improve pre-SSSE3 userspace compatibility
+- Fixed legacy SATA HDDs displaying as external drives in the picker
+
 #### v0.6.1
 - Improved recognition of early pressed hotkeys, thx @varahash
 - Made DMG loading support configurable via `DmgLoading`
@@ -115,7 +170,7 @@ OpenCore Changelog
 - Added prebuilt version of `CrScreenshotDxe` driver
 - Fixed Hyper-V frequency detection compatibility
 - Added `SysReport` option for DEBUG builds to dump system info
-- Fixed crashes on some AMD firmwares when performing keyboard input
+- Fixed crashes on some AMD firmware when performing keyboard input
 
 #### v0.5.8
 - Fixed invalid CPU object reference in SSDT-PLUG
@@ -173,8 +228,8 @@ OpenCore Changelog
 
 #### v0.5.6
 - Various improvements to builtin text renderer
-- Fixed locating DMG recovery in APTIO IV firmwares on FAT32
-- Fixed loading DMG recovery in APTIO IV firmwares on FAT32
+- Fixed locating DMG recovery in APTIO IV firmware on FAT32
+- Fixed loading DMG recovery in APTIO IV firmware on FAT32
 - Removed `AvoidHighAlloc` quirk due to removed I/O over 4GB
 - Moved `ConsoleMode`, `Resolution` options to `Output` section
 - Moved console-related UEFI quirks to `Output` section
@@ -192,7 +247,7 @@ OpenCore Changelog
 - Added `HideAuxiliary` and `Auxiliary` options
 - Fixed picker timeout and log timestamps for VMware
 - Fixed NULL parent DeviceHandle for launched tools
-- Added bundled HiiDatabase driver for very old firmwares
+- Added bundled HiiDatabase driver for very old firmware
 - Added SSE2 support in memory intrinsics for better performance
 - Improved ACPI PM timer CPU frequency calculation performance
 - Improved LapicKernelPanic compatibility with newer macOS versions
