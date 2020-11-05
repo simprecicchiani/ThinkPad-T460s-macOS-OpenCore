@@ -184,6 +184,7 @@ git clone https://github.com/corpnewt/GenSMBIOS && cd GenSMBIOS && chmod +x GenS
    </array>
 </dict>
 ```
+6. Save and reboot the system
 
 </details>
 
@@ -258,7 +259,7 @@ git clone https://github.com/corpnewt/GenSMBIOS && cd GenSMBIOS && chmod +x GenS
    </array>
 </dict>
 ```
-1. Save and reboot the system
+3. Save and reboot the system
 
 </details>
 
