@@ -1,16 +1,16 @@
-# Guide to install BCM94360CS2
+# How to install a genuine MacBook WLAN card on any laptop (BCM94360CS2 on T460s)
 
-I choose this WLAN card because it's a genuine Macbook Air card and it works plug-and-play
+I decided to go for a genuine WLAN card used in Apple's computer because it works plug-and-play on any Hackintosh.
 
-A list of others compatibles cards can be found [here](https://khronokernel-7.gitbook.io/wireless-buyers-guide/)
+A list of other compatible cards can be found [here](https://dortania.github.io/Wireless-Buyers-Guide/)
 
-## Parts needed
+## Parts and tools required
 
 - BCM94360CS2 ($10 used)
-<img src="/Images/part01.jpg" height="300">
+<img src="/Images/wlan-card.jpg" height="300">
 
 - BCM94360CS2 (M.2) to NGFF adapter ($5 new)
-<img src="/Images/part02.jpg" height="300">
+<img src="/Images/wlan-adapter.jpg" height="300">
 
 - Phillips screwdriver 
 
@@ -20,38 +20,44 @@ A list of others compatibles cards can be found [here](https://khronokernel-7.gi
 `Config -> Power -> Disable Built-in Battery` **Enter**
 
 1. Open the back plate
-<img src="/Images/Installation01.jpeg" height="300">
+<img src="/Images/wlan-install-01.jpeg" height="300">
 
 2. Disconnect antennas cables
-<img src="/Images/Installation02.jpeg" height="300">
+<img src="/Images/wlan-install-02.jpeg" height="300">
 
 3. Remove the original WLAN card
-<img src="/Images/Installation03.jpeg" height="300">
+<img src="/Images/wlan-install-03.jpeg" height="300">
 
 4. (optional) Cut adapter corner and widen screw hole as shown to save 1mm in height
-<img src="/Images/Installation04.jpeg" height="300">
+<img src="/Images/wlan-install-04.jpeg" height="300">
 
 5. Insert the adapter on the board
-<img src="/Images/Installation05.jpeg" height="300">
+<img src="/Images/wlan-install-05.jpeg" height="300">
 
 6. Install BCM94360CS2
-<img src="/Images/Installation06.jpeg" height="300">
+<img src="/Images/wlan-install-06.jpeg" height="300">
 
 7. Connect antennas cables (as shown)
-<img src="/Images/Installation07.jpeg" height="300">
+<img src="/Images/wlan-install-07.jpeg" height="300">
 
 8. Close the back plate and enjoy your wireless life
 
 ## The bottom line
 ### That's a small issue for a laptop,
-> Due to adapter height, back plate will have a small bump, resulting in a (very) small gap on the right bottom side
-<img src="/Images/Result01.jpeg" height="300">
+> Due to adapter's height the back plate will have a small bump, resulting in a (very) small gap on the laptop's right bottom side
+<img src="/Images/wlan-install-08.jpeg" height="300">
 
 ### One giant leap for your life
-All the followings will work with **no extra kexts**
-- Wifi 802.11ac 
-- Bluetooth 4.0
-- Handoff
-- Continuity
-- Airdrop
-- Sidecar [wireless](https://www.youtube.com/watch?v=D5yButavaWY)
+All [Continuity features](https://support.apple.com/en-us/HT204681) will work with **no extra kexts nor patches**:
+- [x] Handoff
+- [x] Universal Clipboard
+- [x] iPhone Cellular Calls
+- [x] Text Message Forwarding
+- [x] Instant Hotspot
+- [x] Auto Unlock
+- [x] Continuity Camera
+- [x] Continuity Sketch
+- [x] Continuity Markup
+- [x] Sidecar
+- [x] AirDrop
+- [x] Apple Pay

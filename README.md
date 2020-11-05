@@ -1,6 +1,6 @@
 # ThinkPad T460s running macOS (OpenCore bootloader)
 
-<img align="right" src="https://imgur.com/sI2Uzel.jpg" alt="T460s macOS" width="300">
+<img align="right" src="https://imgur.com/sI2Uzel.jpg" alt="Lenovo Thinkpad T460s macOS Hackintosh OpenCore" width="300">
 
 [![macOS](https://img.shields.io/badge/macOS-Catalina%20%26%20Big%20Sur-blue)](https://developer.apple.com/documentation/macos-release-notes)
 [![OpenCore](https://img.shields.io/badge/OpenCore-0.6.2-green)](https://github.com/acidanthera/OpenCorePkg)
@@ -149,13 +149,13 @@ Inside `/EFI/OC/Config.plist` set `SecureBootModel=Disabled` as of #35 .
 </br>
 
 1. Run the following script in Terminal
-   ```bash
-   git clone https://github.com/corpnewt/GenSMBIOS && cd GenSMBIOS && ./GenSMBIOS.command 
-   ```
-1. Type `3`, then press ENTER
-1. Type `MacbookPro13,1 5`, then press ENTER
-1. Open `/EFI/OC/Config.plist` with any editor and navigate to `PlatformInfo > Generic`
-1. From the previous script, add the last results to `MLB, SystemSerialNumber and SystemUUID`
+```bash
+git clone https://github.com/corpnewt/GenSMBIOS && cd GenSMBIOS && chmod +x GenSMBIOS.command && ./GenSMBIOS.command
+```
+2. Type `3` to Generate SMBIOS, then press ENTER
+3. Type `MacbookPro13,1 5`, then press ENTER. Leave this Terminal window open.
+4. Open `/EFI/OC/Config.plist` with any editor and navigate to `PlatformInfo -> Generic`
+5. Add the script's last result to `MLB, SystemSerialNumber and SystemUUID`
 ```diff
 <key>PlatformInfo</key>
 <dict>
@@ -358,9 +358,9 @@ git clone https://github.com/fewtarius/CPUFriendFriend; cd CPUFriendFriend; chmo
 ```
 7. Save and reboot the system
 
-This my machine's power consumption when idling:
-
-<img src="/Images/PowerConsumption.png" alt="T460s macOS" height ="300">
+| Idle                      | Max Frequency                 | 2 Thread Frequency            | All Thread Frequency          | GPU Max Frequency             |
+|---------------------------|-------------------------------|-------------------------------|-------------------------------|-------------------------------|
+| ![](/Images/ipg-idle.png) | ![](/Images/ipg-max-freq.png) | ![](/Images/ipg-two-freq.png) | ![](/Images/ipg-all-freq.png) | ![](/Images/ipg-gpu-freq.png) |
 
 </details>
 
@@ -411,7 +411,7 @@ Thanks to [@MSzturc](https://github.com/MSzturc) for providing the keyboard map 
 1. Click on `Screenshot and recording options` key map
 1. Press `PrtSc` on your keyboard (it should came out as `F13`)
 
-<img src="/Images/Shortcut.png" alt="T460s macOS" height="300">
+<img src="/Images/prtsc-shortcut.png" alt="Lenovo Thinkpad T460s macOS Hackintosh OpenCore" height="300">
 
 </details>
 
@@ -433,7 +433,7 @@ These profiles are from NotebookCheck. Not all panel are the same so final resul
 1. Go under `SystemPreferences > Displays > Colour`
 1. Select the calibrated profile
 
-<img src="/Images/DisplayProfile.png" alt="T460s macOS" height="300">
+<img src="/Images/DisplayProfile.png" alt="Lenovo Thinkpad T460s macOS Hackintosh OpenCore" height="300">
 
 </details>
 
