@@ -541,11 +541,12 @@ Is it worth the effort and risk? I don't think so. I enjoyed it? 100%.
 <details>  
 <summary><strong>Power consumption & thermals 🔥</strong></summary>
 </br>
+
 | Idle                      | Max Frequency                 | 2 Thread Frequency            | All Thread Frequency          | GPU Max Frequency             |
 |---------------------------|-------------------------------|-------------------------------|-------------------------------|-------------------------------|
 | ![](/Images/ipg-idle.png) | ![](/Images/ipg-max-freq.png) | ![](/Images/ipg-two-freq.png) | ![](/Images/ipg-all-freq.png) | ![](/Images/ipg-gpu-freq.png) |
 
-
+</details>
 
 <details>  
 <summary><strong>Benchmarks ⏱</strong></summary>
