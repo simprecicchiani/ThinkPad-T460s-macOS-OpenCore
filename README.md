@@ -2,8 +2,8 @@
 
 <img align="right" src="https://imgur.com/sI2Uzel.jpg" alt="Lenovo Thinkpad T460s macOS Hackintosh OpenCore" width="300">
 
-[![macOS](https://img.shields.io/badge/macOS-Catalina%20%26%20Big%20Sur-blue)](https://developer.apple.com/documentation/macos-release-notes)
-[![OpenCore](https://img.shields.io/badge/OpenCore-0.6.2-green)](https://github.com/acidanthera/OpenCorePkg)
+[![macOS](https://img.shields.io/badge/macOS-11.0.1-blue)](https://developer.apple.com/documentation/macos-release-notes)
+[![OpenCore](https://img.shields.io/badge/OpenCore-0.6.3-green)](https://github.com/acidanthera/OpenCorePkg)
 [![Model](https://img.shields.io/badge/Model-20F9003AUS-lightgrey)](https://psref.lenovo.com/Product/ThinkPad_T460s)
 [![BIOS](https://img.shields.io/badge/BIOS-1.49-lightgrey)](https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/thinkpad-t-series-laptops/thinkpad-t460s/downloads/driver-list/component?name=BIOS%2FUEFI)
 [![LICENSE](https://img.shields.io/badge/license-MIT-purple)](/LICENSE)
@@ -45,7 +45,7 @@ It would mean a lot to me.
 | Graphics           | Integrated Intel HD Graphics 520                                                                          |
 | Memory             | 4GB Soldered + 4GB DIMM 2133MHz DDR4, dual-channel                                                        |
 | Display            | 14" WQHD (2560x1440) IPS, non-touch                                                                       |
-| Storage            | SanDisk SD8TN8U256G1001 256GB SSD M.2 Opal2                                                               |
+| Storage            | WD Black SN750 500GB NVMe SSD                                                                             |
 | Ethernet           | Intel Ethernet Connection I219-LM (Jacksonville)                                                          |
 | WLAN + Bluetooth   | 11ac+BT, [Broadcom BCM94360CS2](/Guides/Replace-WLAN.md), 2x2 card                                        |
 | Camera             | HD720p resolution, low light sensitive, fixed focus                                                       |
@@ -125,20 +125,10 @@ Basically I do the boring part so one can easily download the EFI folder and pla
 1. Download the [latest release](https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore/releases)
 1. Copy and Paste your `PlatfromInfo`
 1. Enable optional kexts if needed (NVMEFix, AirportItlwm, etc.)
-1. Test the new bootloader with an USB stick
+1. Test the new bootloader with an USB stick (Set `BootProtect: None` whenever booting with external drives)
 1. Customize boot preferences (skip picker, disable verbose, etc.)
 1. Mount your ESP partition
 1. Backup your old EFI folder and replace it with the new one
-
-</details>
-
-<details>  
-<summary><strong>How to upgrade to macOS 11.0 Big Sur</strong></summary>
-</br>
-
-**WARNING**: Big Sur is in beta. While potentially compatible, the configuration is not developed for it.  
-
-Inside `/EFI/OC/Config.plist` set `SecureBootModel=Disabled` as of #35 .
 
 </details>
 
@@ -359,10 +349,6 @@ git clone https://github.com/fewtarius/CPUFriendFriend; cd CPUFriendFriend; chmo
 ```
 7. Save and reboot the system
 
-| Idle                      | Max Frequency                 | 2 Thread Frequency            | All Thread Frequency          | GPU Max Frequency             |
-|---------------------------|-------------------------------|-------------------------------|-------------------------------|-------------------------------|
-| ![](/Images/ipg-idle.png) | ![](/Images/ipg-max-freq.png) | ![](/Images/ipg-two-freq.png) | ![](/Images/ipg-all-freq.png) | ![](/Images/ipg-gpu-freq.png) |
-
 </details>
 
 <details>  
@@ -528,27 +514,38 @@ Is it worth the effort and risk? I don't think so. I enjoyed it? 100%.
 <summary><strong>Update tracker 🔄</strong></summary>
 </br>
 
-| Version                                                                                        | [Stable](/EFI) | 
-|:-----------------------------------------------------------------------------------------------|:---------------|
-| [MacOS](https://www.apple.com/macos/)                                                          | 10.15.7 / 11.0 |
-| [OpenCore](https://github.com/acidanthera/OpenCorePkg/releases)                                | 0.6.3          | 
-| [Lilu](https://github.com/acidanthera/Lilu/releases)                                           | 1.4.9          | 
-| [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases)                               | 1.1.8          | 
-| [WhateverGreen](https://github.com/acidanthera/WhateverGreen/releases)                         | 1.4.4          | 
-| [AppleALC](https://github.com/acidanthera/AppleALC/releases)                                   | 1.5.4          | 
-| [VoodooPS2Controller](https://github.com/acidanthera/VoodooPS2/releases)                       | 2.1.8          |
-| [VoodooRMI](https://github.com/VoodooSMBus/VoodooRMI/releases)                                 | 1.2            |
-| [IntelMausi](https://github.com/acidanthera/IntelMausi/releases)                               | 1.0.4          |
-| [HibernationFixup](https://github.com/acidanthera/HibernationFixup/releases)                   | 1.3.7          |
-| [CPUFriend](https://github.com/acidanthera/CPUFriend/releases)                                 | 1.2.2          |
-| [NVMeFix](https://github.com/acidanthera/NVMeFix/releases)                                     | 1.0.4          |
-| [RTCMemoryFixup](https://github.com/acidanthera/RTCMemoryFixup/releases)                       | 1.0.7          |
-| [AirportItlwm](https://github.com/OpenIntelWireless/itlwm/releases)                            | 1.0            |
-| [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/releases) | 1.1.2          |
-| [AppleBacklightSmoother](https://github.com/hieplpvip/AppleBacklightSmoother/releases)         | 1.0.2          |
-| [Sinetek-rtsx](https://github.com/cholonam/Sinetek-rtsx/releases)                              | 2.2            |
+| Version                                                                                        | [Stable](/EFI)   | 
+|:-----------------------------------------------------------------------------------------------|:-----------------|
+| [MacOS](https://www.apple.com/macos/)                                                          | 10.15.7 / 11.0.1 |
+| [OpenCore](https://github.com/acidanthera/OpenCorePkg/releases)                                | 0.6.3            | 
+| [Lilu](https://github.com/acidanthera/Lilu/releases)                                           | 1.4.9            | 
+| [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases)                               | 1.1.8            | 
+| [WhateverGreen](https://github.com/acidanthera/WhateverGreen/releases)                         | 1.4.4            | 
+| [AppleALC](https://github.com/acidanthera/AppleALC/releases)                                   | 1.5.4            | 
+| [VoodooPS2Controller](https://github.com/acidanthera/VoodooPS2/releases)                       | 2.1.8            |
+| [VoodooRMI](https://github.com/VoodooSMBus/VoodooRMI/releases)                                 | 1.2              |
+| [IntelMausi](https://github.com/acidanthera/IntelMausi/releases)                               | 1.0.4            |
+| [HibernationFixup](https://github.com/acidanthera/HibernationFixup/releases)                   | 1.3.7            |
+| [CPUFriend](https://github.com/acidanthera/CPUFriend/releases)                                 | 1.2.2            |
+| [NVMeFix](https://github.com/acidanthera/NVMeFix/releases)                                     | 1.0.4            |
+| [RTCMemoryFixup](https://github.com/acidanthera/RTCMemoryFixup/releases)                       | 1.0.7            |
+| [AirportItlwm](https://github.com/OpenIntelWireless/itlwm/releases)                            | 1.0              |
+| [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/releases) | 1.1.2            |
+| [AppleBacklightSmoother](https://github.com/hieplpvip/AppleBacklightSmoother/releases)         | 1.0.2            |
+| [Sinetek-rtsx](https://github.com/cholonam/Sinetek-rtsx/releases)                              | 2.2              |
 
 </details>
+
+## Performances
+
+<details>  
+<summary><strong>Power consumption & thermals 🔥</strong></summary>
+</br>
+| Idle                      | Max Frequency                 | 2 Thread Frequency            | All Thread Frequency          | GPU Max Frequency             |
+|---------------------------|-------------------------------|-------------------------------|-------------------------------|-------------------------------|
+| ![](/Images/ipg-idle.png) | ![](/Images/ipg-max-freq.png) | ![](/Images/ipg-two-freq.png) | ![](/Images/ipg-all-freq.png) | ![](/Images/ipg-gpu-freq.png) |
+
+
 
 <details>  
 <summary><strong>Benchmarks ⏱</strong></summary>
