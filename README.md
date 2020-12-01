@@ -252,6 +252,81 @@ git clone https://github.com/corpnewt/GenSMBIOS && cd GenSMBIOS && chmod +x GenS
 3. Save and reboot the system
 
 </details>
+<details>  
+<summary><strong>Remove other WIFI firmware files from itlwm/AirportItlwm .kext(optional)</strong></summary>
+</br>
+This steps help you a little speed up boot process (if you use `itlwm` or `AirportItlwm`)
+
+1. Clone the repo: `git clone https://github.com/OpenIntelWireless/itlwm.git`
+2. Open the folder where it's cloned to
+3. Open Xcode, press File -New -File.. on the Search bar/Filter type `shell` and choose to create a new shell script file
+4. Copy this code below into it;
+
+```shell
+#!/bin/bash
+
+# remove all local changes
+git reset --hard HEAD
+rm -rf build
+
+# pull latest code
+git pull
+
+# remove generated firmware
+rm include/FwBinary.cpp
+
+# remove firmware for other wifi cards - DELETE OR CHANGE TO YOUR CARD
+find itlwm/firmware/ -type f ! -name 'iwm-7265-*' -delete
+
+
+# generate firmware
+xcodebuild -project itlwm.xcodeproj -target fw_gen -configuration Release -sdk macosx
+
+# build the kexts
+## 1. itlwm.kext
+xcodebuild -project itlwm.xcodeproj -target itlwm -configuration Release -sdk macosx
+
+## 2. AirportItlwm Mojave
+xcodebuild -project itlwm.xcodeproj -target AirportItlwm-Mojave -configuration Release -sdk macosx
+
+## 3. AirportItlwm Catalina
+xcodebuild -project itlwm.xcodeproj -target AirportItlwm-Catalina -configuration Release -sdk macosx
+
+## 4. AirportItlwm Big Sur
+xcodebuild -project itlwm.xcodeproj -target AirportItlwm-Big\ Sur -configuration Release -sdk macosx
+
+# Location of Kexts
+echo "You kexts are in build/Release!!"
+echo " "
+```
+
+5. Change line 14: `find itlwm/firmware/ -type f ! -name 'iwm-7265-*' -delete`
+
+    change `iwm-7265` to your firmware name and save the file.
+
+    If your card is AC8260 you need to replace 
+    `find itlwm/firmware/ -type f ! -name 'iwm-7265-*' -delete`
+    by
+    `find itlwm/firmware/ -type f ! -name 'iwm-8000C*' -delete`
+    
+    This part of code remove other firmware files from `/itlwm/itlwm/firmware`
+    
+    Also here you can find your card firmware name: `https://www.intel.com/content/www/us/en/support/articles/000005511/network-and-io/wireless.html`
+
+6. Place the file in the root directory of the cloned itlwm folder.
+7. Clone MacKernelSDK `git clone https://github.com/acidanthera/MacKernelSDK.git` and place it's folder inside itlwm folder
+8. Run the script with sh command.
+   Ex: `sh script-name.sh` where 'script-name' is the name of the shell script you made.
+
+Done, you'll find your kexts under build/Release
+
+DON'T USE BOTH `itlwm` and `airportitlwm` IN THE SAME TIME.
+
+Thanks: <a href="https://github.com/racka98">@racka98<a/>
+Source issue: <a href="https://github.com/OpenIntelWireless/itlwm/issues/353#issuecomment-727190996">#353</a>
+
+
+</details>
 
 <details>  
 <summary><strong>Fix NVMe power management (optional)</strong></summary>
