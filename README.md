@@ -311,7 +311,7 @@ echo " "
     
     This part of code remove other firmware files from `/itlwm/itlwm/firmware`
     
-    Also here you can find your card firmware name: `https://www.intel.com/content/www/us/en/support/articles/000005511/network-and-io/wireless.html`
+    Also here you can find your card firmware name: <a href="https://www.intel.com/content/www/us/en/support/articles/000005511/network-and-io/wireless.html">`https://www.intel.com/content/www/us/en/support/articles/000005511/network-and-io/wireless.html`</a>
 
 6. Place the file in the root directory of the cloned itlwm folder.
 7. Clone MacKernelSDK `git clone https://github.com/acidanthera/MacKernelSDK.git` and place it's folder inside itlwm folder
@@ -324,6 +324,74 @@ DON'T USE BOTH `itlwm` and `airportitlwm` IN THE SAME TIME.
 
 Thanks: <a href="https://github.com/racka98">@racka98<a/>
 Source issue: <a href="https://github.com/OpenIntelWireless/itlwm/issues/353#issuecomment-727190996">#353</a>
+
+
+</details>
+<details>  
+<summary><strong>Remove other Bluetooth firmware files from IntelBluetoothFirmware/IntelBluetoothInjector .kext(optional)</strong></summary>
+</br>
+This steps help you a little speed up boot process (if you use <a href="https://github.com/OpenIntelWireless/IntelBluetoothFirmware">IntelBluetoothFirmware</a> kexts)
+
+1. Clone the repo: `git clone https://github.com/OpenIntelWireless/IntelBluetoothFirmware.git`
+2. Open the folder where it's cloned to
+3. Open Xcode, press File -New -File.. on the Search bar/Filter type `shell` and choose to create a new shell script file
+4. Copy this code below into it;
+
+```shell
+#!/bin/bash
+
+# remove all local changes
+git reset --hard HEAD
+rm -rf build
+
+# pull latest code
+git pull
+
+# remove generated firmware
+rm IntelBluetoothFirmware/FwBinary.cpp
+
+# remove firmware for other wifi cards - DELETE OR CHANGE TO YOUR CARD
+find IntelBluetoothFirmware/fw/ -type f ! -name 'ibt-11-5*' -delete
+
+
+# generate firmware
+xcodebuild -project IntelBluetoothFirmware.xcodeproj -target fw_gen -configuration Release -sdk macosx
+
+# build the kexts
+## 1. IntelBluetoothFirmware.kext
+xcodebuild -project IntelBluetoothFirmware.xcodeproj -target IntelBluetoothFirmware -configuration Release -sdk macosx
+
+# build the kexts
+## 2. IntelBluetoothInjector.kext
+xcodebuild -project IntelBluetoothFirmware.xcodeproj -target IntelBluetoothInjector -configuration Release -sdk macosx
+
+
+
+# Location of Kexts
+echo "You kexts are in build/Release!!"
+echo " "
+```
+
+5. Change line 14: `find IntelBluetoothFirmware/fw/ -type f ! -name 'ibt-11-5*' -delete`
+
+    change `ibt-11-5*` to your firmware name and save the file.
+
+    If your card is AC8260 you no need to change this line 
+
+    This part of code remove other firmware files from `IntelBluetoothFirmware/IntelBluetoothFirmware/fw/`
+    
+    Also here you can find your bluetooth firmware name: <a href="https://packages.debian.org/sid/firmware-iwlwifi">`https://packages.debian.org/sid/firmware-iwlwifi`</a>
+
+6. Place the file in the root directory of the cloned IntelBluetoothFirmware folder.
+7. Clone MacKernelSDK `git clone https://github.com/acidanthera/MacKernelSDK.git` and place it's folder inside itlwm folder
+8. Run the script with sh command.
+   Ex: `sh script-name.sh` where 'script-name' is the name of the shell script you made.
+
+Done, you'll find your kexts under build/Release
+
+
+Thanks for idea: <a href="https://github.com/racka98">@racka98<a/>
+
 
 
 </details>
