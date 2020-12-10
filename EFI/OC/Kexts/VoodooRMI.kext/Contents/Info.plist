@@ -53,7 +53,7 @@
 				<key>DisableWhileTypingTimeout</key>
 				<integer>100</integer>
 				<key>ForceTouchEmulation</key>
-				<false/>
+				<true/>
 				<key>ForceTouchMinPressure</key>
 				<integer>90</integer>
 				<key>MinYDiffThumbDetection</key>

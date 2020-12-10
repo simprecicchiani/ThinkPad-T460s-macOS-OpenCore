@@ -3,7 +3,7 @@
 <img align="right" src="https://imgur.com/sI2Uzel.jpg" alt="Lenovo Thinkpad T460s macOS Hackintosh OpenCore" width="300">
 
 [![macOS](https://img.shields.io/badge/macOS-11.0.1-blue)](https://developer.apple.com/documentation/macos-release-notes)
-[![OpenCore](https://img.shields.io/badge/OpenCore-0.6.3-green)](https://github.com/acidanthera/OpenCorePkg)
+[![OpenCore](https://img.shields.io/badge/OpenCore-0.6.4-green)](https://github.com/acidanthera/OpenCorePkg)
 [![Model](https://img.shields.io/badge/Model-20F9003AUS-lightgrey)](https://psref.lenovo.com/Product/ThinkPad_T460s)
 [![BIOS](https://img.shields.io/badge/BIOS-1.49-lightgrey)](https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/thinkpad-t-series-laptops/thinkpad-t460s/downloads/driver-list/component?name=BIOS%2FUEFI)
 [![LICENSE](https://img.shields.io/badge/license-MIT-purple)](/LICENSE)
@@ -76,13 +76,12 @@ This is the process I go through each time OpenCore gets an update (usually ever
 
 1. Read release article on Dortania's website
 1. Download all updated resources
-1. Read new Documentation if relevant changes took place
-1. Get a fresh Sample.plist to avoid missing new stuff
+1. Read new Documentation and look for relevant changes
+1. Get a fresh Sample.plist
 1. Copy and Paste SSDT, Patches and Kexts
 1. Set T460s' config options
 1. Booloader test on USB stick
-1. Clean my SMBIOS and upload on GitHub
-1. Add changelog and update status in README
+1. Clean SMBIOS and upload on GitHub
 
 Basically I do the boring part so one can easily download the EFI folder and play with it in minutes.
 
@@ -96,7 +95,7 @@ Basically I do the boring part so one can easily download the EFI folder and pla
 1. [Create an installation media](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/#making-the-installer)
 1. Download the [latest EFI folder](https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore/releases) and copy it into the ESP partiton
 1. Change your BIOS settings according to the table below
-1. Boot from the USB installer and [start the installation process](https://dortania.github.io/OpenCore-Install-Guide/installation/installation-process.html#booting-the-opencore-usb)
+1. Boot from the USB installer (F12 to choose boot volume) and [start the installation process](https://dortania.github.io/OpenCore-Install-Guide/installation/installation-process.html#booting-the-opencore-usb)
 
 | Menu     |                   |                                 | Setting     |
 |----------|-------------------|---------------------------------|-------------|
@@ -251,9 +250,10 @@ git clone https://github.com/corpnewt/GenSMBIOS && cd GenSMBIOS && chmod +x GenS
 ```
 3. Save and reboot the system
 
-</details>
+Note: The provided driver is for Big Sur only, if you're running a different version of macOS please grab the [corresponding kext](https://github.com/OpenIntelWireless/itlwm/releases).
+
 <details>  
-<summary><strong>Remove other WIFI firmware files from itlwm/AirportItlwm .kext(optional)</strong></summary>
+<summary><strong>Remove unnecessary WIFI firmware files (optional)</strong></summary>
 </br>
 This steps help you a little speed up boot process (if you use `itlwm` or `AirportItlwm`)
 
@@ -328,7 +328,7 @@ Source issue: <a href="https://github.com/OpenIntelWireless/itlwm/issues/353#iss
 
 </details>
 <details>  
-<summary><strong>Remove other Bluetooth firmware files from IntelBluetoothFirmware/IntelBluetoothInjector .kext(optional)</strong></summary>
+<summary><strong>Remove unnecessary Bluetooth firmware files (optional)</strong></summary>
 </br>
 This steps help you a little speed up boot process (if you use <a href="https://github.com/OpenIntelWireless/IntelBluetoothFirmware">IntelBluetoothFirmware</a> kexts)
 
@@ -365,8 +365,6 @@ xcodebuild -project IntelBluetoothFirmware.xcodeproj -target IntelBluetoothFirmw
 ## 2. IntelBluetoothInjector.kext
 xcodebuild -project IntelBluetoothFirmware.xcodeproj -target IntelBluetoothInjector -configuration Release -sdk macosx
 
-
-
 # Location of Kexts
 echo "You kexts are in build/Release!!"
 echo " "
@@ -389,10 +387,9 @@ echo " "
 
 Done, you'll find your kexts under build/Release
 
-
 Thanks for idea: <a href="https://github.com/racka98">@racka98<a/>
 
-
+</details>
 
 </details>
 
@@ -514,10 +511,13 @@ For ThinkPad's dock only, use one of following methods:
 1. [Disable SIP](https://dortania.github.io/OpenCore-Install-Guide/troubleshooting/troubleshooting.html#disabling-sip)
 1. Run the following script in Terminal  
    ```bash
-   bash -c "$(curl -fsSL https://raw.githubusercontent.com/xzhih/one-key-hidpi/master/hidpi.sh)"
+   bash -c "$(curl -fsSL https://github.com/mlch911/one-key-hidpi/master/hidpi.sh)"
    ```
-1. Follow the script instructions, then reboot
-1. Enable SIP (if desired)
+1. Follow the instructions, then reboot
+1. Re-enable SIP (if desired)
+
+[Alternative method](https://github.com/bbhardin/A-Guide-to-MacOS-Scaled-Resolutions)
+
 </details>
 
 <details>  
@@ -536,7 +536,7 @@ Thanks to [@MSzturc](https://github.com/MSzturc) for providing the keyboard map 
 <summary><strong>Use PrtSc key as Screenshot shortcut</strong></summary>
 </br>
 
-Super useful shortcut that I wish I had it on my previous MBP. Default is ⇧⌘5.
+Super useful shortcut that I wish I had it on my previous MBP. Default is ⌘⇧5.
 
 1. Open SystemPreferences.app
 1. Go under ` Keyboard > Shortcuts > Screenshots` 
@@ -629,7 +629,7 @@ Is it worth the effort and risk? I don't think so. I enjoyed it? 100%.
 - [x] Internal camera `working fine on FaceTime, Skype, Webex and others`
 - [x] Sleep / Wake / Shutdown / Reboot `with lid sernsor`
 - [x] Intel Gigabit Ethernet
-- [x] [Wifi, Bluetooth, Airdrop, Handoff, Continuity, Sidecar wireless](/Guides/Replace-WLAN.md)
+- [x] Wifi, Bluetooth, Airdrop, Handoff, Continuity, Sidecar wireless `some functionalities may be buggy or broken on Intel WLAN cards`
 - [x] iMessage, FaceTime, App Store, iTunes Store `Generate your own SMBIOS`
 - [x] DRM support `iTunes Movies, Apple TV+, Amazon Prime, Netflix and others`
 - [x] Speakers and headphones jack `fairly good volume`
@@ -646,7 +646,7 @@ Is it worth the effort and risk? I don't think so. I enjoyed it? 100%.
 <summary><strong>What's not working ⚠️</strong></summary>
 </br>
 
-- [ ] Internal monitor turns black when external is connected
+- [ ] Some kexts break in standby mode, please disable with `sudo pmset -a standby 0`
 - [ ] Safari DRM
 - [ ] WWAN (needs to be implemented)
 - [ ] Fingerprint Reader
@@ -659,23 +659,23 @@ Is it worth the effort and risk? I don't think so. I enjoyed it? 100%.
 
 | Version                                                                                        | [Stable](/EFI)   | 
 |:-----------------------------------------------------------------------------------------------|:-----------------|
-| [MacOS](https://www.apple.com/macos/)                                                          | 10.15.7 / 11.0.1 |
-| [OpenCore](https://github.com/acidanthera/OpenCorePkg/releases)                                | 0.6.3            | 
-| [Lilu](https://github.com/acidanthera/Lilu/releases)                                           | 1.4.9            | 
-| [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases)                               | 1.1.8            | 
-| [WhateverGreen](https://github.com/acidanthera/WhateverGreen/releases)                         | 1.4.4            | 
-| [AppleALC](https://github.com/acidanthera/AppleALC/releases)                                   | 1.5.4            | 
-| [VoodooPS2Controller](https://github.com/acidanthera/VoodooPS2/releases)                       | 2.1.8            |
+| [MacOS](https://www.apple.com/macos/)                                                          | 11.0.1           |
+| [OpenCore](https://github.com/acidanthera/OpenCorePkg/releases)                                | 0.6.4            | 
+| [Lilu](https://github.com/acidanthera/Lilu/releases)                                           | 1.5.0            | 
+| [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases)                               | 1.1.9            | 
+| [WhateverGreen](https://github.com/acidanthera/WhateverGreen/releases)                         | 1.4.5            | 
+| [AppleALC](https://github.com/acidanthera/AppleALC/releases)                                   | 1.5.5            | 
+| [VoodooPS2Controller](https://github.com/acidanthera/VoodooPS2/releases)                       | 2.1.9            |
 | [VoodooRMI](https://github.com/VoodooSMBus/VoodooRMI/releases)                                 | 1.2              |
 | [IntelMausi](https://github.com/acidanthera/IntelMausi/releases)                               | 1.0.4            |
-| [HibernationFixup](https://github.com/acidanthera/HibernationFixup/releases)                   | 1.3.7            |
+| [HibernationFixup](https://github.com/acidanthera/HibernationFixup/releases)                   | 1.3.8            |
 | [CPUFriend](https://github.com/acidanthera/CPUFriend/releases)                                 | 1.2.2            |
 | [NVMeFix](https://github.com/acidanthera/NVMeFix/releases)                                     | 1.0.4            |
 | [RTCMemoryFixup](https://github.com/acidanthera/RTCMemoryFixup/releases)                       | 1.0.7            |
-| [AirportItlwm](https://github.com/OpenIntelWireless/itlwm/releases)                            | 1.0              |
+| [AirportItlwm](https://github.com/OpenIntelWireless/itlwm/releases)                            | 1.2.0            |
 | [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/releases) | 1.1.2            |
 | [AppleBacklightSmoother](https://github.com/hieplpvip/AppleBacklightSmoother/releases)         | 1.0.2            |
-| [Sinetek-rtsx](https://github.com/cholonam/Sinetek-rtsx/releases)                              | 2.2              |
+| [Sinetek-rtsx](https://github.com/cholonam/Sinetek-rtsx/releases)                              | 2.3              |
 
 </details>
 
@@ -685,7 +685,7 @@ Is it worth the effort and risk? I don't think so. I enjoyed it? 100%.
 <summary><strong>Power consumption & thermals 🔥</strong></summary>
 </br>
 
-| Idle                      | Max Frequency                 | 2 Thread Frequency            | All Thread Frequency          | GPU Max Frequency             |
+| Idle State                | Max Frequency                 | 2 Thread Frequency            | All Thread Frequency          | GPU Max Frequency             |
 |---------------------------|-------------------------------|-------------------------------|-------------------------------|-------------------------------|
 | ![](/Images/ipg-idle.png) | ![](/Images/ipg-max-freq.png) | ![](/Images/ipg-two-freq.png) | ![](/Images/ipg-all-freq.png) | ![](/Images/ipg-gpu-freq.png) |
 
