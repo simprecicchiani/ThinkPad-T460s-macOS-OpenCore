@@ -1,5 +1,5 @@
 // battery 
-DefinitionBlock ("", "SSDT", 2, "OCLT", "BAT0", 0)
+DefinitionBlock ("", "SSDT", 2, "simprecicchiani-T460s", "BAT0", 0)
 {
     External(_SB.PCI0.LPC.EC, DeviceObj)
     External(_SB.PCI0.LPC.EC.BATM, MutexObj)
@@ -7,6 +7,18 @@ DefinitionBlock ("", "SSDT", 2, "OCLT", "BAT0", 0)
     //
     External(_SB.PCI0.LPC.EC.XBIF, MethodObj)
     External(_SB.PCI0.LPC.EC.XBST, MethodObj)
+    //
+    External (\_SB.PCI0.LPC.EC.AC._PSR, MethodObj)
+    External (\_SB.PCI0.LPC.EC.BSWR, FieldUnitObj)
+    External (\_SB.PCI0.LPC.EC.BSWA, FieldUnitObj)
+    External (\_SB.PCI0.LPC.EC.B0I0, IntObj)
+    External (\_SB.PCI0.LPC.EC.B0I1, IntObj)
+    External (\_SB.PCI0.LPC.EC.B0I2, IntObj)
+    External (\_SB.PCI0.LPC.EC.B0I3, IntObj)
+    External (\_SB.PCI0.LPC.EC.B1I0, IntObj)
+    External (\_SB.PCI0.LPC.EC.B1I1, IntObj)
+    External (\_SB.PCI0.LPC.EC.B1I2, IntObj)
+    External (\_SB.PCI0.LPC.EC.B1I3, IntObj)
     
     Method (B1B2, 2, NotSerialized)
     {
@@ -45,6 +57,33 @@ DefinitionBlock ("", "SSDT", 2, "OCLT", "BAT0", 0)
             }
             Return(TEMP)
         }
+        
+        Method (WE1B, 2, NotSerialized)
+        {
+            OperationRegion (ERAM, EmbeddedControl, Arg0, One)
+            Field (ERAM, ByteAcc, NoLock, Preserve)
+            {
+                BYTE,   8
+            }
+
+            BYTE = Arg1
+        }
+        
+        Method (WECB, 3, Serialized)
+        {
+            ShiftRight(Arg1, 3, Arg1)
+            Name (TEMP, Buffer (Arg1) {})
+            Store(Arg2, TEMP)
+            Add(Arg0, Arg1, Arg1)
+            Store(0, Local0)
+            While (LLess(Arg0, Arg1))
+            {
+                WE1B (Arg0, DerefOf (TEMP [Local0]))
+                Increment(Arg0)
+                Increment(Local0)
+            }
+        }
+        
         OperationRegion (BRAM, EmbeddedControl, 0x00, 0x0100)          
         Field (BRAM, ByteAcc, NoLock, Preserve)
         {
@@ -243,10 +282,52 @@ DefinitionBlock ("", "SSDT", 2, "OCLT", "BAT0", 0)
                 }
             }
             
+            Local5 = (One << (Arg0 >> 0x04))
+	        BSWA |= BSWR /* \_SB_.PCI0.LPC_.EC__.BSWR */
+	        If (((BSWA & Local5) == Zero))
+	        {
+	            Arg3 [Zero] = Local0
+	            Arg3 [One] = Local1
+	            Arg3 [0x02] = Local2
+	            Arg3 [0x03] = Local3
+	            If ((Arg0 == Zero))
+	            {
+	                B0I0 = Local0
+	                B0I1 = Local1
+	                B0I2 = Local2
+	                B0I3 = Local3
+	            }
+	            Else
+	            {
+	                B1I0 = Local0
+	                B1I1 = Local1
+	                B1I2 = Local2
+	                B1I3 = Local3
+	            }
+	        }
+	        ElseIf (\_SB.PCI0.LPC.EC.AC._PSR ())
+	        {
+	            If ((Arg0 == Zero))
+	            {
+	                Arg3 [Zero] = B0I0 /* \_SB_.PCI0.LPC_.EC__.B0I0 */
+	                Arg3 [One] = B0I1 /* \_SB_.PCI0.LPC_.EC__.B0I1 */
+	                Arg3 [0x02] = B0I2 /* \_SB_.PCI0.LPC_.EC__.B0I2 */
+	                Arg3 [0x03] = B0I3 /* \_SB_.PCI0.LPC_.EC__.B0I3 */
+	            }
+	            Else
+	            {
+	                Arg3 [Zero] = B1I0 /* \_SB_.PCI0.LPC_.EC__.B1I0 */
+	                Arg3 [One] = B1I1 /* \_SB_.PCI0.LPC_.EC__.B1I1 */
+	                Arg3 [0x02] = B1I2 /* \_SB_.PCI0.LPC_.EC__.B1I2 */
+	                Arg3 [0x03] = B1I3 /* \_SB_.PCI0.LPC_.EC__.B1I3 */
+	            }
+	        }
+
             Store (Local0, Index (Arg3, 0x00))
             Store (Local1, Index (Arg3, 0x01))
             Store (Local2, Index (Arg3, 0x02))
             Store (Local3, Index (Arg3, 0x03))
+
             Release (BATM)
             Return (Arg3)
             }

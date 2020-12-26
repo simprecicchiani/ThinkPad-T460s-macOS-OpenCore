@@ -20,10 +20,6 @@
 // Find:    5f51 3442
 // Replace: 5851 3442
 //
-// _Q4C to XQ4C:
-// Find:    5f51 3443
-// Replace: 5851 3443
-//
 // _Q4D to XQ4D:
 // Find:    5f51 3444
 // Replace: 5851 3444
@@ -32,7 +28,7 @@
 // Find:    4241 545701
 // Replace: 5841 545701
 //
-DefinitionBlock ("", "SSDT", 2, "OCLT", "NTFY", 0)
+DefinitionBlock ("", "SSDT", 2, "simprecicchiani-T460s", "NTFY", 0)
 {
     External (\_SB.PCI0.LPC.EC, DeviceObj)
     External (\_SB.PCI0.LPC.EC.BATC, DeviceObj)
@@ -136,31 +132,6 @@ DefinitionBlock ("", "SSDT", 2, "OCLT", "NTFY", 0)
             }
         }
         
-        Method (_Q4C, 0, NotSerialized)  // _Qxx: EC Query, xx=0x00-0xFF
-        {
-            If (_OSI ("Darwin"))
-            {
-                \_SB.PCI0.LPC.EC.CLPM ()
-                If (\_SB.PCI0.LPC.EC.HB1A)
-                {
-                    \_SB.PCI0.LPC.EC.HKEY.MHKQ (0x4010)
-                    Notify (\_SB.PCI0.LPC.EC.BATC, 0x01) // Device Check
-                }
-                Else
-                {
-                    \_SB.PCI0.LPC.EC.HKEY.MHKQ (0x4011)
-                    If (\_SB.PCI0.LPC.EC.BAT1.XB1S)
-                    {
-                        Notify (\_SB.PCI0.LPC.EC.BATC, 0x03) // Eject Request
-                    }
-                }
-            }
-            Else
-            {
-                \_SB.PCI0.LPC.EC.XQ4C ()
-            }
-        }
-            
         Method (_Q4D, 0, NotSerialized)  // _Qxx: EC Query, xx=0x00-0xFF
         {
             If (_OSI ("Darwin"))
