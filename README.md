@@ -2,7 +2,7 @@
 
 <img align="right" src="https://imgur.com/sI2Uzel.jpg" alt="Lenovo Thinkpad T460s macOS Hackintosh OpenCore" width="300">
 
-[![macOS](https://img.shields.io/badge/macOS-11.0.1-blue)](https://developer.apple.com/documentation/macos-release-notes)
+[![macOS](https://img.shields.io/badge/macOS-11.1-blue)](https://developer.apple.com/documentation/macos-release-notes)
 [![OpenCore](https://img.shields.io/badge/OpenCore-0.6.4-green)](https://github.com/acidanthera/OpenCorePkg)
 [![Model](https://img.shields.io/badge/Model-20F9003AUS-lightgrey)](https://psref.lenovo.com/Product/ThinkPad_T460s)
 [![BIOS](https://img.shields.io/badge/BIOS-1.49-lightgrey)](https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/thinkpad-t-series-laptops/thinkpad-t460s/downloads/driver-list/component?name=BIOS%2FUEFI)
@@ -20,23 +20,29 @@ It would mean a lot to me.
 ## Introduction
 
 <details>  
-<summary><strong>Getting started</strong></summary>
+<summary><strong>Getting started 📖</strong></summary>
 </br>
 
-**Meet the bootloader:**
-
+**Meet the bootloader:**  
 - [Why OpenCore](https://dortania.github.io/OpenCore-Install-Guide/why-oc.html)
 - Dortania's [website](https://dortania.github.io)
 
-**Recommended tools:**
-
+**Recommended tools:**  
 - Plist editor [ProperTree](https://github.com/corpnewt/ProperTree)
-- Handy-dandy ESP partition mounting script [MountEFI](https://github.com/corpnewt/MountEFI)
+- Handy-dandy ESP mounting script [MountEFI](https://github.com/corpnewt/MountEFI)
+
+**Resources**  
+- [OpenCore](https://github.com/acidanthera/OpenCorePkg)
+- [OC-little](https://github.com/daliansky/OC-little)
+- [X1 Carbon config](https://github.com/tylernguyen/x1c6-hackintosh)
+- [T460 config](https://github.com/MSzturc/Lenovo-T460-OpenCore)
+
+</details>
 
 </details>
 
 <details>  
-<summary><strong>My Hardware</strong></summary>
+<summary><strong>My Hardware 💻</strong></summary>
 </br>
 
 | Model              | Thinkpad T460s 20F9003AUS                                                                                 |
@@ -56,34 +62,14 @@ It would mean a lot to me.
 </details>
 
 <details>  
-<summary><strong>Hardware compatibility</strong></summary>
+<summary><strong>Hardware compatibility 🧰</strong></summary>
 </br>
 
 This EFI will suit any T460s regardless of CPU model<sup>[1](#CPU)</sup>, amount of RAM, display resolution<sup>[2](#Res)</sup> and internal storage<sup>[3](#NVMe)</sup>.
 
-<a name="CPU">1</a>. Optional custom CPU Power Management guide  
-<a name="Res">2</a>. 1440p display models should change `NVRAM -> Add -> 7C436110-AB2A-4BBB-A880-FE41995C9F82 -> UIScale`:`2` to get proper scaling while booting  
-<a name="NVMe">3</a>. Enable [NVMeFix](https://github.com/acidanthera/NVMeFix) for NVMe drives
-
-</details>
-
-<details>  
-<summary><strong>How this repo is updated</strong></summary>
-</br>
-
-After many hours of testing back in April and May 2020, I now consider this configuration stable.  
-This is the process I go through each time OpenCore gets an update (usually every first monday of the month):
-
-1. Read release article on Dortania's website
-1. Download all updated resources
-1. Read new Documentation and look for relevant changes
-1. Get a fresh Sample.plist
-1. Copy and Paste SSDT, Patches and Kexts
-1. Set T460s' config options
-1. Booloader test on USB stick
-1. Clean SMBIOS and upload on GitHub
-
-Basically I do the boring part so one can easily download the EFI folder and play with it in minutes.
+<a name="CPU">1</a>. Optional custom CPU Power Management guide.  
+<a name="Res">2</a>. 1440p display models should change `NVRAM -> Add -> 7C436110-AB2A-4BBB-A880-FE41995C9F82 -> UIScale`:`2` to get proper scaling while booting.  
+<a name="NVMe">3</a>. Enable [NVMeFix](https://github.com/acidanthera/NVMeFix) for NVMe drives.
 
 </details>
 
@@ -394,6 +380,137 @@ Thanks for idea: <a href="https://github.com/racka98">@racka98<a/>
 </details>
 
 <details>  
+<summary><strong>Enable non-natively supported Broadcom WLAN cards (optional)</strong></summary>
+</br>
+
+1. Download [AirportBrcmFixup](https://github.com/acidanthera/AirportBrcmFixup/releases) and
+[BrcmPatchRAM](https://github.com/acidanthera/BrcmPatchRAM/releases).
+1. Copy AirportBrcmFixup.kext, BrcmBluetoothInjector.kext, BrcmFirmwareData.kext and BrcmPatchRAM3.kext to `EFI\OC\kexts`
+1. Open `/EFI/OC/Config.plist` with any editor 
+1. Go under `Kernel -> Add` and add the following entries
+
+```
+<key>Kernel</key>
+<dict>
+   <key>Add</key>
+   <array>
+		<dict>
+			<key>Arch</key>
+			<string>Any</string>
+			<key>BundlePath</key>
+			<string>AirportBrcmFixup.kext</string>
+			<key>Comment</key>
+			<string>DW1560 WiFi driver</string>
+			<key>Enabled</key>
+			<true/>
+			<key>ExecutablePath</key>
+			<string>Contents/MacOS/AirportBrcmFixup</string>
+			<key>MaxKernel</key>
+			<string></string>
+			<key>MinKernel</key>
+			<string></string>
+			<key>PlistPath</key>
+			<string>Contents/Info.plist</string>
+		</dict>
+		<dict>
+			<key>Arch</key>
+			<string>Any</string>
+			<key>BundlePath</key>
+			<string>AirportBrcmFixup.kext/Contents/PlugIns/AirPortBrcm4360_Injector.kext</string>
+			<key>Comment</key>
+			<string>DW1560 WiFi 4360 plug-in</string>
+			<key>Enabled</key>
+			<false/>
+			<key>ExecutablePath</key>
+			<string></string>
+			<key>MaxKernel</key>
+			<string></string>
+			<key>MinKernel</key>
+			<string></string>
+			<key>PlistPath</key>
+			<string>Contents/Info.plist</string>
+		</dict>
+		<dict>
+			<key>Arch</key>
+			<string>Any</string>
+			<key>BundlePath</key>
+			<string>AirportBrcmFixup.kext/Contents/PlugIns/AirPortBrcmNIC_Injector.kext</string>
+			<key>Comment</key>
+			<string>DW1560 WiFi NIC plug-in</string>
+			<key>Enabled</key>
+			<true/>
+			<key>ExecutablePath</key>
+			<string></string>
+			<key>MaxKernel</key>
+			<string></string>
+			<key>MinKernel</key>
+			<string></string>
+			<key>PlistPath</key>
+			<string>Contents/Info.plist</string>
+		</dict>
+		<dict>
+			<key>Arch</key>
+			<string>x86_64</string>
+			<key>BundlePath</key>
+			<string>BrcmBluetoothInjector.kext</string>
+			<key>Comment</key>
+			<string>DW1560 BT 1 of 3</string>
+			<key>Enabled</key>
+			<true/>
+			<key>ExecutablePath</key>
+			<string></string>
+			<key>MaxKernel</key>
+			<string></string>
+			<key>MinKernel</key>
+			<string></string>
+			<key>PlistPath</key>
+			<string>Contents/Info.plist</string>
+		</dict>
+		<dict>
+			<key>Arch</key>
+			<string>x86_64</string>
+			<key>BundlePath</key>
+			<string>BrcmFirmwareData.kext</string>
+			<key>Comment</key>
+			<string>DW1560 BT 2 of 3</string>
+			<key>Enabled</key>
+			<true/>
+			<key>ExecutablePath</key>
+			<string>Contents/MacOS/BrcmFirmwareData</string>
+			<key>MaxKernel</key>
+			<string></string>
+			<key>MinKernel</key>
+			<string></string>
+			<key>PlistPath</key>
+			<string>Contents/Info.plist</string>
+		</dict>
+		<dict>
+			<key>Arch</key>
+			<string>x86_64</string>
+			<key>BundlePath</key>
+			<string>BrcmPatchRAM3.kext</string>
+			<key>Comment</key>
+			<string>DW1560 BT 3 of 3</string>
+			<key>Enabled</key>
+			<true/>
+			<key>ExecutablePath</key>
+			<string>Contents/MacOS/BrcmPatchRAM3</string>
+			<key>MaxKernel</key>
+			<string></string>
+			<key>MinKernel</key>
+			<string></string>
+			<key>PlistPath</key>
+			<string>Contents/Info.plist</string>
+		</dict>
+   </array>
+</dict>
+```
+
+
+</details>
+
+
+<details>  
 <summary><strong>Fix NVMe power management (optional)</strong></summary>
 </br>
 
@@ -533,7 +650,7 @@ Thanks to [@MSzturc](https://github.com/MSzturc) for providing the keyboard map 
 </details>
 
 <details>  
-<summary><strong>Use PrtSc key as Screenshot shortcut</strong></summary>
+<summary><strong>Set PrtSc key to Screenshot shortcut</strong></summary>
 </br>
 
 Super useful shortcut that I wish I had it on my previous MBP. Default is ⌘⇧5.
@@ -548,22 +665,22 @@ Super useful shortcut that I wish I had it on my previous MBP. Default is ⌘⇧
 </details>
 
 <details>  
-<summary><strong>Use calibrated display profile</strong></summary>
+<summary><strong>Import calibrated display profile</strong></summary>
 </br>
 
 NotebookCheck's calibrated profiles. Not all panel are the same, final result may vary.
 
-1. Run the following script in Terminal  
+1. Run one of the following script in Terminal  
     - for 1440p displays
         ```bash
-        cd ~/Library/ColorSync/Profiles; wget https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore/blob/master/Files/DisplayProfiles/T460s_WQHD_VVX14T058J02.icm
+        cd ~/Library/ColorSync/Profiles; wget https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore/raw/master/Files/DisplayColorProfiles/T460s_WQHD_VVX14T058J02.icm
         ```
    - for 1080p displays
         ```bash
-        cd ~/Library/ColorSync/Profiles; wget https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore/blob/master/Files/DisplayProfiles/T460s_FHD_N140HCE_EAA.icm
+        cd ~/Library/ColorSync/Profiles; wget https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore/raw/master/Files/DisplayColorProfiles/T460s_FHD_N140HCE_EAA.icm
         ```
 2. Go under `SystemPreferences > Displays > Colour`
-3. Select the calibrated profile
+3. Select the profile
 
 <img src="/Images/DisplayProfile.png" alt="Lenovo Thinkpad T460s macOS Hackintosh OpenCore" height="300">
 
@@ -574,8 +691,7 @@ NotebookCheck's calibrated profiles. Not all panel are the same, final result ma
 </br>
 
 1. Download and install [HWMonitor](https://github.com/kzlekk/HWSensors/releases)
-1. Open the app
-1. Check the `launch on login` option
+1. Check `launch on login` (optional)
 
 </details> 
 
@@ -612,9 +728,9 @@ Once you get everything up and running it's possible to disable some options ins
 <summary><strong>BIOS Mod</strong></summary>
 </br>
 
-I know it can be scary at first. But with the right amount of carefulness anyone could do it.  
+I know it can be scary at first but with the right amount of carefulness anyone can do it.  
 Is it worth the effort and risk? I don't think so. I enjoyed it? 100%.  
-[Guide in progress](/Guides/Bios-Mod.md)
+A [Brief guide](/Guides/Bios-Mod.md).
 
 </details>
 
@@ -625,19 +741,18 @@ Is it worth the effort and risk? I don't think so. I enjoyed it? 100%.
  
 - [x] CPU Power Management `~1W on IDLE`
 - [x] Intel HD 520 Graphics `incuding graphics acceleration`
-- [x] All USB ports `with custom kext or SSDT`
-- [x] Internal camera `working fine on FaceTime, Skype, Webex and others`
-- [x] Sleep / Wake / Shutdown / Reboot `with lid sernsor`
+- [x] USB ports
+- [x] Internal camera `working fine on FaceTime, Skype, Zoom and others`
+- [x] Sleep / Wake / Shutdown / Reboot
 - [x] Intel Gigabit Ethernet
 - [x] Wifi, Bluetooth, Airdrop, Handoff, Continuity, Sidecar wireless `some functionalities may be buggy or broken on Intel WLAN cards`
-- [x] iMessage, FaceTime, App Store, iTunes Store `Generate your own SMBIOS`
-- [x] DRM support `iTunes Movies, Apple TV+, Amazon Prime, Netflix and others`
-- [x] Speakers and headphones jack `fairly good volume`
-- [x] Batteries `very stable and precise capacity tracking`
-- [x] Keyboard map and hotkeys with [ThinkpadAssistant](https://github.com/MSzturc/ThinkpadAssistant) `thanks to @MSzturc`
-- [x] [Trackpad, Trackpoint and physical buttons](/Images/VoodooRMI-T460s-trackpad-gestures.gif) `with all macOS gestures working thanks to VoodooRMI`
-- [x] SIP and FileVault 2 can be enabled
-- [x] miniDP and HDMI `with digital audio passthrough`
+- [x] iMessage, FaceTime, App Store, iTunes Store `Please generate your own SMBIOS`
+- [x] Speakers and headphones combo jack 
+- [x] Batteries
+- [x] Keyboard map and hotkeys with [YogaSMC](https://github.com/MSzturc/ThinkpadAssistant)
+- [x] [Trackpad, Trackpoint and physical buttons](/Images/VoodooRMI-T460s-trackpad-gestures.gif) `all macOS gestures working thanks to VoodooRMI`
+- [x] SIP and FileVault 2 can be turned on
+- [x] HDMI `with digital audio passthrough`
 - [x] SD Card Reader `slow r/w speed but works`
 
 </details>
@@ -646,8 +761,9 @@ Is it worth the effort and risk? I don't think so. I enjoyed it? 100%.
 <summary><strong>What's not working ⚠️</strong></summary>
 </br>
 
-- [ ] Some kexts break in standby mode, please disable with `sudo pmset -a standby 0`
-- [ ] Safari DRM
+- [ ] Some kexts crash in standby mode, please disable it with `sudo pmset -a standby 0`
+- [ ] Mini DisplayPort seems to be broken with latest updates
+- [ ] Safari DRM `Use Chromium engine to watch Apple TV+, Amazon Prime Video, Netflix and others`
 - [ ] WWAN (needs to be implemented)
 - [ ] Fingerprint Reader
 
@@ -657,25 +773,26 @@ Is it worth the effort and risk? I don't think so. I enjoyed it? 100%.
 <summary><strong>Update tracker 🔄</strong></summary>
 </br>
 
-| Version                                                                                        | [Stable](/EFI)   | 
-|:-----------------------------------------------------------------------------------------------|:-----------------|
-| [MacOS](https://www.apple.com/macos/)                                                          | 11.0.1           |
-| [OpenCore](https://github.com/acidanthera/OpenCorePkg/releases)                                | 0.6.4            | 
-| [Lilu](https://github.com/acidanthera/Lilu/releases)                                           | 1.5.0            | 
-| [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases)                               | 1.1.9            | 
-| [WhateverGreen](https://github.com/acidanthera/WhateverGreen/releases)                         | 1.4.5            | 
-| [AppleALC](https://github.com/acidanthera/AppleALC/releases)                                   | 1.5.5            | 
-| [VoodooPS2Controller](https://github.com/acidanthera/VoodooPS2/releases)                       | 2.1.9            |
-| [VoodooRMI](https://github.com/VoodooSMBus/VoodooRMI/releases)                                 | 1.2              |
-| [IntelMausi](https://github.com/acidanthera/IntelMausi/releases)                               | 1.0.4            |
-| [HibernationFixup](https://github.com/acidanthera/HibernationFixup/releases)                   | 1.3.8            |
-| [CPUFriend](https://github.com/acidanthera/CPUFriend/releases)                                 | 1.2.2            |
-| [NVMeFix](https://github.com/acidanthera/NVMeFix/releases)                                     | 1.0.4            |
-| [RTCMemoryFixup](https://github.com/acidanthera/RTCMemoryFixup/releases)                       | 1.0.7            |
-| [AirportItlwm](https://github.com/OpenIntelWireless/itlwm/releases)                            | 1.2.0            |
-| [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/releases) | 1.1.2            |
-| [AppleBacklightSmoother](https://github.com/hieplpvip/AppleBacklightSmoother/releases)         | 1.0.2            |
-| [Sinetek-rtsx](https://github.com/cholonam/Sinetek-rtsx/releases)                              | 2.3              |
+| [EFI Release](https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore/releases)       | 0.6.4 |
+|:-----------------------------------------------------------------------------------------------|:------|
+| [MacOS](https://www.apple.com/macos/)                                                          | 11.1  |
+| [OpenCore](https://github.com/acidanthera/OpenCorePkg/releases)                                | 0.6.4 |
+| [Lilu](https://github.com/acidanthera/Lilu/releases)                                           | 1.5.0 |
+| [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases)                               | 1.1.9 |
+| [YogaSMC](https://github.com/zhen-zen/YogaSMC/releases)                                        | 1.4.1 |
+| [WhateverGreen](https://github.com/acidanthera/WhateverGreen/releases)                         | 1.4.5 |
+| [AppleALC](https://github.com/acidanthera/AppleALC/releases)                                   | 1.5.5 |
+| [VoodooPS2Controller](https://github.com/acidanthera/VoodooPS2/releases)                       | 2.1.9 |
+| [VoodooRMI](https://github.com/VoodooSMBus/VoodooRMI/releases)                                 | 1.2   |
+| [IntelMausi](https://github.com/acidanthera/IntelMausi/releases)                               | 1.0.4 |
+| [HibernationFixup](https://github.com/acidanthera/HibernationFixup/releases)                   | 1.3.8 |
+| [CPUFriend](https://github.com/acidanthera/CPUFriend/releases)                                 | 1.2.2 |
+| [NVMeFix](https://github.com/acidanthera/NVMeFix/releases)                                     | 1.0.4 |
+| [RTCMemoryFixup](https://github.com/acidanthera/RTCMemoryFixup/releases)                       | 1.0.7 |
+| [AirportItlwm](https://github.com/OpenIntelWireless/itlwm/releases)                            | 1.2.0 |
+| [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/releases) | 1.1.2 |
+| [AppleBacklightSmoother](https://github.com/hieplpvip/AppleBacklightSmoother/releases)         | 1.0.2 |
+| [Sinetek-rtsx](https://github.com/cholonam/Sinetek-rtsx/releases)                              | 2.2   |
 
 </details>
 
