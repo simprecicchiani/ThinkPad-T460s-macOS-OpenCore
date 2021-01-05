@@ -236,7 +236,7 @@ git clone https://github.com/corpnewt/GenSMBIOS && cd GenSMBIOS && chmod +x GenS
 ```
 3. Save and reboot the system
 
-Note: The provided driver is for Big Sur only, if you're running a different version of macOS please grab the [corresponding kext](https://github.com/OpenIntelWireless/itlwm/releases).
+Note: The driver provided in this repo is for Big Sur only; if you're running a different version of macOS please use the corresponding [AirportItlwm.kext](https://github.com/OpenIntelWireless/itlwm/releases).
 
 <details>  
 <summary><strong>Remove unnecessary WIFI firmware files (optional)</strong></summary>
@@ -297,7 +297,7 @@ echo " "
     
     This part of code remove other firmware files from `/itlwm/itlwm/firmware`
     
-    Also here you can find your card firmware name: <a href="https://www.intel.com/content/www/us/en/support/articles/000005511/network-and-io/wireless.html">`https://www.intel.com/content/www/us/en/support/articles/000005511/network-and-io/wireless.html`</a>
+    Also [here](https://www.intel.com/content/www/us/en/support/articles/000005511/network-and-io/wireless.html) you can find your card firmware name
 
 6. Place the file in the root directory of the cloned itlwm folder.
 7. Clone MacKernelSDK `git clone https://github.com/acidanthera/MacKernelSDK.git` and place it's folder inside itlwm folder
@@ -308,8 +308,8 @@ Done, you'll find your kexts under build/Release
 
 DON'T USE BOTH `itlwm` and `airportitlwm` IN THE SAME TIME.
 
-Thanks: <a href="https://github.com/racka98">@racka98<a/>
-Source issue: <a href="https://github.com/OpenIntelWireless/itlwm/issues/353#issuecomment-727190996">#353</a>
+Thanks: [@racka98](https://github.com/racka98)
+Source issue: [#353](https://github.com/OpenIntelWireless/itlwm/issues/353#issuecomment-727190996)
 
 
 </details>
@@ -364,7 +364,7 @@ echo " "
 
     This part of code remove other firmware files from `IntelBluetoothFirmware/IntelBluetoothFirmware/fw/`
     
-    Also here you can find your bluetooth firmware name: <a href="https://packages.debian.org/sid/firmware-iwlwifi">`https://packages.debian.org/sid/firmware-iwlwifi`</a>
+    Also [here](https://packages.debian.org/sid/firmware-iwlwifi) you can find your bluetooth firmware name
 
 6. Place the file in the root directory of the cloned IntelBluetoothFirmware folder.
 7. Clone MacKernelSDK `git clone https://github.com/acidanthera/MacKernelSDK.git` and place it's folder inside itlwm folder
@@ -373,7 +373,7 @@ echo " "
 
 Done, you'll find your kexts under build/Release
 
-Thanks for idea: <a href="https://github.com/racka98">@racka98<a/>
+Thanks [@racka98](https://github.com/racka98) for the idea.
 
 </details>
 
@@ -638,12 +638,11 @@ For ThinkPad's dock only, use one of following methods:
 </details>
 
 <details>  
-<summary><strong>Enable multimedia keys</strong></summary>
+<summary><strong>Enable multimedia keys, fan & LEDs control </strong></summary>
 </br>
 
-Thanks to [@MSzturc](https://github.com/MSzturc) for providing the keyboard map and ThinkpadAssistant app
-
-1. Download and install [ThinkpadAssistant](https://github.com/MSzturc/ThinkpadAssistant/releases)
+1. Download and install [YogaSMC-App-Release.dmg
+](https://github.com/zhen-zen/YogaSMC/releases) (both the pref-panel and app itself)
 1. Open the app
 1. Check the `launch on login` option
 
@@ -773,21 +772,21 @@ A [Brief guide](/Guides/Bios-Mod.md).
 <summary><strong>Update tracker 🔄</strong></summary>
 </br>
 
-| [EFI Release](https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore/releases)       | 0.6.4 |
+| [EFI Release](https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore/releases)       | 0.6.5 |
 |:-----------------------------------------------------------------------------------------------|:------|
 | [MacOS](https://www.apple.com/macos/)                                                          | 11.1  |
-| [OpenCore](https://github.com/acidanthera/OpenCorePkg/releases)                                | 0.6.4 |
-| [Lilu](https://github.com/acidanthera/Lilu/releases)                                           | 1.5.0 |
+| [OpenCore](https://github.com/acidanthera/OpenCorePkg/releases)                                | 0.6.5 |
+| [Lilu](https://github.com/acidanthera/Lilu/releases)                                           | 1.5.1 |
 | [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases)                               | 1.1.9 |
 | [YogaSMC](https://github.com/zhen-zen/YogaSMC/releases)                                        | 1.4.1 |
-| [WhateverGreen](https://github.com/acidanthera/WhateverGreen/releases)                         | 1.4.5 |
-| [AppleALC](https://github.com/acidanthera/AppleALC/releases)                                   | 1.5.5 |
-| [VoodooPS2Controller](https://github.com/acidanthera/VoodooPS2/releases)                       | 2.1.9 |
-| [VoodooRMI](https://github.com/VoodooSMBus/VoodooRMI/releases)                                 | 1.2   |
-| [IntelMausi](https://github.com/acidanthera/IntelMausi/releases)                               | 1.0.4 |
-| [HibernationFixup](https://github.com/acidanthera/HibernationFixup/releases)                   | 1.3.8 |
-| [CPUFriend](https://github.com/acidanthera/CPUFriend/releases)                                 | 1.2.2 |
-| [NVMeFix](https://github.com/acidanthera/NVMeFix/releases)                                     | 1.0.4 |
+| [WhateverGreen](https://github.com/acidanthera/WhateverGreen/releases)                         | 1.4.6 |
+| [AppleALC](https://github.com/acidanthera/AppleALC/releases)                                   | 1.5.6 |
+| [VoodooPS2Controller](https://github.com/acidanthera/VoodooPS2/releases)                       | 2.2.0 |
+| [VoodooRMI](https://github.com/VoodooSMBus/VoodooRMI/releases)                                 | 1.3   |
+| [IntelMausi](https://github.com/acidanthera/IntelMausi/releases)                               | 1.0.5 |
+| [HibernationFixup](https://github.com/acidanthera/HibernationFixup/releases)                   | 1.3.9 |
+| [CPUFriend](https://github.com/acidanthera/CPUFriend/releases)                                 | 1.2.3 |
+| [NVMeFix](https://github.com/acidanthera/NVMeFix/releases)                                     | 1.0.5 |
 | [RTCMemoryFixup](https://github.com/acidanthera/RTCMemoryFixup/releases)                       | 1.0.7 |
 | [AirportItlwm](https://github.com/OpenIntelWireless/itlwm/releases)                            | 1.2.0 |
 | [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/releases) | 1.1.2 |
