@@ -791,6 +791,7 @@ A [Brief guide](/Guides/Bios-Mod.md).
 | [AirportItlwm](https://github.com/OpenIntelWireless/itlwm/releases)                            | 1.2.0 |
 | [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/releases) | 1.1.2 |
 | [AppleBacklightSmoother](https://github.com/hieplpvip/AppleBacklightSmoother/releases)         | 1.0.2 |
+| [BrightnessKeys](https://github.com/acidanthera/BrightnessKeys/releases)                       | 1.0.1 |
 | [Sinetek-rtsx](https://github.com/cholonam/Sinetek-rtsx/releases)                              | 2.2   |
 
 </details>
