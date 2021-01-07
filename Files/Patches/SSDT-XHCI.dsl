@@ -4,7 +4,7 @@
 // change _UPC to XUPC (XHCI)
 // Find: X1VQQw==    Replace: WFVQQw==
 
-DefinitionBlock ("", "SSDT", 2, "T460", "XHCI", 0)
+DefinitionBlock ("", "SSDT", 2, "T460s", "XHCI", 0)
 {
     External (DTGP, MethodObj)     // 5 Arguments
     External (\_SB.PCI0.XHCI, DeviceObj)

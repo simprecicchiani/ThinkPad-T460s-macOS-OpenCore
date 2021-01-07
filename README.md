@@ -612,7 +612,7 @@ git clone https://github.com/fewtarius/CPUFriendFriend; cd CPUFriendFriend; chmo
 <summary><strong>USB ports mapping (optional)</strong></summary>
 </br>
 
-For ThinkPad's dock only, use one of following methods:
+Maybe needed for ThinkPad's dock only, use one of following methods:
 
 - [USBMap by CorpNewt](https://github.com/corpnewt?tab=repositories)
 - [Native USB fix without injector kext](https://www.olarila.com/topic/6878-guide-native-usb-fix-for-notebooks-no-injectorkext-required/?tab=comments#comment-88412)
@@ -628,7 +628,7 @@ For ThinkPad's dock only, use one of following methods:
 1. [Disable SIP](https://dortania.github.io/OpenCore-Install-Guide/troubleshooting/troubleshooting.html#disabling-sip)
 1. Run the following script in Terminal  
    ```bash
-   bash -c "$(curl -fsSL https://github.com/mlch911/one-key-hidpi/master/hidpi.sh)"
+   bash -c "$(curl -fsSL https://raw.githubusercontent.com/xzhih/one-key-hidpi/master/hidpi.sh)"
    ```
 1. Follow the instructions, then reboot
 1. Re-enable SIP (if desired)
@@ -649,17 +649,15 @@ For ThinkPad's dock only, use one of following methods:
 </details>
 
 <details>  
-<summary><strong>Set PrtSc key to Screenshot shortcut</strong></summary>
+<summary><strong>Use PrtSc key as Screenshot shortcut</strong></summary>
 </br>
 
-Super useful shortcut that I wish I had it on my previous MBP. Default is ⌘⇧5.
+Super useful shortcut that I wish I had it on my previous MBP. Default is `⌘⇧5`.
 
 1. Open SystemPreferences.app
-1. Go under ` Keyboard > Shortcuts > Screenshots` 
-1. Click on `Screenshot and recording options` key map
+1. Go under `Keyboard > Shortcuts > Screenshots` 
+1. Click on `Screenshot and recording options` field
 1. Press `PrtSc` on your keyboard (it should came out as `F13`)
-
-<img src="/Images/prtsc-shortcut.png" alt="Lenovo Thinkpad T460s macOS Hackintosh OpenCore" height="300">
 
 </details>
 
@@ -681,7 +679,7 @@ NotebookCheck's calibrated profiles. Not all panel are the same, final result ma
 2. Go under `SystemPreferences > Displays > Colour`
 3. Select the profile
 
-<img src="/Images/DisplayProfile.png" alt="Lenovo Thinkpad T460s macOS Hackintosh OpenCore" height="300">
+<img src="/Images/display-profile.png" alt="Lenovo Thinkpad T460s macOS Hackintosh OpenCore" height="300">
 
 </details>
 
@@ -786,7 +784,7 @@ A [Brief guide](/Guides/Bios-Mod.md).
 | [IntelMausi](https://github.com/acidanthera/IntelMausi/releases)                               | 1.0.5 |
 | [HibernationFixup](https://github.com/acidanthera/HibernationFixup/releases)                   | 1.3.9 |
 | [CPUFriend](https://github.com/acidanthera/CPUFriend/releases)                                 | 1.2.3 |
-| [NVMeFix](https://github.com/acidanthera/NVMeFix/releases)                                     | 1.0.5 |
+| [NVMeFix](https://github.com/acidanthera/NVMeFix/releases)                                     | 1.0.4 |
 | [RTCMemoryFixup](https://github.com/acidanthera/RTCMemoryFixup/releases)                       | 1.0.7 |
 | [AirportItlwm](https://github.com/OpenIntelWireless/itlwm/releases)                            | 1.2.0 |
 | [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/releases) | 1.1.2 |

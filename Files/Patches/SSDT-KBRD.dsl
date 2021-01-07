@@ -1,5 +1,5 @@
 // 
-DefinitionBlock ("", "SSDT", 2, "simprecicchiani-T460s", "KBRD", 0)
+DefinitionBlock ("", "SSDT", 2, "T460s", "KBRD", 0)
 {
     External(_SB.PCI0.LPC_.KBD_, DeviceObj)
     Scope (_SB.PCI0.LPC.KBD)
@@ -26,7 +26,7 @@ DefinitionBlock ("", "SSDT", 2, "simprecicchiani-T460s", "KBRD", 0)
                 "Custom PS2 Map", Package()
                 {
                     Package(){},
-                    "e037=64 " // PrtSc -> F13
+                    "e037=64" // PrtSc -> F13
                 }
             }
         })

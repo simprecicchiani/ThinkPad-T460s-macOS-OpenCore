@@ -12,7 +12,7 @@
 // change HPET._STA to XSTA
 // Find: DEHQAQMUH19TVEEA	Replace: DEHQAQMUH1hTVEEA
 
-DefinitionBlock ("", "SSDT", 2, "T460", "HRTF", 0)
+DefinitionBlock ("", "SSDT", 2, "T460s", "HRTF", 0)
 {
     External (\_SB.PCI0.LPC, DeviceObj)
     External (\_SB.PCI0.LPC.PIC, DeviceObj)

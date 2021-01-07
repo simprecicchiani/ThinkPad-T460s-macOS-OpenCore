@@ -1,5 +1,5 @@
 // battery 
-DefinitionBlock ("", "SSDT", 2, "simprecicchiani-T460s", "BAT0", 0)
+DefinitionBlock ("", "SSDT", 2, "T460s", "BAT0", 0)
 {
     External(_SB.PCI0.LPC.EC, DeviceObj)
     External(_SB.PCI0.LPC.EC.BATM, MutexObj)

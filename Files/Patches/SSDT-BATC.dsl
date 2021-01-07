@@ -1,5 +1,5 @@
 // ThinkPad-LPC
-DefinitionBlock ("", "SSDT", 2, "simprecicchiani-T460s", "BATC", 0)
+DefinitionBlock ("", "SSDT", 2, "T460s", "BATC", 0)
 {
     External(\_SB.PCI0.LPC.EC, DeviceObj)
     

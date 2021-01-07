@@ -1,5 +1,5 @@
 //ThinkSMC
-DefinitionBlock ("", "SSDT", 2, "simprecicchiani-T460s", "Think", 0x00000000)
+DefinitionBlock ("", "SSDT", 2, "T460s", "Think", 0x00000000)
 {
     External (_SB.PCI0.LPC_.EC, DeviceObj)    // EC path
     External (_SB.PCI0.LPC_.EC.HKEY, DeviceObj)    // HKEY path
