@@ -1,6 +1,6 @@
 // Adding various virtual devices for macOS compatibility
 
-DefinitionBlock ("", "SSDT", 2, "T460", "VDEV", 0)
+DefinitionBlock ("", "SSDT", 2, "T460s", "VDEV", 0)
 {
     Scope (\_SB)
     {

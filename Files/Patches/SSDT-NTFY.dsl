@@ -28,7 +28,7 @@
 // Find:    4241 545701
 // Replace: 5841 545701
 //
-DefinitionBlock ("", "SSDT", 2, "simprecicchiani-T460s", "NTFY", 0)
+DefinitionBlock ("", "SSDT", 2, "T460s", "NTFY", 0)
 {
     External (\_SB.PCI0.LPC.EC, DeviceObj)
     External (\_SB.PCI0.LPC.EC.BATC, DeviceObj)

@@ -1,5 +1,5 @@
 //Enables DYTC thermal-management on newer Thinkpads
-DefinitionBlock ("", "SSDT", 2, "simprecicchiani-T460s", "DYTC", 0x00000000)
+DefinitionBlock ("", "SSDT", 2, "T460s", "DYTC", 0x00000000)
 {
     External (HPTE, FieldUnitObj) 
     External (LNUX, IntObj)    // Variable set with "Linux" or "FreeBSD"

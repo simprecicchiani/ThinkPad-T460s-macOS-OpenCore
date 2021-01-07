@@ -1,6 +1,6 @@
 // Add DTGP to DSDT for PCIe customization in System Info
 
-DefinitionBlock ("", "SSDT", 2, "T460", "DTGP", 0)
+DefinitionBlock ("", "SSDT", 2, "T460s", "DTGP", 0)
 {
     Method (DTGP, 5, NotSerialized)
     {

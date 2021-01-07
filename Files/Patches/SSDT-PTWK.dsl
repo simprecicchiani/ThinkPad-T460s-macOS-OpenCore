@@ -11,7 +11,7 @@
 // in both _WAK and GPE _L17 method by binary patching.
 // Find: X0VDX19IV0FD    Replace: X0VDX19XQUNI
 
-DefinitionBlock("", "SSDT", 2, "simprecicchiani-T460s", "PTWK", 0)
+DefinitionBlock("", "SSDT", 2, "T460s", "PTWK", 0)
 {
     External(ZPTS, MethodObj)
     External(ZWAK, MethodObj)

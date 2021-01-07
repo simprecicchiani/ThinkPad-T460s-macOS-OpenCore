@@ -22,7 +22,7 @@
  * it will start in the end of PCI configuration, which is too late for
  * NVRAM support.
  */
-DefinitionBlock ("", "SSDT", 2, "ACDT", "PMCR", 0x00001000)
+DefinitionBlock ("", "SSDT", 2, "T460s", "PMCR", 0x00001000)
 {
     External (\_SB.PCI0, DeviceObj)
     External (\_SB.PCI0.PPMC, DeviceObj)

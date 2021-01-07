@@ -1,6 +1,6 @@
 // SSDT to redirect _DSM to native XDSM on non mac OS
 
-DefinitionBlock ("", "SSDT", 2, "T460", "XDSM", 0)
+DefinitionBlock ("", "SSDT", 2, "T460s", "XDSM", 0)
 {
 	External (\_SB.PCI0.LPC, DeviceObj)
 	External (\_SB.PCI0.LPC.XDSM, MethodObj)	// 4 Arguments
