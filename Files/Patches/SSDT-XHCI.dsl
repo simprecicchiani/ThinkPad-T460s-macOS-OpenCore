@@ -51,8 +51,8 @@ DefinitionBlock ("", "SSDT", 2, "T460s", "XHCI", 0)
     External (\_SB.PCI0.XHCI.URTH.SSP1.XUPC, MethodObj)     // 0 Arguments
     External (\_SB.PCI0.XHCI.URTH.SSP4.XUPC, MethodObj)     // 0 Arguments
 
-    External (\_SB.PCI0.XHCI.URTH.HSP9.WCAM, DeviceObj)     // 0 Arguments
-    External (\_SB.PCI0.XHCI.URTH.HSP9.WCAM.XUPC, MethodObj)    // 0 Arguments
+    External (\_SB.PCI0.XHCI.URTH.HSP7.WCAM, DeviceObj)     // 0 Arguments
+    External (\_SB.PCI0.XHCI.URTH.HSP7.WCAM.XUPC, MethodObj)    // 0 Arguments
 
 
     // Inject USB power properties for XHCI
@@ -195,15 +195,15 @@ DefinitionBlock ("", "SSDT", 2, "T460s", "XHCI", 0)
     {
         Method (_UPC, 0, Serialized)
         {
-        	If (_OSI ("Darwin"))
+        	If (!_OSI ("Darwin"))
         	{
-		        Name (UPCP, Package (0x04) {})
-                CopyObject (\UPCD, UPCP)
-                Return (UPCP)
+        		Return (\_SB.PCI0.XHCI.URTH.HSP1.XUPC ())
         	}
         	Else
         	{
-        		Return (\_SB.PCI0.XHCI.URTH.HSP1.XUPC ())
+		        Name (UPCP, Package (0x04) {})
+                CopyObject (\UPCX, UPCP)
+                Return (UPCP)            
         	}
         }
     }
@@ -264,15 +264,15 @@ DefinitionBlock ("", "SSDT", 2, "T460s", "XHCI", 0)
     {
         Method (_UPC, 0, Serialized)
         {
-        	If (_OSI ("Darwin"))
+        	If (!_OSI ("Darwin"))
         	{
-		        Name (UPCP, Package (0x04) {})
-                CopyObject (\UPCD, UPCP)
-                Return (UPCP)
+        		Return (\_SB.PCI0.XHCI.URTH.HSP5.XUPC ())
         	}
         	Else
         	{
-        		Return (\_SB.PCI0.XHCI.URTH.HSP5.XUPC ())
+		        Name (UPCP, Package (0x04) {})
+                CopyObject (\UPCX, UPCP)
+                Return (UPCP)
         	}
         }
     }
@@ -311,47 +311,13 @@ DefinitionBlock ("", "SSDT", 2, "T460s", "XHCI", 0)
         }
     }
 
-    Scope (\_SB.PCI0.XHCI.URTH.HSP8)    // Finger Print
-    {
-        Method (_UPC, 0, Serialized)
-        {
-        	If (_OSI ("Darwin"))
-        	{
-		        Name (UPCP, Package (0x04) {})
-                CopyObject (\UPCB, UPCP)
-                Return (UPCP)
-        	}
-        	Else
-        	{
-        		Return (\_SB.PCI0.XHCI.URTH.HSP8.XUPC ())
-        	}
-        }
-    }
-
-    Scope (\_SB.PCI0.XHCI.URTH.HSP9)    // Web Camera
-    {
-        Method (_UPC, 0, Serialized)
-        {
-        	If (_OSI ("Darwin"))
-        	{
-		        Name (UPCP, Package (0x04) {})
-                CopyObject (\UPCB, UPCP)
-                Return (UPCP)
-        	}
-        	Else
-        	{
-        		Return (\_SB.PCI0.XHCI.URTH.HSP9.XUPC ())
-        	}
-        }
-    }
-
-    Scope (\_SB.PCI0.XHCI.URTH.HSP9.WCAM)	// WEB Camera on Windows
+        Scope (\_SB.PCI0.XHCI.URTH.HSP7.WCAM)	// WEB Camera on Windows
     {
     	Method (_UPC, 0 , Serialized)
     	{
 	    	If (!_OSI ("Darwin"))
 	    	{
-	    		Return (\_SB.PCI0.XHCI.URTH.HSP9.WCAM.XUPC ())
+	    		Return (\_SB.PCI0.XHCI.URTH.HSP7.WCAM.XUPC ())
 	    	}
             Else
             {
@@ -360,6 +326,40 @@ DefinitionBlock ("", "SSDT", 2, "T460s", "XHCI", 0)
                 Return (UPCP)
             }
     	}
+    }
+
+    Scope (\_SB.PCI0.XHCI.URTH.HSP8)    // Finger Print
+    {
+        Method (_UPC, 0, Serialized)
+        {
+        	If (!_OSI ("Darwin"))
+        	{
+        		Return (\_SB.PCI0.XHCI.URTH.HSP8.XUPC ())
+        	}
+        	Else
+        	{
+		        Name (UPCP, Package (0x04) {})
+                CopyObject (\UPCX, UPCP)
+                Return (UPCP)
+        	}
+        }
+    }
+
+    Scope (\_SB.PCI0.XHCI.URTH.HSP9)    // Web Camera
+    {
+        Method (_UPC, 0, Serialized)
+        {
+        	If (!_OSI ("Darwin"))
+        	{
+        		Return (\_SB.PCI0.XHCI.URTH.HSP9.XUPC ())
+        	}
+        	Else
+        	{
+		        Name (UPCP, Package (0x04) {})
+                CopyObject (\UPCX, UPCP)
+                Return (UPCP)
+        	}
+        }
     }
 
     Scope (\_SB.PCI0.XHCI.URTH.HSPA)	// Nothing
@@ -485,17 +485,16 @@ DefinitionBlock ("", "SSDT", 2, "T460s", "XHCI", 0)
     {
         Method (_UPC, 0, Serialized)
         {
-        	If (_OSI ("Darwin"))
+        	If (!_OSI ("Darwin"))
         	{
-		        Name (UPCP, Package (0x04) {})
-                CopyObject (\UPCD, UPCP)
-                Return (UPCP)
+        		Return (\_SB.PCI0.XHCI.URTH.SSP5.XUPC ())
         	}
         	Else
         	{
-        		Return (\_SB.PCI0.XHCI.URTH.SSP5.XUPC ())
+		        Name (UPCP, Package (0x04) {})
+                CopyObject (\UPCX, UPCP)
+                Return (UPCP)
         	}
         }
     }
 }
-
