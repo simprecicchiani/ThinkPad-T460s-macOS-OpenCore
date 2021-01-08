@@ -110,6 +110,22 @@
 				<key>Path</key>
 				<string>SSDT-NTFY.aml</string>
 			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Initialize system variables</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-DYTC.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>ThinkSMC</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-THINK.aml</string>
+			</dict>
 		</array>
 		<key>Delete</key>
 		<array/>
