@@ -68,12 +68,13 @@ It would mean a lot to me.
 This EFI will suit any T460s regardless of CPU model<sup>[1](#CPU)</sup>, amount of RAM, display resolution<sup>[2](#Res)</sup> and internal storage<sup>[3](#NVMe)</sup>.
 
 <a name="CPU">1</a>. Optional custom CPU Power Management guide.  
-<a name="Res">2</a>. 1440p display models should change `NVRAM -> Add -> 7C436110-AB2A-4BBB-A880-FE41995C9F82 -> UIScale`:`2` to get proper scaling while booting.  
-<a name="NVMe">3</a>. Enable [NVMeFix](https://github.com/acidanthera/NVMeFix) for NVMe drives.
+<a name="Res">2</a>. 1440p displays should change `NVRAM -> Add -> 7C436110-AB2A-4BBB-A880-FE41995C9F82 -> UIScale`:`2` to get proper scaling while booting.  
+<a name="NVMe">3</a>. Follow NVMe fix guide below for NVMe drives.
 
 </details>
 
 ## Installation
+
 <details>  
 <summary><strong>How to install macOS</strong></summary>
 </br>
@@ -81,7 +82,7 @@ This EFI will suit any T460s regardless of CPU model<sup>[1](#CPU)</sup>, amount
 1. [Create an installation media](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/#making-the-installer)
 1. Download the [latest EFI folder](https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore/releases) and copy it into the ESP partiton
 1. Change your BIOS settings according to the table below
-1. Boot from the USB installer (F12 to choose boot volume) and [start the installation process](https://dortania.github.io/OpenCore-Install-Guide/installation/installation-process.html#booting-the-opencore-usb)
+1. Boot from the USB installer (press `F12` to choose boot volume) and [start the installation process](https://dortania.github.io/OpenCore-Install-Guide/installation/installation-process.html#booting-the-opencore-usb)
 
 | Menu     |                   |                                 | Setting     |
 |----------|-------------------|---------------------------------|-------------|
@@ -102,22 +103,6 @@ This EFI will suit any T460s regardless of CPU model<sup>[1](#CPU)</sup>, amount
 |          | Boot Mode         |                                 | `Quick`     |
 
 </details>
-
-<details>  
-<summary><strong>How to update the bootloader</strong></summary>
-</br>
-
-1. Download the [latest release](https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore/releases)
-1. Copy and Paste your `PlatfromInfo`
-1. Enable optional kexts if needed (NVMEFix, AirportItlwm, etc.)
-1. Test the new bootloader with an USB stick (Set `BootProtect: None` whenever booting with external drives)
-1. Customize boot preferences (skip picker, disable verbose, etc.)
-1. Mount your ESP partition
-1. Backup your old EFI folder and replace it with the new one
-
-</details>
-
-## Post-install
 
 <details>  
 <summary><strong>Enable Apple Services</strong></summary>
@@ -164,507 +149,80 @@ git clone https://github.com/corpnewt/GenSMBIOS && cd GenSMBIOS && chmod +x GenS
 </details>
 
 <details>  
-<summary><strong>Enable Intel WLAN & BLUETOOTH (optional) method 1</strong></summary>
-
+<summary><strong>How to update the bootloader</strong></summary>
 </br>
+
+1. Download the [latest release](https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore/releases)
+1. Copy and Paste your `PlatfromInfo`
+1. Enable optional kexts if needed (NVMEFix, AirportItlwm, etc.)
+1. Test the new bootloader with an USB stick (Set `BootProtect: None` whenever booting with external drives)
+1. Customize boot preferences (skip picker, disable verbose, etc.)
+1. Mount your ESP partition
+1. Backup your old EFI folder and replace it with the new one
+
+</details>
+
+## Post-install (optional)
+
+<details>  
+<summary><strong>Enable Intel WLAN cards</strong></summary>
+</br>
+Two different drivers are under development for Intel WiFi support: `AirportItlwm.kext` and `AirPortOpenBSD.kext`. Do NOT use them both at the same time.
 
 1. Open `/EFI/OC/Config.plist` with any editor 
-2. Go under `Kernel -> Add` and enable `AirportItlwm.kext`, `IntelBluetoothFirmware.kext` and `IntelBluetoothInjector.kext`
-```diff
-<key>Kernel</key>
-<dict>
-   <key>Add</key>
-   <array>
-      </dict>
-         <key>Arch</key>
-         <string>x86_64</string>
-         <key>BundlePath</key>
-         <string>AirportItlwm.kext</string>
-         <key>Comment</key>
-         <string>Intel WiFi driver</string>
-         <key>Enabled</key>
--        <false/>
-+        <true/>
-         <key>ExecutablePath</key>
-         <string>Contents/MacOS/AirportItlwm</string>
-         <key>MaxKernel</key>
-         <string></string>
-         <key>MinKernel</key>
-         <string></string>
-         <key>PlistPath</key>
-         <string>Contents/Info.plist</string>
-      </dict>
-      </dict>
-         <key>Arch</key>
-         <string>x86_64</string>
-         <key>BundlePath</key>
-         <string>IntelBluetoothFirmware.kext</string>
-         <key>Comment</key>
-         <string>Intel Bluetooth driver</string>
-         <key>Enabled</key>
--        <false/>
-+        <true/>
-         <key>ExecutablePath</key>
-         <string>Contents/MacOS/IntelBluetoothFirmware</string>
-         <key>MaxKernel</key>
-         <string></string>
-         <key>MinKernel</key>
-         <string></string>
-         <key>PlistPath</key>
-         <string>Contents/Info.plist</string>
-      </dict>
-      </dict>
-         <key>Arch</key>
-         <string>x86_64</string>
-         <key>BundlePath</key>
-         <string>IntelBluetoothInjector.kext</string>
-         <key>Comment</key>
-         <string>Intel Bluetooth driver companion</string>
-         <key>Enabled</key>
--        <false/>
-+        <true/>
-         <key>ExecutablePath</key>
-         <string></string>
-         <key>MaxKernel</key>
-         <string></string>
-         <key>MinKernel</key>
-         <string></string>
-         <key>PlistPath</key>
-         <string>Contents/Info.plist</string>
-      </dict>
-   </array>
-</dict>
-```
-3. Save and reboot the system
+1. Add the content of [#intel-wlan.plist](/EFI/OC/#intel-wlan.plist)
+1. Save and reboot the system
 
-Note: The driver provided in this repo is for Big Sur only; if you're running a different version of macOS please use the corresponding [AirportItlwm.kext](https://github.com/OpenIntelWireless/itlwm/releases).
+Note: The drivers provided in this repo are for Big Sur only; if you're running a different version of macOS please use the corresponding [AirportItlwm.kext](https://github.com/OpenIntelWireless/itlwm/releases) or [AirPortOpenBSD.kext](https://github.com/a565109863/AirPortOpenBSD/releases/).
 
-<details>  
-<summary><strong>Remove unnecessary WIFI firmware files from method 1(optional)</strong></summary>
-
-</br>
-This steps help you a little speed up boot process (if you use `itlwm` or `AirportItlwm`)
-
-1. Clone the repo: `git clone https://github.com/OpenIntelWireless/itlwm.git`
-2. Open the folder where it's cloned to
-3. Open Xcode, press File -New -File.. on the Search bar/Filter type `shell` and choose to create a new shell script file
-4. Copy this code below into it;
-
-```shell
-#!/bin/bash
-
-# remove all local changes
-git reset --hard HEAD
-rm -rf build
-
-# pull latest code
-git pull
-
-# remove generated firmware
-rm include/FwBinary.cpp
-
-# remove firmware for other wifi cards - DELETE OR CHANGE TO YOUR CARD
-find itlwm/firmware/ -type f ! -name 'iwm-7265-*' -delete
-
-
-# generate firmware
-xcodebuild -project itlwm.xcodeproj -target fw_gen -configuration Release -sdk macosx
-
-# build the kexts
-## 1. itlwm.kext
-xcodebuild -project itlwm.xcodeproj -target itlwm -configuration Release -sdk macosx
-
-## 2. AirportItlwm Mojave
-xcodebuild -project itlwm.xcodeproj -target AirportItlwm-Mojave -configuration Release -sdk macosx
-
-## 3. AirportItlwm Catalina
-xcodebuild -project itlwm.xcodeproj -target AirportItlwm-Catalina -configuration Release -sdk macosx
-
-## 4. AirportItlwm Big Sur
-xcodebuild -project itlwm.xcodeproj -target AirportItlwm-Big\ Sur -configuration Release -sdk macosx
-
-# Location of Kexts
-echo "You kexts are in build/Release!!"
-echo " "
-```
-
-5. Change line 14: `find itlwm/firmware/ -type f ! -name 'iwm-7265-*' -delete`
-
-    change `iwm-7265` to your firmware name and save the file.
-
-    If your card is AC8260 you need to replace 
-    `find itlwm/firmware/ -type f ! -name 'iwm-7265-*' -delete`
-    by
-    `find itlwm/firmware/ -type f ! -name 'iwm-8000C*' -delete`
-    
-    This part of code remove other firmware files from `/itlwm/itlwm/firmware`
-    
-    Also [here](https://www.intel.com/content/www/us/en/support/articles/000005511/network-and-io/wireless.html) you can find your card firmware name
-
-6. Place the file in the root directory of the cloned itlwm folder.
-7. Clone MacKernelSDK `git clone https://github.com/acidanthera/MacKernelSDK.git` and place it's folder inside itlwm folder
-8. Run the script with sh command.
-   Ex: `sh script-name.sh` where 'script-name' is the name of the shell script you made.
-
-Done, you'll find your kexts under build/Release
-
-DON'T USE BOTH `itlwm` and `airportitlwm` IN THE SAME TIME.
-
-Thanks: [@racka98](https://github.com/racka98)
-Source issue: [#353](https://github.com/OpenIntelWireless/itlwm/issues/353#issuecomment-727190996)
-
-</details>
-
-<details>  
-<summary><strong>Remove unnecessary Bluetooth firmware files from method 1 (optional)</strong></summary>
-
-</br>
-This steps help you a little speed up boot process (if you use <a href="https://github.com/OpenIntelWireless/IntelBluetoothFirmware">IntelBluetoothFirmware</a> kexts)
-
-1. Clone the repo: `git clone https://github.com/OpenIntelWireless/IntelBluetoothFirmware.git`
-2. Open the folder where it's cloned to
-3. Open Xcode, press File -New -File.. on the Search bar/Filter type `shell` and choose to create a new shell script file
-4. Copy this code below into it;
-
-```shell
-#!/bin/bash
-
-# remove all local changes
-git reset --hard HEAD
-rm -rf build
-
-# pull latest code
-git pull
-
-# remove generated firmware
-rm IntelBluetoothFirmware/FwBinary.cpp
-
-# remove firmware for other wifi cards - DELETE OR CHANGE TO YOUR CARD
-find IntelBluetoothFirmware/fw/ -type f ! -name 'ibt-11-5*' -delete
-
-
-# generate firmware
-xcodebuild -project IntelBluetoothFirmware.xcodeproj -target fw_gen -configuration Release -sdk macosx
-
-# build the kexts
-## 1. IntelBluetoothFirmware.kext
-xcodebuild -project IntelBluetoothFirmware.xcodeproj -target IntelBluetoothFirmware -configuration Release -sdk macosx
-
-# build the kexts
-## 2. IntelBluetoothInjector.kext
-xcodebuild -project IntelBluetoothFirmware.xcodeproj -target IntelBluetoothInjector -configuration Release -sdk macosx
-
-# Location of Kexts
-echo "You kexts are in build/Release!!"
-echo " "
-```
-
-5. Change line 14: `find IntelBluetoothFirmware/fw/ -type f ! -name 'ibt-11-5*' -delete`
-
-    change `ibt-11-5*` to your firmware name and save the file.
-
-    If your card is AC8260 you no need to change this line 
-
-    This part of code remove other firmware files from `IntelBluetoothFirmware/IntelBluetoothFirmware/fw/`
-    
-    Also [here](https://packages.debian.org/sid/firmware-iwlwifi) you can find your bluetooth firmware name
-
-6. Place the file in the root directory of the cloned IntelBluetoothFirmware folder.
-7. Clone MacKernelSDK `git clone https://github.com/acidanthera/MacKernelSDK.git` and place it's folder inside itlwm folder
-8. Run the script with sh command.
-   Ex: `sh script-name.sh` where 'script-name' is the name of the shell script you made.
-
-Done, you'll find your kexts under build/Release
-
-Thanks [@racka98](https://github.com/racka98) for the idea.
-
-</details>
-
-</details>
+Optional: [Remove unnecessary firmware files from OpenIntelWireless drivers](/Guides/Clean-OpenIntelWireless.md). 
 
 </details>
 
 <details>
-<summary><strong>Enable Intel WLAN (optional) method 2</strong></summary>
-</br>
-
-1. Open `/EFI/OC/Config.plist` with any editor 
-2. Go under `Kernel -> Add`
-3. change `AirportItlwm.kext` to `AirPortOpenBSD.kext`
-4. change `Contents/MacOS/AirportItlwm` to `Contents/MacOS/AirPortOpenBSD`
-```diff
-<key>Kernel</key>
-<dict>
-   <key>Add</key>
-   <array>
-      </dict>
-         <key>Arch</key>
-         <string>x86_64</string>
-         <key>BundlePath</key>
--        <string>AirportItlwm.kext</string>
-+	       <string>AirPortOpenBSD.kext</string>
-         <key>Comment</key>
-         <string>Intel WiFi driver</string>
-         <key>Enabled</key>
--        <false/>
-+        <true/>
-         <key>ExecutablePath</key>
--        <string>Contents/MacOS/AirportItlwm</string>
-+	       <string>Contents/MacOS/AirPortOpenBSD</string>
-         <key>MaxKernel</key>
-         <string></string>
-         <key>MinKernel</key>
-         <string></string>
-         <key>PlistPath</key>
-         <string>Contents/Info.plist</string>
-      </dict>
-
-   </array>
-</dict>
-```
-5. Save and reboot the system
-
-Note: The driver provided in this repo is for Big Sur only; if you're running a different version of macOS please use the corresponding [AirPortOpenBSD.kext](https://github.com/a565109863/AirPortOpenBSD/releases/).
-
-</details>
-
-<details>
-<summary><strong>Enable non-natively supported Broadcom WLAN cards (optional)</strong></summary>
+<summary><strong>Enable non-natively supported Broadcom WLAN cards</strong></summary>
 </br>
 
 1. Download [AirportBrcmFixup](https://github.com/acidanthera/AirportBrcmFixup/releases) and
 [BrcmPatchRAM](https://github.com/acidanthera/BrcmPatchRAM/releases).
-1. Copy AirportBrcmFixup.kext, BrcmBluetoothInjector.kext, BrcmFirmwareData.kext and BrcmPatchRAM3.kext to `EFI\OC\kexts`
+1. Copy AirportBrcmFixup.kext, BrcmBluetoothInjector.kext, BrcmFirmwareData.kext and BrcmPatchRAM3.kext to `/EFI/OC/Kexts`
 1. Open `/EFI/OC/Config.plist` with any editor 
-1. Go under `Kernel -> Add` and add the following entries
-
-```
-<key>Kernel</key>
-<dict>
-   <key>Add</key>
-   <array>
-		<dict>
-			<key>Arch</key>
-			<string>Any</string>
-			<key>BundlePath</key>
-			<string>AirportBrcmFixup.kext</string>
-			<key>Comment</key>
-			<string>DW1560 WiFi driver</string>
-			<key>Enabled</key>
-			<true/>
-			<key>ExecutablePath</key>
-			<string>Contents/MacOS/AirportBrcmFixup</string>
-			<key>MaxKernel</key>
-			<string></string>
-			<key>MinKernel</key>
-			<string></string>
-			<key>PlistPath</key>
-			<string>Contents/Info.plist</string>
-		</dict>
-		<dict>
-			<key>Arch</key>
-			<string>Any</string>
-			<key>BundlePath</key>
-			<string>AirportBrcmFixup.kext/Contents/PlugIns/AirPortBrcm4360_Injector.kext</string>
-			<key>Comment</key>
-			<string>DW1560 WiFi 4360 plug-in</string>
-			<key>Enabled</key>
-			<false/>
-			<key>ExecutablePath</key>
-			<string></string>
-			<key>MaxKernel</key>
-			<string></string>
-			<key>MinKernel</key>
-			<string></string>
-			<key>PlistPath</key>
-			<string>Contents/Info.plist</string>
-		</dict>
-		<dict>
-			<key>Arch</key>
-			<string>Any</string>
-			<key>BundlePath</key>
-			<string>AirportBrcmFixup.kext/Contents/PlugIns/AirPortBrcmNIC_Injector.kext</string>
-			<key>Comment</key>
-			<string>DW1560 WiFi NIC plug-in</string>
-			<key>Enabled</key>
-			<true/>
-			<key>ExecutablePath</key>
-			<string></string>
-			<key>MaxKernel</key>
-			<string></string>
-			<key>MinKernel</key>
-			<string></string>
-			<key>PlistPath</key>
-			<string>Contents/Info.plist</string>
-		</dict>
-		<dict>
-			<key>Arch</key>
-			<string>x86_64</string>
-			<key>BundlePath</key>
-			<string>BrcmBluetoothInjector.kext</string>
-			<key>Comment</key>
-			<string>DW1560 BT 1 of 3</string>
-			<key>Enabled</key>
-			<true/>
-			<key>ExecutablePath</key>
-			<string></string>
-			<key>MaxKernel</key>
-			<string></string>
-			<key>MinKernel</key>
-			<string></string>
-			<key>PlistPath</key>
-			<string>Contents/Info.plist</string>
-		</dict>
-		<dict>
-			<key>Arch</key>
-			<string>x86_64</string>
-			<key>BundlePath</key>
-			<string>BrcmFirmwareData.kext</string>
-			<key>Comment</key>
-			<string>DW1560 BT 2 of 3</string>
-			<key>Enabled</key>
-			<true/>
-			<key>ExecutablePath</key>
-			<string>Contents/MacOS/BrcmFirmwareData</string>
-			<key>MaxKernel</key>
-			<string></string>
-			<key>MinKernel</key>
-			<string></string>
-			<key>PlistPath</key>
-			<string>Contents/Info.plist</string>
-		</dict>
-		<dict>
-			<key>Arch</key>
-			<string>x86_64</string>
-			<key>BundlePath</key>
-			<string>BrcmPatchRAM3.kext</string>
-			<key>Comment</key>
-			<string>DW1560 BT 3 of 3</string>
-			<key>Enabled</key>
-			<true/>
-			<key>ExecutablePath</key>
-			<string>Contents/MacOS/BrcmPatchRAM3</string>
-			<key>MaxKernel</key>
-			<string></string>
-			<key>MinKernel</key>
-			<string></string>
-			<key>PlistPath</key>
-			<string>Contents/Info.plist</string>
-		</dict>
-   </array>
-</dict>
-```
-
+1. Add the content of [#broadcom-wlan.plist](/EFI/OC/#broadcom-wlan.plist)
+1. Save and reboot the system
 
 </details>
 
-
 <details>  
-<summary><strong>Fix NVMe power management (optional)</strong></summary>
+<summary><strong>Fix NVMe power management</strong></summary>
 </br>
 
 1. Open `/EFI/OC/Config.plist` with any editor 
-2. Go under `Kernel -> Add` and enable `NVMeFix.kext`
-```diff
-<key>Kernel</key>
-<dict>
-   <key>Add</key>
-   <array>
-      </dict>
-         <key>Arch</key>
-         <string>x86_64</string>
-         <key>BundlePath</key>
-         <string>NVMeFix.kext</string>
-         <key>Comment</key>
-         <string>NVMe power management</string>
-         <key>Enabled</key>
--        <false/>
-+        <true/>
-         <key>ExecutablePath</key>
-         <string>Contents/MacOS/NVMeFix</string>
-         <key>MaxKernel</key>
-         <string></string>
-         <key>MinKernel</key>
-         <string></string>
-         <key>PlistPath</key>
-         <string>Contents/Info.plist</string>
-      </dict>
-   </array>
-</dict>
-```
-3. Save and reboot the system
+1. Add the content of [#nvme-fix.plist](/EFI/OC/#nvme-fix.plist)
+1. Save and reboot the system
 
 </details>
 
 <details>  
-<summary><strong>Custom CPU Power Management (optional)</strong></summary>
+<summary><strong>Custom CPU Power Management</strong></summary>
 </br>
 
 1. Run the following script in Terminal  
 ```bash
 git clone https://github.com/fewtarius/CPUFriendFriend; cd CPUFriendFriend; chmod +x ./CPUFriendFriend.command; ./CPUFriendFriend.command
 ```
-2. When asked, select preferred values
-3. From the pop-up window, copy `ssdt_data.aml` into `/EFI/OC/ACPI/` folder
-4. Open `/EFI/OC/Config.plist` with any editor 
-5. Go under `ACPI -> Add` and replace `SSDT-PLUG.aml` with `ssdt_data.aml`
-```diff
-<key>ACPI</key>
-<dict>
-   <key>Add</key>
-   <array>
-      <dict>
-         <key>Comment</key>
-         <string>X86 Injector</string>
-         <key>Enabled</key>
-         <true/>
-         <key>Path</key>
--        <string>SSDT-PLUG.aml</string>
-+        <string>ssdt_data.aml</string>
-      </dict>
-   </array>
-</dict>
-```
-6. Go under `Kernel -> Add` and enable `CPUFriend.kext`
-```diff
-<key>Kernel</key>
-<dict>
-   <key>Add</key>
-   <array>
-      </dict>
-         <key>Arch</key>
-         <string>x86_64</string>
-         <key>BundlePath</key>
-         <string>CPUFriend.kext</string>
-         <key>Comment</key>
-         <string>Frequency data injector</string>
-         <key>Enabled</key>
--        <false/>
-+        <true/>
-         <key>ExecutablePath</key>
-         <string>Contents/MacOS/CPUFriend</string>
-         <key>MaxKernel</key>
-         <string></string>
-         <key>MinKernel</key>
-         <string></string>
-         <key>PlistPath</key>
-         <string>Contents/Info.plist</string>
-      </dict>
-   </array>
-</dict>
-```
-7. Save and reboot the system
+1. When asked, select preferred values
+1. From the pop-up window, copy `ssdt_data.aml` into `/EFI/OC/ACPI/` folder (rename it if you'd like)
+1. Open `/EFI/OC/Config.plist` with any editor 
+1. Add the content of [#cpu-pm.plist](/EFI/OC/#cpu-pm.plist) (make sure SSDT-PLUG.aml is disabled and match your new SSDT filename)
+1. Save and reboot the system
 
 </details>
 
 <details>  
-<summary><strong>USB ports mapping (optional)</strong></summary>
+<summary><strong>ThinkPad Dock USB ports mapping</strong></summary>
 </br>
 
-Maybe needed for ThinkPad's dock only, use one of following methods:
-
-- [USBMap by CorpNewt](https://github.com/corpnewt?tab=repositories)
-- [Native USB fix without injector kext](https://www.olarila.com/topic/6878-guide-native-usb-fix-for-notebooks-no-injectorkext-required/?tab=comments#comment-88412)
+I've never had one so there's a chance something might not be working. [USB mapping guide](https://dortania.github.io/OpenCore-Post-Install/usb/).
 
 </details>
 
@@ -690,8 +248,7 @@ Maybe needed for ThinkPad's dock only, use one of following methods:
 <summary><strong>Enable multimedia keys, fan & LEDs control </strong></summary>
 </br>
 
-1. Download and install [YogaSMC-App-Release.dmg
-](https://github.com/zhen-zen/YogaSMC/releases) (both the pref-panel and app itself)
+1. Download and install [YogaSMC-App-Release.dmg](https://github.com/zhen-zen/YogaSMC/releases) (both the pref-panel and app itself)
 1. Open the app
 1. Check the `launch on login` option
 
@@ -711,7 +268,7 @@ Super useful shortcut that I wish I had it on my previous MBP. Default is `âŒ˜â‡
 </details>
 
 <details>  
-<summary><strong>Import calibrated display profile</strong></summary>
+<summary><strong>Use calibrated display profile</strong></summary>
 </br>
 
 NotebookCheck's calibrated profiles. Not all panel are the same, final result may vary.
@@ -757,16 +314,10 @@ This enables auto-hide and speeds up the animation
 <summary><strong>Speed-up boot process</strong></summary>
 </br>
 
-Once you get everything up and running it's possible to disable some options inside `config.plist` to get a faster and cleaner boot.
-
-| Menu  |       |                                      | Setting     |
-|-------|-------|--------------------------------------|-------------|
-| Misc  | Boot  | ShowPicker                           | `False`     |
-|       | Debug | AppleDebug                           | `False`     |
-|       |       | ApplePanic                           | `False`     |
-|       |       | DisableWatchDog                      | `False`     |
-|       |       | Target                               | `0`         |
-| NVRAM | Add   | 7C436110-AB2A-4BBB-A880-FE41995C9F82 | Delete `-v` |
+| Menu |       |            | Setting | What does it do?     |
+|:-----|:------|:-----------|:--------|:---------------------|
+| Misc | Boot  | ShowPicker | `False` | Skip bootloader page |
+| UEFI | Audio | PlayChime  | `False` | Always silent boot   |
 
 </details>
 
@@ -776,7 +327,7 @@ Once you get everything up and running it's possible to disable some options ins
 
 I know it can be scary at first but with the right amount of carefulness anyone can do it.  
 Is it worth the effort and risk? I don't think so. I enjoyed it? 100%.  
-A [Brief guide](/Guides/Bios-Mod.md).
+A [brief guide referencing other guides](/Guides/Bios-Mod.md).
 
 </details>
 
