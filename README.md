@@ -164,7 +164,7 @@ git clone https://github.com/corpnewt/GenSMBIOS && cd GenSMBIOS && chmod +x GenS
 </details>
 
 <details>  
-<summary><strong>Enable Intel WLAN (optional)</strong></summary>
+<summary><strong>Enable Intel WLAN & BLUETOOTH (optional) method 1</strong></summary>
 </br>
 
 1. Open `/EFI/OC/Config.plist` with any editor 
@@ -239,7 +239,7 @@ git clone https://github.com/corpnewt/GenSMBIOS && cd GenSMBIOS && chmod +x GenS
 Note: The driver provided in this repo is for Big Sur only; if you're running a different version of macOS please use the corresponding [AirportItlwm.kext](https://github.com/OpenIntelWireless/itlwm/releases).
 
 <details>  
-<summary><strong>Remove unnecessary WIFI firmware files (optional)</strong></summary>
+<summary><strong>Remove unnecessary WIFI firmware files from method 1(optional)</strong></summary>
 </br>
 This steps help you a little speed up boot process (if you use `itlwm` or `AirportItlwm`)
 
@@ -314,7 +314,7 @@ Source issue: [#353](https://github.com/OpenIntelWireless/itlwm/issues/353#issue
 
 </details>
 <details>  
-<summary><strong>Remove unnecessary Bluetooth firmware files (optional)</strong></summary>
+<summary><strong>Remove unnecessary Bluetooth firmware files from method 1 (optional)</strong></summary>
 </br>
 This steps help you a little speed up boot process (if you use <a href="https://github.com/OpenIntelWireless/IntelBluetoothFirmware">IntelBluetoothFirmware</a> kexts)
 
@@ -378,7 +378,48 @@ Thanks [@racka98](https://github.com/racka98) for the idea.
 </details>
 
 </details>
+<details>  
+<summary><strong>Enable Intel WLAN (optional) method 2</strong></summary>
+</br>
 
+1. Open `/EFI/OC/Config.plist` with any editor 
+2. Go under `Kernel -> Add`
+3. change `AirportItlwm.kext` to `AirPortOpenBSD.kext`
+4. change `Contents/MacOS/AirportItlwm` to `Contents/MacOS/AirPortOpenBSD`
+```diff
+<key>Kernel</key>
+<dict>
+   <key>Add</key>
+   <array>
+      </dict>
+         <key>Arch</key>
+         <string>x86_64</string>
+         <key>BundlePath</key>
+-        <string>AirportItlwm.kext</string>
++	 <string>AirPortOpenBSD.kext</string>
+         <key>Comment</key>
+         <string>Intel WiFi driver</string>
+         <key>Enabled</key>
+-        <false/>
++        <true/>
+         <key>ExecutablePath</key>
+-        <string>Contents/MacOS/AirportItlwm</string>
++	 <string>Contents/MacOS/AirPortOpenBSD</string>
+         <key>MaxKernel</key>
+         <string></string>
+         <key>MinKernel</key>
+         <string></string>
+         <key>PlistPath</key>
+         <string>Contents/Info.plist</string>
+      </dict>
+
+   </array>
+</dict>
+```
+5. Save and reboot the system
+
+Note: The driver provided in this repo is for Big Sur only; if you're running a different version of macOS please use the corresponding [AirPortOpenBSD.kext](https://github.com/a565109863/AirPortOpenBSD/releases/).
+</details>  
 <details>  
 <summary><strong>Enable non-natively supported Broadcom WLAN cards (optional)</strong></summary>
 </br>
@@ -746,7 +787,7 @@ A [Brief guide](/Guides/Bios-Mod.md).
 - [x] iMessage, FaceTime, App Store, iTunes Store `Please generate your own SMBIOS`
 - [x] Speakers and headphones combo jack 
 - [x] Batteries
-- [x] Keyboard map and hotkeys with [YogaSMC](https://github.com/MSzturc/ThinkpadAssistant)
+- [x] Keyboard map and hotkeys with [YogaSMC](https://github.com/zhen-zen/YogaSMC)
 - [x] [Trackpad, Trackpoint and physical buttons](/Images/VoodooRMI-T460s-trackpad-gestures.gif) `all macOS gestures working thanks to VoodooRMI`
 - [x] SIP and FileVault 2 can be turned on
 - [x] HDMI `with digital audio passthrough`
@@ -786,6 +827,7 @@ A [Brief guide](/Guides/Bios-Mod.md).
 | [CPUFriend](https://github.com/acidanthera/CPUFriend/releases)                                 | 1.2.3 |
 | [NVMeFix](https://github.com/acidanthera/NVMeFix/releases)                                     | 1.0.4 |
 | [RTCMemoryFixup](https://github.com/acidanthera/RTCMemoryFixup/releases)                       | 1.0.7 |
+| [AirPortOpenBSD](https://github.com/a565109863/AirPortOpenBSD/releases/)                       | 2.0.6 |
 | [AirportItlwm](https://github.com/OpenIntelWireless/itlwm/releases)                            | 1.2.0 |
 | [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/releases) | 1.1.2 |
 | [AppleBacklightSmoother](https://github.com/hieplpvip/AppleBacklightSmoother/releases)         | 1.0.2 |
