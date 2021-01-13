@@ -1,5 +1,5 @@
 <details>  
-<summary><strong>Remove unnecessary WiFi firmware files from method 1(optional)</strong></summary>
+<summary><strong>Remove unnecessary WiFi firmware files</strong></summary>
 
 </br>
 This steps help you to speed-up a little the boot process (if you use `itlwm` or `AirportItlwm`)
@@ -75,7 +75,7 @@ Source issue: [#353](https://github.com/OpenIntelWireless/itlwm/issues/353#issue
 </details>
 
 <details>  
-<summary><strong>Remove unnecessary Bluetooth firmware files from method 1 (optional)</strong></summary>
+<summary><strong>Remove unnecessary Bluetooth firmware files</strong></summary>
 
 </br>
 This steps help you to speed-up a little the boot process (if you use [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware) kexts)
