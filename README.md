@@ -165,6 +165,7 @@ git clone https://github.com/corpnewt/GenSMBIOS && cd GenSMBIOS && chmod +x GenS
 
 <details>  
 <summary><strong>Enable Intel WLAN & BLUETOOTH (optional) method 1</strong></summary>
+
 </br>
 
 1. Open `/EFI/OC/Config.plist` with any editor 
@@ -240,6 +241,7 @@ Note: The driver provided in this repo is for Big Sur only; if you're running a 
 
 <details>  
 <summary><strong>Remove unnecessary WIFI firmware files from method 1(optional)</strong></summary>
+
 </br>
 This steps help you a little speed up boot process (if you use `itlwm` or `AirportItlwm`)
 
@@ -311,10 +313,11 @@ DON'T USE BOTH `itlwm` and `airportitlwm` IN THE SAME TIME.
 Thanks: [@racka98](https://github.com/racka98)
 Source issue: [#353](https://github.com/OpenIntelWireless/itlwm/issues/353#issuecomment-727190996)
 
-
 </details>
+
 <details>  
 <summary><strong>Remove unnecessary Bluetooth firmware files from method 1 (optional)</strong></summary>
+
 </br>
 This steps help you a little speed up boot process (if you use <a href="https://github.com/OpenIntelWireless/IntelBluetoothFirmware">IntelBluetoothFirmware</a> kexts)
 
@@ -378,7 +381,10 @@ Thanks [@racka98](https://github.com/racka98) for the idea.
 </details>
 
 </details>
-<details>  
+
+</details>
+
+<details>
 <summary><strong>Enable Intel WLAN (optional) method 2</strong></summary>
 </br>
 
@@ -396,7 +402,7 @@ Thanks [@racka98](https://github.com/racka98) for the idea.
          <string>x86_64</string>
          <key>BundlePath</key>
 -        <string>AirportItlwm.kext</string>
-+	 <string>AirPortOpenBSD.kext</string>
++	       <string>AirPortOpenBSD.kext</string>
          <key>Comment</key>
          <string>Intel WiFi driver</string>
          <key>Enabled</key>
@@ -404,7 +410,7 @@ Thanks [@racka98](https://github.com/racka98) for the idea.
 +        <true/>
          <key>ExecutablePath</key>
 -        <string>Contents/MacOS/AirportItlwm</string>
-+	 <string>Contents/MacOS/AirPortOpenBSD</string>
++	       <string>Contents/MacOS/AirPortOpenBSD</string>
          <key>MaxKernel</key>
          <string></string>
          <key>MinKernel</key>
@@ -419,8 +425,10 @@ Thanks [@racka98](https://github.com/racka98) for the idea.
 5. Save and reboot the system
 
 Note: The driver provided in this repo is for Big Sur only; if you're running a different version of macOS please use the corresponding [AirPortOpenBSD.kext](https://github.com/a565109863/AirPortOpenBSD/releases/).
-</details>  
-<details>  
+
+</details>
+
+<details>
 <summary><strong>Enable non-natively supported Broadcom WLAN cards (optional)</strong></summary>
 </br>
 
