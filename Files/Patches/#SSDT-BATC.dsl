@@ -1,40 +1,19 @@
-// An SSDT to combine two batteries into one as BATC
-// initial work/testing by ag6952563 (with assistance by RehabMan)
-// finalize into generic SSDT by RehabMan
-// some code cleanup/optimization/and bug fixing by RehabMan
-//
-// OS X support for multiple batteries is a bit buggy.
-// This SSDT can be used to combine two batteries into one,
-// avoiding the bugs. It may need modification depending on
-// the ACPI path of your existing battery objects.
-
-// To use this SSDT,
-// The Notify of both BAT0 or BAT1 objects must be redirected to BATC.
-// These Notify is used to tell the system when a battery is removed or added.
-//
-// To Notify BATC, SSDT-NTFY.aml is required with accompanied binary patches.
-//
-// Also, ACPIBatteryManager.kext v1.70.0 or greater or SMCBatteryManager.kext
-// must be used. If the Notify code is not patched, or the latest kext is not used,
-// detection of battery removal/adding will not work correctly.
-
-
-DefinitionBlock ("", "SSDT", 2, "T460", "BATC", 0)
+// ThinkPad-LPC
+DefinitionBlock ("", "SSDT", 2, "T460s", "BATC", 0)
 {
-    External (\_SB.PCI0.LPC.EC, DeviceObj)
-    External (\_SB.PCI0.LPC.EC.BAT0, DeviceObj)
-    External (\_SB.PCI0.LPC.EC.BAT0._BIF, MethodObj)    // 0 Arguments
-    External (\_SB.PCI0.LPC.EC.BAT0._BST, MethodObj)    // 0 Arguments
-    External (\_SB.PCI0.LPC.EC.BAT0._HID, IntObj)
-    External (\_SB.PCI0.LPC.EC.BAT0._STA, MethodObj)    // 0 Arguments
-    External (\_SB.PCI0.LPC.EC.BAT1, DeviceObj)
-    External (\_SB.PCI0.LPC.EC.BAT1._BIF, MethodObj)    // 0 Arguments
-    External (\_SB.PCI0.LPC.EC.BAT1._BST, MethodObj)    // 0 Arguments
-    External (\_SB.PCI0.LPC.EC.BAT1._HID, IntObj)
-    External (\_SB.PCI0.LPC.EC.BAT1._STA, MethodObj)    // 0 Arguments
-
-    Scope (\_SB.PCI0.LPC.EC)
+    External(\_SB.PCI0.LPC.EC, DeviceObj)
+    
+    Scope(\_SB.PCI0.LPC.EC)
     {
+        External(BAT0._HID, IntObj)
+        External(BAT0._STA, MethodObj)
+        External(BAT0._BIF, MethodObj)
+        External(BAT0._BST, MethodObj)
+        External(BAT1, DeviceObj)
+        External(BAT1._HID, IntObj)
+        External(BAT1._STA, MethodObj)
+        External(BAT1._BIF, MethodObj)
+        External(BAT1._BST, MethodObj)
         Device(BATC)
         {
             Name(_HID, EisaId ("PNP0C0A"))
@@ -65,7 +44,15 @@ DefinitionBlock ("", "SSDT", 2, "T460", "BATC", 0)
             {
                 // call original _STA for BAT0 and BAT1
                 // result is bitwise OR between them
-                Return(^^BAT0._STA() | ^^BAT1._STA())
+                
+                If (_OSI ("Darwin"))
+                {
+                    Return(^^BAT0._STA() | ^^BAT1._STA())
+                }
+                Else
+                {
+                    Return (0)
+                }   
             }
 
             Name(B0CO, 0x00) // BAT0 0/1 needs conversion to mAh
@@ -219,7 +206,8 @@ DefinitionBlock ("", "SSDT", 2, "T460", "BATC", 0)
                     // _BIF 7+ - Leave BAT0 values for now
                 }
                 Return(Local0)
-            }   // END of _BIF on BATC
-        }   // END of BATC Device
-    }   // END of Scope \_SB.PCI0.LPC.EC
+            } // _BIF
+        } // BATC
+    } // Scope(...)
 }
+// EOF

@@ -1,58 +1,59 @@
+// SSDT for Notify BAT0 and BAT1 to BATC
+// ACPI binary patches required to function
 //
-// For ACPI Patch:
-// _Q22 to XQ22:
-// Find:    5f51 3232
-// Replace: 5851 3232
+// Change _Q22 to XQ22:
+// Find:    X1EyMg==	Replace: WFEyMg==
 //
-// _Q24 to XQ24:
-// Find:    5f51 3234
-// Replace: 5851 3234
+// Change _Q24 to XQ24:
+// Find:    X1EyNA==	Replace: WFEyNA==
 //
-// _Q25 to XQ25:
-// Find:    5f51 3235
-// Replace: 5851 3235
+// Change _Q25 to XQ25:
+// Find:    X1EyNQ==	Replace: WFEyNQ==
 //
-// _Q4A to XQ4A:
-// Find:    5f51 3441
-// Replace: 5851 3441
+// Change _Q4A to XQ4A:
+// Find:    X1E0QQ==	Replace: WFE0QQ==
 //
-// _Q4B to XQ4B:
-// Find:    5f51 3442
-// Replace: 5851 3442
+// Change _Q4B to XQ4B:
+// Find:    X1E0Qg==	Replace: WFE0Qg==
 //
-// _Q4D to XQ4D:
-// Find:    5f51 3444
-// Replace: 5851 3444
+// Change _Q4C to XQ4C:
+// Find:    X1E0Qw==	Replace: WFE0Qw==
 //
-// BATW to XATW:
-// Find:    4241 545701
-// Replace: 5841 545701
+// Change _Q4D to XQ4D:
+// Find:    X1E0RA==	Replace: WFE0RA==
 //
-DefinitionBlock ("", "SSDT", 2, "T460s", "NTFY", 0)
+// Change BATW to WBAT:
+// Find:    TwdCQVRXAQ==	Replace: TwdXQkFUAQ==
+
+DefinitionBlock ("", "SSDT", 2, "T460", "NTFY", 0)
 {
+	// Common definitions
     External (\_SB.PCI0.LPC.EC, DeviceObj)
+    External (\_SB.PCI0.LPC.EC.BAT1, DeviceObj)
     External (\_SB.PCI0.LPC.EC.BATC, DeviceObj)
-    //
-    External (\_SB.PCI0.LPC.EC.BAT1.XB1S, IntObj)
-    External (\_SB.PCI0.LPC.EC.BAT1.B1ST, IntObj)
-    External (\_SB.PCI0.LPC.EC.BAT1.SBLI, IntObj)
-    //
-    External (\_SB.PCI0.LPC.EC.CLPM, MethodObj)
-    External (\_SB.PCI0.LPC.EC.HKEY.MHKQ, MethodObj)
-    //
-    External (\BT2T, FieldUnitObj)
-    External (\_SB.PCI0.LPC.EC.SLUL, FieldUnitObj)
     External (\_SB.PCI0.LPC.EC.HB0A, FieldUnitObj)
     External (\_SB.PCI0.LPC.EC.HB1A, FieldUnitObj)
-    //
+    External (\_SB.PCI0.LPC.EC.CLPM, MethodObj)     // 0 Argugements
+    External (\_SB.PCI0.LPC.EC.HKEY.MHKQ, MethodObj)    // 1 Arguments
+
+    // BAT1 definitions
+    External (\BT2T, FieldUnitObj)
+    External (\_SB.PCI0.LPC.EC.SLUL, FieldUnitObj)
+    External (\_SB.PCI0.LPC.EC.BAT1.B1ST, IntObj)
+    External (\_SB.PCI0.LPC.EC.BAT1.SBLI, IntObj)
+    External (\_SB.PCI0.LPC.EC.BAT1.XB1S, IntObj)
+    External (\_SB.PCI0.LPC.EC.BAT0.B0ST, IntObj)
+
+    // Notify BAT0 and BAT1 to BATC
     External (\_SB.PCI0.LPC.EC.XQ22, MethodObj)
-    External (\_SB.PCI0.LPC.EC.XQ24, MethodObj)
-    External (\_SB.PCI0.LPC.EC.XQ25, MethodObj)
     External (\_SB.PCI0.LPC.EC.XQ4A, MethodObj)
     External (\_SB.PCI0.LPC.EC.XQ4B, MethodObj)
-    External (\_SB.PCI0.LPC.EC.XQ4C, MethodObj)
+    External (\_SB.PCI0.LPC.EC.BAT1.XQ4C, MethodObj)
+    External (\_SB.PCI0.LPC.EC.XQ24, MethodObj)
+
     External (\_SB.PCI0.LPC.EC.XQ4D, MethodObj)
-    External (\_SB.PCI0.LPC.EC.XATW, MethodObj)
+    External (\_SB.PCI0.LPC.EC.XQ25, MethodObj)
+    External (\_SB.PCI0.LPC.EC.WBAT, MethodObj)
 
     Scope (\_SB.PCI0.LPC.EC)
     {
@@ -76,7 +77,33 @@ DefinitionBlock ("", "SSDT", 2, "T460s", "NTFY", 0)
                 \_SB.PCI0.LPC.EC.XQ22 ()
             }
         }
-        
+
+        Method (_Q4A, 0, NotSerialized)  // _Qxx: EC Query, xx=0x00-0xFF
+        {
+            If (_OSI ("Darwin"))
+            {
+                CLPM ()
+                Notify (BATC, 0x81) // Information Change
+            }
+            Else
+            {
+                \_SB.PCI0.LPC.EC.XQ4A ()
+            }
+        }
+
+        Method (_Q4B, 0, NotSerialized)  // _Qxx: EC Query, xx=0x00-0xFF
+        {
+            If (_OSI ("Darwin"))
+            {
+                CLPM ()
+                Notify (BATC, 0x80) // Status Change
+            }
+            Else
+            {
+                \_SB.PCI0.LPC.EC.XQ4B ()
+            }
+        }
+
         Method (_Q24, 0, NotSerialized)  // _Qxx: EC Query, xx=0x00-0xFF
         {
             If (_OSI ("Darwin"))
@@ -89,7 +116,41 @@ DefinitionBlock ("", "SSDT", 2, "T460s", "NTFY", 0)
                 \_SB.PCI0.LPC.EC.XQ24 ()
             }
         }
-            
+
+        Method (_Q4D, 0, NotSerialized)  // _Qxx: EC Query, xx=0x00-0xFF
+        {
+            If (_OSI ("Darwin"))
+            {
+                CLPM ()
+                If (\BT2T)
+                {
+                    If ((^BAT1.SBLI == One))
+                    {
+                        Sleep (0x0A)
+                        If ((HB1A && (SLUL == Zero)))
+                        {
+                            ^BAT1.XB1S = One
+                            Notify (\_SB.PCI0.LPC.EC.BATC, One) // Device Check
+                        }
+                    }
+                    ElseIf ((SLUL == One))
+                    {
+                        ^BAT1.XB1S = Zero
+                        Notify (\_SB.PCI0.LPC.EC.BATC, 0x03) // Eject Request
+                    }
+                }
+
+                If ((^BAT1.B1ST & ^BAT1.XB1S))
+                {
+                    Notify (BATC, 0x80) // Status Change
+                }
+            }
+            Else
+            {
+                \_SB.PCI0.LPC.EC.XQ4D ()
+            }
+        }
+
         Method (_Q25, 0, NotSerialized)  // _Qxx: EC Query, xx=0x00-0xFF
         {
             If (_OSI ("Darwin"))
@@ -105,67 +166,7 @@ DefinitionBlock ("", "SSDT", 2, "T460s", "NTFY", 0)
                 \_SB.PCI0.LPC.EC.XQ25 ()
             }
         }
-        
-        Method (_Q4A, 0, NotSerialized)  // _Qxx: EC Query, xx=0x00-0xFF
-        {
-            If (_OSI ("Darwin"))
-            {
-                CLPM ()
-                Notify (BATC, 0x81) // Information Change
-            }
-            Else
-            {
-                \_SB.PCI0.LPC.EC.XQ4A ()
-            }
-        }
-        
-        Method (_Q4B, 0, NotSerialized)  // _Qxx: EC Query, xx=0x00-0xFF
-        {
-            If (_OSI ("Darwin"))
-            {
-                CLPM ()
-                Notify (BATC, 0x80) // Status Change
-            }
-            Else
-            {
-                \_SB.PCI0.LPC.EC.XQ4B ()
-            }
-        }
-        
-        Method (_Q4D, 0, NotSerialized)  // _Qxx: EC Query, xx=0x00-0xFF
-        {
-            If (_OSI ("Darwin"))
-            {
-                CLPM ()
-                If (\BT2T)
-                {
-                    If ((^BAT1.SBLI == 0x01))
-                    {
-                        Sleep (0x0A)
-                        If ((HB1A && (SLUL == 0x00)))
-                        {
-                            ^BAT1.XB1S = 0x01
-                            Notify (\_SB.PCI0.LPC.EC.BATC, 0x01) // Device Check
-                        }
-                    }
-                    ElseIf ((SLUL == 0x01))
-                    {
-                        ^BAT1.XB1S = 0x00
-                        Notify (\_SB.PCI0.LPC.EC.BATC, 0x03) // Eject Request
-                    }
-                }
 
-                If ((^BAT1.B1ST & ^BAT1.XB1S))
-                {
-                    Notify (BATC, 0x80) // Status Change
-                }
-            }
-            Else
-            {
-                \_SB.PCI0.LPC.EC.XQ4D ()
-            }
-        }
-        
         Method (BATW, 1, NotSerialized)
         {
             If (_OSI ("Darwin"))
@@ -175,23 +176,51 @@ DefinitionBlock ("", "SSDT", 2, "T460s", "NTFY", 0)
                     Local0 = \_SB.PCI0.LPC.EC.BAT1.XB1S
                     If ((HB1A && !SLUL))
                     {
-                        Local1 = 0x01
+                        Local1 = One
                     }
                     Else
                     {
-                        Local1 = 0x00
+                        Local1 = Zero
                     }
 
                     If ((Local0 ^ Local1))
                     {
                         \_SB.PCI0.LPC.EC.BAT1.XB1S = Local1
-                        Notify (\_SB.PCI0.LPC.EC.BATC, 0x01) // Device Check
+                        Notify (\_SB.PCI0.LPC.EC.BATC, One) // Device Check
                     }
                 }
             }
             Else
             {
-                \_SB.PCI0.LPC.EC.XATW (Arg0)
+                \_SB.PCI0.LPC.EC.WBAT (Arg0)
+            }
+        }
+    }
+
+    Scope (\_SB.PCI0.LPC.EC.BAT1)
+    {
+        Method (_Q4C, 0, NotSerialized)  // _Qxx: EC Query, xx=0x00-0xFF
+        {
+
+            \_SB.PCI0.LPC.EC.CLPM ()
+            If (\_SB.PCI0.LPC.EC.HB1A)
+            {
+                \_SB.PCI0.LPC.EC.HKEY.MHKQ (0x4010)
+            }
+            Else
+            {
+                \_SB.PCI0.LPC.EC.HKEY.MHKQ (0x4011)
+                If (\_SB.PCI0.LPC.EC.BAT1.XB1S)
+                {
+                    If (_OSI ("Darwin"))
+                    {
+                        Notify (\_SB.PCI0.LPC.EC.BATC, 0x03) // Eject Request
+                    }
+                    Else
+                    {
+                        Notify (\_SB.PCI0.LPC.EC.BAT1, 0x03)
+                    }
+                }
             }
         }
     }
