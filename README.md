@@ -1,6 +1,6 @@
 # ThinkPad T460s running macOS (OpenCore bootloader)
 
-<img align="right" src="https://imgur.com/sI2Uzel.jpg" alt="Lenovo Thinkpad T460s macOS Hackintosh OpenCore" width="300">
+<img align="right" src="/Images/t460s-big-sur.png" alt="Lenovo Thinkpad T460s macOS Hackintosh OpenCore" width="300">
 
 [![macOS](https://img.shields.io/badge/macOS-11.1-blue)](https://developer.apple.com/documentation/macos-release-notes)
 [![OpenCore](https://img.shields.io/badge/OpenCore-0.6.5-green)](https://github.com/acidanthera/OpenCorePkg)
@@ -420,6 +420,13 @@ A [brief guide referencing other guides](/Guides/Bios-Mod.md).
 | BruceX Test 5K |             | 104''      |
 
 <small>macOS 10.15.7, EFI release 0.6.2</small>
+
+| CPU            | Single-Core | Multi-Core |
+|:---------------|------------:|-----------:|
+| Cinebench r23  |             | 2175       |
+
+<small>macOS 11.1, EFI release 0.6.5</small>
+
 </details>
 
 ## Thanks to
