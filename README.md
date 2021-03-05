@@ -3,7 +3,7 @@
 <img align="right" src="/Images/t460s-big-sur.png" alt="Lenovo Thinkpad T460s macOS Hackintosh OpenCore" width="300">
 
 [![macOS](https://img.shields.io/badge/macOS-11.1-blue)](https://developer.apple.com/documentation/macos-release-notes)
-[![OpenCore](https://img.shields.io/badge/OpenCore-0.6.6-green)](https://github.com/acidanthera/OpenCorePkg)
+[![OpenCore](https://img.shields.io/badge/OpenCore-0.6.7-green)](https://github.com/acidanthera/OpenCorePkg)
 [![Model](https://img.shields.io/badge/Model-20F9*-lightgrey)](https://psref.lenovo.com/Product/ThinkPad_T460s)
 [![BIOS](https://img.shields.io/badge/BIOS-1.49-lightgrey)](https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/thinkpad-t-series-laptops/thinkpad-t460s/downloads/driver-list/component?name=BIOS%2FUEFI)
 [![License](https://img.shields.io/badge/license-MIT-purple)](/LICENSE)
@@ -373,21 +373,21 @@ A [brief guide referencing other guides](/Guides/Bios-Mod.md).
 | [EFI Release](https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore/releases)       | 0.6.5 |
 |:-----------------------------------------------------------------------------------------------|:------|
 | [MacOS](https://www.apple.com/macos/)                                                          | 11.1  |
-| [OpenCore](https://github.com/acidanthera/OpenCorePkg/releases)                                | 0.6.5 |
+| [OpenCore](https://github.com/acidanthera/OpenCorePkg/releases)                                | 0.6.7 |
 | [Lilu](https://github.com/acidanthera/Lilu/releases)                                           | 1.5.1 |
-| [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases)                               | 1.2.0 |
-| [YogaSMC](https://github.com/zhen-zen/YogaSMC/releases)                                        | 1.4.1 |
-| [WhateverGreen](https://github.com/acidanthera/WhateverGreen/releases)                         | 1.4.7 |
-| [AppleALC](https://github.com/acidanthera/AppleALC/releases)                                   | 1.5.7 |
-| [VoodooPS2Controller](https://github.com/acidanthera/VoodooPS2/releases)                       | 2.2.1 |
-| [VoodooRMI](https://github.com/VoodooSMBus/VoodooRMI/releases)                                 | 1.3.1 |
+| [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases)                               | 1.2.1 |
+| [YogaSMC](https://github.com/zhen-zen/YogaSMC/releases)                                        | 1.4.3 |
+| [WhateverGreen](https://github.com/acidanthera/WhateverGreen/releases)                         | 1.4.8 |
+| [AppleALC](https://github.com/acidanthera/AppleALC/releases)                                   | 1.5.8 |
+| [VoodooPS2Controller](https://github.com/acidanthera/VoodooPS2/releases)                       | 2.2.2 |
+| [VoodooRMI](https://github.com/VoodooSMBus/VoodooRMI/releases)                                 | 1.3.2 |
 | [IntelMausi](https://github.com/acidanthera/IntelMausi/releases)                               | 1.0.5 |
 | [HibernationFixup](https://github.com/acidanthera/HibernationFixup/releases)                   | 1.3.9 |
 | [CPUFriend](https://github.com/acidanthera/CPUFriend/releases)                                 | 1.2.3 |
 | [NVMeFix](https://github.com/acidanthera/NVMeFix/releases)                                     | 1.0.4 |
 | [RTCMemoryFixup](https://github.com/acidanthera/RTCMemoryFixup/releases)                       | 1.0.7 |
 | [AirPortOpenBSD](https://github.com/a565109863/AirPortOpenBSD/releases/)                       | 2.0.6 |
-| [AirportItlwm](https://github.com/OpenIntelWireless/itlwm/releases)                            | 1.2.0 |
+| [AirportItlwm](https://github.com/OpenIntelWireless/itlwm/releases)                            | 1.3.0 |
 | [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/releases) | 1.1.2 |
 | [AppleBacklightSmoother](https://github.com/hieplpvip/AppleBacklightSmoother/releases)         | 1.0.2 |
 | [BrightnessKeys](https://github.com/acidanthera/BrightnessKeys/releases)                       | 1.0.1 |
