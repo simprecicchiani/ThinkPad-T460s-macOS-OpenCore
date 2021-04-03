@@ -8,6 +8,7 @@
 [![BIOS](https://img.shields.io/badge/BIOS-1.49-lightgrey)](https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/thinkpad-t-series-laptops/thinkpad-t460s/downloads/driver-list/component?name=BIOS%2FUEFI)
 [![License](https://img.shields.io/badge/license-MIT-purple)](/LICENSE)
 
+## [Looking for new maintainers](https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore/discussions/104)  
 **DISCLAIMER:**
 Read the entire README before you start.
 I am not responsible for any damages you may cause.  
