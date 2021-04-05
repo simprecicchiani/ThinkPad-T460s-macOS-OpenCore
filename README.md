@@ -299,6 +299,32 @@ NotebookCheck's calibrated profiles. Not all panel are the same, final result ma
 
 </details>
 
+<details>
+<summary><strong>Add Apple Watch authentication to sudo</strong></summary>
+</br>
+
+If you have an Apple Watch and you already [replaced the build in WiFi card](/Guides/Replace-WLAN.md), you could enable authenticating as sudo with you Apple Watch using [pam-watch](https://github.com/biscuitehh/pam-watchid)
+
+1. Download the latest [ZIP file](https://github.com/biscuitehh/pam-watchid/archive/main.zip)
+2. Unzip, which by default creates a folder called pam-watchid-main
+3. Open Terminal and install it:
+
+   - `$ cd ~/Downloads/pam-watchid-main`
+   - `sudo make install`
+
+4. Regsiter the new PAM module for sudo:
+
+   - Edit /etc/pam.d/sudo
+   - Add a new line under line 1 (which is a comment) containing:
+     ```bash
+     auth sufficient pam_watchid.so
+     ```
+
+That’s it. Now, whenever you use sudo, you have the option of using your Watch to authenticate.
+<img src="/Images/AW-sudo.png" alt="Apple Watch authenticating with sudo" height="300">
+
+   </details>
+
 <details>  
 <summary><strong>Monitor temperatures and power consumption</strong></summary>
 </br>
