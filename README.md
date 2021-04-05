@@ -2,13 +2,12 @@
 
 <img align="right" src="/Images/t460s-big-sur.png" alt="Lenovo Thinkpad T460s macOS Hackintosh OpenCore" width="300">
 
-[![macOS](https://img.shields.io/badge/macOS-11.1-blue)](https://developer.apple.com/documentation/macos-release-notes)
-[![OpenCore](https://img.shields.io/badge/OpenCore-0.6.7-green)](https://github.com/acidanthera/OpenCorePkg)
+[![macOS](https://img.shields.io/badge/macOS-11.2.3-blue)](https://developer.apple.com/documentation/macos-release-notes)
+[![OpenCore](https://img.shields.io/badge/OpenCore-0.6.8-green)](https://github.com/acidanthera/OpenCorePkg)
 [![Model](https://img.shields.io/badge/Model-20F9*-lightgrey)](https://psref.lenovo.com/Product/ThinkPad_T460s)
-[![BIOS](https://img.shields.io/badge/BIOS-1.49-lightgrey)](https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/thinkpad-t-series-laptops/thinkpad-t460s/downloads/driver-list/component?name=BIOS%2FUEFI)
+[![BIOS](https://img.shields.io/badge/BIOS-1.49-yellow)](https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/thinkpad-t-series-laptops/thinkpad-t460s/downloads/driver-list/component?name=BIOS%2FUEFI)
 [![License](https://img.shields.io/badge/license-MIT-purple)](/LICENSE)
 
-## [Looking for new maintainers](https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore/discussions/104)  
 **DISCLAIMER:**
 Read the entire README before you start.
 I am not responsible for any damages you may cause.  
@@ -16,7 +15,7 @@ Should you find an error or improve anything — whether in the config or in the
 If you find my work useful, please consider donating via PayPal.
 It would mean a lot to me.
 
-[![donate](https://img.shields.io/badge/-buy%20me%20a%20coffee-orange)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Y5BE5HYACDERG&source=url)
+[![donate](https://img.shields.io/badge/-buy%20me%20a%20coffee-orange)](https://www.paypal.com/donate/?token=Ad4bdVBA0uHQlfz0SYDXHf0oEQ8h8vcdU23_c9weRE2P9ccVbXrWHiNoxAFuCniQwgfWfdjblCBUudPl&locale.x=US)
 
 ## Introduction
 
@@ -24,15 +23,18 @@ It would mean a lot to me.
 <summary><strong>Getting started 📖</strong></summary>
 </br>
 
-**Meet the bootloader:**  
+**Meet the bootloader:**
+
 - [Why OpenCore](https://dortania.github.io/OpenCore-Install-Guide/why-oc.html)
 - Dortania's [website](https://dortania.github.io)
 
-**Recommended tools:**  
+**Recommended tools:**
+
 - Plist editor [ProperTree](https://github.com/corpnewt/ProperTree)
 - Handy-dandy ESP mounting script [MountEFI](https://github.com/corpnewt/MountEFI)
 
-**Resources**  
+**Resources**
+
 - [OpenCore](https://github.com/acidanthera/OpenCorePkg)
 - [OC-little](https://github.com/daliansky/OC-little)
 - [X1 Carbon config](https://github.com/tylernguyen/x1c6-hackintosh)
@@ -46,19 +48,19 @@ It would mean a lot to me.
 <summary><strong>My Hardware 💻</strong></summary>
 </br>
 
-| Model              | Thinkpad T460s 20F9003AUS                                                                                 |
-|:-------------------|:----------------------------------------------------------------------------------------------------------|
-| Processor          | Core i7-6600U (2C, 2.6 / 3.4GHz, 4MB) vPro                                                                |
-| Graphics           | Integrated Intel HD Graphics 520                                                                          |
-| Memory             | 4GB Soldered + 4GB DIMM 2133MHz DDR4, dual-channel                                                        |
-| Display            | 14" WQHD (2560x1440) IPS, non-touch                                                                       |
-| Storage            | WD Black SN750 500GB NVMe SSD                                                                             |
-| Ethernet           | Intel Ethernet Connection I219-LM (Jacksonville)                                                          |
-| WLAN + Bluetooth   | 11ac+BT, [Broadcom BCM94360CS2](/Guides/Replace-WLAN.md), 2x2 card                                        |
-| Camera             | HD720p resolution, low light sensitive, fixed focus                                                       |
-| Audio support      | HD Audio, Realtek ALC3245 codec, stereo speakers 1Wx2, dual array microphone, combo audio/microphone jack |
-| Keyboard           | 6-row, spill-resistant, multimedia Fn keys, LED backlight                                                 |
-| Battery            | Front Li-Polymer 3-cell (23Wh) and rear Li-Ion 3-cell (26Wh), both Integrated                             |
+| Model            | Thinkpad T460s 20F9003AUS                                                                                 |
+| :--------------- | :-------------------------------------------------------------------------------------------------------- |
+| Processor        | Core i7-6600U (2C, 2.6 / 3.4GHz, 4MB) vPro                                                                |
+| Graphics         | Integrated Intel HD Graphics 520                                                                          |
+| Memory           | 4GB Soldered + 8GB DIMM 2133MHz DDR4, dual-channel                                                        |
+| Display          | 14" Full HD (1920x1080) IPS, non-touch                                                                    |
+| Storage          | Samsung Evo 970 PRO 500GB NVMe SSD                                                                        |
+| Ethernet         | Intel Ethernet Connection I219-LM (Jacksonville)                                                          |
+| WLAN + Bluetooth | 11ac+BT, [Broadcom BCM94360CS2](/Guides/Replace-WLAN.md), 2x2 card                                        |
+| Camera           | HD720p resolution, low light sensitive, fixed focus                                                       |
+| Audio support    | HD Audio, Realtek ALC3245 codec, stereo speakers 1Wx2, dual array microphone, combo audio/microphone jack |
+| Keyboard         | 6-row, spill-resistant, multimedia Fn keys, LED backlight                                                 |
+| Battery          | Front Li-Polymer 3-cell (23Wh) and rear Li-Ion 3-cell (26Wh), both Integrated                             |
 
 </details>
 
@@ -81,12 +83,12 @@ This EFI will suit any T460s regardless of CPU model<sup>[1](#CPU)</sup>, amount
 </br>
 
 1. [Create an installation media](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/#making-the-installer)
-1. Download the [latest EFI folder](https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore/releases) and copy it into the ESP partiton
+1. Download the [latest EFI folder](https://github.com/duszmox/ThinkPad-T460s-macOS-OpenCore/releases) and copy it into the ESP partiton
 1. Change your BIOS settings according to the table below
 1. Boot from the USB installer (press `F12` to choose boot volume) and [start the installation process](https://dortania.github.io/OpenCore-Install-Guide/installation/installation-process.html#booting-the-opencore-usb)
 
 | Menu     |                   |                                 | Setting     |
-|----------|-------------------|---------------------------------|-------------|
+| -------- | ----------------- | ------------------------------- | ----------- |
 | Config   | USB               | UEFI BIOS Support               | `Enable `   |
 |          | Power             | Intel SpeedStep Technology      | `Enable `   |
 |          |                   | CPU Power Management            | `Enable `   |
@@ -110,13 +112,16 @@ This EFI will suit any T460s regardless of CPU model<sup>[1](#CPU)</sup>, amount
 </br>
 
 1. Run the following script in Terminal
+
 ```bash
 git clone https://github.com/corpnewt/GenSMBIOS && cd GenSMBIOS && chmod +x GenSMBIOS.command && ./GenSMBIOS.command
 ```
+
 2. Type `3` to Generate SMBIOS, then press ENTER
 3. Type `MacbookPro13,1 5`, then press ENTER. Leave this Terminal window open.
 4. Open `/EFI/OC/Config.plist` with any editor and navigate to `PlatformInfo -> Generic`
 5. Add the script's last result to `MLB, SystemSerialNumber and SystemUUID`
+
 ```diff
 <key>PlatformInfo</key>
 <dict>
@@ -145,6 +150,7 @@ git clone https://github.com/corpnewt/GenSMBIOS && cd GenSMBIOS && chmod +x GenS
    </array>
 </dict>
 ```
+
 6. Save and reboot the system
 
 </details>
@@ -153,7 +159,7 @@ git clone https://github.com/corpnewt/GenSMBIOS && cd GenSMBIOS && chmod +x GenS
 <summary><strong>How to update the bootloader</strong></summary>
 </br>
 
-1. Download the [latest release](https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore/releases)
+1. Download the [latest release](https://github.com/duszmox/ThinkPad-T460s-macOS-OpenCore/releases)
 1. Copy and Paste your `PlatfromInfo`
 1. Enable optional kexts if needed (NVMEFix, AirportItlwm, etc.)
 1. Test the new bootloader with an USB stick (Set `BootProtect: None` whenever booting with external drives)
@@ -170,13 +176,13 @@ git clone https://github.com/corpnewt/GenSMBIOS && cd GenSMBIOS && chmod +x GenS
 </br>
 Two different drivers are under development for Intel WiFi support: `AirportItlwm.kext` and `AirPortOpenBSD.kext`. Do NOT use them both at the same time.
 
-1. Open `/EFI/OC/Config.plist` with any editor 
+1. Open `/EFI/OC/Config.plist` with any editor
 1. Add the content of [#intel-wlan.plist](/EFI/OC/#intel-wlan.plist)
 1. Save and reboot the system
 
 Note: The drivers provided in this repo are for Big Sur only; if you're running a different version of macOS please use the corresponding [AirportItlwm.kext](https://github.com/OpenIntelWireless/itlwm/releases) or [AirPortOpenBSD.kext](https://github.com/a565109863/AirPortOpenBSD/releases/).
 
-Optional: [Remove unnecessary firmware files from OpenIntelWireless drivers](/Guides/Clean-OpenIntelWireless.md). 
+Optional: [Remove unnecessary firmware files from OpenIntelWireless drivers](/Guides/Clean-OpenIntelWireless.md).
 
 </details>
 
@@ -185,10 +191,11 @@ Optional: [Remove unnecessary firmware files from OpenIntelWireless drivers](/Gu
 </br>
 
 1. Download [AirportBrcmFixup](https://github.com/acidanthera/AirportBrcmFixup/releases) and
-[BrcmPatchRAM](https://github.com/acidanthera/BrcmPatchRAM/releases).
+   [BrcmPatchRAM](https://github.com/acidanthera/BrcmPatchRAM/releases).
 1. Copy AirportBrcmFixup.kext, BrcmBluetoothInjector.kext, BrcmFirmwareData.kext and BrcmPatchRAM3.kext to `/EFI/OC/Kexts`
-1. Open `/EFI/OC/Config.plist` with any editor 
-1. Add the content of [#broadcom-wlan.plist](/EFI/OC/#broadcom-wlan.plist)
+1. Open `/EFI/OC/Config.plist` with any editor
+1. Add the content of [#broadcom-wlan.plist](/EFI/OC/#broadcom-wlan.plist
+
 1. Save and reboot the system
 
 </details>
@@ -197,7 +204,7 @@ Optional: [Remove unnecessary firmware files from OpenIntelWireless drivers](/Gu
 <summary><strong>Fix NVMe power management</strong></summary>
 </br>
 
-1. Open `/EFI/OC/Config.plist` with any editor 
+1. Open `/EFI/OC/Config.plist` with any editor
 1. Add the content of [#nvme-fix.plist](/EFI/OC/#nvme-fix.plist)
 1. Save and reboot the system
 
@@ -207,13 +214,15 @@ Optional: [Remove unnecessary firmware files from OpenIntelWireless drivers](/Gu
 <summary><strong>Custom CPU Power Management</strong></summary>
 </br>
 
-1. Run the following script in Terminal  
+1. Run the following script in Terminal
+
 ```bash
 git clone https://github.com/fewtarius/CPUFriendFriend; cd CPUFriendFriend; chmod +x ./CPUFriendFriend.command; ./CPUFriendFriend.command
 ```
+
 1. When asked, select preferred values
 1. From the pop-up window, copy `ssdt_data.aml` into `/EFI/OC/ACPI/` folder (rename it if you'd like)
-1. Open `/EFI/OC/Config.plist` with any editor 
+1. Open `/EFI/OC/Config.plist` with any editor
 1. Add the content of [#cpu-pm.plist](/EFI/OC/#cpu-pm.plist) (make sure SSDT-PLUG.aml is disabled and match your new SSDT filename)
 1. Save and reboot the system
 
@@ -234,7 +243,7 @@ I've never had one so there's a chance something might not be working. [USB mapp
 </br>
 
 1. [Disable SIP](https://dortania.github.io/OpenCore-Install-Guide/troubleshooting/troubleshooting.html#disabling-sip)
-1. Run the following script in Terminal  
+1. Run the following script in Terminal
    ```bash
    bash -c "$(curl -fsSL https://raw.githubusercontent.com/xzhih/one-key-hidpi/master/hidpi.sh)"
    ```
@@ -262,7 +271,7 @@ I've never had one so there's a chance something might not be working. [USB mapp
 Super useful shortcut that I wish I had it on my previous MBP. Default is `⌘⇧5`.
 
 1. Open SystemPreferences.app
-1. Go under `Keyboard > Shortcuts > Screenshots` 
+1. Go under `Keyboard > Shortcuts > Screenshots`
 1. Click on `Screenshot and recording options` field
 1. Press `PrtSc` on your keyboard (it should came out as `F13`)
 
@@ -274,15 +283,15 @@ Super useful shortcut that I wish I had it on my previous MBP. Default is `⌘�
 
 NotebookCheck's calibrated profiles. Not all panel are the same, final result may vary.
 
-1. Run one of the following script in Terminal  
-    - for 1440p displays
-        ```bash
-        cd ~/Library/ColorSync/Profiles; wget https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore/raw/master/Files/DisplayColorProfiles/T460s_WQHD_VVX14T058J02.icm
-        ```
+1. Run one of the following script in Terminal
+   - for 1440p displays
+     ```bash
+     cd ~/Library/ColorSync/Profiles; wget https://github.com/duszmox/ThinkPad-T460s-macOS-OpenCore/raw/master/Files/DisplayColorProfiles/T460s_WQHD_VVX14T058J02.icm
+     ```
    - for 1080p displays
-        ```bash
-        cd ~/Library/ColorSync/Profiles; wget https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore/raw/master/Files/DisplayColorProfiles/T460s_FHD_N140HCE_EAA.icm
-        ```
+     ```bash
+     cd ~/Library/ColorSync/Profiles; wget https://github.com/duszmox/ThinkPad-T460s-macOS-OpenCore/raw/master/Files/DisplayColorProfiles/T460s_FHD_N140HCE_EAA.icm
+     ```
 2. Go under `SystemPreferences > Displays > Colour`
 3. Select the profile
 
@@ -297,7 +306,7 @@ NotebookCheck's calibrated profiles. Not all panel are the same, final result ma
 1. Download and install [HWMonitor](https://github.com/kzlekk/HWSensors/releases)
 1. Check `launch on login` (optional)
 
-</details> 
+</details>
 
 <details>  
 <summary><strong>Faster macOS dock animation</strong></summary>
@@ -305,20 +314,20 @@ NotebookCheck's calibrated profiles. Not all panel are the same, final result ma
 
 This enables auto-hide and speeds up the animation
 
-1. Run the following script in Terminal  
+1. Run the following script in Terminal
    ```bash
    defaults write com.apple.dock autohide-delay -float 0; defaults write com.apple.dock autohide-time-modifier -float 0.5; killall Dock
    ```
-</details>
+   </details>
 
 <details>  
 <summary><strong>Speed-up boot process</strong></summary>
 </br>
 
-| Menu |       |            | Setting | What does it do?     |
-|:-----|:------|:-----------|:--------|:---------------------|
-| Misc | Boot  | ShowPicker | `False` | Skip bootloader page |
-| UEFI | Audio | PlayChime  | `False` | Always silent boot   |
+| Menu |       |            | Setting    | What does it do?     |
+| :--- | :---- | :--------- | :--------- | :------------------- |
+| Misc | Boot  | ShowPicker | `False`    | Skip bootloader page |
+| UEFI | Audio | PlayChime  | `Disabled` | Always silent boot   |
 
 </details>
 
@@ -333,6 +342,7 @@ A [brief guide referencing other guides](/Guides/Bios-Mod.md).
 </details>
 
 ## Status
+
 <details>  
 <summary><strong>What's working ✅</strong></summary>
 </br>
@@ -371,28 +381,28 @@ A [brief guide referencing other guides](/Guides/Bios-Mod.md).
 <summary><strong>Update tracker 🔄</strong></summary>
 </br>
 
-| [EFI Release](https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore/releases)       | 0.6.5 |
-|:-----------------------------------------------------------------------------------------------|:------|
-| [MacOS](https://www.apple.com/macos/)                                                          | 11.1  |
-| [OpenCore](https://github.com/acidanthera/OpenCorePkg/releases)                                | 0.6.7 |
-| [Lilu](https://github.com/acidanthera/Lilu/releases)                                           | 1.5.1 |
-| [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases)                               | 1.2.1 |
-| [YogaSMC](https://github.com/zhen-zen/YogaSMC/releases)                                        | 1.4.3 |
-| [WhateverGreen](https://github.com/acidanthera/WhateverGreen/releases)                         | 1.4.8 |
-| [AppleALC](https://github.com/acidanthera/AppleALC/releases)                                   | 1.5.8 |
-| [VoodooPS2Controller](https://github.com/acidanthera/VoodooPS2/releases)                       | 2.2.2 |
-| [VoodooRMI](https://github.com/VoodooSMBus/VoodooRMI/releases)                                 | 1.3.2 |
-| [IntelMausi](https://github.com/acidanthera/IntelMausi/releases)                               | 1.0.5 |
-| [HibernationFixup](https://github.com/acidanthera/HibernationFixup/releases)                   | 1.3.9 |
-| [CPUFriend](https://github.com/acidanthera/CPUFriend/releases)                                 | 1.2.3 |
-| [NVMeFix](https://github.com/acidanthera/NVMeFix/releases)                                     | 1.0.4 |
-| [RTCMemoryFixup](https://github.com/acidanthera/RTCMemoryFixup/releases)                       | 1.0.7 |
-| [AirPortOpenBSD](https://github.com/a565109863/AirPortOpenBSD/releases/)                       | 2.0.6 |
-| [AirportItlwm](https://github.com/OpenIntelWireless/itlwm/releases)                            | 1.3.0 |
-| [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/releases) | 1.1.2 |
-| [AppleBacklightSmoother](https://github.com/hieplpvip/AppleBacklightSmoother/releases)         | 1.0.2 |
-| [BrightnessKeys](https://github.com/acidanthera/BrightnessKeys/releases)                       | 1.0.1 |
-| [Sinetek-rtsx](https://github.com/cholonam/Sinetek-rtsx/releases)                              | 2.2   |
+| [EFI Release](https://github.com/duszmox/ThinkPad-T460s-macOS-OpenCore/releases)               | 0.6.5  |
+| :--------------------------------------------------------------------------------------------- | :----- |
+| [MacOS](https://www.apple.com/macos/)                                                          | 11.2.3 |
+| [OpenCore](https://github.com/acidanthera/OpenCorePkg/releases)                                | 0.6.8  |
+| [Lilu](https://github.com/acidanthera/Lilu/releases)                                           | 1.5.2  |
+| [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases)                               | 1.2.2  |
+| [YogaSMC](https://github.com/zhen-zen/YogaSMC/releases)                                        | 1.4.3  |
+| [WhateverGreen](https://github.com/acidanthera/WhateverGreen/releases)                         | 1.4.9  |
+| [AppleALC](https://github.com/acidanthera/AppleALC/releases)                                   | 1.5.9  |
+| [VoodooPS2Controller](https://github.com/acidanthera/VoodooPS2/releases)                       | 2.2.2  |
+| [VoodooRMI](https://github.com/VoodooSMBus/VoodooRMI/releases)                                 | 1.3.2  |
+| [IntelMausi](https://github.com/acidanthera/IntelMausi/releases)                               | 1.0.5  |
+| [HibernationFixup](https://github.com/acidanthera/HibernationFixup/releases)                   | 1.4.0  |
+| [CPUFriend](https://github.com/acidanthera/CPUFriend/releases)                                 | 1.2.3  |
+| [NVMeFix](https://github.com/acidanthera/NVMeFix/releases)                                     | 1.0.4  |
+| [RTCMemoryFixup](https://github.com/acidanthera/RTCMemoryFixup/releases)                       | 1.0.7  |
+| [AirPortOpenBSD](https://github.com/a565109863/AirPortOpenBSD/releases/)                       | 2.0.6  |
+| [AirportItlwm](https://github.com/OpenIntelWireless/itlwm/releases)                            | 1.3.0  |
+| [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/releases) | 1.1.2  |
+| [AppleBacklightSmoother](https://github.com/hieplpvip/AppleBacklightSmoother/releases)         | 1.0.2  |
+| [BrightnessKeys](https://github.com/acidanthera/BrightnessKeys/releases)                       | 1.0.1  |
+| [Sinetek-rtsx](https://github.com/cholonam/Sinetek-rtsx/releases)                              | 9.0    |
 
 </details>
 
@@ -403,7 +413,7 @@ A [brief guide referencing other guides](/Guides/Bios-Mod.md).
 </br>
 
 | Idle State                | Max Frequency                 | 2 Thread Frequency            | All Thread Frequency          | GPU Max Frequency             |
-|---------------------------|-------------------------------|-------------------------------|-------------------------------|-------------------------------|
+| ------------------------- | ----------------------------- | ----------------------------- | ----------------------------- | ----------------------------- |
 | ![](/Images/ipg-idle.png) | ![](/Images/ipg-max-freq.png) | ![](/Images/ipg-two-freq.png) | ![](/Images/ipg-all-freq.png) | ![](/Images/ipg-gpu-freq.png) |
 
 </details>
@@ -413,18 +423,18 @@ A [brief guide referencing other guides](/Guides/Bios-Mod.md).
 </br>
 
 | CPU            | Single-Core | Multi-Core |
-|:---------------|------------:|-----------:|
-| Cinebench r20  | 348         | 842        |
-| Geekbench 5    | 809         | 1862       |
-| **GPU**        | **OpenCL**  | **Metal**  |
-| Geekbench 5    | 4417        | 4179       |
-| BruceX Test 5K |             | 104''      |
+| :------------- | ----------: | ---------: |
+| Cinebench r20  |         348 |        842 |
+| Geekbench 5    |         809 |       1862 |
+| **GPU**        |  **OpenCL** |  **Metal** |
+| Geekbench 5    |        4417 |       4179 |
+| BruceX Test 5K |             |      104'' |
 
 <small>macOS 10.15.7, EFI release 0.6.2</small>
 
-| CPU            | Single-Core | Multi-Core |
-|:---------------|------------:|-----------:|
-| Cinebench r23  |             | 2175       |
+| CPU           | Single-Core | Multi-Core |
+| :------------ | ----------: | ---------: |
+| Cinebench r23 |             |       2175 |
 
 <small>macOS 11.1, EFI release 0.6.5</small>
 
@@ -432,6 +442,7 @@ A [brief guide referencing other guides](/Guides/Bios-Mod.md).
 
 ## Thanks to
 
-The hackintosh community on GitHub,
+The [original maintainer of this repo](https://github.com/simprecicchiani/Thinkpad-T460s-macOS-OpenCore),
+the hackintosh community on GitHub,
 [InsanelyMac](https://www.insanelymac.com/forum/), and
 [r/hackintosh](https://www.reddit.com/r/hackintosh/).
