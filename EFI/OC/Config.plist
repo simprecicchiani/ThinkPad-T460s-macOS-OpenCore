@@ -453,7 +453,7 @@
 			<key>SyncRuntimePermissions</key>
 			<true/>
 			<key>ForceBooterSignature</key>
-			<true/>
+			<false/>
 		</dict>
 	</dict>
 	<key>DeviceProperties</key>
