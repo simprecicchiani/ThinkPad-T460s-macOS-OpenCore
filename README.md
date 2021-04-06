@@ -49,7 +49,7 @@ It would mean a lot to me.
 <summary><strong>My Hardware 💻</strong></summary>
 </br>
 
-| Model            | Thinkpad T460s 20F9003AUS                                                                                 |
+| Model            | Thinkpad T460s 20FAS2SV00                                                                                 |
 | :--------------- | :-------------------------------------------------------------------------------------------------------- |
 | Processor        | Core i7-6600U (2C, 2.6 / 3.4GHz, 4MB) vPro                                                                |
 | Graphics         | Integrated Intel HD Graphics 520                                                                          |
