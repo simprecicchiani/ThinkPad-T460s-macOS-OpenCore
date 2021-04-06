@@ -38,7 +38,7 @@ It would mean a lot to me.
 
 - [OpenCore](https://github.com/acidanthera/OpenCorePkg)
 - [OC-little](https://github.com/daliansky/OC-little)
-- [X1 Carbon config](https://github.com/tylernguyen/x1c6-hackintosh)
+- [X1 Carbon config](https://github.com/tylernguyen/x1c6-hackintosh) (currently working on X1 Carbon Gen 4 config expecti it in a few weeks)
 - [T460 config](https://github.com/MSzturc/Lenovo-T460-OpenCore)
 
 </details>
@@ -408,7 +408,7 @@ A [brief guide referencing other guides](/Guides/Bios-Mod.md).
 <summary><strong>Update tracker 🔄</strong></summary>
 </br>
 
-| [EFI Release](https://github.com/duszmox/ThinkPad-T460s-macOS-OpenCore/releases)               | 0.6.5  |
+| [EFI Release](https://github.com/duszmox/ThinkPad-T460s-macOS-OpenCore/releases)               | 0.6.8  |
 | :--------------------------------------------------------------------------------------------- | :----- |
 | [MacOS](https://www.apple.com/macos/)                                                          | 11.2.3 |
 | [OpenCore](https://github.com/acidanthera/OpenCorePkg/releases)                                | 0.6.8  |
