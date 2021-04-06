@@ -951,7 +951,7 @@
 				<key>Comment</key>
 				<string>RTC offset fix</string>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/RTCMemoryFixup</string>
 				<key>MaxKernel</key>
@@ -1077,7 +1077,7 @@
 			<key>ConsoleAttributes</key>
 			<integer>0</integer>
 			<key>HibernateMode</key>
-			<string>None</string>
+			<string>NVRAM</string>
 			<key>HideAuxiliary</key>
 			<false/>
 			<key>LauncherOption</key>
@@ -1177,7 +1177,7 @@
 				<key>SystemAudioVolume</key>
 				<data>Rg==</data>
 				<key>boot-args</key>
-				<string>keepsyms=1</string>
+				<string>keepsyms=1 rtcfx_exclude=80-AB</string>
 				<key>run-efi-updater</key>
 				<string>No</string>
 				<key>csr-active-config</key>
