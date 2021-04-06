@@ -397,7 +397,7 @@ A [brief guide referencing other guides](/Guides/Bios-Mod.md).
 </br>
 
 - [ ] Some kexts crash in standby mode, please disable it with `sudo pmset -a standby 0`
-- [ ] Mini DisplayPort seems to be broken with latest updates
+- [ ] Some users reported Mini DisplayPort is broken for them with latest updates, but it's working for me just fine
 - [ ] Safari DRM `Use Chromium engine to watch Apple TV+, Amazon Prime Video, Netflix and others`
 - [ ] WWAN (needs to be implemented)
 - [ ] Fingerprint Reader
