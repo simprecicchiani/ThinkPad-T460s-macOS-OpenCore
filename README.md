@@ -16,7 +16,7 @@ Should you find an error or improve anything — whether in the config or in the
 If you find my work useful, please consider donating via PayPal.
 It would mean a lot to me.
 
-[![donate](https://img.shields.io/badge/-buy%20me%20a%20coffee-orange)](https://www.paypal.com/donate?business=kirigyuszi%40gmail.com&item_name=The+new+maintainer+of+the+T460s+Hackintosh+repository&currency_code=USD)
+[![donate](https://img.shields.io/badge/-buy%20me%20a%20coffee-orange)](https://www.paypal.com/donate?hosted_button_id=FJHJQJUNSBLZY)
 
 ## Introduction
 
