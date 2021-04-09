@@ -9,14 +9,15 @@
 [![License](https://img.shields.io/badge/license-MIT-purple)](/LICENSE)
 
 **DISCLAIMER:**  
-This repo is a fork of [simprecicchiani's T460s Hackintosh repo](https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore). He discontinued his work in April 2021.  
+The original maintainer of this repo sold his laptop, and discontiuned his work, and [duszmox](https://github.com/duszmox) and [mhl221135](https://github.com/mhl221135) countinued this project.
 Read the entire README before you start.
 I am not responsible for any damages you may cause.  
 Should you find an error or improve anything — whether in the config or in the documentation — please consider opening an issue or pull request.  
 If you find my work useful, please consider donating via PayPal.
 It would mean a lot to me.
 
-[![donate](https://img.shields.io/badge/-buy%20me%20a%20coffee-orange)](https://www.paypal.com/donate?hosted_button_id=FJHJQJUNSBLZY)
+duszmox's donate link:  
+[![donate](https://img.shields.io/badge/-buy%20me%20a%20coffee-orange)](https://www.paypal.com/donate/?token=Ad4bdVBA0uHQlfz0SYDXHf0oEQ8h8vcdU23_c9weRE2P9ccVbXrWHiNoxAFuCniQwgfWfdjblCBUudPl&locale.x=US)
 
 ## Introduction
 
@@ -38,7 +39,7 @@ It would mean a lot to me.
 
 - [OpenCore](https://github.com/acidanthera/OpenCorePkg)
 - [OC-little](https://github.com/daliansky/OC-little)
-- [X1 Carbon config](https://github.com/tylernguyen/x1c6-hackintosh) (currently working on X1 Carbon Gen 4 config expect it in a few weeks)
+- [X1 Carbon config](https://github.com/tylernguyen/x1c6-hackintosh) (currently working on X1 Carbon Gen 4 config expecti it in a few weeks)
 - [T460 config](https://github.com/MSzturc/Lenovo-T460-OpenCore)
 
 </details>
@@ -469,7 +470,7 @@ A [brief guide referencing other guides](/Guides/Bios-Mod.md).
 
 ## Thanks to
 
-The [original maintainer of this repo](https://github.com/simprecicchiani/Thinkpad-T460s-macOS-OpenCore),
+[Simone](https://github.com/simprecicchiani) the original maintainer of this repo,
 the hackintosh community on GitHub,
 [InsanelyMac](https://www.insanelymac.com/forum/), and
 [r/hackintosh](https://www.reddit.com/r/hackintosh/).
