@@ -7,23 +7,23 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
-	<string>VoodooRMI</string>
+	<string>RMII2C</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.1Revenger1.VoodooRMI</string>
+	<string>com.1Revenger1.RMII2C</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>VoodooRMI</string>
+	<string>RMII2C</string>
 	<key>CFBundlePackageType</key>
 	<string>KEXT</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.3.3</string>
+	<string>1.0</string>
 	<key>CFBundleSupportedPlatforms</key>
 	<array>
 		<string>MacOSX</string>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1.3.3</string>
+	<string>1</string>
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>
@@ -42,54 +42,37 @@
 	<string>12D4e</string>
 	<key>IOKitPersonalities</key>
 	<dict>
-		<key>RMIDevice</key>
+		<key>RMII2C</key>
 		<dict>
 			<key>CFBundleIdentifier</key>
-			<string>com.1Revenger1.VoodooRMI</string>
-			<key>Configuration</key>
-			<dict>
-				<key>DisableWhileTrackpointTimeout </key>
-				<integer>250</integer>
-				<key>DisableWhileTypingTimeout</key>
-				<integer>250</integer>
-				<key>FingerMajorMinorDiffMax</key>
-				<integer>3</integer>
-				<key>ForceTouchEmulation</key>
-				<true/>
-				<key>ForceTouchMinPressure</key>
-				<integer>90</integer>
-				<key>MinYDiffThumbDetection</key>
-				<integer>200</integer>
-				<key>TrackpointDeadzone</key>
-				<integer>1</integer>
-				<key>TrackpointMultiplier</key>
-				<integer>10</integer>
-				<key>TrackpointScrollMultiplierX</key>
-				<integer>30</integer>
-				<key>TrackpointScrollMultiplierY</key>
-				<integer>30</integer>
-			</dict>
+			<string>com.1Revenger1.RMII2C</string>
 			<key>IOClass</key>
-			<string>RMIBus</string>
+			<string>RMII2C</string>
 			<key>IOProbeScore</key>
-			<integer>2910</integer>
+			<integer>500</integer>
 			<key>IOPropertyMatch</key>
-			<dict>
-				<key>RMI4 Supported</key>
-				<true/>
-			</dict>
+			<array>
+				<dict>
+					<key>compatible</key>
+					<string>PNP0C50</string>
+				</dict>
+			</array>
 			<key>IOProviderClass</key>
-			<string>RMITransport</string>
+			<string>VoodooI2CDeviceNub</string>
+			<key>Legacy</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>LSMinimumSystemVersion</key>
 	<string>10.11</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2021 1Revenger1. All rights reserved.</string>
-	<key>OSBundleCompatibleVersion</key>
-	<string>1.0.0</string>
 	<key>OSBundleLibraries</key>
 	<dict>
+		<key>com.1Revenger1.VoodooRMI</key>
+		<string>1.0</string>
+		<key>com.alexandred.VoodooI2C</key>
+		<string>2.5</string>
 		<key>com.apple.kpi.iokit</key>
 		<string>15</string>
 		<key>com.apple.kpi.libkern</key>
@@ -97,7 +80,5 @@
 		<key>com.apple.kpi.mach</key>
 		<string>15</string>
 	</dict>
-	<key>OSBundleRequired</key>
-	<string>Console</string>
 </dict>
 </plist>
