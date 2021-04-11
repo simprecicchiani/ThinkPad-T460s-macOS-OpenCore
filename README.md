@@ -41,7 +41,7 @@ mhl221135's donate link:
 
 - [OpenCore](https://github.com/acidanthera/OpenCorePkg)
 - [OC-little](https://github.com/daliansky/OC-little)
-- [X1 Carbon config](https://github.com/tylernguyen/x1c6-hackintosh) (currently working on X1 Carbon Gen 4 config expect it in a few weeks)
+- [X1 Carbon config](https://github.com/tylernguyen/x1c6-hackintosh)
 - [T460 config](https://github.com/MSzturc/Lenovo-T460-OpenCore)
 
 </details>
@@ -90,7 +90,16 @@ This EFI will suit any T460s regardless of CPU model<sup>[1](#CPU)</sup>, amount
 
 <a name="CPU">1</a>. Optional custom CPU Power Management guide.  
 <a name="Res">2</a>. 1440p displays should change `NVRAM -> Add -> 7C436110-AB2A-4BBB-A880-FE41995C9F82 -> UIScale`:`2` to get proper scaling while booting.  
-<a name="NVMe">3</a>. Follow NVMe fix guide below for NVMe drives.
+<a name="NVMe">3</a>. Follow NVMe fix guide below for NVMe drives.  
+
+This bootloader configuration will probably suit other 6th generation Thinkpads, but there could be some defacts (i. e. not working usb ports, can't connect any displays.. etc.). If you own a model other then a T460s check out these repositories: 
+| Maintainer    | Model       | Bootloader |
+| :------------ | ----------: | ---------: |
+| MSzturc       | [T460](https://github.com/MSzturc/Lenovo-T460-OpenCore)        | Opencore   |
+| duszmox       | [X1 Carbon Gen 4](https://github.com/duszmox/ThinkPad-X1C4-macOS-OpenCore)        | Opencore   |
+| Tluck         | [T560/T460](https://github.com/tluck/Lenovo-T460-Clover)        | Clover   |
+
+
 
 </details>
 
