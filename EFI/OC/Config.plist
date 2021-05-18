@@ -183,7 +183,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>HPET (\WNTF\!WXPF to _OSI(&quot;Darwin&quot;))</string>
+				<string>HPET (\WNTF\!WXPF to _OSI("Darwin"))</string>
 				<key>Count</key>
 				<integer>0</integer>
 				<key>Enabled</key>
@@ -1281,7 +1281,20 @@
 	<key>UEFI</key>
 	<dict>
 		<key>ReservedMemory</key>
-		<array/>
+		<array>
+			<dict>
+				<key>Address</key>
+				<integer>569344</integer>
+				<key>Comment</key>
+				<string>Fix black screen on wake from hibernation for Lenovo Thinkpad T480/T490/X1C6/T460s/?</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Size</key>
+				<integer>4096</integer>
+				<key>Type</key>
+				<string>Reserved</string>
+			</dict>
+		</array>
 		<key>APFS</key>
 		<dict>
 			<key>EnableJumpstart</key>
