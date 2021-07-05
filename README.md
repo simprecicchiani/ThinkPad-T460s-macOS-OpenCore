@@ -3,8 +3,8 @@
 <img align="right" src="/Images/t460s-monterey.png" alt="Lenovo Thinkpad T460s macOS Hackintosh OpenCore" width="300">
 
 [![macOS](https://img.shields.io/badge/macOS-11.4-blue)](https://developer.apple.com/documentation/macos-release-notes)
-[![macOS-beta](https://img.shields.io/badge/macOS–Beta-12_beta–1-orange)](https://developer.apple.com/documentation/macos-release-notes/macos-12-beta-release-notes)
-[![OpenCore](https://img.shields.io/badge/OpenCore-0.7.0-green)](https://github.com/acidanthera/OpenCorePkg)
+[![macOS-beta](https://img.shields.io/badge/macOS–Beta-12_beta–2-orange)](https://developer.apple.com/documentation/macos-release-notes/macos-12-beta-release-notes)
+[![OpenCore](https://img.shields.io/badge/OpenCore-0.7.1-green)](https://github.com/acidanthera/OpenCorePkg)
 [![Model](https://img.shields.io/badge/Model-20F9*-lightgrey)](https://psref.lenovo.com/Product/ThinkPad_T460s)
 [![BIOS](https://img.shields.io/badge/BIOS-1.51-yellow)](https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/thinkpad-t-series-laptops/thinkpad-t460s/downloads/driver-list/component?name=BIOS%2FUEFI)
 [![License](https://img.shields.io/badge/license-MIT-purple)](/LICENSE)
@@ -499,25 +499,25 @@ A [brief guide referencing other guides](/Guides/Bios-Mod.md).
 <summary><strong>Update tracker 🔄</strong></summary>
 </br>
 
-| [EFI Release](https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore/releases)       | 0.7.0 |
+| [EFI Release](https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore/releases)       | 0.7.1 |
 | :--------------------------------------------------------------------------------------------- | :---- |
-| [MacOS](https://www.apple.com/macos/)                                                          | 11.4 / 12 beta-1  |
-| [OpenCore](https://github.com/acidanthera/OpenCorePkg/releases)                                | 0.7.0 |
-| [Lilu](https://github.com/acidanthera/Lilu/releases)                                           | 1.5.4b |
-| [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases)                               | 1.2.5b |
+| [MacOS](https://www.apple.com/macos/)                                                          | 11.4 / 12 beta-2  |
+| [OpenCore](https://github.com/acidanthera/OpenCorePkg/releases)                                | 0.7.1 |
+| [Lilu](https://github.com/acidanthera/Lilu/releases)                                           | 1.5.4 |
+| [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases)                               | 1.2.5 |
 | [YogaSMC](https://github.com/zhen-zen/YogaSMC/releases)                                        | 1.5.1 |
-| [WhateverGreen](https://github.com/acidanthera/WhateverGreen/releases)                         | 1.5.1b |
-| [AppleALC](https://github.com/acidanthera/AppleALC/releases)                                   | 1.6.2b |
-| [VoodooPS2Controller](https://github.com/acidanthera/VoodooPS2/releases)                       | 2.2.3 |
+| [WhateverGreen](https://github.com/acidanthera/WhateverGreen/releases)                         | 1.5.1 |
+| [AppleALC](https://github.com/acidanthera/AppleALC/releases)                                   | 1.6.2 |
+| [VoodooPS2Controller](https://github.com/acidanthera/VoodooPS2/releases)                       | 2.2.4 |
 | [VoodooRMI](https://github.com/VoodooSMBus/VoodooRMI/releases)                                 | 1.3.3 |
-| [IntelMausi](https://github.com/acidanthera/IntelMausi/releases)                               | 1.0.6 |
-| [HibernationFixup](https://github.com/acidanthera/HibernationFixup/releases)                   | 1.4.0 |
-| [CPUFriend](https://github.com/acidanthera/CPUFriend/releases)                                 | 1.2.3 |
-| [NVMeFix](https://github.com/acidanthera/NVMeFix/releases)                                     | 1.0.8 |
+| [IntelMausi](https://github.com/acidanthera/IntelMausi/releases)                               | 1.0.7 |
+| [HibernationFixup](https://github.com/acidanthera/HibernationFixup/releases)                   | 1.4.1 |
+| [CPUFriend](https://github.com/acidanthera/CPUFriend/releases)                                 | 1.2.4 |
+| [NVMeFix](https://github.com/acidanthera/NVMeFix/releases)                                     | 1.0.9 |
 | [RTCMemoryFixup](https://github.com/acidanthera/RTCMemoryFixup/releases)                       | 1.0.7 |
 | [AirPortOpenBSD](https://github.com/a565109863/AirPortOpenBSD/releases/)                       | 2.0.6 |
 | [AirportItlwm](https://github.com/OpenIntelWireless/itlwm/releases)                            | 2.0.0b |
-| [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/releases) | 1.1.3 |
+| [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/releases) | 2.0.0RC-1 |
 | [AppleBacklightSmoother](https://github.com/hieplpvip/AppleBacklightSmoother/releases)         | 1.0.2 |
 | [BrightnessKeys](https://github.com/acidanthera/BrightnessKeys/releases)                       | 1.0.2 |
 | [Sinetek-rtsx](https://github.com/cholonam/Sinetek-rtsx/releases)                              | 9.0   |
