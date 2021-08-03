@@ -2,11 +2,11 @@
 
 <img align="right" src="/Images/t460s-monterey.png" alt="Lenovo Thinkpad T460s macOS Hackintosh OpenCore" width="300">
 
-[![macOS](https://img.shields.io/badge/macOS-11.4-blue)](https://developer.apple.com/documentation/macos-release-notes)
-[![macOS-beta](https://img.shields.io/badge/macOS–Beta-12_beta–2-orange)](https://developer.apple.com/documentation/macos-release-notes/macos-12-beta-release-notes)
-[![OpenCore](https://img.shields.io/badge/OpenCore-0.7.1-green)](https://github.com/acidanthera/OpenCorePkg)
+[![macOS](https://img.shields.io/badge/macOS-11.5-blue)](https://developer.apple.com/documentation/macos-release-notes)
+[![macOS-beta](https://img.shields.io/badge/macOS–Beta-12_beta–4-orange)](https://developer.apple.com/documentation/macos-release-notes/macos-12-beta-release-notes)
+[![OpenCore](https://img.shields.io/badge/OpenCore-0.7.2-green)](https://github.com/acidanthera/OpenCorePkg)
 [![Model](https://img.shields.io/badge/Model-20F9*-lightgrey)](https://psref.lenovo.com/Product/ThinkPad_T460s)
-[![BIOS](https://img.shields.io/badge/BIOS-1.51-yellow)](https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/thinkpad-t-series-laptops/thinkpad-t460s/downloads/driver-list/component?name=BIOS%2FUEFI)
+[![BIOS](https://img.shields.io/badge/BIOS-1.52-yellow)](https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/thinkpad-t-series-laptops/thinkpad-t460s/downloads/driver-list/component?name=BIOS%2FUEFI)
 [![License](https://img.shields.io/badge/license-MIT-purple)](/LICENSE)
 
 **DISCLAIMER:**  
@@ -118,18 +118,18 @@ This bootloader configuration will probably suit other 6th generation Thinkpads,
 
 | Menu     |                   |                                 | Setting     |
 | -------- | ----------------- | ------------------------------- | ----------- |
-| Config   | USB               | UEFI BIOS Support               | `Enable `   |
-|          | Power             | Intel SpeedStep Technology      | `Enable `   |
-|          |                   | CPU Power Management            | `Enable `   |
-|          | CPU               | Hyper-Threading Technology      | `Enable `   |
-| Security | Security Chip     |                                 | `Disable `  |
-|          | Memory Protection | Execution Prevention            | `Enable `   |
-|          | Virtualization    | Intel Virtualization Technology | `Enable `   |
-|          |                   | Intel VT-d Feature              | `Enable `   |
-|          | Anti-Theft        | Computrace                      | `Disable `  |
-|          | Secure Boot       |                                 | `Disable `  |
-|          | Intel SGX         |                                 | `Disable `  |
-|          | Device Guard      |                                 | `Disable `  |
+| Config   | USB               | UEFI BIOS Support               | `Enable`    |
+|          | Power             | Intel SpeedStep Technology      | `Enable`    |
+|          |                   | CPU Power Management            | `Enable`    |
+|          | CPU               | Hyper-Threading Technology      | `Enable`    |
+| Security | Security Chip     |                                 | `Disable`   |
+|          | Memory Protection | Execution Prevention            | `Enable`    |
+|          | Virtualization    | Intel Virtualization Technology | `Enable`    |
+|          |                   | Intel VT-d Feature              | `Enable`    |
+|          | Anti-Theft        | Computrace                      | `Disable`   |
+|          | Secure Boot       |                                 | `Disable`   |
+|          | Intel SGX         |                                 | `Disable`   |
+|          | Device Guard      |                                 | `Disable`   |
 | Startup  | UEFI/Legacy Boot  |                                 | `UEFI Only` |
 |          | CSM Support       |                                 | `No`        |
 |          | Boot Mode         |                                 | `Quick`     |
@@ -210,7 +210,6 @@ Two different drivers are under development for Intel WiFi support: `AirportItlw
 1. Save and reboot the system
 
 **Note:** The drivers provided in this repo are for Big Sur and Monterey only; if you're running a different version of macOS please use the corresponding [AirportItlwm.kext](https://github.com/OpenIntelWireless/itlwm/releases) or [AirPortOpenBSD.kext](https://github.com/a565109863/AirPortOpenBSD/releases/).
-
 
 Optional: [Remove unnecessary firmware files from OpenIntelWireless drivers](/Guides/Clean-OpenIntelWireless.md).
 
@@ -420,7 +419,7 @@ sudo pmset -a lidwake 1
 sudo pmset -a powernap 0
 ```
 
-To restore default system settings run `pmset restoredefaults ` command
+To restore default system settings run `pmset restoredefaults` command
 
 <details>  
 <summary><strong>Commands description</strong></summary>
@@ -499,28 +498,28 @@ A [brief guide referencing other guides](/Guides/Bios-Mod.md).
 <summary><strong>Update tracker 🔄</strong></summary>
 </br>
 
-| [EFI Release](https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore/releases)       | 0.7.1 |
-| :--------------------------------------------------------------------------------------------- | :---- |
-| [MacOS](https://www.apple.com/macos/)                                                          | 11.4 / 12 beta-2  |
-| [OpenCore](https://github.com/acidanthera/OpenCorePkg/releases)                                | 0.7.1 |
-| [Lilu](https://github.com/acidanthera/Lilu/releases)                                           | 1.5.4 |
-| [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases)                               | 1.2.5 |
-| [YogaSMC](https://github.com/zhen-zen/YogaSMC/releases)                                        | 1.5.1 |
-| [WhateverGreen](https://github.com/acidanthera/WhateverGreen/releases)                         | 1.5.1 |
-| [AppleALC](https://github.com/acidanthera/AppleALC/releases)                                   | 1.6.2 |
-| [VoodooPS2Controller](https://github.com/acidanthera/VoodooPS2/releases)                       | 2.2.4 |
-| [VoodooRMI](https://github.com/VoodooSMBus/VoodooRMI/releases)                                 | 1.3.3 |
-| [IntelMausi](https://github.com/acidanthera/IntelMausi/releases)                               | 1.0.7 |
-| [HibernationFixup](https://github.com/acidanthera/HibernationFixup/releases)                   | 1.4.1 |
-| [CPUFriend](https://github.com/acidanthera/CPUFriend/releases)                                 | 1.2.4 |
-| [NVMeFix](https://github.com/acidanthera/NVMeFix/releases)                                     | 1.0.9 |
-| [RTCMemoryFixup](https://github.com/acidanthera/RTCMemoryFixup/releases)                       | 1.0.7 |
-| [AirPortOpenBSD](https://github.com/a565109863/AirPortOpenBSD/releases/)                       | 2.0.6 |
-| [AirportItlwm](https://github.com/OpenIntelWireless/itlwm/releases)                            | 2.0.0b |
-| [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/releases) | 2.0.0RC-1 |
-| [AppleBacklightSmoother](https://github.com/hieplpvip/AppleBacklightSmoother/releases)         | 1.0.2 |
-| [BrightnessKeys](https://github.com/acidanthera/BrightnessKeys/releases)                       | 1.0.2 |
-| [Sinetek-rtsx](https://github.com/cholonam/Sinetek-rtsx/releases)                              | 9.0   |
+| [EFI Release](https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore/releases)       | 0.7.2            |
+| :--------------------------------------------------------------------------------------------- | :--------------- |
+| [MacOS](https://www.apple.com/macos/)                                                          | 11.4 / 12 beta-4 |
+| [OpenCore](https://github.com/acidanthera/OpenCorePkg/releases)                                | 0.7.2            |
+| [Lilu](https://github.com/acidanthera/Lilu/releases)                                           | 1.5.5            |
+| [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases)                               | 1.2.6            |
+| [YogaSMC](https://github.com/zhen-zen/YogaSMC/releases)                                        | 1.5.1            |
+| [WhateverGreen](https://github.com/acidanthera/WhateverGreen/releases)                         | 1.5.2            |
+| [AppleALC](https://github.com/acidanthera/AppleALC/releases)                                   | 1.6.3            |
+| [VoodooPS2Controller](https://github.com/acidanthera/VoodooPS2/releases)                       | 2.2.4            |
+| [VoodooRMI](https://github.com/VoodooSMBus/VoodooRMI/releases)                                 | 1.3.3            |
+| [IntelMausi](https://github.com/acidanthera/IntelMausi/releases)                               | 1.0.7            |
+| [HibernationFixup](https://github.com/acidanthera/HibernationFixup/releases)                   | 1.4.2            |
+| [CPUFriend](https://github.com/acidanthera/CPUFriend/releases)                                 | 1.2.4            |
+| [NVMeFix](https://github.com/acidanthera/NVMeFix/releases)                                     | 1.0.9            |
+| [RTCMemoryFixup](https://github.com/acidanthera/RTCMemoryFixup/releases)                       | 1.0.7            |
+| [AirPortOpenBSD](https://github.com/a565109863/AirPortOpenBSD/releases/)                       | 2.0.6            |
+| [AirportItlwm](https://github.com/OpenIntelWireless/itlwm/releases)                            | 2.0.0b           |
+| [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/releases) | 2.0.0RC-2        |
+| [AppleBacklightSmoother](https://github.com/hieplpvip/AppleBacklightSmoother/releases)         | 1.0.2            |
+| [BrightnessKeys](https://github.com/acidanthera/BrightnessKeys/releases)                       | 1.0.2            |
+| [Sinetek-rtsx](https://github.com/cholonam/Sinetek-rtsx/releases)                              | 9.0              |
 
 </details>
 
