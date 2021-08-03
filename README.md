@@ -500,7 +500,7 @@ A [brief guide referencing other guides](/Guides/Bios-Mod.md).
 
 | [EFI Release](https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore/releases)       | 0.7.2            |
 | :--------------------------------------------------------------------------------------------- | :--------------- |
-| [MacOS](https://www.apple.com/macos/)                                                          | 11.4 / 12 beta-4 |
+| [MacOS](https://www.apple.com/macos/)                                                          | 11.5 / 12 beta-4 |
 | [OpenCore](https://github.com/acidanthera/OpenCorePkg/releases)                                | 0.7.2            |
 | [Lilu](https://github.com/acidanthera/Lilu/releases)                                           | 1.5.5            |
 | [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases)                               | 1.2.6            |
