@@ -210,6 +210,7 @@ git clone https://github.com/corpnewt/GenSMBIOS && cd GenSMBIOS && chmod +x GenS
 1. Save and reboot the system
 
 P.S. Tested on bigsur, working with gestures
+https://youtu.be/-F0JAVIG92M
 </details>
 
 
