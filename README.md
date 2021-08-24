@@ -75,7 +75,7 @@ mhl221135's donate link:
 | Processor          | Core i5-6300U (2C, 2.4 / 3.0GHz, 3MB)                                                                     |
 | Graphics           | Integrated Intel HD Graphics 520                                                                          |
 | Memory             | 4GB Soldered + 8GB DIMM 2133MHz DDR4, dual-channel                                                        |
-| Display            | 14" Full HD (1920x1080) IPS, Touch (currently not supported)                                              |
+| Display            | 14" Full HD (1920x1080) IPS, Touch (read [Post-install>Enable Touchscreen](https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore#post-install-optional))    |
 | Storage            | Western Digital Black SN750 500GB NVMe SSD                                                                |
 | Ethernet           | Intel Ethernet Connection I219-LM (Jacksonville)                                                          |
 | WLAN + Bluetooth   | 11ac+BT, Intel® Dual Band Wireless-AC 8265, 2x2 card                                                      |
@@ -218,13 +218,12 @@ https://youtu.be/-F0JAVIG92M
 <details>  
 <summary><strong>Enable Intel WLAN cards</strong></summary>
 </br>
-Two different drivers are under development for Intel WiFi support: `AirportItlwm.kext` and `AirPortOpenBSD.kext`. Do NOT use them both at the same time.
 
 1. Open `/EFI/OC/Config.plist` with any editor
 1. Add the content of [#intel-wlan.plist](/EFI/OC/%23intel-wlan.plist) according to your macOS version
 1. Save and reboot the system
 
-**Note:** The drivers provided in this repo are for Big Sur and Monterey only; if you're running a different version of macOS please use the corresponding [AirportItlwm.kext](https://github.com/OpenIntelWireless/itlwm/releases) or [AirPortOpenBSD.kext](https://github.com/a565109863/AirPortOpenBSD/releases/).
+**Note:** The drivers provided in this repo are for Big Sur and Monterey only; if you're running a different version of macOS please use the corresponding [AirportItlwm.kext](https://github.com/OpenIntelWireless/itlwm/releases).
 
 Optional: [Remove unnecessary firmware files from OpenIntelWireless drivers](/Guides/Clean-OpenIntelWireless.md).
 
@@ -524,18 +523,18 @@ A [brief guide referencing other guides](/Guides/Bios-Mod.md).
 | [AppleALC](https://github.com/acidanthera/AppleALC/releases)                                   | 1.6.3            |
 | [VoodooPS2Controller](https://github.com/acidanthera/VoodooPS2/releases)                       | 2.2.4            |
 | [VoodooRMI](https://github.com/VoodooSMBus/VoodooRMI/releases)                                 | 1.3.3            |
+| [VoodooI2C/VoodooI2CHID](https://github.com/VoodooI2C/VoodooI2C/releases)                      | 2.6.5            |
 | [IntelMausi](https://github.com/acidanthera/IntelMausi/releases)                               | 1.0.7            |
 | [HibernationFixup](https://github.com/acidanthera/HibernationFixup/releases)                   | 1.4.2            |
 | [CPUFriend](https://github.com/acidanthera/CPUFriend/releases)                                 | 1.2.4            |
 | [NVMeFix](https://github.com/acidanthera/NVMeFix/releases)                                     | 1.0.9            |
 | [RTCMemoryFixup](https://github.com/acidanthera/RTCMemoryFixup/releases)                       | 1.0.7            |
-| [AirPortOpenBSD](https://github.com/a565109863/AirPortOpenBSD/releases/)                       | 2.0.6            |
 | [AirportItlwm](https://github.com/OpenIntelWireless/itlwm/releases)                            | 2.0.0b           |
 | [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/releases) | 2.0.0RC-2        |
 | [AppleBacklightSmoother](https://github.com/hieplpvip/AppleBacklightSmoother/releases)         | 1.0.2            |
 | [BrightnessKeys](https://github.com/acidanthera/BrightnessKeys/releases)                       | 1.0.2            |
 | [Sinetek-rtsx](https://github.com/cholonam/Sinetek-rtsx/releases)                              | 9.0              |
-| [FeatureUnlock](https://github.com/acidanthera/FeatureUnlock/releases)                              | 1.0.3              |
+| [FeatureUnlock](https://github.com/acidanthera/FeatureUnlock/releases)                         | 1.0.3            |
 
 </details>
 
