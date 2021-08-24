@@ -3,7 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key># WARNING</key>
-	<string>This is temporary solution with USBMap.kext(https://github.com/corpnewt/USBMap), you can wait until @duszmox inject "XHCI LGD AIT Touch Controller" device via ssdt </string>
+	<string>This is temporary solution with USBMap.kext(https://github.com/corpnewt/USBMap),
+		you can wait until @duszmox inject "XHCI LGD AIT Touch Controller" device via ssdt
+		For now disable USB map fixup key in your config ACPI part and enable USBMap.kext below
+	</string>
+	
 	<key>Kernel</key>
 	<dict>
 		<key>Add</key>
