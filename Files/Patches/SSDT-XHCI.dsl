@@ -294,7 +294,7 @@ DefinitionBlock ("", "SSDT", 2, "T460s", "XHCI", 0)
         }
     }
 
-    Scope (\_SB.PCI0.XHCI.URTH.HSP7)    // Touch Screen
+    Scope (\_SB.PCI0.XHCI.URTH.HSP7)    // WEB Camera
     {
         Method (_UPC, 0, Serialized)
         {
@@ -345,7 +345,7 @@ DefinitionBlock ("", "SSDT", 2, "T460s", "XHCI", 0)
         }
     }
 
-    Scope (\_SB.PCI0.XHCI.URTH.HSP9)    // Web Camera
+    Scope (\_SB.PCI0.XHCI.URTH.HSP9)    // Touch Screen port on t460s , display model: LG LP140WF5-SPB3
     {
         Method (_UPC, 0, Serialized)
         {
@@ -356,7 +356,7 @@ DefinitionBlock ("", "SSDT", 2, "T460s", "XHCI", 0)
         	Else
         	{
 		        Name (UPCP, Package (0x04) {})
-                CopyObject (\UPCX, UPCP)
+                CopyObject (\UPCB, UPCP)
                 Return (UPCP)
         	}
         }
