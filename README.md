@@ -28,7 +28,7 @@ Should you find an error or improve anything — whether in the config or in the
 
 - Plist editor [ProperTree](https://github.com/corpnewt/ProperTree)
 - Handy-dandy ESP mounting script [MountEFI](https://github.com/corpnewt/MountEFI)
-- Update OpenCore and kexts[OCAuxiliaryTools](https://github.com/ic005k/OCAuxiliaryTools)
+- Update OpenCore and kexts [OCAuxiliaryTools](https://github.com/ic005k/OCAuxiliaryTools)
 
 **Resources**
 
@@ -570,5 +570,7 @@ A [brief guide referencing other guides](/Guides/Bios-Mod.md).
 </details>
 
 ## Thanks to
-[simprecicchiani](https://github.com/simprecicchiani)
-The hackintosh community on GitHub，[InsanelyMac](https://www.insanelymac.com/forum/), and [r/hackintosh](https://www.reddit.com/r/hackintosh/).
+-[simprecicchiani](https://github.com/simprecicchiani)
+-The hackintosh community on GitHub
+-[InsanelyMac](https://www.insanelymac.com/forum/)
+-[r/hackintosh](https://www.reddit.com/r/hackintosh/).
