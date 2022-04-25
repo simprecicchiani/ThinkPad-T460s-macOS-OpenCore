@@ -149,7 +149,7 @@ git clone https://github.com/corpnewt/GenSMBIOS && cd GenSMBIOS && chmod +x GenS
 ```
 
 2. Type `3` to Generate SMBIOS, then press ENTER
-3. Type `MacbookPro13,1 5`, then press ENTER. Leave this Terminal window open.
+3. Type `MacbookPro16,3 5`, then press ENTER. Leave this Terminal window open.
 4. Open `/EFI/OC/Config.plist` with any editor and navigate to `PlatformInfo -> Generic`
 5. Add the script's last result to `MLB, SystemSerialNumber and SystemUUID`
 
@@ -172,7 +172,7 @@ git clone https://github.com/corpnewt/GenSMBIOS && cd GenSMBIOS && chmod +x GenS
          <key>SpoofVendor</key>
          <true/>
          <key>SystemProductName</key>
-         <string>MacBookPro13,1</string>
+         <string>MacBookPro16,3</string>
          <key>SystemSerialNumber</key>
 +        <string>W00000000001</string>
          <key>SystemUUID</key>
