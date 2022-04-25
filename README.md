@@ -74,13 +74,13 @@ Should you find an error or improve anything — whether in the config or in the
 
 | Model              | Thinkpad T460s 20F90002\*\*                                                                               |
 | :----------------- | :-------------------------------------------------------------------------------------------------------- |
-| Processor          | Core i5-6300U (2C, 2.4 / 3.0GHz, 3MB)                                                                     |
+| Processor          | Core i5-6200U (2C, 2.4 / 3.0GHz, 3MB)                                                                     |
 | Graphics           | Integrated Intel HD Graphics 520                                                                          |
 | Memory             | 4GB Soldered + 8GB DIMM 2133MHz DDR4, dual-channel                                                        |
 | Display            | 14" Full HD (1920x1080) IPS, Touch (read [Post-install>Enable Touchscreen](https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore#post-install-optional))    |
-| Storage            | Western Digital Black SN750 500GB NVMe SSD                                                                |
+| Storage            | Western Digital Black SN550 500GB NVMe SSD                                                                |
 | Ethernet           | Intel Ethernet Connection I219-LM (Jacksonville)                                                          |
-| WLAN + Bluetooth   | 11ac+BT, Intel® Dual Band Wireless-AC 8265, 2x2 card                                                      |
+| WLAN + Bluetooth   | 11ac+BT, Intel® Dual Band Wireless-AC 8260, 2x2 card                                                      |
 | Camera             | HD720p resolution, low light sensitive, fixed focus                                                       |
 | Audio support      | HD Audio, Realtek ALC3245 codec, stereo speakers 1Wx2, dual array microphone, combo audio/microphone jack |
 | Keyboard           | 6-row, spill-resistant, multimedia Fn keys, LED backlight                                                 |
