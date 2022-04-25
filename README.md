@@ -540,8 +540,34 @@ A [brief guide referencing other guides](/Guides/Bios-Mod.md).
 | [RealtekCardReader](https://github.com/0xFireWolf/RealtekCardReader/releases)                  | 0.9.6  |
 | [RealtekCardReaderFriend](https://github.com/0xFireWolf/RealtekCardReaderFriend/releases)      | 1.0.2  |
 
+</details>
+
+## Performances
+
+<details>  
+<summary><strong>Power consumption & thermals 🔥</strong></summary>
+</br>
+
+| Idle State                | Max Frequency                 | 2 Thread Frequency            | All Thread Frequency          | GPU Max Frequency             |
+| ------------------------- | ----------------------------- | ----------------------------- | ----------------------------- | ----------------------------- |
+| ![](/Images/ipg-idle.png) | ![](/Images/ipg-max-freq.png) | ![](/Images/ipg-two-freq.png) | ![](/Images/ipg-all-freq.png) | ![](/Images/ipg-gpu-freq.png) |
 
 </details>
+
+<details>  
+<summary><strong>Benchmarks ⏱</strong></summary>
+</br>
+
+| CPU            | Single-Core | Multi-Core |
+| :------------- | ----------: | ---------: |
+| Geekbench 5    |         730 |       1611 |
+| **GPU**        |  **OpenCL** |  **Metal** |
+| Geekbench 5    |        4097 |       4179 |
+
+<small>macOS 12.3.1, EFI release 0.8.0, CPU:6200u</small>
+
+</details>
+
 ## Thanks to
 
 The hackintosh community on GitHub, [InsanelyMac](https://www.insanelymac.com/forum/), and [r/hackintosh](https://www.reddit.com/r/hackintosh/).
