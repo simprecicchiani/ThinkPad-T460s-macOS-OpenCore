@@ -540,41 +540,7 @@ A [brief guide referencing other guides](/Guides/Bios-Mod.md).
 | [RealtekCardReader](https://github.com/0xFireWolf/RealtekCardReader/releases)                  | 0.9.6  |
 | [RealtekCardReaderFriend](https://github.com/0xFireWolf/RealtekCardReaderFriend/releases)      | 1.0.2  |
 
-</details>
 
-## Performances
-
-<details>  
-<summary><strong>Power consumption & thermals 🔥</strong></summary>
-</br>
-
-| Idle State                | Max Frequency                 | 2 Thread Frequency            | All Thread Frequency          | GPU Max Frequency             |
-| ------------------------- | ----------------------------- | ----------------------------- | ----------------------------- | ----------------------------- |
-| ![](/Images/ipg-idle.png) | ![](/Images/ipg-max-freq.png) | ![](/Images/ipg-two-freq.png) | ![](/Images/ipg-all-freq.png) | ![](/Images/ipg-gpu-freq.png) |
-
-</details>
-
-<details>  
-<summary><strong>Benchmarks ⏱</strong></summary>
-</br>
-
-| CPU            | Single-Core | Multi-Core |
-| :------------- | ----------: | ---------: |
-| Cinebench r20  |         348 |        842 |
-| Geekbench 5    |         809 |       1862 |
-| **GPU**        |  **OpenCL** |  **Metal** |
-| Geekbench 5    |        4417 |       4179 |
-| BruceX Test 5K |             |      104'' |
-
-<small>macOS 10.15.7, EFI release 0.6.2</small>
-
-| CPU           | Single-Core | Multi-Core |
-| :------------ | ----------: | ---------: |
-| Cinebench r23 |             |       2175 |
-
-<small>macOS 11.1, EFI release 0.6.5</small>
-
-</details>
 
 ## Thanks to
 
