@@ -28,6 +28,7 @@ Should you find an error or improve anything — whether in the config or in the
 
 - Plist editor [ProperTree](https://github.com/corpnewt/ProperTree)
 - Handy-dandy ESP mounting script [MountEFI](https://github.com/corpnewt/MountEFI)
+- Update OpenCore and kexts[OCAuxiliaryTools](https://github.com/ic005k/OCAuxiliaryTools)
 
 **Resources**
 
@@ -545,7 +546,7 @@ A [brief guide referencing other guides](/Guides/Bios-Mod.md).
 ## Performances
 
 <details>  
-<summary><strong>Power consumption & thermals 🔥</strong></summary>
+<summary><strong>Power consumption & thermals ,Not test on my T460s (6200u) 🔥</strong></summary>
 </br>
 
 | Idle State                | Max Frequency                 | 2 Thread Frequency            | All Thread Frequency          | GPU Max Frequency             |
