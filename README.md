@@ -541,7 +541,7 @@ A [brief guide referencing other guides](/Guides/Bios-Mod.md).
 | [RealtekCardReaderFriend](https://github.com/0xFireWolf/RealtekCardReaderFriend/releases)      | 1.0.2  |
 
 
-
+</details>
 ## Thanks to
 
 The hackintosh community on GitHub, [InsanelyMac](https://www.insanelymac.com/forum/), and [r/hackintosh](https://www.reddit.com/r/hackintosh/).
