@@ -570,7 +570,7 @@ A [brief guide referencing other guides](/Guides/Bios-Mod.md).
 </details>
 
 ## Thanks to
--[simprecicchiani](https://github.com/simprecicchiani)
--The hackintosh community on GitHub
--[InsanelyMac](https://www.insanelymac.com/forum/)
--[r/hackintosh](https://www.reddit.com/r/hackintosh/).
+- [simprecicchiani](https://github.com/simprecicchiani)
+- The hackintosh community on GitHub
+- [InsanelyMac](https://www.insanelymac.com/forum/)
+- [r/hackintosh](https://www.reddit.com/r/hackintosh/).
