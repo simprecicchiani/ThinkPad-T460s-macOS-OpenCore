@@ -198,7 +198,7 @@ https://youtu.be/-F0JAVIG92M
 1. Add the content of [#intel-wlan.plist](/EFI/OC/%23intel-wlan.plist) according to your macOS version
 1. Save and reboot the system
 
-**Note:** The drivers provided in this repo are for Monterey only; if you're running a different version of macOS please use the corresponding [AirportItlwm.kext](https://github.com/OpenIntelWireless/itlwm/releases).If you have any problem please reference to the [IntelBluetoothFirmware](https://openintelwireless.github.io/IntelBluetoothFirmware/FAQ.html#what-does-this-kext-do)
+**Note:** The drivers provided in this repo are for Monterey only; if you're running a different version of macOS please use the corresponding [AirportItlwm.kext](https://github.com/OpenIntelWireless/itlwm/releases).If you have bluetooth problem please reference to the [IntelBluetoothFirmware](https://openintelwireless.github.io/IntelBluetoothFirmware/FAQ.html#what-does-this-kext-do)
 
 Optional: [Remove unnecessary firmware files from OpenIntelWireless drivers](/Guides/Clean-OpenIntelWireless.md).
 
@@ -215,7 +215,8 @@ Optional: [Remove unnecessary firmware files from OpenIntelWireless drivers](/Gu
 1. Add the content of [#broadcom-wlan.plist](/EFI/OC/%23broadcom-wlan.plist)
 
 1. Save and reboot the system
-If you have any problem please reference to the [AirportBrcmFixup](https://github.com/acidanthera/AirportBrcmFixup)
+If you have bluetooth problem please reference to the [AirportBrcmFixup](https://github.com/acidanthera/AirportBrcmFixup)
+
 </details>
 
 <details>  
