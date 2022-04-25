@@ -546,7 +546,7 @@ A [brief guide referencing other guides](/Guides/Bios-Mod.md).
 ## Performances
 
 <details>  
-<summary><strong>Power consumption & thermals ,Not test on my T460s (6200u) 🔥</strong></summary>
+<summary><strong>Power consumption & thermals❗Not test on my T460s (6200u) 🔥</strong></summary>
 </br>
 
 | Idle State                | Max Frequency                 | 2 Thread Frequency            | All Thread Frequency          | GPU Max Frequency             |
