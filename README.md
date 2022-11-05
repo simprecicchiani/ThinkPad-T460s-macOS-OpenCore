@@ -209,7 +209,7 @@ Two different drivers are under development for Intel WiFi support: `AirportItlw
 1. Save and reboot the system
 
 **Note:** When it comes to Airportitlwm.kext you have two options, Airportitlwm-11.kext
-and Airportitlwm-12.kext (currently not working, it can see networks, but cannot conect to them, expect working release in a few days). Choose the one corresponding to your macOS version, otherwise the wifi won't work.  
+and Airportitlwm-12.kext. Choose the one corresponding to your macOS version, otherwise the wifi won't work.  
 
 **Note 2:** The drivers provided in this repo are for Big Sur and Monterey only; if you're running a different version of macOS please use the corresponding [AirportItlwm.kext](https://github.com/OpenIntelWireless/itlwm/releases) or [AirPortOpenBSD.kext](https://github.com/a565109863/AirPortOpenBSD/releases/).
 
