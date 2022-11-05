@@ -200,6 +200,20 @@ git clone https://github.com/corpnewt/GenSMBIOS && cd GenSMBIOS && chmod +x GenS
 
 ## Post-install (optional)
 
+
+<details>  
+<summary><strong>Enable Touchscreen</strong></summary>
+</br>
+
+1. Open `/EFI/OC/Config.plist` with any editor
+1. Add the content of [#touchscreen.plist](EFI/OC/%23touchscreen.plist)
+1. Save and reboot the system
+
+P.S. Tested on bigsur, working with gestures
+</details>
+
+
+
 <details>  
 <summary><strong>Enable Intel WLAN cards</strong></summary>
 </br>
