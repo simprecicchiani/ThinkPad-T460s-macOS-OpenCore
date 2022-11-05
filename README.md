@@ -16,7 +16,7 @@ If you find my work useful, please consider donating via PayPal.
 It would mean a lot to me.
 
 duszmox's donate link:  
-[![donate](https://img.shields.io/badge/-buy%20me%20a%20coffee-orange)](https://www.paypal.com/donate/?token=Ad4bdVBA0uHQlfz0SYDXHf0oEQ8h8vcdU23_c9weRE2P9ccVbXrWHiNoxAFuCniQwgfWfdjblCBUudPl&locale.x=US)
+[![donate](https://img.shields.io/badge/-buy%20me%20a%20coffee-orange)](https://www.paypal.com/donate?hosted_button_id=UW5DT28YP3QQUS)
 
 ## Introduction
 
@@ -38,7 +38,7 @@ duszmox's donate link:
 
 - [OpenCore](https://github.com/acidanthera/OpenCorePkg)
 - [OC-little](https://github.com/daliansky/OC-little)
-- [X1 Carbon config](https://github.com/tylernguyen/x1c6-hackintosh) (currently working on X1 Carbon Gen 4 config expecti it in a few weeks)
+- [X1 Carbon config](https://github.com/tylernguyen/x1c6-hackintosh) (currently working on X1 Carbon Gen 4 config expect it in a few weeks)
 - [T460 config](https://github.com/MSzturc/Lenovo-T460-OpenCore)
 
 </details>
@@ -307,7 +307,7 @@ NotebookCheck's calibrated profiles. Not all panel are the same, final result ma
 If you have an Apple Watch and you already [replaced the build in WiFi card](/Guides/Replace-WLAN.md), you could enable authenticating as sudo with you Apple Watch using [pam-watch](https://github.com/biscuitehh/pam-watchid)
 
 1. Download the latest [ZIP file](https://github.com/biscuitehh/pam-watchid/archive/main.zip)
-2. Unzip, which by default creates a folder called pam-watchid-main
+2. Unzip, which by default creates a folder called pam-watchid-main.
 3. Open Terminal and install it:
 
    - `$ cd ~/Downloads/pam-watchid-main`
@@ -348,7 +348,7 @@ This enables auto-hide and speeds up the animation
    </details>
 
 <details>  
-<summary><strong>Speed-up boot process</strong></summary>
+<summary><strong>Boot process tweaks</strong></summary>
 </br>
 
 | Menu |       |            | Setting    | What does it do?     |
@@ -396,7 +396,6 @@ A [brief guide referencing other guides](/Guides/Bios-Mod.md).
 <summary><strong>What's not working ⚠️</strong></summary>
 </br>
 
-- [ ] Some kexts crash in standby mode, please disable it with `sudo pmset -a standby 0`
 - [ ] Some users reported Mini DisplayPort is broken for them with latest updates, but it's working for me just fine
 - [ ] Safari DRM `Use Chromium engine to watch Apple TV+, Amazon Prime Video, Netflix and others`
 - [ ] WWAN (needs to be implemented)
@@ -469,7 +468,7 @@ A [brief guide referencing other guides](/Guides/Bios-Mod.md).
 
 ## Thanks to
 
-[Simone](https://github.com/simprecicchiani) the original maintainer of this repo,
+[Simone](https://github.com/simprecicchiani), the original maintainer of this repo,
 the hackintosh community on GitHub,
 [InsanelyMac](https://www.insanelymac.com/forum/), and
 [r/hackintosh](https://www.reddit.com/r/hackintosh/).
