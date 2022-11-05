@@ -183,7 +183,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>HPET (\WNTF\!WXPF to _OSI("Darwin"))</string>
+				<string>HPET (\WNTF\!WXPF to _OSI(&quot;Darwin&quot;))</string>
 				<key>Count</key>
 				<integer>0</integer>
 				<key>Enabled</key>
