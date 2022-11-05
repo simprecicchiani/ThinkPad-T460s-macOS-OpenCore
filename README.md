@@ -2,10 +2,10 @@
 
 <img align="right" src="/Images/t460s-big-sur.png" alt="Lenovo Thinkpad T460s macOS Hackintosh OpenCore" width="300">
 
-[![macOS](https://img.shields.io/badge/macOS-11.3.1-blue)](https://developer.apple.com/documentation/macos-release-notes)
+[![macOS](https://img.shields.io/badge/macOS-11.4-blue)](https://developer.apple.com/documentation/macos-release-notes)
 [![OpenCore](https://img.shields.io/badge/OpenCore-0.6.9-green)](https://github.com/acidanthera/OpenCorePkg)
 [![Model](https://img.shields.io/badge/Model-20F9*-lightgrey)](https://psref.lenovo.com/Product/ThinkPad_T460s)
-[![BIOS](https://img.shields.io/badge/BIOS-1.50-yellow)](https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/thinkpad-t-series-laptops/thinkpad-t460s/downloads/driver-list/component?name=BIOS%2FUEFI)
+[![BIOS](https://img.shields.io/badge/BIOS-1.51-yellow)](https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/thinkpad-t-series-laptops/thinkpad-t460s/downloads/driver-list/component?name=BIOS%2FUEFI)
 [![License](https://img.shields.io/badge/license-MIT-purple)](/LICENSE)
 
 **DISCLAIMER:**  
@@ -335,7 +335,7 @@ If you have an Apple Watch and you already [replaced the build in WiFi card](/Gu
 3. Open Terminal and install it:
 
    - `$ cd ~/Downloads/pam-watchid-main`
-   - `sudo make install`
+   - `$ sudo make install`
 
 4. Regsiter the new PAM module for sudo:
 
