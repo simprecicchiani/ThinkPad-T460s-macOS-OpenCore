@@ -17,7 +17,6 @@ If you find my work useful, please consider donating via PayPal.
 It would mean a lot to me.
 
 
-
 ## Introduction
 
 <details>  
@@ -39,7 +38,7 @@ It would mean a lot to me.
 
 - [OpenCore](https://github.com/acidanthera/OpenCorePkg)
 - [OC-little](https://github.com/daliansky/OC-little)
-- [X1 Carbon config](https://github.com/tylernguyen/x1c6-hackintosh) (currently working on X1 Carbon Gen 4 config expect it in a few weeks)
+- [X1 Carbon config](https://github.com/tylernguyen/x1c6-hackintosh) (currently working on X1 Carbon Gen 4 config expecti it in a few weeks)
 - [T460 config](https://github.com/MSzturc/Lenovo-T460-OpenCore)
 
 </details>
@@ -495,7 +494,7 @@ A [brief guide referencing other guides](/Guides/Bios-Mod.md).
 <summary><strong>Update tracker 🔄</strong></summary>
 </br>
 
-<<<<<<< HEAD
+
 | [EFI Release](https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore/releases)       | 0.8.0  |
 |------------------------------------------------------------------------------------------------|--------|
 | [MacOS](https://www.apple.com/macos/)                                                          | 12.3.1 |
@@ -512,36 +511,6 @@ A [brief guide referencing other guides](/Guides/Bios-Mod.md).
 | [HibernationFixup](https://github.com/acidanthera/HibernationFixup/releases)                   | 1.4.5  |
 | [CPUFriend](https://github.com/acidanthera/CPUFriend/releases)                                 | 1.2.5  |
 | [NVMeFix](https://github.com/acidanthera/NVMeFix/releases)                                     | 1.0.9  |
-=======
-| [EFI Release](https://github.com/duszmox/ThinkPad-T460s-macOS-OpenCore/releases)               | 0.6.8  |
-| :--------------------------------------------------------------------------------------------- | :----- |
-| [MacOS](https://www.apple.com/macos/)                                                          | 11.2.3 |
-| [OpenCore](https://github.com/acidanthera/OpenCorePkg/releases)                                | 0.6.8  |
-| [Lilu](https://github.com/acidanthera/Lilu/releases)                                           | 1.5.2  |
-| [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases)                               | 1.2.2  |
-| [YogaSMC](https://github.com/zhen-zen/YogaSMC/releases)                                        | 1.4.3  |
-| [WhateverGreen](https://github.com/acidanthera/WhateverGreen/releases)                         | 1.4.9  |
-| [AppleALC](https://github.com/acidanthera/AppleALC/releases)                                   | 1.5.9  |
-| [VoodooPS2Controller](https://github.com/acidanthera/VoodooPS2/releases)                       | 2.2.2  |
-| [VoodooRMI](https://github.com/VoodooSMBus/VoodooRMI/releases)                                 | 1.3.2  |
-| [IntelMausi](https://github.com/acidanthera/IntelMausi/releases)                               | 1.0.5  |
-| [HibernationFixup](https://github.com/acidanthera/HibernationFixup/releases)                   | 1.4.0  |
-| [CPUFriend](https://github.com/acidanthera/CPUFriend/releases)                                 | 1.2.3  |
-<<<<<<< HEAD
-| [NVMeFix](https://github.com/acidanthera/NVMeFix/releases)                                     | 1.0.4  |
->>>>>>> e52be05 (Minor Readme.md changes)
-=======
-| [NVMeFix](https://github.com/acidanthera/NVMeFix/releases)                                     | 1.0.6  |
->>>>>>> a74c057 (NVMeFix version fix)
-| [RTCMemoryFixup](https://github.com/acidanthera/RTCMemoryFixup/releases)                       | 1.0.7  |
-| [AirportItlwm](https://github.com/OpenIntelWireless/itlwm/releases)                            | 2.2.0  |
-| [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/releases) | 2.1.0  |
-| [BlueToolFixup](https://github.com/acidanthera/BrcmPatchRAM/releases)                          | 2.6.1  |
-| [AppleBacklightSmoother](https://github.com/hieplpvip/AppleBacklightSmoother/releases)         | 1.0.2  |
-| [BrightnessKeys](https://github.com/acidanthera/BrightnessKeys/releases)                       | 1.0.2  |
-| [RealtekCardReader](https://github.com/0xFireWolf/RealtekCardReader/releases)                  | 0.9.6  |
-| [RealtekCardReaderFriend](https://github.com/0xFireWolf/RealtekCardReaderFriend/releases)      | 1.0.2  |
-
 </details>
 
 ## Performances
