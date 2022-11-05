@@ -508,7 +508,7 @@ A [brief guide referencing other guides](/Guides/Bios-Mod.md).
 | [IntelMausi](https://github.com/acidanthera/IntelMausi/releases)                               | 1.0.6 |
 | [HibernationFixup](https://github.com/acidanthera/HibernationFixup/releases)                   | 1.4.0 |
 | [CPUFriend](https://github.com/acidanthera/CPUFriend/releases)                                 | 1.2.3 |
-| [NVMeFix](https://github.com/acidanthera/NVMeFix/releases)                                     | 1.0.7 |
+| [NVMeFix](https://github.com/acidanthera/NVMeFix/releases)                                     | 1.0.8 |
 | [RTCMemoryFixup](https://github.com/acidanthera/RTCMemoryFixup/releases)                       | 1.0.7 |
 | [AirPortOpenBSD](https://github.com/a565109863/AirPortOpenBSD/releases/)                       | 2.0.6 |
 | [AirportItlwm](https://github.com/OpenIntelWireless/itlwm/releases)                            | 2.0.0 |
