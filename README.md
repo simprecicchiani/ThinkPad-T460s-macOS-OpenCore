@@ -237,7 +237,7 @@ Optional: [Remove unnecessary firmware files from OpenIntelWireless drivers](/Gu
    [BrcmPatchRAM](https://github.com/acidanthera/BrcmPatchRAM/releases).
 1. Copy AirportBrcmFixup.kext, BrcmBluetoothInjector.kext, BrcmFirmwareData.kext and BrcmPatchRAM3.kext to `/EFI/OC/Kexts`
 1. Open `/EFI/OC/Config.plist` with any editor
-1. Add the content of [#broadcom-wlan.plist](/EFI/OC/#broadcom-wlan.plist
+1. Add the content of [#broadcom-wlan.plist](/EFI/OC/%23broadcom-wlan.plist)
 
 1. Save and reboot the system
 
@@ -248,7 +248,7 @@ Optional: [Remove unnecessary firmware files from OpenIntelWireless drivers](/Gu
 </br>
 
 1. Open `/EFI/OC/Config.plist` with any editor
-1. Add the content of [#nvme-fix.plist](/EFI/OC/#nvme-fix.plist)
+1. Add the content of [#nvme-fix.plist](/EFI/OC/%23nvme-fix.plist)
 1. Save and reboot the system
 
 </details>
@@ -266,7 +266,7 @@ git clone https://github.com/corpnewt/CPUFriendFriend; cd CPUFriendFriend; chmod
 1. When asked, select preferred values
 1. From the pop-up window, copy `ssdt_data.aml` into `/EFI/OC/ACPI/` folder (rename it if you'd like)
 1. Open `/EFI/OC/Config.plist` with any editor
-1. Add the content of [#cpu-pm.plist](/EFI/OC/#cpu-pm.plist) (make sure SSDT-PLUG.aml is disabled and match your new SSDT filename)
+1. Add the content of [#cpu-pm.plist](/EFI/OC/%23cpu-pm.plist) (make sure SSDT-PLUG.aml is disabled and match your new SSDT filename)
 1. Save and reboot the system
 
 </details>
