@@ -2,8 +2,8 @@
 
 <img align="right" src="/Images/t460s-monterey.png" alt="Lenovo Thinkpad T460s macOS Hackintosh OpenCore" width="300">
 
-[![macOS](https://img.shields.io/badge/macOS-11.5-blue)](https://developer.apple.com/documentation/macos-release-notes)
-[![macOS-beta](https://img.shields.io/badge/macOS–Beta-12_beta–4-orange)](https://developer.apple.com/documentation/macos-release-notes/macos-12-beta-release-notes)
+[![macOS](https://img.shields.io/badge/macOS-11.5.2-blue)](https://developer.apple.com/documentation/macos-release-notes)
+[![macOS-beta](https://img.shields.io/badge/macOS–Beta-12_beta–5-orange)](https://developer.apple.com/documentation/macos-release-notes/macos-12-beta-release-notes)
 [![OpenCore](https://img.shields.io/badge/OpenCore-0.7.2-green)](https://github.com/acidanthera/OpenCorePkg)
 [![Model](https://img.shields.io/badge/Model-20F9*-lightgrey)](https://psref.lenovo.com/Product/ThinkPad_T460s)
 [![BIOS](https://img.shields.io/badge/BIOS-1.52-yellow)](https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/thinkpad-t-series-laptops/thinkpad-t460s/downloads/driver-list/component?name=BIOS%2FUEFI)
@@ -500,7 +500,7 @@ A [brief guide referencing other guides](/Guides/Bios-Mod.md).
 
 | [EFI Release](https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore/releases)       | 0.7.2            |
 | :--------------------------------------------------------------------------------------------- | :--------------- |
-| [MacOS](https://www.apple.com/macos/)                                                          | 11.5 / 12 beta-4 |
+| [MacOS](https://www.apple.com/macos/)                                                          | 11.5.2 / 12 beta-5 |
 | [OpenCore](https://github.com/acidanthera/OpenCorePkg/releases)                                | 0.7.2            |
 | [Lilu](https://github.com/acidanthera/Lilu/releases)                                           | 1.5.5            |
 | [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases)                               | 1.2.6            |
@@ -520,6 +520,7 @@ A [brief guide referencing other guides](/Guides/Bios-Mod.md).
 | [AppleBacklightSmoother](https://github.com/hieplpvip/AppleBacklightSmoother/releases)         | 1.0.2            |
 | [BrightnessKeys](https://github.com/acidanthera/BrightnessKeys/releases)                       | 1.0.2            |
 | [Sinetek-rtsx](https://github.com/cholonam/Sinetek-rtsx/releases)                              | 9.0              |
+| [FeatureUnlock](https://github.com/acidanthera/FeatureUnlock/releases)                              | 1.0.3              |
 
 </details>
 
