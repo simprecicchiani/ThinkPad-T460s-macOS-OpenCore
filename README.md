@@ -242,7 +242,7 @@ Optional: [Remove unnecessary firmware files from OpenIntelWireless drivers](/Gu
 1. Run the following script in Terminal
 
 ```bash
-git clone https://github.com/fewtarius/CPUFriendFriend; cd CPUFriendFriend; chmod +x ./CPUFriendFriend.command; ./CPUFriendFriend.command
+git clone https://github.com/acidanthera/CPUFriendFriend; cd CPUFriendFriend; chmod +x ./CPUFriendFriend.command; ./CPUFriendFriend.command
 ```
 
 1. When asked, select preferred values
