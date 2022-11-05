@@ -518,8 +518,8 @@ A [brief guide referencing other guides](/Guides/Bios-Mod.md).
 | [NVMeFix](https://github.com/acidanthera/NVMeFix/releases)                                     | 1.0.8 |
 | [RTCMemoryFixup](https://github.com/acidanthera/RTCMemoryFixup/releases)                       | 1.0.7 |
 | [AirPortOpenBSD](https://github.com/a565109863/AirPortOpenBSD/releases/)                       | 2.0.6 |
-| [AirportItlwm](https://github.com/OpenIntelWireless/itlwm/releases)                            | 2.0.0 |
-| [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/releases) | 1.1.2 |
+| [AirportItlwm](https://github.com/OpenIntelWireless/itlwm/releases)                            | 2.0.0b |
+| [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/releases) | 1.1.3 |
 | [AppleBacklightSmoother](https://github.com/hieplpvip/AppleBacklightSmoother/releases)         | 1.0.2 |
 | [BrightnessKeys](https://github.com/acidanthera/BrightnessKeys/releases)                       | 1.0.2 |
 | [Sinetek-rtsx](https://github.com/cholonam/Sinetek-rtsx/releases)                              | 9.0   |
