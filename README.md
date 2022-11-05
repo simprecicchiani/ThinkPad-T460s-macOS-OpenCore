@@ -206,7 +206,7 @@ git clone https://github.com/corpnewt/GenSMBIOS && cd GenSMBIOS && chmod +x GenS
 Two different drivers are under development for Intel WiFi support: `AirportItlwm.kext` and `AirPortOpenBSD.kext`. Do NOT use them both at the same time.
 
 1. Open `/EFI/OC/Config.plist` with any editor
-1. Add the content of [#intel-wlan - macOS 11.plist](/EFI/OC/%23intel-wlan%20-%20macOS%2011.plist) or [#intel-wlan - macOS 12.plist](/EFI/OC/%23intel-wlan%20-%20macOS%2012.plist) according to your macOS version
+1. Add the content of [#intel-wlan.plist](/EFI/OC/%23intel-wlan.plist) according to your macOS version
 1. Save and reboot the system
 
 **Note:** The drivers provided in this repo are for Big Sur and Monterey only; if you're running a different version of macOS please use the corresponding [AirportItlwm.kext](https://github.com/OpenIntelWireless/itlwm/releases) or [AirPortOpenBSD.kext](https://github.com/a565109863/AirPortOpenBSD/releases/).
