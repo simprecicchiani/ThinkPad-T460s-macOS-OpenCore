@@ -19,7 +19,7 @@ It would mean a lot to us.
 **This repo has now support for macOS 12 Monterey beta. It isn't a stable version yet, so it's not reccommended for daily use, but there is the option for it. Please read the [discussion about it](https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore/discussions/118), if you encounter any problems please contribute to that thread. The OS has support from EFI update [0.7.0.1](https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore/releases/tag/0.7.0.1), and you can install it as you would install a normal update.**
 
 duszmox's donate link:  
-[![donate](https://img.shields.io/badge/-buy%20me%20a%20coffee-orange)](https://www.paypal.com/donate?hosted_button_id=UW5DT28YP3QQUS)
+[![donate](https://img.shields.io/badge/-buy%20me%20a%20coffee-orange)](https://paypal.me/duszmo?locale.x=en_US)
 
 mhl221135's donate link:  
 [![donate](https://img.shields.io/badge/-buy%20me%20a%20coffee-orange)](https://mhl221135.diaka.ua/donate)
