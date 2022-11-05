@@ -3,7 +3,15 @@
 <plist version="1.0">
 <dict>
 	<key>BuildMachineOSBuild</key>
+<<<<<<< HEAD
 	<string>20G417</string>
+=======
+<<<<<<<< HEAD:EFI/OC/Kexts/VoodooRMI.kext/Contents/PlugIns/VoodooInput.kext/Contents/Info.plist
+	<string>19H1323</string>
+========
+	<string>19H524</string>
+>>>>>>>> e3d348a (May 2021 Update):EFI/OC/Kexts/VoodooPS2Controller.kext/Contents/PlugIns/VoodooInput.kext/Contents/Info.plist
+>>>>>>> e3d348a (May 2021 Update)
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -27,6 +35,7 @@
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>
+<<<<<<< HEAD
 	<string>12E507</string>
 	<key>DTPlatformName</key>
 	<string>macosx</string>
@@ -40,6 +49,21 @@
 	<string>1251</string>
 	<key>DTXcodeBuild</key>
 	<string>12E507</string>
+=======
+	<string>12B45b</string>
+	<key>DTPlatformName</key>
+	<string>macosx</string>
+	<key>DTPlatformVersion</key>
+	<string>11.0</string>
+	<key>DTSDKBuild</key>
+	<string>20A2408</string>
+	<key>DTSDKName</key>
+	<string>macosx11.0</string>
+	<key>DTXcode</key>
+	<string>1220</string>
+	<key>DTXcodeBuild</key>
+	<string>12B45b</string>
+>>>>>>> e3d348a (May 2021 Update)
 	<key>IOKitPersonalities</key>
 	<dict>
 		<key>Voodoo Input</key>
