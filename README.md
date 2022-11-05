@@ -486,6 +486,10 @@ A [brief guide referencing other guides](/Guides/Bios-Mod.md).
 <summary><strong>What's not working ⚠️</strong></summary>
 </br>
 
+<<<<<<< HEAD
+=======
+- [ ] Some kexts crash in standby mode, please disable it with `sudo pmset -a standby 0`
+>>>>>>> 7626b27 (Minor Readme.md changes)
 - [ ] Some users reported Mini DisplayPort is broken for them with latest updates, but it's working for me just fine
 - [ ] Safari DRM `Use Chromium engine to watch Apple TV+, Amazon Prime Video, Netflix and others`
 - [ ] WWAN (needs to be implemented)
