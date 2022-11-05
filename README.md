@@ -2,29 +2,16 @@
 
 <img align="right" src="/Images/t460s-monterey.png" alt="Lenovo Thinkpad T460s macOS Hackintosh OpenCore" width="300">
 
-[![macOS](https://img.shields.io/badge/macOS-11.6-blue)](https://developer.apple.com/documentation/macos-release-notes)
-[![macOS-beta](https://img.shields.io/badge/macOS–Beta-12_beta–6-orange)](https://developer.apple.com/documentation/macos-release-notes/macos-12-beta-release-notes)
-[![OpenCore](https://img.shields.io/badge/OpenCore-0.7.3-green)](https://github.com/acidanthera/OpenCorePkg)
+[![macOS](https://img.shields.io/badge/macOS-12.0.1-blue)](https://developer.apple.com/documentation/macos-release-notes)
+[![OpenCore](https://img.shields.io/badge/OpenCore-0.7.5-green)](https://github.com/acidanthera/OpenCorePkg)
 [![Model](https://img.shields.io/badge/Model-20F9*-lightgrey)](https://psref.lenovo.com/Product/ThinkPad_T460s)
 [![BIOS](https://img.shields.io/badge/BIOS-1.53-yellow)](https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/thinkpad-t-series-laptops/thinkpad-t460s/downloads/driver-list/component?name=BIOS%2FUEFI)
 [![License](https://img.shields.io/badge/license-MIT-purple)](/LICENSE)
 
 **DISCLAIMER:**  
-The original maintainer of this repo sold his laptop, and discontiuned his work, now [duszmox](https://github.com/duszmox) countinues this project.
 Read the entire README before you start.
-We are not responsible for any damages you may cause.  
-If you find an error or improve anything — whether in the config or in the documentation — please consider opening an issue or pull request.  
-If you find our work useful, please consider donating via PayPal.
-It would mean a lot to us.
-
-**This repo has now support for macOS 12 Monterey beta. It isn't a stable version yet, so it's not reccommended for daily use, but there is the option for it. Please read the [discussion about it](https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore/discussions/118), if you encounter any problems please contribute to that thread. The OS has support from EFI update [0.7.0.1](https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore/releases/tag/0.7.0.1), and you can install it as you would install a normal update.**
-
-[Some information about the future of this project](https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore/discussions/126
-)
-
-duszmox's donate link:  
-[![donate](https://img.shields.io/badge/-buy%20me%20a%20coffee-orange)](https://paypal.me/duszmo?locale.x=en_US)
-
+The developers are not responsible for any damages you may cause.  
+Should you find an error or improve anything — whether in the config or in the documentation — please consider opening an issue or pull request.
 
 ## Introduction
 
@@ -57,7 +44,21 @@ duszmox's donate link:
 <summary><strong>Tested Hardware 💻</strong></summary>
 </br>
 
-| @duszmox's Model | Thinkpad T460s 20FAS2SV00                                                                                 |
+| Model              | Thinkpad T460s 20F9003AUS                                                                                 |
+|:-------------------|:----------------------------------------------------------------------------------------------------------|
+| Processor          | Core i7-6600U (2C, 2.6 / 3.4GHz, 4MB) vPro                                                                |
+| Graphics           | Integrated Intel HD Graphics 520                                                                          |
+| Memory             | 4GB Soldered + 4GB DIMM 2133MHz DDR4, dual-channel                                                        |
+| Display            | 14" WQHD (2560x1440) IPS, non-touch                                                                       |
+| Storage            | WD Black SN750 500GB NVMe SSD                                                                             |
+| Ethernet           | Intel Ethernet Connection I219-LM (Jacksonville)                                                          |
+| WLAN + Bluetooth   | 11ac+BT, [Broadcom BCM94360CS2](/Guides/Replace-WLAN.md), 2x2 card                                        |
+| Camera             | HD720p resolution, low light sensitive, fixed focus                                                       |
+| Audio support      | HD Audio, Realtek ALC3245 codec, stereo speakers 1Wx2, dual array microphone, combo audio/microphone jack |
+| Keyboard           | 6-row, spill-resistant, multimedia Fn keys, LED backlight                                                 |
+| Battery            | Front Li-Polymer 3-cell (23Wh) and rear Li-Ion 3-cell (26Wh), both Integrated                             |
+
+| Model            | Thinkpad T460s 20FAS2SV00                                                                                 |
 | :--------------- | :-------------------------------------------------------------------------------------------------------- |
 | Processor        | Core i7-6600U (2C, 2.6 / 3.4GHz, 4MB) vPro                                                                |
 | Graphics         | Integrated Intel HD Graphics 520                                                                          |
@@ -71,7 +72,7 @@ duszmox's donate link:
 | Keyboard         | 6-row, spill-resistant, multimedia Fn keys, LED backlight                                                 |
 | Battery          | Front Li-Polymer 3-cell (23Wh) and rear Li-Ion 3-cell (26Wh), both Integrated                             |
 
-| @mhl221135's Model | Thinkpad T460s 20F90002\*\*                                                                               |
+| Model              | Thinkpad T460s 20F90002\*\*                                                                               |
 | :----------------- | :-------------------------------------------------------------------------------------------------------- |
 | Processor          | Core i5-6300U (2C, 2.4 / 3.0GHz, 3MB)                                                                     |
 | Graphics           | Integrated Intel HD Graphics 520                                                                          |
@@ -513,29 +514,30 @@ A [brief guide referencing other guides](/Guides/Bios-Mod.md).
 <summary><strong>Update tracker 🔄</strong></summary>
 </br>
 
-| [EFI Release](https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore/releases)       | 0.7.3            |
-| :--------------------------------------------------------------------------------------------- | :--------------- |
-| [MacOS](https://www.apple.com/macos/)                                                          | 11.6 / 12 beta-6 |
-| [OpenCore](https://github.com/acidanthera/OpenCorePkg/releases)                                | 0.7.3            |
-| [Lilu](https://github.com/acidanthera/Lilu/releases)                                           | 1.5.6            |
-| [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases)                               | 1.2.7            |
-| [YogaSMC](https://github.com/zhen-zen/YogaSMC/releases)                                        | 1.5.1            |
-| [WhateverGreen](https://github.com/acidanthera/WhateverGreen/releases)                         | 1.5.3            |
-| [AppleALC](https://github.com/acidanthera/AppleALC/releases)                                   | 1.6.4            |
-| [VoodooPS2Controller](https://github.com/acidanthera/VoodooPS2/releases)                       | 2.2.5            |
-| [VoodooRMI](https://github.com/VoodooSMBus/VoodooRMI/releases)                                 | 1.3.4            |
-| [VoodooI2C/VoodooI2CHID](https://github.com/VoodooI2C/VoodooI2C/releases)                      | 2.6.5            |
-| [IntelMausi](https://github.com/acidanthera/IntelMausi/releases)                               | 1.0.7            |
-| [HibernationFixup](https://github.com/acidanthera/HibernationFixup/releases)                   | 1.4.3            |
-| [CPUFriend](https://github.com/acidanthera/CPUFriend/releases)                                 | 1.2.4            |
-| [NVMeFix](https://github.com/acidanthera/NVMeFix/releases)                                     | 1.0.9            |
-| [RTCMemoryFixup](https://github.com/acidanthera/RTCMemoryFixup/releases)                       | 1.0.7            |
-| [AirportItlwm](https://github.com/OpenIntelWireless/itlwm/releases)                            | 2.1.0b           |
-| [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/releases) | 2.0.0        |
-| [AppleBacklightSmoother](https://github.com/hieplpvip/AppleBacklightSmoother/releases)         | 1.0.2            |
-| [BrightnessKeys](https://github.com/acidanthera/BrightnessKeys/releases)                       | 1.0.2            |
-| [Sinetek-rtsx](https://github.com/cholonam/Sinetek-rtsx/releases)                              | 9.0              |
-| [FeatureUnlock](https://github.com/acidanthera/FeatureUnlock/releases)                         | 1.0.3            |
+| [EFI Release](https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore/releases)       | 0.7.5  |
+|------------------------------------------------------------------------------------------------|--------|
+| [MacOS](https://www.apple.com/macos/)                                                          | 12.0.1 |
+| [OpenCore](https://github.com/acidanthera/OpenCorePkg/releases)                                | 0.7.5  |
+| [Lilu](https://github.com/acidanthera/Lilu/releases)                                           | 1.5.7  |
+| [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases)                               | 1.2.7  |
+| [YogaSMC](https://github.com/zhen-zen/YogaSMC/releases)                                        | 1.5.1  |
+| [WhateverGreen](https://github.com/acidanthera/WhateverGreen/releases)                         | 1.5.5  |
+| [AppleALC](https://github.com/acidanthera/AppleALC/releases)                                   | 1.6.6  |
+| [VoodooPS2Controller](https://github.com/acidanthera/VoodooPS2/releases)                       | 2.2.7  |
+| [VoodooRMI](https://github.com/VoodooSMBus/VoodooRMI/releases)                                 | 1.3.4  |
+| [VoodooI2C/VoodooI2CHID](https://github.com/VoodooI2C/VoodooI2C/releases)                      | 2.6.5  |
+| [IntelMausi](https://github.com/acidanthera/IntelMausi/releases)                               | 1.0.7  |
+| [HibernationFixup](https://github.com/acidanthera/HibernationFixup/releases)                   | 1.4.5  |
+| [CPUFriend](https://github.com/acidanthera/CPUFriend/releases)                                 | 1.2.4  |
+| [NVMeFix](https://github.com/acidanthera/NVMeFix/releases)                                     | 1.0.9  |
+| [RTCMemoryFixup](https://github.com/acidanthera/RTCMemoryFixup/releases)                       | 1.0.7  |
+| [AirportItlwm](https://github.com/OpenIntelWireless/itlwm/releases)                            | 2.1.0a |
+| [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/releases) | 2.0.1  |
+| [BlueToolFixup](https://github.com/acidanthera/BrcmPatchRAM/releases)                          | 2.6.1  |
+| [AppleBacklightSmoother](https://github.com/hieplpvip/AppleBacklightSmoother/releases)         | 1.0.2  |
+| [BrightnessKeys](https://github.com/acidanthera/BrightnessKeys/releases)                       | 1.0.2  |
+| [Sinetek-rtsx](https://github.com/cholonam/Sinetek-rtsx/releases)                              | 9.0    |
+| [FeatureUnlock](https://github.com/acidanthera/FeatureUnlock/releases)                         | 1.0.3  |
 
 </details>
 
@@ -575,7 +577,4 @@ A [brief guide referencing other guides](/Guides/Bios-Mod.md).
 
 ## Thanks to
 
-[Simone](https://github.com/simprecicchiani), the original maintainer of this repo,
-the hackintosh community on GitHub,
-[InsanelyMac](https://www.insanelymac.com/forum/), and
-[r/hackintosh](https://www.reddit.com/r/hackintosh/).
+The hackintosh community on GitHub, [InsanelyMac](https://www.insanelymac.com/forum/), and [r/hackintosh](https://www.reddit.com/r/hackintosh/).
