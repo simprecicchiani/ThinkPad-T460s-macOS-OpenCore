@@ -500,7 +500,7 @@ A [brief guide referencing other guides](/Guides/Bios-Mod.md).
 | [OpenCore](https://github.com/acidanthera/OpenCorePkg/releases)                                | 0.7.0 |
 | [Lilu](https://github.com/acidanthera/Lilu/releases)                                           | 1.5.3 |
 | [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases)                               | 1.2.3 |
-| [YogaSMC](https://github.com/zhen-zen/YogaSMC/releases)                                        | 1.5.3 |
+| [YogaSMC](https://github.com/zhen-zen/YogaSMC/releases)                                        | 1.5.1 |
 | [WhateverGreen](https://github.com/acidanthera/WhateverGreen/releases)                         | 1.5.0 |
 | [AppleALC](https://github.com/acidanthera/AppleALC/releases)                                   | 1.6.1 |
 | [VoodooPS2Controller](https://github.com/acidanthera/VoodooPS2/releases)                       | 2.2.3 |
