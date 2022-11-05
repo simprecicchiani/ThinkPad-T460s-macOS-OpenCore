@@ -87,7 +87,7 @@ This bootloader configuration will probably suit other 6th generation Thinkpads,
 </br>
 
 1. [Create an installation media](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/#making-the-installer)
-1. Download the [latest EFI folder](https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore/releases) and copy it into the ESP partiton
+1. Download the [latest EFI folder](https://github.com/duszmox/ThinkPad-T460s-macOS-OpenCore/releases) and copy it into the ESP partiton
 1. Change your BIOS settings according to the table below
 1. Boot from the USB installer (press `F12` to choose boot volume) and [start the installation process](https://dortania.github.io/OpenCore-Install-Guide/installation/installation-process.html#booting-the-opencore-usb)
 
@@ -163,7 +163,7 @@ git clone https://github.com/corpnewt/GenSMBIOS && cd GenSMBIOS && chmod +x GenS
 <summary><strong>How to update the bootloader</strong></summary>
 </br>
 
-1. Download the [latest release](https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore/releases)
+1. Download the [latest release](https://github.com/duszmox/ThinkPad-T460s-macOS-OpenCore/releases)
 1. Copy and Paste your `PlatfromInfo`
 1. Enable optional kexts if needed (NVMEFix, AirportItlwm, etc.)
 1. Test the new bootloader with an USB stick (Set `BootProtect: None` whenever booting with external drives)
