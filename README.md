@@ -2,8 +2,8 @@
 
 <img align="right" src="/Images/t460s-big-sur.png" alt="Lenovo Thinkpad T460s macOS Hackintosh OpenCore" width="300">
 
-[![macOS](https://img.shields.io/badge/macOS-11.2.3-blue)](https://developer.apple.com/documentation/macos-release-notes)
-[![OpenCore](https://img.shields.io/badge/OpenCore-0.6.8-green)](https://github.com/acidanthera/OpenCorePkg)
+[![macOS](https://img.shields.io/badge/macOS-11.3-blue)](https://developer.apple.com/documentation/macos-release-notes)
+[![OpenCore](https://img.shields.io/badge/OpenCore-0.6.9-green)](https://github.com/acidanthera/OpenCorePkg)
 [![Model](https://img.shields.io/badge/Model-20F9*-lightgrey)](https://psref.lenovo.com/Product/ThinkPad_T460s)
 [![BIOS](https://img.shields.io/badge/BIOS-1.49-yellow)](https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/thinkpad-t-series-laptops/thinkpad-t460s/downloads/driver-list/component?name=BIOS%2FUEFI)
 [![License](https://img.shields.io/badge/license-MIT-purple)](/LICENSE)
@@ -20,6 +20,7 @@ duszmox's donate link:
 
 mhl221135's donate link:  
 [![donate](https://img.shields.io/badge/-buy%20me%20a%20coffee-orange)](https://mhl221135.diaka.ua/donate)
+
 ## Introduction
 
 <details>  
@@ -65,19 +66,19 @@ mhl221135's donate link:
 | Keyboard         | 6-row, spill-resistant, multimedia Fn keys, LED backlight                                                 |
 | Battery          | Front Li-Polymer 3-cell (23Wh) and rear Li-Ion 3-cell (26Wh), both Integrated                             |
 
-| @mhl221135's Model | Thinkpad T460s 20F90002**                                                                                 |
-| :--------------- | :-------------------------------------------------------------------------------------------------------- |
-| Processor        | Core i5-6300U (2C, 2.4 / 3.0GHz, 3MB)                                                                     |
-| Graphics         | Integrated Intel HD Graphics 520                                                                          |
-| Memory           | 4GB Soldered + 8GB DIMM 2133MHz DDR4, dual-channel                                                        |
-| Display          | 14" Full HD (1920x1080) IPS, Touch (currently not supported)                                              |
-| Storage          | Western Digital Black SN750 500GB NVMe SSD                                                                |
-| Ethernet         | Intel Ethernet Connection I219-LM (Jacksonville)                                                          |
-| WLAN + Bluetooth | 11ac+BT, Intel® Dual Band Wireless-AC 8265, 2x2 card                                                      |
-| Camera           | HD720p resolution, low light sensitive, fixed focus                                                       |
-| Audio support    | HD Audio, Realtek ALC3245 codec, stereo speakers 1Wx2, dual array microphone, combo audio/microphone jack |
-| Keyboard         | 6-row, spill-resistant, multimedia Fn keys, LED backlight                                                 |
-| Battery          | Front Li-Polymer 3-cell (23Wh) and rear Li-Ion 3-cell (26Wh), both Integrated                             |
+| @mhl221135's Model | Thinkpad T460s 20F90002\*\*                                                                               |
+| :----------------- | :-------------------------------------------------------------------------------------------------------- |
+| Processor          | Core i5-6300U (2C, 2.4 / 3.0GHz, 3MB)                                                                     |
+| Graphics           | Integrated Intel HD Graphics 520                                                                          |
+| Memory             | 4GB Soldered + 8GB DIMM 2133MHz DDR4, dual-channel                                                        |
+| Display            | 14" Full HD (1920x1080) IPS, Touch (currently not supported)                                              |
+| Storage            | Western Digital Black SN750 500GB NVMe SSD                                                                |
+| Ethernet           | Intel Ethernet Connection I219-LM (Jacksonville)                                                          |
+| WLAN + Bluetooth   | 11ac+BT, Intel® Dual Band Wireless-AC 8265, 2x2 card                                                      |
+| Camera             | HD720p resolution, low light sensitive, fixed focus                                                       |
+| Audio support      | HD Audio, Realtek ALC3245 codec, stereo speakers 1Wx2, dual array microphone, combo audio/microphone jack |
+| Keyboard           | 6-row, spill-resistant, multimedia Fn keys, LED backlight                                                 |
+| Battery            | Front Li-Polymer 3-cell (23Wh) and rear Li-Ion 3-cell (26Wh), both Integrated                             |
 
 </details>
 
@@ -89,16 +90,14 @@ This EFI will suit any T460s regardless of CPU model<sup>[1](#CPU)</sup>, amount
 
 <a name="CPU">1</a>. Optional custom CPU Power Management guide.  
 <a name="Res">2</a>. 1440p displays should change `NVRAM -> Add -> 7C436110-AB2A-4BBB-A880-FE41995C9F82 -> UIScale`:`2` to get proper scaling while booting.  
-<a name="NVMe">3</a>. Follow NVMe fix guide below for NVMe drives.  
+<a name="NVMe">3</a>. Follow NVMe fix guide below for NVMe drives.
 
-This bootloader configuration will probably suit other 6th generation Thinkpads, but there could be some defacts (i. e. not working usb ports, can't connect any displays.. etc.). If you own a model other then a T460s check out these repositories: 
-| Maintainer    | Model       | Bootloader |
+This bootloader configuration will probably suit other 6th generation Thinkpads, but there could be some defacts (i. e. not working usb ports, can't connect any displays.. etc.). If you own a model other then a T460s check out these repositories:
+| Maintainer | Model | Bootloader |
 | :------------ | ----------: | ---------: |
-| MSzturc       | [T460](https://github.com/MSzturc/Lenovo-T460-OpenCore)        | Opencore   |
-| duszmox       | [X1 Carbon Gen 4](https://github.com/duszmox/ThinkPad-X1C4-macOS-OpenCore)        | Opencore   |
-| Tluck         | [T560/T460](https://github.com/tluck/Lenovo-T460-Clover)        | Clover   |
-
-
+| MSzturc | [T460](https://github.com/MSzturc/Lenovo-T460-OpenCore) | Opencore |
+| duszmox | [X1 Carbon Gen 4](https://github.com/duszmox/ThinkPad-X1C4-macOS-OpenCore) | Opencore |
+| Tluck | [T560/T460](https://github.com/tluck/Lenovo-T460-Clover) | Clover |
 
 </details>
 
@@ -329,7 +328,7 @@ NotebookCheck's calibrated profiles. Not all panel are the same, final result ma
 <summary><strong>Add Apple Watch authentication to sudo</strong></summary>
 </br>
 
-If you have an Apple Watch and you already [replaced the build in WiFi card](/Guides/Replace-WLAN.md), you could enable authenticating as sudo with you Apple Watch using [pam-watch](https://github.com/biscuitehh/pam-watchid).  
+If you have an Apple Watch and you already [replaced the build in WiFi card](/Guides/Replace-WLAN.md), you could enable authenticating as sudo with you Apple Watch using [pam-watch](https://github.com/biscuitehh/pam-watchid).
 
 1. Download the latest [ZIP file](https://github.com/biscuitehh/pam-watchid/archive/main.zip)
 2. Unzip, which by default creates a folder called pam-watchid-main.
@@ -397,6 +396,7 @@ Settings for AC:
 sudo pmset -c standby 1
 sudo pmset -c hibernatemode 0
 ```
+
 Setting for battery:
 
 ```
@@ -406,12 +406,15 @@ sudo pmset -b standbydelaylow 60
 sudo pmset -b hibernatemode 25
 sudo pmset -b highstandbythreshold 70
 ```
+
 Settings for all:
+
 ```
 sudo pmset -a acwake 0
 sudo pmset -a lidwake 1
 sudo pmset -a powernap 0
 ```
+
 To restore default system settings run `pmset restoredefaults ` command
 
 <details>  
@@ -428,7 +431,6 @@ before writing the hibernation image to disk and powering off memory for Standby
 standbydelayhigh is used when the remaining battery capacity is above `highstandbythreshold`(has a default value of 50 percent),
 and standbydelaylow is used when the remaining battery capacity is below highstandbythreshold.
 
-
 hibernatemode supports values of 0, 3, or 25.
 
 To disable hibernation, set hibernatemode to 0.
@@ -439,6 +441,7 @@ To disable hibernation, set hibernatemode to 0.
 
 `hibernatemode` = 25 is only settable via pmset. The system will store a copy of memory to persistent storage (the disk), and will remove power to memory. The system will restore from disk image. If you want "hibernation" - slower sleeps, slower wakes, and better battery life, you should use this setting.<br><br>
 [pmset Descriptions Source](https://www.dssw.co.uk/reference/pmset.html)
+
 </details> <br><br>
 </details>
 <details>  
@@ -491,28 +494,28 @@ A [brief guide referencing other guides](/Guides/Bios-Mod.md).
 <summary><strong>Update tracker 🔄</strong></summary>
 </br>
 
-| [EFI Release](https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore/releases)               | 0.6.8  |
-| :--------------------------------------------------------------------------------------------- | :----- |
-| [MacOS](https://www.apple.com/macos/)                                                          | 11.2.3 |
-| [OpenCore](https://github.com/acidanthera/OpenCorePkg/releases)                                | 0.6.8  |
-| [Lilu](https://github.com/acidanthera/Lilu/releases)                                           | 1.5.2  |
-| [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases)                               | 1.2.2  |
-| [YogaSMC](https://github.com/zhen-zen/YogaSMC/releases)                                        | 1.4.3  |
-| [WhateverGreen](https://github.com/acidanthera/WhateverGreen/releases)                         | 1.4.9  |
-| [AppleALC](https://github.com/acidanthera/AppleALC/releases)                                   | 1.5.9  |
-| [VoodooPS2Controller](https://github.com/acidanthera/VoodooPS2/releases)                       | 2.2.2  |
-| [VoodooRMI](https://github.com/VoodooSMBus/VoodooRMI/releases)                                 | 1.3.2  |
-| [IntelMausi](https://github.com/acidanthera/IntelMausi/releases)                               | 1.0.5  |
-| [HibernationFixup](https://github.com/acidanthera/HibernationFixup/releases)                   | 1.4.0  |
-| [CPUFriend](https://github.com/acidanthera/CPUFriend/releases)                                 | 1.2.3  |
-| [NVMeFix](https://github.com/acidanthera/NVMeFix/releases)                                     | 1.0.6  |
-| [RTCMemoryFixup](https://github.com/acidanthera/RTCMemoryFixup/releases)                       | 1.0.7  |
-| [AirPortOpenBSD](https://github.com/a565109863/AirPortOpenBSD/releases/)                       | 2.0.6  |
-| [AirportItlwm](https://github.com/OpenIntelWireless/itlwm/releases)                            | 1.3.0  |
-| [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/releases) | 1.1.2  |
-| [AppleBacklightSmoother](https://github.com/hieplpvip/AppleBacklightSmoother/releases)         | 1.0.2  |
-| [BrightnessKeys](https://github.com/acidanthera/BrightnessKeys/releases)                       | 1.0.1  |
-| [Sinetek-rtsx](https://github.com/cholonam/Sinetek-rtsx/releases)                              | 9.0    |
+| [EFI Release](https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore/releases)       | 0.6.9 |
+| :--------------------------------------------------------------------------------------------- | :---- |
+| [MacOS](https://www.apple.com/macos/)                                                          | 11.3  |
+| [OpenCore](https://github.com/acidanthera/OpenCorePkg/releases)                                | 0.6.9 |
+| [Lilu](https://github.com/acidanthera/Lilu/releases)                                           | 1.5.3 |
+| [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases)                               | 1.2.3 |
+| [YogaSMC](https://github.com/zhen-zen/YogaSMC/releases)                                        | 1.4.3 |
+| [WhateverGreen](https://github.com/acidanthera/WhateverGreen/releases)                         | 1.4.9 |
+| [AppleALC](https://github.com/acidanthera/AppleALC/releases)                                   | 1.6.0 |
+| [VoodooPS2Controller](https://github.com/acidanthera/VoodooPS2/releases)                       | 2.2.3 |
+| [VoodooRMI](https://github.com/VoodooSMBus/VoodooRMI/releases)                                 | 1.3.3 |
+| [IntelMausi](https://github.com/acidanthera/IntelMausi/releases)                               | 1.0.6 |
+| [HibernationFixup](https://github.com/acidanthera/HibernationFixup/releases)                   | 1.4.0 |
+| [CPUFriend](https://github.com/acidanthera/CPUFriend/releases)                                 | 1.2.3 |
+| [NVMeFix](https://github.com/acidanthera/NVMeFix/releases)                                     | 1.0.7 |
+| [RTCMemoryFixup](https://github.com/acidanthera/RTCMemoryFixup/releases)                       | 1.0.7 |
+| [AirPortOpenBSD](https://github.com/a565109863/AirPortOpenBSD/releases/)                       | 2.0.6 |
+| [AirportItlwm](https://github.com/OpenIntelWireless/itlwm/releases)                            | 2.0.0 |
+| [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/releases) | 1.1.2 |
+| [AppleBacklightSmoother](https://github.com/hieplpvip/AppleBacklightSmoother/releases)         | 1.0.2 |
+| [BrightnessKeys](https://github.com/acidanthera/BrightnessKeys/releases)                       | 1.0.1 |
+| [Sinetek-rtsx](https://github.com/cholonam/Sinetek-rtsx/releases)                              | 9.0   |
 
 </details>
 

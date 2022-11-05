@@ -183,7 +183,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>HPET (\WNTF\!WXPF to _OSI("Darwin"))</string>
+				<string>HPET (\WNTF\!WXPF to _OSI(&quot;Darwin&quot;))</string>
 				<key>Count</key>
 				<integer>0</integer>
 				<key>Enabled</key>
@@ -1281,20 +1281,7 @@
 	<key>UEFI</key>
 	<dict>
 		<key>ReservedMemory</key>
-		<array>
-			<dict>
-				<key>Address</key>
-				<integer>569344</integer>
-				<key>Comment</key>
-				<string>Fix black screen on wake from hibernation for Lenovo Thinkpad T480/T490/X1C6/T460s/?</string>
-				<key>Enabled</key>
-				<true/>
-				<key>Size</key>
-				<integer>4096</integer>
-				<key>Type</key>
-				<string>Reserved</string>
-			</dict>
-		</array>
+		<array/>
 		<key>APFS</key>
 		<dict>
 			<key>EnableJumpstart</key>
@@ -1427,6 +1414,12 @@
 		</dict>
 		<key>Quirks</key>
 		<dict>
+			<key>ReloadOptionRoms</key>
+			<false/>
+			<key>EnableVectorAcceleration</key>
+			<false/>
+			<key>ForgeUefiSupport</key>
+			<false/>
 			<key>ActivateHpetSupport</key>
 			<false/>
 			<key>DisableSecurityPolicy</key>
@@ -1444,16 +1437,14 @@
 			<key>UnblockFsConnect</key>
 			<false/>
 		</dict>
-		<key>ReservedMemory</key>
-		<array/>
 		<key>AppleInput</key>
 		<dict>
 			<key>AppleEvent</key>
 			<string>Builtin</string>
 			<key>CustomDelays</key>
-			<string>Auto</string>
+			<false/>
 			<key>KeyInitialDelay</key>
-			<integer>0</integer>
+			<integer>50</integer>
 			<key>KeySubsequentDelay</key>
 			<integer>5</integer>
 			<key>PointerSpeedDiv</key>
