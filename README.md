@@ -18,8 +18,17 @@ This repo is a fork of [simprecicchiani's T460s Hackintosh repo](https://github.
 This repo is a fork of [simprecicchiani's T460s Hackintosh repo](https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore). He discontinued his work in April 2021.  
 >>>>>>> c570554 (Minor Readme.md changes)
 Read the entire README before you start.
+<<<<<<< HEAD
 The developers are not responsible for any damages you may cause.  
 Should you find an error or improve anything — whether in the config or in the documentation — please consider opening an issue or pull request.
+=======
+I am not responsible for any damages you may cause.  
+Should you find an error or improve anything — whether in the config or in the documentation — please consider opening an issue or pull request.  
+If you find my work useful, please consider donating via PayPal.
+It would mean a lot to me.
+
+[![donate](https://img.shields.io/badge/-buy%20me%20a%20coffee-orange)](https://www.paypal.com/donate?business=kirigyuszi%40gmail.com&item_name=The+new+maintainer+of+the+T460s+Hackintosh+repository&currency_code=USD)
+>>>>>>> a1bff15 (Fixed some typos)
 
 ## Introduction
 
@@ -42,7 +51,7 @@ Should you find an error or improve anything — whether in the config or in the
 
 - [OpenCore](https://github.com/acidanthera/OpenCorePkg)
 - [OC-little](https://github.com/daliansky/OC-little)
-- [X1 Carbon config](https://github.com/tylernguyen/x1c6-hackintosh) (currently working on X1 Carbon Gen 4 config expecti it in a few weeks)
+- [X1 Carbon config](https://github.com/tylernguyen/x1c6-hackintosh) (currently working on X1 Carbon Gen 4 config expect it in a few weeks)
 - [T460 config](https://github.com/MSzturc/Lenovo-T460-OpenCore)
 
 </details>
