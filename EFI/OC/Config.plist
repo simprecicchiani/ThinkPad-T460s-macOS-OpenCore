@@ -989,7 +989,7 @@
 				<key>BundlePath</key>
 				<string>AirportItlwm.kext</string>
 				<key>Comment</key>
-				<string>Disable if on Ventura</string>
+				<string>Used for macOS 12</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -1133,7 +1133,7 @@
 				<key>BundlePath</key>
 				<string>AirportItlwm-13.kext</string>
 				<key>Comment</key>
-				<string>Enable if on Ventura</string>
+				<string>Used for macOS  13</string>
 				<key>Enabled</key>
 				<false/>
 				<key>ExecutablePath</key>
@@ -1445,6 +1445,8 @@
 				<string>csr-active-config</string>
 			</array>
 		</dict>
+		<key>LegacyEnable</key>
+		<false/>
 		<key>LegacyOverwrite</key>
 		<false/>
 		<key>LegacySchema</key>
