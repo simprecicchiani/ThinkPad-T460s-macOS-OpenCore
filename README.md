@@ -490,6 +490,7 @@ A [brief guide referencing other guides](/Guides/Bios-Mod.md).
 - [x] Speakers and headphones combo jack 
 - [x] Batteries
 - [x] Keyboard map and hotkeys with [YogaSMC](https://github.com/zhen-zen/YogaSMC)
+- [x] Touchscreen
 - [x] [Trackpad, Trackpoint and physical buttons](/Images/VoodooRMI-T460s-trackpad-gestures.gif) `all macOS gestures working thanks to VoodooRMI`
 - [x] SIP and FileVault 2 can be turned on
 - [x] HDMI `with digital audio passthrough`
@@ -505,7 +506,6 @@ A [brief guide referencing other guides](/Guides/Bios-Mod.md).
 - [ ] Safari DRM `Use Chromium engine to watch Apple TV+, Amazon Prime Video, Netflix and others`
 - [ ] WWAN (needs to be implemented)
 - [ ] Fingerprint Reader
-- [ ] Touchscreen
 
 </details>
 
