@@ -1,8 +1,9 @@
 # ThinkPad T460s running macOS (OpenCore bootloader)
 
-<img align="right" src="/Images/t460s-big-sur.png" alt="Lenovo Thinkpad T460s macOS Hackintosh OpenCore" width="300">
+<img align="right" src="/Images/t460s-monterey.png" alt="Lenovo Thinkpad T460s macOS Hackintosh OpenCore" width="300">
 
 [![macOS](https://img.shields.io/badge/macOS-11.4-blue)](https://developer.apple.com/documentation/macos-release-notes)
+[![macOS-beta](https://img.shields.io/badge/macOS–Beta-12_beta–1-orange)](https://developer.apple.com/documentation/macos-release-notes/macos-12-beta-release-notes)
 [![OpenCore](https://img.shields.io/badge/OpenCore-0.7.0-green)](https://github.com/acidanthera/OpenCorePkg)
 [![Model](https://img.shields.io/badge/Model-20F9*-lightgrey)](https://psref.lenovo.com/Product/ThinkPad_T460s)
 [![BIOS](https://img.shields.io/badge/BIOS-1.51-yellow)](https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/thinkpad-t-series-laptops/thinkpad-t460s/downloads/driver-list/component?name=BIOS%2FUEFI)
@@ -14,6 +15,8 @@ We are not responsible for any damages you may cause.
 Should you find an error or improve anything — whether in the config or in the documentation — please consider opening an issue or pull request.  
 If you find our work useful, please consider donating via PayPal.
 It would mean a lot to us.
+
+**This repo has now support for macOS 12 Monterey beta. It isn't a stable version yet, so it's not reccommended for daily use, but there is the option for it. Please read the [discussion about it](https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore/discussions/118), if you encounter any problems please contribute to that thread. The OS has support from EFI update [0.7.0.1](https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore/releases/tag/0.7.0.1), and you can install it as you would install a normal update.**
 
 duszmox's donate link:  
 [![donate](https://img.shields.io/badge/-buy%20me%20a%20coffee-orange)](https://www.paypal.com/donate?hosted_button_id=UW5DT28YP3QQUS)
@@ -205,7 +208,11 @@ Two different drivers are under development for Intel WiFi support: `AirportItlw
 1. Add the content of [#intel-wlan.plist](/EFI/OC/#intel-wlan.plist)
 1. Save and reboot the system
 
-Note: The drivers provided in this repo are for Big Sur only; if you're running a different version of macOS please use the corresponding [AirportItlwm.kext](https://github.com/OpenIntelWireless/itlwm/releases) or [AirPortOpenBSD.kext](https://github.com/a565109863/AirPortOpenBSD/releases/).
+**Note:** When it comes to Airportitlwm.kext you have two options, Airportitlwm-11.kext
+and Airportitlwm-12.kext. Choose the one corresponding to your macOS version, otherwise the wifi won't work.  
+
+**Note 2:** The drivers provided in this repo are for Big Sur and Monterey only; if you're running a different version of macOS please use the corresponding [AirportItlwm.kext](https://github.com/OpenIntelWireless/itlwm/releases) or [AirPortOpenBSD.kext](https://github.com/a565109863/AirPortOpenBSD/releases/).
+
 
 Optional: [Remove unnecessary firmware files from OpenIntelWireless drivers](/Guides/Clean-OpenIntelWireless.md).
 
@@ -496,13 +503,13 @@ A [brief guide referencing other guides](/Guides/Bios-Mod.md).
 
 | [EFI Release](https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore/releases)       | 0.7.0 |
 | :--------------------------------------------------------------------------------------------- | :---- |
-| [MacOS](https://www.apple.com/macos/)                                                          | 11.4  |
+| [MacOS](https://www.apple.com/macos/)                                                          | 11.4 / 12 beta-1  |
 | [OpenCore](https://github.com/acidanthera/OpenCorePkg/releases)                                | 0.7.0 |
-| [Lilu](https://github.com/acidanthera/Lilu/releases)                                           | 1.5.3 |
-| [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases)                               | 1.2.4 |
+| [Lilu](https://github.com/acidanthera/Lilu/releases)                                           | 1.5.4b |
+| [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases)                               | 1.2.5b |
 | [YogaSMC](https://github.com/zhen-zen/YogaSMC/releases)                                        | 1.5.1 |
-| [WhateverGreen](https://github.com/acidanthera/WhateverGreen/releases)                         | 1.5.0 |
-| [AppleALC](https://github.com/acidanthera/AppleALC/releases)                                   | 1.6.1 |
+| [WhateverGreen](https://github.com/acidanthera/WhateverGreen/releases)                         | 1.5.1b |
+| [AppleALC](https://github.com/acidanthera/AppleALC/releases)                                   | 1.6.2b |
 | [VoodooPS2Controller](https://github.com/acidanthera/VoodooPS2/releases)                       | 2.2.3 |
 | [VoodooRMI](https://github.com/VoodooSMBus/VoodooRMI/releases)                                 | 1.3.3 |
 | [IntelMausi](https://github.com/acidanthera/IntelMausi/releases)                               | 1.0.6 |
