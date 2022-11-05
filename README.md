@@ -10,9 +10,10 @@
 [![License](https://img.shields.io/badge/license-MIT-purple)](/LICENSE)
 
 **DISCLAIMER:**  
+The original maintainer of this repo sold his laptop, and discontiuned his work, now [duszmox](https://github.com/duszmox) and [mhl221135](https://github.com/mhl221135) countinue this project.
 Read the entire README before you start.
 We are not responsible for any damages you may cause.  
-Should you find an error or improve anything — whether in the config or in the documentation — please consider opening an issue or pull request.  
+If you find an error or improve anything — whether in the config or in the documentation — please consider opening an issue or pull request.  
 If you find our work useful, please consider donating via PayPal.
 It would mean a lot to us.
 
