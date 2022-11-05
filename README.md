@@ -550,8 +550,12 @@ A [brief guide referencing other guides](/Guides/Bios-Mod.md).
 | [IntelMausi](https://github.com/acidanthera/IntelMausi/releases)                               | 1.0.5  |
 | [HibernationFixup](https://github.com/acidanthera/HibernationFixup/releases)                   | 1.4.0  |
 | [CPUFriend](https://github.com/acidanthera/CPUFriend/releases)                                 | 1.2.3  |
+<<<<<<< HEAD
 | [NVMeFix](https://github.com/acidanthera/NVMeFix/releases)                                     | 1.0.4  |
 >>>>>>> e52be05 (Minor Readme.md changes)
+=======
+| [NVMeFix](https://github.com/acidanthera/NVMeFix/releases)                                     | 1.0.6  |
+>>>>>>> a74c057 (NVMeFix version fix)
 | [RTCMemoryFixup](https://github.com/acidanthera/RTCMemoryFixup/releases)                       | 1.0.7  |
 | [AirportItlwm](https://github.com/OpenIntelWireless/itlwm/releases)                            | 2.2.0  |
 | [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/releases) | 2.1.0  |
