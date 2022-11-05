@@ -1305,6 +1305,31 @@
 				<string>Reserved</string>
 			</dict>
 		</array>
+		<key>Quirks</key>
+		<dict>
+			<key>ReloadOptionRoms</key>
+			<false/>
+			<key>EnableVectorAcceleration</key>
+			<false/>
+			<key>ForgeUefiSupport</key>
+			<false/>
+			<key>ActivateHpetSupport</key>
+			<false/>
+			<key>DisableSecurityPolicy</key>
+			<false/>
+			<key>ExitBootServicesDelay</key>
+			<integer>0</integer>
+			<key>IgnoreInvalidFlexRatio</key>
+			<false/>
+			<key>ReleaseUsbOwnership</key>
+			<false/>
+			<key>RequestBootVarRouting</key>
+			<true/>
+			<key>TscSyncTimeout</key>
+			<integer>0</integer>
+			<key>UnblockFsConnect</key>
+			<false/>
+		</dict>
 		<key>APFS</key>
 		<dict>
 			<key>EnableJumpstart</key>
@@ -1437,31 +1462,6 @@
 			<key>AppleEg2Info</key>
 			<false/>
 		</dict>
-		<key>Quirks</key>
-		<dict>
-			<key>ReloadOptionRoms</key>
-			<false/>
-			<key>EnableVectorAcceleration</key>
-			<false/>
-			<key>ForgeUefiSupport</key>
-			<false/>
-			<key>ActivateHpetSupport</key>
-			<false/>
-			<key>DisableSecurityPolicy</key>
-			<false/>
-			<key>ExitBootServicesDelay</key>
-			<integer>0</integer>
-			<key>IgnoreInvalidFlexRatio</key>
-			<false/>
-			<key>ReleaseUsbOwnership</key>
-			<false/>
-			<key>RequestBootVarRouting</key>
-			<true/>
-			<key>TscSyncTimeout</key>
-			<integer>0</integer>
-			<key>UnblockFsConnect</key>
-			<false/>
-		</dict>
 		<key>AppleInput</key>
 		<dict>
 			<key>AppleEvent</key>
@@ -1476,6 +1476,8 @@
 			<integer>1</integer>
 			<key>PointerSpeedMul</key>
 			<integer>1</integer>
+			<key>GraphicsInputMirroring</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
