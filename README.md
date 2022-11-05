@@ -18,6 +18,8 @@ It would mean a lot to us.
 duszmox's donate link:  
 [![donate](https://img.shields.io/badge/-buy%20me%20a%20coffee-orange)](https://www.paypal.com/donate?hosted_button_id=UW5DT28YP3QQUS)
 
+mhl221135's donate link:  
+[![donate](https://img.shields.io/badge/-buy%20me%20a%20coffee-orange)](https://mhl221135.diaka.ua/donate)
 ## Introduction
 
 <details>  
