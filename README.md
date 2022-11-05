@@ -49,7 +49,7 @@ duszmox's donate link:
 <summary><strong>Tested Hardware 💻</strong></summary>
 </br>
 
-| @duszmox Model | Thinkpad T460s 20FAS2SV00                                                                                 |
+| @duszmox's Model | Thinkpad T460s 20FAS2SV00                                                                                 |
 | :--------------- | :-------------------------------------------------------------------------------------------------------- |
 | Processor        | Core i7-6600U (2C, 2.6 / 3.4GHz, 4MB) vPro                                                                |
 | Graphics         | Integrated Intel HD Graphics 520                                                                          |
@@ -63,7 +63,7 @@ duszmox's donate link:
 | Keyboard         | 6-row, spill-resistant, multimedia Fn keys, LED backlight                                                 |
 | Battery          | Front Li-Polymer 3-cell (23Wh) and rear Li-Ion 3-cell (26Wh), both Integrated                             |
 
-| @mhl221135 Model | Thinkpad T460s 20F90002**                                                                                 |
+| @mhl221135's Model | Thinkpad T460s 20F90002**                                                                                 |
 | :--------------- | :-------------------------------------------------------------------------------------------------------- |
 | Processor        | Core i5-6300U (2C, 2.4 / 3.0GHz, 3MB)                                                                     |
 | Graphics         | Integrated Intel HD Graphics 520                                                                          |
@@ -174,7 +174,7 @@ git clone https://github.com/corpnewt/GenSMBIOS && cd GenSMBIOS && chmod +x GenS
 <summary><strong>How to update the bootloader</strong></summary>
 </br>
 
-1. Download the [latest release](https://github.com/duszmox/ThinkPad-T460s-macOS-OpenCore/releases)
+1. Download the [latest release](https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore/releases)
 1. Copy and Paste your `PlatfromInfo`
 1. Enable optional kexts if needed (NVMEFix, AirportItlwm, etc.)
 1. Test the new bootloader with an USB stick (Set `BootProtect: None` whenever booting with external drives)
@@ -301,11 +301,11 @@ NotebookCheck's calibrated profiles. Not all panel are the same, final result ma
 1. Run one of the following script in Terminal
    - for 1440p displays
      ```bash
-     cd ~/Library/ColorSync/Profiles; wget https://github.com/duszmox/ThinkPad-T460s-macOS-OpenCore/raw/master/Files/DisplayColorProfiles/T460s_WQHD_VVX14T058J02.icm
+     cd ~/Library/ColorSync/Profiles; wget https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore/raw/master/Files/DisplayColorProfiles/T460s_WQHD_VVX14T058J02.icm
      ```
    - for 1080p displays
      ```bash
-     cd ~/Library/ColorSync/Profiles; wget https://github.com/duszmox/ThinkPad-T460s-macOS-OpenCore/raw/master/Files/DisplayColorProfiles/T460s_FHD_N140HCE_EAA.icm
+     cd ~/Library/ColorSync/Profiles; wget https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore/raw/master/Files/DisplayColorProfiles/T460s_FHD_N140HCE_EAA.icm
      ```
 2. Go under `SystemPreferences > Displays > Colour`
 3. Select the profile
@@ -318,7 +318,7 @@ NotebookCheck's calibrated profiles. Not all panel are the same, final result ma
 <summary><strong>Add Apple Watch authentication to sudo</strong></summary>
 </br>
 
-If you have an Apple Watch and you already [replaced the build in WiFi card](/Guides/Replace-WLAN.md), you could enable authenticating as sudo with you Apple Watch using [pam-watch](https://github.com/biscuitehh/pam-watchid)
+If you have an Apple Watch and you already [replaced the build in WiFi card](/Guides/Replace-WLAN.md), you could enable authenticating as sudo with you Apple Watch using [pam-watch](https://github.com/biscuitehh/pam-watchid).  
 
 1. Download the latest [ZIP file](https://github.com/biscuitehh/pam-watchid/archive/main.zip)
 2. Unzip, which by default creates a folder called pam-watchid-main.
@@ -422,7 +422,7 @@ A [brief guide referencing other guides](/Guides/Bios-Mod.md).
 <summary><strong>Update tracker 🔄</strong></summary>
 </br>
 
-| [EFI Release](https://github.com/duszmox/ThinkPad-T460s-macOS-OpenCore/releases)               | 0.6.8  |
+| [EFI Release](https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore/releases)               | 0.6.8  |
 | :--------------------------------------------------------------------------------------------- | :----- |
 | [MacOS](https://www.apple.com/macos/)                                                          | 11.2.3 |
 | [OpenCore](https://github.com/acidanthera/OpenCorePkg/releases)                                | 0.6.8  |
