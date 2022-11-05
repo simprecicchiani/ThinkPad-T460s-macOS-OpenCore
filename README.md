@@ -11,12 +11,16 @@
 **DISCLAIMER:**  
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 This repo is a fork of [simprecicchiani's T460s Hackintosh repo](https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore). He discontinued his work in April 2021
 >>>>>>> cbfeb2a (Minor Readme.md changes)
 =======
 This repo is a fork of [simprecicchiani's T460s Hackintosh repo](https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore). He discontinued his work in April 2021.  
 >>>>>>> c570554 (Minor Readme.md changes)
+=======
+This repo is was  a fork of [simprecicchiani's T460s Hackintosh repo](https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore). But I got collaborator access to it so moved back the development there
+>>>>>>> f955342 (Update README.md)
 Read the entire README before you start.
 <<<<<<< HEAD
 The developers are not responsible for any damages you may cause.  
