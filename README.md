@@ -9,6 +9,10 @@
 [![License](https://img.shields.io/badge/license-MIT-purple)](/LICENSE)
 
 **DISCLAIMER:**  
+<<<<<<< HEAD
+=======
+This repo is a fork of [simprecicchiani's T460s Hackintosh repo](https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore). He discontinued his work in April 2021
+>>>>>>> cbfeb2a (Minor Readme.md changes)
 Read the entire README before you start.
 The developers are not responsible for any damages you may cause.  
 Should you find an error or improve anything — whether in the config or in the documentation — please consider opening an issue or pull request.
