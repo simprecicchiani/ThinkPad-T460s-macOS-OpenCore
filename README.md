@@ -2,8 +2,8 @@
 
 <img align="right" src="/Images/t460s-monterey.png" alt="Lenovo Thinkpad T460s macOS Hackintosh OpenCore" width="300">
 
-[![macOS](https://img.shields.io/badge/macOS-12.1-blue)](https://developer.apple.com/documentation/macos-release-notes)
-[![OpenCore](https://img.shields.io/badge/OpenCore-0.7.6-green)](https://github.com/acidanthera/OpenCorePkg)
+[![macOS](https://img.shields.io/badge/macOS-12.3.1-blue)](https://developer.apple.com/documentation/macos-release-notes)
+[![OpenCore](https://img.shields.io/badge/OpenCore-0.8.0-green)](https://github.com/acidanthera/OpenCorePkg)
 [![Model](https://img.shields.io/badge/Model-20F9*-lightgrey)](https://psref.lenovo.com/Product/ThinkPad_T460s)
 [![BIOS](https://img.shields.io/badge/BIOS-1.53-yellow)](https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/thinkpad-t-series-laptops/thinkpad-t460s/downloads/driver-list/component?name=BIOS%2FUEFI)
 [![License](https://img.shields.io/badge/license-MIT-purple)](/LICENSE)
@@ -28,6 +28,7 @@ Should you find an error or improve anything — whether in the config or in the
 
 - Plist editor [ProperTree](https://github.com/corpnewt/ProperTree)
 - Handy-dandy ESP mounting script [MountEFI](https://github.com/corpnewt/MountEFI)
+- Update OpenCore and kexts [OCAuxiliaryTools](https://github.com/ic005k/OCAuxiliaryTools)
 
 **Resources**
 
@@ -44,43 +45,15 @@ Should you find an error or improve anything — whether in the config or in the
 <summary><strong>Tested Hardware 💻</strong></summary>
 </br>
 
-| Model              | Thinkpad T460s 20F9003AUS                                                                                 |
-|:-------------------|:----------------------------------------------------------------------------------------------------------|
-| Processor          | Core i7-6600U (2C, 2.6 / 3.4GHz, 4MB) vPro                                                                |
-| Graphics           | Integrated Intel HD Graphics 520                                                                          |
-| Memory             | 4GB Soldered + 4GB DIMM 2133MHz DDR4, dual-channel                                                        |
-| Display            | 14" WQHD (2560x1440) IPS, non-touch                                                                       |
-| Storage            | WD Black SN750 500GB NVMe SSD                                                                             |
-| Ethernet           | Intel Ethernet Connection I219-LM (Jacksonville)                                                          |
-| WLAN + Bluetooth   | 11ac+BT, [Broadcom BCM94360CS2](/Guides/Replace-WLAN.md), 2x2 card                                        |
-| Camera             | HD720p resolution, low light sensitive, fixed focus                                                       |
-| Audio support      | HD Audio, Realtek ALC3245 codec, stereo speakers 1Wx2, dual array microphone, combo audio/microphone jack |
-| Keyboard           | 6-row, spill-resistant, multimedia Fn keys, LED backlight                                                 |
-| Battery            | Front Li-Polymer 3-cell (23Wh) and rear Li-Ion 3-cell (26Wh), both Integrated                             |
-
-| Model            | Thinkpad T460s 20FAS2SV00                                                                                 |
-| :--------------- | :-------------------------------------------------------------------------------------------------------- |
-| Processor        | Core i7-6600U (2C, 2.6 / 3.4GHz, 4MB) vPro                                                                |
-| Graphics         | Integrated Intel HD Graphics 520                                                                          |
-| Memory           | 4GB Soldered + 8GB DIMM 2133MHz DDR4, dual-channel                                                        |
-| Display          | 14" Full HD (1920x1080) IPS, non-touch                                                                    |
-| Storage          | Samsung Evo 970 PRO 500GB NVMe SSD                                                                        |
-| Ethernet         | Intel Ethernet Connection I219-LM (Jacksonville)                                                          |
-| WLAN + Bluetooth | 11ac+BT, [Broadcom BCM94360CS2](/Guides/Replace-WLAN.md), 2x2 card                                        |
-| Camera           | HD720p resolution, low light sensitive, fixed focus                                                       |
-| Audio support    | HD Audio, Realtek ALC3245 codec, stereo speakers 1Wx2, dual array microphone, combo audio/microphone jack |
-| Keyboard         | 6-row, spill-resistant, multimedia Fn keys, LED backlight                                                 |
-| Battery          | Front Li-Polymer 3-cell (23Wh) and rear Li-Ion 3-cell (26Wh), both Integrated                             |
-
 | Model              | Thinkpad T460s 20F90002\*\*                                                                               |
 | :----------------- | :-------------------------------------------------------------------------------------------------------- |
-| Processor          | Core i5-6300U (2C, 2.4 / 3.0GHz, 3MB)                                                                     |
+| Processor          | Core i5-6200U (2C, 2.4 / 3.0GHz, 3MB)                                                                     |
 | Graphics           | Integrated Intel HD Graphics 520                                                                          |
 | Memory             | 4GB Soldered + 8GB DIMM 2133MHz DDR4, dual-channel                                                        |
 | Display            | 14" Full HD (1920x1080) IPS, Touch (read [Post-install>Enable Touchscreen](https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore#post-install-optional))    |
-| Storage            | Western Digital Black SN750 500GB NVMe SSD                                                                |
+| Storage            | Western Digital Black SN550 500GB NVMe SSD                                                                |
 | Ethernet           | Intel Ethernet Connection I219-LM (Jacksonville)                                                          |
-| WLAN + Bluetooth   | 11ac+BT, Intel® Dual Band Wireless-AC 8265, 2x2 card                                                      |
+| WLAN + Bluetooth   | 11ac+BT, Intel® Dual Band Wireless-AC 8260, 2x2 card                                                      |
 | Camera             | HD720p resolution, low light sensitive, fixed focus                                                       |
 | Audio support      | HD Audio, Realtek ALC3245 codec, stereo speakers 1Wx2, dual array microphone, combo audio/microphone jack |
 | Keyboard           | 6-row, spill-resistant, multimedia Fn keys, LED backlight                                                 |
@@ -149,7 +122,7 @@ git clone https://github.com/corpnewt/GenSMBIOS && cd GenSMBIOS && chmod +x GenS
 ```
 
 2. Type `3` to Generate SMBIOS, then press ENTER
-3. Type `MacbookPro13,1 5`, then press ENTER. Leave this Terminal window open.
+3. Type `MacbookPro16,3 5`, then press ENTER. Leave this Terminal window open.
 4. Open `/EFI/OC/Config.plist` with any editor and navigate to `PlatformInfo -> Generic`
 5. Add the script's last result to `MLB, SystemSerialNumber and SystemUUID`
 
@@ -172,7 +145,7 @@ git clone https://github.com/corpnewt/GenSMBIOS && cd GenSMBIOS && chmod +x GenS
          <key>SpoofVendor</key>
          <true/>
          <key>SystemProductName</key>
-         <string>MacBookPro13,1</string>
+         <string>MacBookPro16,3</string>
          <key>SystemSerialNumber</key>
 +        <string>W00000000001</string>
          <key>SystemUUID</key>
@@ -225,7 +198,8 @@ https://youtu.be/-F0JAVIG92M
 1. Add the content of [#intel-wlan.plist](/EFI/OC/%23intel-wlan.plist) according to your macOS version
 1. Save and reboot the system
 
-**Note:** The drivers provided in this repo are for Big Sur and Monterey only; if you're running a different version of macOS please use the corresponding [AirportItlwm.kext](https://github.com/OpenIntelWireless/itlwm/releases).
+**Note:** The drivers provided in this repo are for Monterey only; if you're running a different version of macOS please use the corresponding [AirportItlwm.kext](https://github.com/OpenIntelWireless/itlwm/releases).
+- If you have bluetooth problem please reference to the [IntelBluetoothFirmware](https://openintelwireless.github.io/IntelBluetoothFirmware/FAQ.html#what-does-this-kext-do)
 
 Optional: [Remove unnecessary firmware files from OpenIntelWireless drivers](/Guides/Clean-OpenIntelWireless.md).
 
@@ -242,6 +216,7 @@ Optional: [Remove unnecessary firmware files from OpenIntelWireless drivers](/Gu
 1. Add the content of [#broadcom-wlan.plist](/EFI/OC/%23broadcom-wlan.plist)
 
 1. Save and reboot the system
+- If you have bluetooth problem please reference to the [AirportBrcmFixup](https://github.com/acidanthera/AirportBrcmFixup)
 
 </details>
 
@@ -507,6 +482,7 @@ A [brief guide referencing other guides](/Guides/Bios-Mod.md).
 - [ ] Safari DRM `Use Chromium engine to watch Apple TV+, Amazon Prime Video, Netflix and others`
 - [ ] WWAN (needs to be implemented)
 - [ ] Fingerprint Reader
+- [ ] Bluetooth (You can enable blutooth in the config.plist but it will cause the "volume hash mismatch" problem .Waiting for the solution.
 
 </details>
 
@@ -514,37 +490,37 @@ A [brief guide referencing other guides](/Guides/Bios-Mod.md).
 <summary><strong>Update tracker 🔄</strong></summary>
 </br>
 
-| [EFI Release](https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore/releases)       | 0.7.6  |
+| [EFI Release](https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore/releases)       | 0.8.0  |
 |------------------------------------------------------------------------------------------------|--------|
-| [MacOS](https://www.apple.com/macos/)                                                          | 12.1 |
-| [OpenCore](https://github.com/acidanthera/OpenCorePkg/releases)                                | 0.7.6  |
-| [Lilu](https://github.com/acidanthera/Lilu/releases)                                           | 1.5.8  |
-| [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases)                               | 1.2.8  |
+| [MacOS](https://www.apple.com/macos/)                                                          | 12.3.1 |
+| [OpenCore](https://github.com/acidanthera/OpenCorePkg/releases)                                | 0.8.0  |
+| [Lilu](https://github.com/acidanthera/Lilu/releases)                                           | 1.6.0  |
+| [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases)                               | 1.2.9  |
 | [YogaSMC](https://github.com/zhen-zen/YogaSMC/releases)                                        | 1.5.1  |
-| [WhateverGreen](https://github.com/acidanthera/WhateverGreen/releases)                         | 1.5.5  |
-| [AppleALC](https://github.com/acidanthera/AppleALC/releases)                                   | 1.6.7  |
-| [VoodooPS2Controller](https://github.com/acidanthera/VoodooPS2/releases)                       | 2.2.7  |
+| [WhateverGreen](https://github.com/acidanthera/WhateverGreen/releases)                         | 1.5.8  |
+| [AppleALC](https://github.com/acidanthera/AppleALC/releases)                                   | 1.7.1  |
+| [VoodooPS2Controller](https://github.com/acidanthera/VoodooPS2/releases)                       | 2.2.8  |
 | [VoodooRMI](https://github.com/VoodooSMBus/VoodooRMI/releases)                                 | 1.3.4  |
 | [VoodooI2C/VoodooI2CHID](https://github.com/VoodooI2C/VoodooI2C/releases)                      | 2.6.5  |
 | [IntelMausi](https://github.com/acidanthera/IntelMausi/releases)                               | 1.0.7  |
 | [HibernationFixup](https://github.com/acidanthera/HibernationFixup/releases)                   | 1.4.5  |
-| [CPUFriend](https://github.com/acidanthera/CPUFriend/releases)                                 | 1.2.4  |
+| [CPUFriend](https://github.com/acidanthera/CPUFriend/releases)                                 | 1.2.5  |
 | [NVMeFix](https://github.com/acidanthera/NVMeFix/releases)                                     | 1.0.9  |
 | [RTCMemoryFixup](https://github.com/acidanthera/RTCMemoryFixup/releases)                       | 1.0.7  |
-| [AirportItlwm](https://github.com/OpenIntelWireless/itlwm/releases)                            | 2.1.0a |
-| [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/releases) | 2.0.1  |
+| [AirportItlwm](https://github.com/OpenIntelWireless/itlwm/releases)                            | 2.2.0  |
+| [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/releases) | 2.1.0  |
 | [BlueToolFixup](https://github.com/acidanthera/BrcmPatchRAM/releases)                          | 2.6.1  |
 | [AppleBacklightSmoother](https://github.com/hieplpvip/AppleBacklightSmoother/releases)         | 1.0.2  |
 | [BrightnessKeys](https://github.com/acidanthera/BrightnessKeys/releases)                       | 1.0.2  |
-| [Sinetek-rtsx](https://github.com/cholonam/Sinetek-rtsx/releases)                              | 9.0    |
-| [FeatureUnlock](https://github.com/acidanthera/FeatureUnlock/releases)                         | 1.0.4  |
+| [RealtekCardReader](https://github.com/0xFireWolf/RealtekCardReader/releases)                  | 0.9.6  |
+| [RealtekCardReaderFriend](https://github.com/0xFireWolf/RealtekCardReaderFriend/releases)      | 1.0.2  |
 
 </details>
 
 ## Performances
 
 <details>  
-<summary><strong>Power consumption & thermals 🔥</strong></summary>
+<summary><strong>Power consumption & thermals❗Not test on my T460s (6200u) 🔥</strong></summary>
 </br>
 
 | Idle State                | Max Frequency                 | 2 Thread Frequency            | All Thread Frequency          | GPU Max Frequency             |
@@ -559,22 +535,16 @@ A [brief guide referencing other guides](/Guides/Bios-Mod.md).
 
 | CPU            | Single-Core | Multi-Core |
 | :------------- | ----------: | ---------: |
-| Cinebench r20  |         348 |        842 |
-| Geekbench 5    |         809 |       1862 |
+| Geekbench 5    |         730 |       1611 |
 | **GPU**        |  **OpenCL** |  **Metal** |
-| Geekbench 5    |        4417 |       4179 |
-| BruceX Test 5K |             |      104'' |
+| Geekbench 5    |        4097 |       4179 |
 
-<small>macOS 10.15.7, EFI release 0.6.2</small>
-
-| CPU           | Single-Core | Multi-Core |
-| :------------ | ----------: | ---------: |
-| Cinebench r23 |             |       2175 |
-
-<small>macOS 11.1, EFI release 0.6.5</small>
+<small>macOS 12.3.1, EFI release 0.8.0, CPU:6200u</small>
 
 </details>
 
 ## Thanks to
-
-The hackintosh community on GitHub, [InsanelyMac](https://www.insanelymac.com/forum/), and [r/hackintosh](https://www.reddit.com/r/hackintosh/).
+- [simprecicchiani](https://github.com/simprecicchiani)
+- The hackintosh community on GitHub
+- [InsanelyMac](https://www.insanelymac.com/forum/)
+- [r/hackintosh](https://www.reddit.com/r/hackintosh/).
