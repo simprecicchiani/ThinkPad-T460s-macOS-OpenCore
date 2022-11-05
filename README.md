@@ -10,10 +10,10 @@
 
 **DISCLAIMER:**  
 Read the entire README before you start.
-I am not responsible for any damages you may cause.  
+We are not responsible for any damages you may cause.  
 Should you find an error or improve anything — whether in the config or in the documentation — please consider opening an issue or pull request.  
-If you find my work useful, please consider donating via PayPal.
-It would mean a lot to me.
+If you find our work useful, please consider donating via PayPal.
+It would mean a lot to us.
 
 duszmox's donate link:  
 [![donate](https://img.shields.io/badge/-buy%20me%20a%20coffee-orange)](https://www.paypal.com/donate?hosted_button_id=UW5DT28YP3QQUS)
@@ -46,10 +46,10 @@ duszmox's donate link:
 </details>
 
 <details>  
-<summary><strong>My Hardware 💻</strong></summary>
+<summary><strong>Tested Hardware 💻</strong></summary>
 </br>
 
-| Model            | Thinkpad T460s 20FAS2SV00                                                                                 |
+| @duszmox Model | Thinkpad T460s 20FAS2SV00                                                                                 |
 | :--------------- | :-------------------------------------------------------------------------------------------------------- |
 | Processor        | Core i7-6600U (2C, 2.6 / 3.4GHz, 4MB) vPro                                                                |
 | Graphics         | Integrated Intel HD Graphics 520                                                                          |
@@ -58,6 +58,20 @@ duszmox's donate link:
 | Storage          | Samsung Evo 970 PRO 500GB NVMe SSD                                                                        |
 | Ethernet         | Intel Ethernet Connection I219-LM (Jacksonville)                                                          |
 | WLAN + Bluetooth | 11ac+BT, [Broadcom BCM94360CS2](/Guides/Replace-WLAN.md), 2x2 card                                        |
+| Camera           | HD720p resolution, low light sensitive, fixed focus                                                       |
+| Audio support    | HD Audio, Realtek ALC3245 codec, stereo speakers 1Wx2, dual array microphone, combo audio/microphone jack |
+| Keyboard         | 6-row, spill-resistant, multimedia Fn keys, LED backlight                                                 |
+| Battery          | Front Li-Polymer 3-cell (23Wh) and rear Li-Ion 3-cell (26Wh), both Integrated                             |
+
+| @mhl221135 Model | Thinkpad T460s 20F90002**                                                                                 |
+| :--------------- | :-------------------------------------------------------------------------------------------------------- |
+| Processor        | Core i5-6300U (2C, 2.4 / 3.0GHz, 3MB)                                                                     |
+| Graphics         | Integrated Intel HD Graphics 520                                                                          |
+| Memory           | 4GB Soldered + 8GB DIMM 2133MHz DDR4, dual-channel                                                        |
+| Display          | 14" Full HD (1920x1080) IPS, Touch (currently not supported)                                              |
+| Storage          | Western Digital Black SN750 500GB NVMe SSD                                                                |
+| Ethernet         | Intel Ethernet Connection I219-LM (Jacksonville)                                                          |
+| WLAN + Bluetooth | 11ac+BT, Intel® Dual Band Wireless-AC 8265, 2x2 card                                                      |
 | Camera           | HD720p resolution, low light sensitive, fixed focus                                                       |
 | Audio support    | HD Audio, Realtek ALC3245 codec, stereo speakers 1Wx2, dual array microphone, combo audio/microphone jack |
 | Keyboard         | 6-row, spill-resistant, multimedia Fn keys, LED backlight                                                 |
@@ -84,7 +98,7 @@ This EFI will suit any T460s regardless of CPU model<sup>[1](#CPU)</sup>, amount
 </br>
 
 1. [Create an installation media](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/#making-the-installer)
-1. Download the [latest EFI folder](https://github.com/duszmox/ThinkPad-T460s-macOS-OpenCore/releases) and copy it into the ESP partiton
+1. Download the [latest EFI folder](https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore/releases) and copy it into the ESP partiton
 1. Change your BIOS settings according to the table below
 1. Boot from the USB installer (press `F12` to choose boot volume) and [start the installation process](https://dortania.github.io/OpenCore-Install-Guide/installation/installation-process.html#booting-the-opencore-usb)
 
@@ -378,7 +392,7 @@ A [brief guide referencing other guides](/Guides/Bios-Mod.md).
 - [x] Intel HD 520 Graphics `incuding graphics acceleration`
 - [x] USB ports
 - [x] Internal camera `working fine on FaceTime, Skype, Zoom and others`
-- [x] Sleep / Wake / Shutdown / Reboot
+- [x] Sleep / Hibernatemode `25 or 3` / Wake / Shutdown / Reboot
 - [x] Intel Gigabit Ethernet
 - [x] Wifi, Bluetooth, Airdrop, Handoff, Continuity, Sidecar wireless `some functionalities may be buggy or broken on Intel WLAN cards`
 - [x] iMessage, FaceTime, App Store, iTunes Store `Please generate your own SMBIOS`
@@ -400,6 +414,7 @@ A [brief guide referencing other guides](/Guides/Bios-Mod.md).
 - [ ] Safari DRM `Use Chromium engine to watch Apple TV+, Amazon Prime Video, Netflix and others`
 - [ ] WWAN (needs to be implemented)
 - [ ] Fingerprint Reader
+- [ ] Touchscreen
 
 </details>
 
